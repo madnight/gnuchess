@@ -864,7 +864,6 @@ static void comp_move(int move) {
       if (!move_to_can(move,board,string,256)) my_fatal("comp_move(): move_to_can() failed\n");
    }
 
-fprintf(stderr,"Nodes=%d\n", Uci->node_nb);
    xboard_send(XBoard,"move %s",string);
 
    // resign?

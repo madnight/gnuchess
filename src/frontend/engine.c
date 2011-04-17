@@ -147,7 +147,7 @@ int ReadFromEngine( void )
     /* There are some data from the engine. Store it in buffer */
     strncpy( engineinputaux, zerochar, BUF_SIZE );
     nread = read( pipefd_a2f[0], engineinputaux, BUF_SIZE );
-    write( STDOUT_FILENO, engineinputaux, BUF_SIZE );
+    /*write( STDOUT_FILENO, engineinputaux, BUF_SIZE );*/
     strcat( engineinputbuf, engineinputaux );
     engineinputbuf[strlen( engineinputbuf ) + nread] = '\0'; 
   }
