@@ -142,23 +142,23 @@ void cmd_book(void)
     }
   } else if (tokeneq (token[1], "on") || tokeneq(token[1], "prefer")) {
     strcpy( data, "book on" );
-    printf( "'book on' not currently supported. Use polyglot.ini.\n" );
+    printf( "'book on' not currently supported. Use gnuchess.ini.\n" );
     /*printf("book now on.\n");*/
   } else if (tokeneq (token[1], "off")) {
     strcpy( data, "book off" );
-    printf( "'book off' not currently supported. Use polyglot.ini.\n" );
+    printf( "'book off' not currently supported. Use gnuchess.ini.\n" );
     /*printf("book now off.\n");*/
   } else if (tokeneq (token[1], "best")) {
     strcpy( data, "book best" );
-    printf( "'book best' not currently supported. Use polyglot.ini.\n" );
+    printf( "'book best' not currently supported. Use gnuchess.ini.\n" );
     /*printf("book now best.\n");*/
   } else if (tokeneq (token[1], "worst")) {
     strcpy( data, "book worst" );
-    printf( "'book worst' not currently supported. Use polyglot.ini.\n" );
+    printf( "'book worst' not currently supported. Use gnuchess.ini.\n" );
     /*printf("book now worst.\n");*/
   } else if (tokeneq (token[1], "random")) {
     strcpy( data, "book random" );
-    printf( "'book random' not currently supported. Use polyglot.ini.\n" );
+    printf( "'book random' not currently supported. Use gnuchess.ini.\n" );
     /*printf("book now random.\n");*/
   } else {
     printf( "Incorrect book option\n" );
@@ -471,6 +471,7 @@ void cmd_quit(void) { SET (flags, QUIT); }
 
 void cmd_random(void)
 {
+  printf( "'random' not currently supported\n" );
   SetDataToEngine( token[0] );
 }
 
@@ -549,9 +550,7 @@ void cmd_st(void)
 
 void cmd_switch(void)
 {
-  board.side = 1^board.side;
-  board.ep = -1 ; /* Enpassant doesn't apply after switch */
-  printf ("%s to move\n", board.side == white ? "White" : "Black");
+  printf( "'switch' not currently supported\n" );
 }
 
 void cmd_time(void)
@@ -772,10 +771,6 @@ void cmd_test (void)
  */
 
 static const char * const helpstr[] = {
-   "^C",
-   " Typically the interrupt key stops a search in progress,",
-   " makes the move last considered best and returns to the",
-   " command prompt",
    "quit",
    " quit the program.",
    "exit",

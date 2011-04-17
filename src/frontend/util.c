@@ -28,7 +28,6 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <signal.h>
 
 #include "common.h"
 
@@ -140,18 +139,6 @@ void UpdateMvboard (void)
       else
          Mvboard[sq] = 1;
    } 
-}
-
-
-void EndSearch (int sig __attribute__ ((unused)) )
-/***************************************************************************
- *
- *  User has pressed Ctrl-C.  Just set flags TIMEOUT to be true.
- *
- ***************************************************************************/
-{
-   SET (flags, TIMEOUT);
-   signal (SIGINT, EndSearch);
 }
 
 

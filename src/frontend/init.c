@@ -28,7 +28,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <signal.h>
 #include <unistd.h>
 
 #include "common.h"
@@ -680,8 +679,6 @@ void InitVars (void)
 
 /*  Calculate the ttable hashmask & pawntable hashmask */
      
-   signal (SIGINT, EndSearch);
-
    nmovesfrombook = 0;
 }
 

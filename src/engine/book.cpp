@@ -82,8 +82,16 @@ void book_open(const char file_name[]) {
    ASSERT(file_name!=NULL);
 
    char full_file_name[MaxFileNameSize+1];
-   strcpy(full_file_name,compute_pkgdatadir());
-   strcat(full_file_name,"/");
+   FILE *bf;
+
+   if ( ( bf = fopen(file_name, "r") ) != NULL ) {
+      fclose(bf);
+      strcpy(full_file_name,"");
+   } else {
+      strcpy(full_file_name,compute_pkgdatadir());
+      strcat(full_file_name,"/");
+   }
+
    strcat(full_file_name,file_name);
 
    BookFile = fopen(full_file_name,"rb");

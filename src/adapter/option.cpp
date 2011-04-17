@@ -28,15 +28,12 @@
 
 #include "option.h"
 #include "util.h"
-#include "configmake.h"
 
 namespace adapter {
   
 // constants
 
 static const bool UseDebug = false;
-
-static const int MaxFileNameSize = 256;
 
 // types
 
@@ -97,18 +94,8 @@ static option_t Option[] = {
 // prototypes
 
 static option_t * option_find (const char var[]);
-static option_t * option_find (const char var[]);
-static char const * option_compute_pkgdatadir ();
 
 // functions
-
-// option_compute_pkgdatadir()
-
-static char const * option_compute_pkgdatadir ()
-{
-   char const *pkgdatadir = getenv ("GNUCHESS_PKGDATADIR");
-   return pkgdatadir ? pkgdatadir : PKGDATADIR;
-}
 
 // option_init()
 
@@ -116,15 +103,17 @@ void option_init() {
 
    // option file
 
+   const char optionName[]="gnuchess.ini";
    char optionFile[MaxFileNameSize+1];
-   strcpy(optionFile,option_compute_pkgdatadir());
-   strcat(optionFile,"/gnuchess.ini");
-
-   // book file
-
-   char bookFile[MaxFileNameSize+1];
-   strcpy(bookFile,option_compute_pkgdatadir());
-   strcat(bookFile,"/book.bin");
+   FILE *of;
+   if ( ( of = fopen(optionName, "r") ) != NULL ) {
+      fclose(of);
+      strcpy(optionFile,"");
+   } else {
+      strcpy(optionFile,compute_pkgdatadir());
+      strcat(optionFile,"/");
+   }
+   strcat(optionFile,optionName);
 
    // options
 
@@ -146,7 +135,7 @@ void option_init() {
    option_set("MateScore","10000");
 
    option_set("Book","false");
-   option_set("BookFile",bookFile);
+   option_set("BookFile","book.bin");
 
    option_set("BookRandom","true");
    option_set("BookLearn","false");

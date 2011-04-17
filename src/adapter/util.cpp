@@ -35,9 +35,14 @@
 #include "main.h"
 #include "posix.h"
 #include "util.h"
+#include "configmake.h"
 
 namespace adapter {
   
+// constant variables
+
+const int MaxFileNameSize = 256;
+
 // variables
 
 static bool Error;
@@ -410,6 +415,15 @@ double my_timer_cpu_usage(const my_timer_t * timer) {
    if (usage >= 1.0) usage = 1.0;
 
    return usage;
+}
+
+// compute_pkgdatadir()
+
+char const * compute_pkgdatadir ()
+{
+   
+   char const *pkgdatadir = getenv ("GNUCHESS_PKGDATADIR");
+   return pkgdatadir ? pkgdatadir : PKGDATADIR;
 }
 
 }  // namespace adapter

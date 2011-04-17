@@ -19,17 +19,12 @@ easily as (assuming you have a bourne-type shell)
 
 CFLAGS="-O3 -ffast-math" ./configure
 
-Unless you install gnuchess in a global directory (see make install
-below), you must set env variable GNUCHESS_PKGDATADIR to the directory
-containing config file gnuchess.ini (placed in src/ in the package 
-tree) (see also doc/README).
-
-The build should work with gcc, it also works with the Sun Workshop
-compiler and maybe others.
+The build should work with gcc. It should also work with other
+compilers.
 
 Test gnuchess by typing
 
-	./gnuchess.exe (or ./gnuchess on GNU/Linux / Unix)
+	./gnuchess on GNU/Linux / Unix / Mac OS X
 	easy
 	new
 	post
@@ -61,12 +56,11 @@ than /usr/local, replace the first line by
 
 You can build an opening book which may enhance the value
 of gnuchess quite a lot. In order to do so, get the file
-book.pgn (see book/README for instructions on how to get it)
+book_1.02.pgn.pgn (see doc/README for instructions on how to get it)
 and type the following.
 
-	ln -s ../book/book.pgn
 	./gnuchess
-	book add book.pgn
+	book add book_1.02.pgn
 	quit
 
 This may take some minutes, depending on the speed of your
@@ -74,20 +68,24 @@ machines. The book is quite large (180,000 master games).
 If you want a smaller book or you do not want to wait, do the
 following instead:
 
-	head -30000 ../book/book.pgn > smallbook.pgn
+	head -30000 book_1.02.pgn > smallbook.pgn
 	./gnuchess
 	book add smallbook.pgn
 	quit
 
 This will make a much smaller book.
 
+In order to use the book, edit gnuchess.ini and set the value of
+'Book' or 'OwnBook' to true.
+
+You can run the program in UCI mode, which makes it externally behave as 
+a UCI engine. This is not intended for interactive usage, but for backend 
+engine of a UCI-enabled chess graphical interface. Type the following:
+
+	./gnuchess -u
+
 Original Author:
 
 Stuart Cracraft
 Laguna Niguel, CA
 March, 2001
-
-Modifications:
-
-Lukas Geyer <lukas@debian.org>
-Simon Waters <Simon@wretched.demon.co.uk>

@@ -6,42 +6,27 @@ TODO of GNU Chess
   are permitted in any medium without royalty provided the copyright
   notice and this notice are preserved.
 
-Items are in random order, mostly chronological, the important ones
-are marked IMPORTANT, so that you can grep for them if this gets too
-large... I like the TODO of xboard...)
+Items are in random order, mostly chronological.
 
-- General cleanups (Recheck global variables like et and types of
-  variables)
+* General cleanups: still some unused code from v5.
 
-- Benchmark alternatives for the ubiquitous method used to
-  traverse bits, a la (currently)
-	
-	while (b) {
-		sq = leadz(b);
-		CLEARBIT(b, sq);
-		do_something();
-	}
+* Transform all pieces of text doc into texinfo.
 
-  I do not believe that the current technique is fastest.
+* GA/EC venture to make the chess engine stronger.
 
-- Improve pondering and  analysis mode, still
+* Get benefit from multiple-core processors, by sharing search across them.
 
-- Add "offer draw" feature, both active and passive, add resign
+* End-game table
 
-- How about making certain weights user-definable, maybe through
-  some run-time interface? It would certainly cost a little
-  performance, but maybe not a big deal. Or maybe try to set some
-  profiles like "aggressive", "positional" (well, that would be
-  difficult), "passive" etc.
-  (A patch has been submitted by Xen Gregg)
+* Implement 'book *' commands. Only 'book add' is implemented at the moment.
 
-- Make gnuchess win against crafty (seems difficult to impossible...)
+* Provide v5 output of 'solve'.
 
-- Get some idea for a global gnuchess configuration file gnuchessrc, 
-  which would maybe contain location of the book, size of hash tables
-  and other stuff. I would suggest /etc/gnuchessrc and $HOME/.gnuchessrc
-  as default locations on Unix-like systems, don't know where Windows
-  programs use to put these things (in the registry?). I would consider
-  also moving the list of chess players allowed in the book to some
-  configuration file.
-  (A patch has been submitted by Donald McGee)
+* 'pgnsave filename.pgn' will not replace filename.pgn, but will append to it.
+This is not supported by the PGN format. The file must be replaced, may be 
+asking the user to confirm or deny, or a new file name must be requested.
+
+* When 'name NAME' is used, the log.nnn file is created, but it will miss
+to include some information compared with v5.
+
+* Implement missing v5 commands to the maximum extent possible.

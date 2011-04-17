@@ -11,6 +11,7 @@ New in gnuchess 6.00:
 - Fruit 2.1 engine, by Fabien Letouzy
 - Polyglot 1.4 adapter, by Fabien Letouzy
 - Three decoupled components: frontend, engine and adapter
+- UCI mode, providing UCI interface, through -u/--uci command-line option.
 
 New in gnuchess 5.07:
 

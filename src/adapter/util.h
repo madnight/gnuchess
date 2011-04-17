@@ -70,6 +70,10 @@
 
 namespace adapter {
   
+// constant variables
+
+extern const int MaxFileNameSize;
+
 // types
 
 typedef signed char sint8;
@@ -136,6 +140,8 @@ extern void   my_timer_stop         (my_timer_t * timer);
 extern double my_timer_elapsed_real (const my_timer_t * timer);
 extern double my_timer_elapsed_cpu  (const my_timer_t * timer);
 extern double my_timer_cpu_usage    (const my_timer_t * timer);
+
+extern char const * compute_pkgdatadir ();
 
 }  // namespace adapter
 

@@ -615,7 +615,6 @@ enum {
 void UpdateFriends (void);
 void UpdateCBoard (void);
 void UpdateMvboard (void);
-void EndSearch (int);
 short ValidateBoard (void);
 
 /*  PGN routines  */
