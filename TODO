@@ -8,19 +8,17 @@ TODO of GNU Chess
 
 Items are in random order, mostly chronological.
 
+* Commands white/black/switch don't work. They are supposed to be 
+used for icsDrone. However, icsDrone reports to not work for 
+GNU Chess 5.02. Neither for v6...
+
 * General cleanups: still some unused code from v5.
 
-* Transform all pieces of text doc into texinfo.
+* Implement the weak mode.
 
-* GA/EC venture to make the chess engine stronger.
+* Add support for MS Windows.
 
-* Get benefit from multiple-core processors, by sharing search across them.
-
-* End-game table
-
-* Implement 'book *' commands. Only 'book add' is implemented at the moment.
-
-* Provide v5 output of 'solve'.
+* icsdrone for Internet
 
 * 'pgnsave filename.pgn' will not replace filename.pgn, but will append to it.
 This is not supported by the PGN format. The file must be replaced, may be 
@@ -29,4 +27,14 @@ asking the user to confirm or deny, or a new file name must be requested.
 * When 'name NAME' is used, the log.nnn file is created, but it will miss
 to include some information compared with v5.
 
-* Implement missing v5 commands to the maximum extent possible.
+* Consider using gnulib for better portability.
+
+* Include PolyGlot's book making capability.
+
+* Include PolyGlot's book merging capability.
+
+* GA/EC venture to make the chess engine stronger.
+
+* Get benefit from multiple-core processors, by sharing search across them.
+
+* End-game table

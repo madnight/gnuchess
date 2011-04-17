@@ -1,0 +1,1501 @@
+\input texinfo @c -*-texinfo-*-
+@c %**start of header
+@setfilename gnuchess.info
+@include version.texi
+@settitle GNU Chess @value{VERSION}
+
+@c Define a new index for options.
+@defcodeindex op
+@c Combine everything into one index (arbitrarily chosen to be the
+@c concept index).
+@syncodeindex op cp
+@c %**end of header
+
+@copying
+This manual is for GNU Chess (version @value{VERSION}, @value{UPDATED}),
+which is a complete chess program, frequently used as a chess engine.
+
+Copyright @copyright{} 2001--2011 Free Software Foundation, Inc.
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts.  A copy of the license is included in the section entitled
+``GNU Free Documentation License''.
+@end quotation
+@end copying
+@c If your manual is published on paper by the FSF, it should include
+@c the standard FSF Front-Cover and Back-Cover Texts, as given in
+@c maintain.texi.
+
+@dircategory Basics
+@direntry
+* GNU Chess: (gnuchess).               Playing chess and related games.
+@end direntry
+
+@titlepage
+@title GNU Chess
+@subtitle for version @value{VERSION}, @value{UPDATED}
+@author @url{http://www.gnu.org/software/chess}
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@contents
+
+
+@ifnottex
+@node Top
+@top GNU Chess
+
+This manual is for GNU Chess (version @value{VERSION}, @value{UPDATED}).
+
+@insertcopying
+@end ifnottex
+
+@menu
+* Overview::		General information.
+* Contact info::	How to find help and to report bugs.
+* Invocation::		Running @command{gnuchess}.
+* Book::		Where and how to obtain a chess book usable by GNU Chess.
+* Tests::		Some execution results.
+* Chess notation::	Auxillary file formats (PGN, EPD).
+* History::		A brief review of the long history of GNU Chess.
+* Known problems::	Known problems
+* Developers::		Notes for developers.
+* GNU Free Documentation License:: Copying and sharing this documentation.
+* Concept index::	Index of concepts.
+@end menu
+
+
+@node Overview
+@chapter Overview
+
+@cindex XBoard
+@cindex overview
+
+GNU Chess (@url{http://www.gnu.org/software/chess/}) is a computer 
+program for playing chess.
+It can be used to interactively play chess on a text terminal, 
+but it is more often used in conjunction with a GUI program such 
+as GNU XBoard.
+
+Because it is protected by the GNU General Public License, users are 
+free (in perpetuity) to share and change it.
+
+@cindex author
+@cindex Letouzey, Fabien
+@cindex Stuart, Cracraft
+The main author of GNU Chess version 6 is Fabien Letouzey,
+The original author is Stuart Cracraft.
+
+
+@node Contact info
+@chapter Contact info
+
+@cindex contact
+
+We are the GNU Chess developers and you may reach us at:
+
+	@email{bug-gnu-chess@@gnu.org}
+
+Our official web page is:
+
+        @uref{http://www.gnu.org/software/chess}
+
+We are indebted to our sponsor, the Free Software Foundation
+whose web page is:
+
+	@uref{http://www.fsf.org}
+
+and which also serves as our software depository for new versions of
+GNU and GNU Chess.
+
+You can download the latest version from GNU's FTP site at:
+
+	@uref{ftp://ftp.gnu.org/gnu/chess/}
+
+The code is provided for the purpose of encouraging you to do the
+programming.  If you lack the programming skills to do so, try
+dabbling in it.  You might surprise yourself.
+
+If you want to report a possible bug in GNU Chess, please send a message
+to the e-mail address indicated above, providing precise information
+about the conditions that led to the possible bug.  As a general 
+guideline, you can kindly include the follow information:
+
+@itemize
+
+@item
+Version of the program.  The following command will print it:
+
+@example
+gnuchess --version
+@end example
+
+@item
+How you started the program.  Whether running standalone or in 
+combination with other programs such as XBoard.
+
+@item
+The actions you performed and the output or behaviour you observed.
+
+@item
+Output files if any.  In order to enable the writing to adapter.log,
+set the following option in config file gnuchess.ini:
+
+	@option{Log = true}
+
+@item
+Whether the problem is systematic (it always happens) or occasional.
+
+@item
+Any other information you may deem relevant.
+
+@end itemize
+
+
+@node Invocation
+@chapter Running @command{gnuchess}
+
+@menu
+* Invoking gnuchess::
+* Interactive game::
+* Command list::
+* Environment variables::
+* Configuration file::
+* Output files::
+* XBoard chess engine::
+* UCI chess engine::
+* Internet::
+@end menu
+
+
+@node Invoking gnuchess
+@section Invoking gnuchess
+
+@cindex invoking
+@cindex options
+@cindex usage
+@cindex help
+
+The format for running the @command{gnuchess} program is:
+
+@example
+gnuchess @var{option} @dots{}
+@end example
+
+With no options, @command{gnuchess} starts in interactive mode and
+it is ready to start a chess game.
+
+@command{gnuchess} supports the following options:
+
+@table @option
+@item --help
+@itemx -h
+@opindex --help
+@opindex -h
+@cindex help
+Print an informative help message on standard output and exit
+successfully.
+
+@item --version
+@itemx -v
+@opindex --version
+@opindex -v
+@cindex version
+Print the version number and licensing information of Hello on
+standard output and then exit successfully.
+
+@item --quiet
+@item --silent
+@itemx -q
+@opindex --quiet
+@opindex --silent
+@opindex -q
+Make the program silent on startup.
+
+@item --xboard
+@itemx -x
+@opindex --xboard
+@opindex -x
+@cindex xboard
+Start the program in xboard mode, i.e.  as an xboard engine.  This is
+typically used for using the program as backend of other chess GUI
+such as XBoard.
+
+Option @option{xboard} is accepted without leading dashes for backward
+compatibility.
+
+@item --post
+@itemx -p
+@opindex --post
+@opindex -p
+Start up showing thinking.  
+
+Option @option{post} is accepted without leading dashes for backward
+compatibility.
+
+@item --easy
+@itemx -e
+@opindex --easy
+@opindex -e
+Disable thinking.  in opponent's time.  By default, the program runs in
+hard mode, i.e.  it thinks opponent's time to think too.
+
+@item --manual
+@itemx -m
+@opindex --manual
+@opindex -m
+Enable manual mode.
+
+@item --uci
+@itemx -u
+@opindex --uci
+@opindex -u
+Enable UCI protocol (externally behave as UCI engine).
+
+@item --memory size
+@itemx -M size
+@opindex --memory
+@opindex -M
+Specify memory usage in MB for hashtable.
+
+@end table
+
+
+@node Interactive game
+@section Interactive game
+
+Moves are accepted either in standard algebraic notation (SAN) or
+in coordinate algebraic notation.  Examples:
+
+@example
+        Nf3
+        g1f3
+        O-O
+        e1g1
+@end example
+
+
+@node Command list
+@section Command list
+
+@command{gnuchess} supports the following commands:
+
+@table @command
+@item ^C
+@cindex ^C
+Quit the program.
+
+@item quit
+@cindex quit
+Quit the program.
+
+@item exit
+@cindex exit
+In analysis mode this stops analysis, otherwise it quits the program.
+
+@item help
+@cindex help
+Produces a help blurb corresponding to this list of commands.
+
+@item usage
+@cindex usage
+Produce blurb on command line options.
+
+(Same as @command{gnuchess --help})
+
+@item book
+@cindex book
+Handle the book.  Requires a subcommand:
+
+add - compiles book.dat from book.pgn
+
+on - enables use of book
+
+off - disables use of book
+
+best - play best move from book
+
+worst - play worst move from book
+
+random - play any move from book
+	
+prefer (default) - choose a good move from book
+(Method subject to variation)
+
+@item version
+@cindex version
+Prints out the version of this program
+
+(Same as @command{gnuchess --version})
+
+@item pgnsave FILENAME
+@cindex pgnsave
+Saves the game so far to the file from memory
+
+@item pgnload FILENAME
+@cindex pgnload
+Loads the game in the file into memory
+
+@item force
+@itemx manual
+@cindex force
+@cindex manual
+Makes the program stop moving.  You may now enter moves
+to reach some position in the future.
+
+(Same as @command{gnuchess --manual})
+   
+@item white
+@cindex white
+Program plays black, set white to move.
+
+Note: not implemented in this version.
+
+@item black
+@cindex black
+Program plays white, set black to move.
+
+(White and black commands are mainly for icsDrone
+and will cause the current en-passant capture
+square to be forgotten).
+
+Note: not implemented in this version.
+
+@item go
+@cindex go
+Computer takes whichever side is on move and begins its
+thinking immediately
+
+@item easy
+@cindex easy 
+Disables thinking on opponent's time
+
+(Same as @command{gnuchess --easy})
+
+@item hard
+@cindex hard
+Enables thinking on opponent's time
+
+@item post
+@cindex post
+Arranges for verbose thinking output showing variation, score,
+time, depth, etc.
+
+If pondering (see hard) is on, the program will output
+it's thinking whilst the opponent is thinking.
+
+(Same as @command{gnuchess --post})
+
+@item nopost
+@cindex nopost
+Turns off verbose thinking output
+
+@item name NAME
+@cindex name
+Lets you input your name.  Also writes the log.nnn and a
+corresponding game.nnn file.  For details please see
+auxillary file format sections.
+
+@item result
+@cindex result
+Mostly used by Internet Chess server.
+
+@item activate
+@cindex activate
+
+This command reactivates a game that has been terminated automatically
+due to checkmate or no more time on the clock.  However, it does not
+alter those conditions.  You would have to undo a move or two or
+add time to the clock with level or time in that case.
+
+Note: not implemented in this version.
+
+@item rating COMPUTERRATING OPPONENTRATING
+@cindex rating
+Inputs the estimated rating for computer and for its opponent
+
+@item new
+@cindex new
+Sets up new game (i.e.  positions in original positions)
+
+@item time
+@cindex time
+Inputs time left in game for computer in hundredths of a second.
+Mostly used by Internet Chess server.
+
+@item otim
+@cindex otim
+Inputs time left in game for opponent in hundredths of a second.
+Mostly used by Internet Chess server.
+
+@item random
+@cindex random
+Randomizes play by perturbing the evaluation score slightly.
+The degree of perturbation is adjustable.
+
+Note: not implemented in this version.  Neither in v5
+
+@item hash
+@cindex hash
+on - enables using the memory hash table to speed search
+
+off - disables the memory hash table
+
+@item memory N
+@cindex memory
+Sets the hash table to permit storage of N MB.
+
+@item null
+@cindex null
+on - enables using the null move heuristic to speed search
+
+off - disables using the null move heuristic
+
+@item xboard
+@cindex xboard
+on - enables use of xboard/winboard
+
+off - disables use of xboard/winboard
+
+(Same as @command{gnuchess --xboard})
+
+@item depth N
+@cindex depth
+Sets the program to look N ply (half-moves) deep for every
+search it performs.  If there is a checkmate or other condition
+that does not allow that depth, then it will not be 
+
+@item level MOVES MINUTES INCREMENT
+@cindex level
+Sets time control to be MOVES in MINUTES with each move giving
+an INCREMENT (in seconds, i.e.  Fischer-style clock).
+
+@item load
+@itemx epdload
+@cindex load
+@cindex epdload
+Loads a position in EPD format from disk into memory.
+
+@item save
+@itemx epdsave
+@cindex save
+@cindex epdsave
+Saves game position into EPD format from memory to disk.
+
+@item switch
+@cindex switch
+Switches side to move
+ 
+Note: not implemented in this version.
+
+@item solve FILENAME
+@itemx solveepd FILENAME
+@cindex solve
+@cindex solveepd
+Solves the positions in FILENAME
+
+@item remove
+@cindex remove
+Backs up two moves in game history
+
+@item undo
+@cindex undo
+Backs up one move in game history
+
+@item show
+@cindex show
+Requires a subcommand:
+
+board - displays the current board
+
+time - displays the time settings
+
+moves - shows all moves using one call to routine
+
+escape - shows moves that escape from check using one call to routine
+
+noncapture - shows non-capture moves
+
+capture - shows capture moves
+
+eval [or score] - shows the evaluation per piece and overall
+
+game - shows moves in game history
+
+pin - shows pinned pieces
+
+Note: 'show eval' and 'show pin' not implemented in this version.
+
+@item test
+@cindex test
+Requires a subcommand:
+
+movelist - reads in an epd file and shows legal moves for its entries
+
+capture - reads in an epd file and shows legal captures for its entries
+
+movegenspeed - tests speed of move generator
+
+capturespeed - tests speed of capture move generator
+
+eval - reads in an epd file and shows evaluation for its entries
+
+evalspeed tests speed of the evaluator
+
+Note: not implemented in this version.
+
+@item analyze
+@cindex analyze
+Switches program into analysis mode, this is primarily intended for
+communicating analysis to an external interface using the Xboard 
+chess engine protocol.  It enables "force", "post", and
+"hard", at the same time, whilst altering the
+output format of post to conform with the engine protocol.	
+
+@end table
+
+
+@node Environment variables
+@section Environment variables
+
+@cindex environment variable
+
+If @env{GNUCHESS_PKGDATADIR} is defined, it will be taken as the path for
+the config file and for the book, in case the files are not found in the
+current directory.  If it is not defined, they will be taken from the 
+package data directory, in case the files are not found in the current
+directory.
+
+
+@node Configuration file
+@section Configuration file
+
+@cindex configuration file
+
+@menu
+* Structure::
+* Options::
+* Workarounds::
+@end menu
+
+@node Structure
+@subsection Structure
+
+A file called @file{gnuchess.ini} is used to define configuration options.
+The file is applicable provided @option{--uci} is not used.
+The file is looked in three places according to the following precedence:
+
+@enumerate
+@item
+The directory where the program was started
+@item
+Environment variable@env{GNUCHESS_PKGDATADIR}
+@item
+The package data directory stated at configure time
+@end enumerate
+
+Sections are composed of @option{variable = value} lines.
+
+Note: There can be spaces in variable names or values.  Do not use
+quotes.
+
+@option{[Adapter]} section
+
+This section is used by the adapter only.  The engine is unaware of these
+options.  The list of available options is detailed below in this
+document.
+
+@option{[Engine]} section
+
+This section contains engine UCI options.  The PolyGlot-based adapter  does not
+understand them, but sends the information to the engine at startup
+(converted to UCI form).  You can add any UCI option that makes sense
+to the engine (not just the common options about hash-table size and
+tablebases).
+
+Note: use INI syntax, not UCI.  For example @option{OwnBook = true} is
+correct.  It will be replaced by the adapter with @option{setoption name OwnBook
+value true} at engine startup.
+
+Standard UCI options are @option{Hash}, @option{NalimovPath}, 
+@option{NalimovCache} and @option{OwnBook}.  Hidden options like @option{Ponder}
+or @option{UCI_xxx} are automatic and should not be put in the INI file.
+
+@node Options
+@subsection Options
+
+These should be put in the @option{[Adapter]} section.
+
+@table @code
+@item Log
+@cindex Log
+Default: false
+
+Whether the adapter should log all transactions with the interface and
+the engine.  This should be necessary only to locate problems.
+
+
+@item LogFile
+@cindex LogFile
+Default: @file{adapter.log}
+
+The name of the log file.  Note that it is put where the program was
+launched from, not into the engine directory.
+
+WARNING: Log files are not cleared between sessions, and can become
+very large.  It is safe to remove them though.
+
+@item Resign
+@cindex Resign
+Default: false
+
+Set this to "true" if you want the adapter to resign on behalf of the
+engine.
+
+NOTE: Some engines display buggy scores from time to time although the
+best move is correct.  Use this option only if you know what you are
+doing (e.g. you always check the final position of games).
+
+@item  ResignMoves
+@cindex  ResignMoves
+Default: 3
+
+Number of consecutive moves with "resign" score (see below) before
+the adapter resigns for the engine.  Positions with only one legal move
+are ignored.
+
+@item ResignScore
+@cindex ResignScore
+Default: 600
+
+This is the score in centipawns that will trigger resign "counting".
+
+@item ShowPonder
+@cindex ShowPonder
+Default: true
+
+Show search information during engine pondering.  Turning this off
+might be better for interactive use in some interfaces.
+
+@item KibitzMove
+@cindex KibitzMove
+Default: false
+
+Whether to kibitz when playing a move.
+
+@item KibitzPV
+@cindex KibitzPV
+Default: false
+
+Whether to kibitz when the PV is changed (new iteration or new best move).
+
+@item KibitzCommand
+@cindex KibitzCommand
+Default: tellall
+
+xboard command to use for kibitzing, normally "tellall" for kibitzing
+or "tellothers" for whispering.
+
+@item KibitzDelay
+@cindex KibitzDelay
+Default: 5
+
+How many seconds to wait before starting kibitzing.  This has an
+affect only if "KibitzPV" is selected, move kibitzes are always sent
+regardless of the delay.
+
+@item Book
+@cindex Book
+Default: false
+
+Indicates whether the adapter should use a book.  This has no effect
+on the engine own book (which can be controlled with the UCI option
+@code{OwnBook} in the @option{[Engine]} section).  In particular, it is possible to
+use both a PolyGlot book and an engine book.  In that case, the engine
+book will be used whenever PolyGlot is out of book.  Remember that
+PolyGlot is unaware of whether the engine is itself using a book or
+not.
+
+@item BookFile
+@cindex BookFile
+Default: @file{book.bin}
+
+The name of the (binary) book file.  Note that PolyGlot will look for
+it in the directory it was launched from, not in the engine directory.
+Of course, full path can be used in which case the current directory
+does not matter.
+
+If the file is not found in the current directory, it will be looked for
+in @var{GNUCHESS_PKGDATADIR} if the variable is defined, or in 
+the package data directory otherwise.
+
+Note that there is no option to control book usage.  All parameters
+are fixed when compiling a PGN file into a binary book (see below).
+This is purposeful and is not likely to change.
+
+Using a book does not require any additional memory, this can be
+important for memory-limited tournaments.
+
+@end table
+
+These are UCI options for the @option{[Engine]} section:
+
+@table @code
+@item NullMove Pruning
+@cindex NullMove Pruning
+(Always/Fail High/Never)
+
+Default: Fail High
+
+"Always" actually means the usual conditions (not in check, etc ...).
+"Fail High" adds the condition that the static evaluation fails high.
+Never use "Never" (ever)!  OK you can use "Never" to test a Zugzwang
+problem.
+
+I expect that this option has little effect (assuming the first two
+choices only).  It was only added because most engines do not use the
+fail-high condition.
+
+@item NullMove Reduction
+@cindex NullMove Reduction
+(1-3 plies)
+
+Default: 3
+
+3 is rather aggressive, especially in the endgame.  It seems better
+than always using 2 though.
+
+@item Verification Search
+@cindex Verification Search
+(Always/Endgame/Never)
+
+Default: Endgame
+
+This tries to solve some Zugzwang-related problems.  It is expected to
+hardly have any effect in games.  The default value should be
+sufficient for most-common Zugzwang situations.
+
+@item Verification Reduction
+@cindex Verification Reduction
+(1-6 plies)
+
+Default: 5
+
+5 guarantees that the cost of verification search is negligible in
+most cases.  Of course it means Zugzwang problems need a lot of depth
+to get solved, if ever!  With such a reduction, verification search is
+similar to Vincent Diepeveen's "double null move".
+
+@item History Pruning
+@cindex History Pruning
+(true/false)
+
+Default: true
+
+A bit dodgy, but fun to experiment with.  It should
+help in blitz, but it's possible it actually hurts play in longer
+games.
+
+@item History Threshold
+@cindex History Threshold
+(percentage)
+
+Default: 60%
+
+This is the thing, as it affects the search tree!  Lower values are
+safer, and higher values more aggressive.  THIS VALUE HAS NOT BEEN
+TUNED!  There is a good chance Fruit's strength can be improved by
+changing this option.
+
+@item Futility Pruning
+@cindex Futility Pruning
+(true/false)
+
+Default: false
+
+Very common but controversial.  Makes the engine a tiny bit
+better at tactics but slightly weaker positionally.  It might be
+beneficial by a very small amount, but has not been tested in
+conjunction with history pruning yet.
+
+@item Futility Margin
+@cindex Futility Margin
+(centipawns)
+
+Default: 100
+
+This value is somewhat aggressive.  It could lead to problems in
+the endgame.  Larger values prune less but will lead to fewer
+positional errors.
+
+@item Delta Pruning
+@cindex Delta Pruning
+(true/false)
+
+Default: false
+
+Similar to futility pruning.  Probably safer because it is used
+mainly during the middlegame.  Has not been tested with history
+pruning either.
+
+@item Delta Margin
+@cindex Delta Margin
+(centipawns)
+
+Default: 50
+
+Same behaviour as futility margin.  This one is probably safe.
+
+@item Quiescence Check Plies
+@cindex Quiescence Check Plies
+(0-2 plies)
+
+Default: 1
+
+Fruit tries safe (SEE >= 0) checks at the first plies of the
+quiescence search.  0 means no checks at all (as in most older
+engines).  1 is the same as previous versions of Fruit.  2 is probably
+not worth the extra cost.  It could be interesting when solving mate
+problems though.
+
+@item Evaluation options
+@cindex Evaluation options
+(percentage)
+
+Default: 100%
+
+These options are evaluation-feature multipliers.  You can modify
+Fruit's playing style to an extent or make Fruit weaker for instance
+by setting "Material" to a low value.
+
+"Material" is obvious.  It also includes the bishop-pair bonus.
+"Piece Activity": piece placement and mobility.
+"King Safety": mixed features related to the king during early phases
+"Pawn Structure": all pawn-only features (not passed pawns).
+"Passed Pawns": ... can you guess?
+
+@end table
+
+The following options were used in PolyGlot v1.4, but are deprecated in 
+GNU Chess:
+
+@table @code
+@item EngineName
+@cindex EngineName
+Default: GNU Chess
+
+This is the name that will appear in the xboard interface.  It is
+cosmetic only.  You can use different names for tweaked versions of
+the same engine.
+
+If no "Engine Name" is given, the UCI name will be used.
+
+@item EngineDir
+@cindex EngineDir
+Default: .
+
+Full path of the directory where the engine is installed.  You can use
+"." (without the quotes) if you know that PolyGlot will be launched in
+the engine directory or the engine is in the "path" and does not need
+any data file.
+
+@item EngineCommand
+@cindex EngineCommand
+
+Put here the name of the engine executable file.  You can also add
+command-line arguments.  Path searching is used and the current
+directory will be "EngineDir".
+
+NOTE: Unix users are recommended to prepend "./"; this is required on
+some secure systems.
+
+@end table
+
+@node Workarounds
+@subsection Workarounds
+
+Work arounds are identical to options except that they should be used
+only when necessary.  Their purpose is to try to hide problems with
+various software (not just engines).  The default value is always
+correct for bug-free software.
+
+These workarounds are unlikely to be used or meaningful for GNU Chess.
+
+@table @code
+@item UCIVersion
+@cindex UCIVersion
+Default: 2
+
+The default value of 2 corresponds to UCI+.  Use 1 to select plain
+UCI for engines that have problems with UCI+.
+
+@item CanPonder
+@cindex CanPonder
+Default: false
+
+The adapter now conforms to the documented UCI behaviour: the engine will
+be allowed to ponder only if it (the engine) declares the @option{Ponder} UCI
+option.  However some engines which can actually ponder do not declare
+the option.  This work around lets The adapter know that they can ponder.
+
+@item SyncStop
+@cindex SyncStop
+Default: false
+
+When a ponder miss occurs, the adapter interrupts the engine and
+immediately launches a new search.  While there should be no problem
+with this, some engines seem confused and corrupt their search board.
+@option{SyncStop} forces the adapter to wait for the (now useless) ponder search
+to finish before launching the new search.
+
+@item PromoteWorkAround
+@cindex PromoteWorkAround
+Default: false
+
+Some engines do not specify a promotion piece, e.g. they send "e7e8"
+instead of the correct "e7e8q".  This work around enables the
+incorrect form (and of course promotes into a queen).
+
+@end table
+
+@node Output files
+@section Output files
+
+@cindex output
+GNU Chess produces several output files:
+
+@table @file
+
+@item Adapter log file
+@cindex Adapter log file
+This file is written by the adapter.  The name of the file is
+specified by the following option in @file{gnuchess.ini}:
+
+@option{LogFile = FILENAME}
+
+The file is produced if option @option{--uci} is not specified
+and if the following variable is set in @file{gnuchess.ini}:
+
+Typically, this file is named @file{adapter.log}, but any other
+name will do the job.
+
+@option{Log = true}
+
+@item @file{log.nnn}
+This file is written if command @command{name} was requested.  
+The contents are the opponent's name and the game in 
+coordinate algebraic notation.
+
+@item @file{game.nnn}
+This file is written if command @command{name} was requested.  
+The contents are the opponent's name and the game in 
+portable game notation (PGN).
+
+@item @file{players.dat}
+This file is written if command @command{name} was requested.  
+The contents are the statistics of games.  This is the format of
+each line:
+
+@command{opponent-name wins loses draws}
+
+@item @file{gnuchess.debug}
+This file contains internal information that is useful for
+debugging purposes.  For this file to be written, it is necessary
+to define preprocessor directive @command{DEBUG}.  Hence,
+when installing the program, instead of
+
+@example
+./configure
+make
+make install
+@end example
+
+Use the following commands:
+
+@example
+./configure CFLAGS=-DDEBUG
+make
+make install
+@end example
+
+When analysing  a bug, this file could be very helpful.
+Users are encouraged to provide it.
+
+@end table
+
+
+@node XBoard chess engine
+@section XBoard chess engine
+
+@cindex xboard
+@cindex winboard
+Running the program with the "--xboard" command line parameter sets it
+to produce output acceptable to and accept input suitable for XBoard
+and WinBoard, the graphical display front-ends with mouse interface.
+
+For historical reasons the option "xboard" does not need to be 
+preceeded by "--", however we would encourage the new syntax.
+
+How to run XBoard with GNU Chess as chess backend:
+
+@example
+xboard -fcp 'gnuchess --xboard'
+
+xboard -fd . -fcp './gnuchess --xboard'
+@end example
+
+
+@node UCI chess engine
+@section UCI chess engine
+
+@cindex uci
+For GNU Chess to  behave as a pure UCI chess engine, execute
+the following command:
+
+@example
+gnuchess --uci
+@end example
+
+In this mode, configuration file @file{gnuchess.ini} is ignored.
+
+
+@node Internet
+@section Internet
+
+For GNU Chess to run in Internet, Zippy is required.
+See Zippy documentation in the XBoard/WinrBoard distribution:
+
+@uref{http://www.tim-mann.org/}
+
+this is an example of how to run GNU Chess on FICS using 
+XBoard as frontend and Zippy as connector:
+
+@example
+xboard -zp -ics -icshost freechess.org -icshelper timeseal -fcp 'gnuchess --xboard'
+@end example
+
+@node Book
+@chapter Book
+
+@cindex book
+See options @option{Book} and @option{Bookfile} in Running GNU Chess - Configuration file - Options
+
+
+@node Tests
+@chapter Tests
+
+GNU Chess 6 has been tested on the Free Internet Chess Server 
+(@uref{http://www.freechess.org}) with XBoard.
+
+@node Chess notation
+@chapter Auxiliary file formats
+
+@table @file
+@item .bin
+binary book format
+
+@item .pgn
+game listing like @command{1.  e4 e5 2.  Nf3} etc.
+
+@item .epd
+epd-style format using FEN notation.  See tests subdirectory for example.
+
+@item log.nnn
+record of an entire game from computer's viewpoint (thinking, etc.)
+
+@item game.nnn
+record of an entire game, similar to .pgn but auto-generated
+
+@end table
+
+The @file{.bin} file format is a simple binary format for the compiled book
+which is read by the program when it is using book.  See the book section
+for more detail.
+
+EPD and PGN require little introduction.  These are the uniformly accepted
+standards for position recording and game recording.
+
+Note that @file{log.nnn} and @file{game.nnn} files are written at the end of a game
+when you use the @command{name} command to give the computer your name.  It is
+highly recommended to do this since the resulting two files that match
+in a monotonically-increasing extension numbered suffix may be used for
+reporting bugs and keeping track of your games.
+
+
+@node History
+@chapter History
+
+@cindex history
+@cindex authors
+@cindex Cracraft, Stuart
+@cindex Stanback, John
+@cindex Kong-Sian, Chua
+@cindex Letouzey, Fabien
+
+The first version of GNU Chess was written by Stuart Cracraft back in 1984.
+Versions from 2 to 4 were written by John Stanback.  Version 5 was written 
+by Chua Kong-Sian.  Version 6 was written by Fabien Letouzey.
+
+
+@node Known problems
+@chapter Known problems
+
+@menu
+* Adapter::
+@end menu
+
+@node Adapter
+@section Adapter
+
+@cindex version 5
+These are known problems of PolyGlot v1.4 as described by Fabien Letouzey.
+
+The addition of Chess960 support lead to a change in internal-move
+representation for castling.  This slightly affected the opening-book
+format.  We recommend that you recompile books with this version.
+
+Several users reported engines losing on time.  The playing conditions
+always mixed playing on an Internet server with pondering.
+
+It is not yet clear what the source of the problem is, but there seems
+to be a forever incompatibility between
+the xboard and UCI protocol regarding a complex
+pondering/remaining-time relation.
+
+
+@node Developers
+@chapter Developers
+
+@menu
+* Background of v6::
+* Guidelines followed to develop GNU Chess v6::
+* Chess engine protocol adapter::
+* Structure of the source code::
+* C/C++ coexistence::
+* Chess engine::
+@end menu
+
+@node Background of v6
+@section Background of v6
+
+@cindex version 5
+@cindex Fruit
+@cindex Letouzey, Fabien
+Since version 5.07 of the program was released in 2003, GNU Chess has basically
+remained unchanged.  Then Fabien Letouzey developped Fruit, which 
+proved to be a stronger chess engine and shaked the computer chess world.  
+At some point in time, he kindly assigned copyright to FSF, which allowed us
+to make Fruit 2.1 (the latest free version) the base for GNU Chess v6.  
+
+Therefore, it can be fairly said that Fabien Letouzey is remarkably the main 
+contributor to GNU Chess v6.
+
+@node Guidelines followed to develop GNU Chess v6
+@section Guidelines followed to develop GNU Chess v6
+
+@cindex Fruit
+The idea was to use Fruit 2.1 as the base for GNU Chess v6, keeping external
+interfaces backwards compatible.  This is particularly important since
+GNU Chess has been  world-wide used for long.
+
+GNU Chess can be used in two modes: interactively using the command-line 
+interface on a text console, and used as backend engine from a graphical 
+frontend.  Both cases rely on almost identical grammar.  The former is described
+in GNU Chess help.  
+
+@cindex Chess Engine Communication Protocol
+When GNU Chess is used as a pure chess engine, for instance, as backend for
+XBoard, it uses the Chess Engine Communication Protocol (aka XBoard protocol),
+which is described here:
+
+@uref{http://home.hccnet.nl/h.g.muller/engine-intf.html}
+
+@cindex Universal Chess Interface
+@cindex UCI
+Since Fruit uses the Universal Chess Interface (UCI), keeping the former
+interface was the main challenge of GNU Chess v6.  UCI is described here:
+
+@uref{http://wbec-ridderkerk.nl/html/UCIProtocol.html}
+
+GNU Chess can also run as a UCI chess engine, if the @option{--uci} command-line
+option is specified.
+
+@node Chess engine protocol adapter
+@section Chess engine protocol adapter
+
+@cindex PolyGlot
+@cindex adapter
+@cindex protocol
+UCI is very different from the Chess Engine Communication Protocol.
+PolyGlot is a UCI-to-xboard adapter developed by Fabien.  
+It connects a UCI chess engine to an
+xboard interface such as WinBoard.  UCI2WB is another such adapter
+(for Windows).
+
+Standalone PolyGlot can be used, along with Fruit, as chess engine for chess frontends,
+suchs as XBoard.  In that case, PolyGlot and Fruit run as two independent
+single-threaded processes.  PolyGlot starts first, and it forks Fruit.  Both
+processes get communicated by by means of pipes: PolyGlot captures Fruit's
+standrad input and output.
+
+PolyGlot tries to solve known problems with other adapters.  For
+instance, it detects and reports draws by fifty-move rule, repetition,
+etc.
+
+PolyGlot 1.4 has been adapted and incorporated to GNU Chess v6 as 
+chess engine protocol adapter.  It connects Fruit-based GNU Chess engine to 
+the good old GNU Chess frontend.
+
+@node Structure of the source code
+@section Structure of the source code
+
+@cindex modules
+@cindex frontend
+@cindex adapter
+@cindex engine
+We want to keep three loosely-coupled modules in GNU Chess v6:
+
+@itemize
+@item
+frontend
+@item
+adapter
+@item
+engine
+@end itemize
+
+The main program contains the frontend and starts two addtional threads, 
+one for the adapter, and another one for the engine.  The three components 
+comprise a chain, thus there are two links:
+
+@itemize
+@item
+frontend <--> adapter
+@item
+adapter  <--> engine
+@end itemize
+
+@cindex pipes
+The links are based on pipes.  There is no need for additional synchronization
+mechanisms such as mutex.  The changes in PolyGlot and Fruit are minimal, since
+they were already using the same mechanism to communicate with each other.
+
+Another technical problem was the fact that GNU Chess v5 was written in C,
+whereas PolyGlot and Fruit are written in C++.  In GNU Chess v6 the main 
+program, the adapter and the engine are in C++, but the frontend remains in C.
+
+Source code was placed under a single @file{src} in GNU Chess v5, as usual.
+Three additional directories have been created  for GNU Chess v6, 
+so the code is organized in four directories:
+
+@table @file
+
+@item src
+@cindex src
+@cindex @command{main}
+Contains the @command{main} and a source file used to create the pipes that
+communicate the three modules: frontend, adapter and engine.
+
+@item src/frontend
+@cindex src/frontend
+
+Contains the frontend.  The code here is inherited from GNU Chess v5, with some
+modifications mainly in @file{cmd.c} and a new file @file{engine.c} which 
+addresses the message passing through modules.
+
+@item src/adapter
+@cindex src/adapter
+
+Contains the chess protocol adapter, based on PolyGlot 1.4.  Minor changes, wrt
+the baseline.
+
+@item src/engine
+@cindex src/engine
+
+Contains the chess engine, based on Fruit 2.1.  Minor changes wrt the baseline.
+
+@end table
+
+@cindex binary
+@cindex library
+The sources in each @file{src} subdirectory are compiled as a static library.  
+When link with the sources in top @file{src}, they result into the binary 
+@command{gnuchess}.  The module libraries are named after their respective 
+directory name:
+
+@example
+libfrontend.a
+libadapter.a
+libengine.a
+@end example
+
+@node C/C++ coexistence
+@section C/C++ coexistence
+
+@cindex C
+@cindex C++
+There is no problem in having both C and C++ in the same program.  However, 
+there is no technical reason for this heterogeneity.  The only reason is the
+different origins of the code.  It is desirable to get a more homogeneous
+program in the future.
+
+@cindex namespaces
+PolyGlot and Fruit have a common origin, which means that there is a lot of
+shared code.  The point is that the shared code is very similar but not
+identical, which would make hard an eventual unification.  In order to avoid
+massive name clash, all the code has been wrapped in namespaces, one for the
+adapter, one for the engine.  The frontend remains compiled as C code.
+
+
+@node Chess engine
+@section Chess engine
+
+@cindex chess engine
+
+@menu
+* Fruit overview::
+* Board data structure::
+* Search algorithm::
+* Transposition table::
+* Null move::
+* Move ordering::
+* Evaluation function::
+* Speed::
+@end menu
+
+@node Fruit overview
+@subsection Fruit overview
+
+Fruit was designed to help with the study of game-tree search
+algorithms, when applied to chess.  It is now released as a chess
+engine, which is a somewhat different category of programs.  Therefore
+the source code contains entire files and also functions that are
+either not used by the engine, or could be replaced with a much
+simpler (although somewhat less efficient) equivalent.
+
+As a chess engine, Fruit combines a "robust" search algorithm with a
+"minimalist" evaluation function.  The latter is not a design choice,
+and will hopefully change in the future.
+
+The following description is only a very incomplete description.
+Please consult the source code for an absolute definition.
+
+The search algorithm was designed to accommodate with heavy
+forward-pruning eccentricities (such as search inconsistencies).
+
+@node Board data structure
+@subsection Board data structure
+
+Fruit uses the 16x12 board.  Although this structure is not very
+popular, it can be seen as simply combining 10x12 (mailbox) with 16x8
+(0x88).
+
+0x88 was picked in Fruit because of the small memory requirements of
+vector calculations (much smaller tables).  It is possible that Fruit
+uses bitboards for pawns in the future.
+
+@node Search algorithm
+@subsection Search algorithm
+
+The main search algorithm is a classical PVS with iterative deepening.
+Search enhancements such as a transposition table and null-move
+pruning are also used (see below).
+
+A few details in the PVS implementation are not-so-standard and are
+there to supposedly enhance the stability of the search (like reducing
+the consequences of search inconsistencies).  For example the
+re-search window after a scout fail high of score "value" (with value
+> alpha) is [alpha,beta], not [value,beta].  As another example, I
+only allow null move when the static evaluation fails high
+(i.e. eval() >= beta).  Whether these features improve the strength of
+the engine is an open question.
+
+The main search function is full_search() in search_full.cpp
+
+@node Transposition table
+@subsection Transposition table
+
+Fruit uses 4 probes and replaces the shallowest entry.  Time stamping
+is used so that entries from previous searches are considered
+available for overwriting.
+
+Enhanced Transposition Cutoff (ETC) is also used 4 plies (and more)
+away from the horizon.
+
+@node Null move
+@subsection Null move
+
+Fruit uses R=3 recursive null move, even in the endgame.
+
+In Fruit, a precondition to using null move is that the static eval
+fails high.  One of the consequences of this is that no two null moves
+can be played in a row (this is because the evaluation is
+symmetrical).  This is a usual condition but notice that in Fruit the
+null-move condition is "pure" (independent of move paths).  The
+fail-high condition was selected for other reasons however.
+
+Also, a verification search is launched in the endgame.
+
+@node Move ordering
+@subsection Move ordering
+
+The move ordering is rather basic:
+
+@itemize
+
+@item transposition-table move
+@item captures sorted by MVV/LVA
+@item promotions
+@item killer moves (two per level, no counters)
+@item history moves (piece-type/to-square table, with "aging").
+@end itemize
+
+@node Evaluation function
+@subsection Evaluation function
+
+The evaluation function includes:
+
+@itemize
+
+@item Material
+@item Mobility
+@item Drawish-material heuristics
+@item Separated passed-pawn evaluation from the pawn hash table.
+Interaction with pieces can be taken into account
+@item Pawn-shelter penalty; with king placement this forms
+some sort of a simplistic king-safety feature
+@item Incremental move generation
+@item Futility and delta pruning (not tested in conjunction with
+history pruning and hence not activated by default)
+@item Move ordering (bad captures are postponed)
+@item History pruning (not tested seriously
+yet enabled by default)
+  
+@end itemize
+
+@node Speed
+@subsection Speed
+
+Fruit is not fast (in nodes per second) given the little it is
+calculating.  Some "optimisations" could be undone in order
+to make the code shorter and more flexible.
+
+
+@node GNU Free Documentation License
+@appendix GNU Free Documentation License
+
+@include fdl.texi
+
+
+@node Concept index
+@unnumbered Concept index
+
+@printindex cp
+
+@bye

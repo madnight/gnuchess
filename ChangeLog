@@ -1,5 +1,45 @@
+2011-04-18  Antonio Ceballos  <aceballos@gmail.com>
 
-GNU Chess v6
+	* ChangeLog: changes taking v5.9.91 as first version.
+	* NEWS: reorganized.
+	* TODO: reorganized.
+	* configure.ac: doc/Makefile included.
+	* Makefile.am: doc subdir added; doc/README* removed.
+	* doc/quotes.rb: new file, removes extra quotes in book source file.
+	* doc/README: deleted, replaced by texinfo file.
+	* doc/README_adapter: deleted, replaced by texinfo file.
+	* doc/README_engine: deleted, replaced by texinfo file.
+	* doc/README_engine_technical: deleted, replaced by texinfo file.
+	* doc/Makefile.am: new file, builds info file.
+	* doc/gnuchess.texi: new file, replaces all previous doc/README*.
+	* doc/fdl.texi: new file, required to build info file: license.
+	* doc/version.texi: new file, required to build info file: version.
+	* src/gnuchessx: new file (was in v5), script to run in xboard mode.
+	* src/gnuchessu: new file, script to run in UCI mode.
+	* src/Makefile.am: gnuchessx and gnuchessu added to bin_SCRIPTS.
+	* src/gnuchess.ini: no log file by default.
+	* src/main.cc: add v5 options: manual, easy, post, memory N; 
+	remove v5 options: hashsize N
+	* src/frontend/cmd.c: add v5 commands: book *, hash on/off,
+	memory [N], null on/off; remove v5 options: hashsize [N]; 
+	update help command.
+	* src/frontend/engine.c: support to v5 options and commands.
+	* src/frontend/solve.c: remove ELO computation.
+	* src/frontend/common.h: remove hashsize command.
+	* src/adapter/option.cpp: added option BookWorst to support
+	command 'book worst'; default values: EngineName (GNU Chess),
+	LogFile (adapter.log), BookWorst (false).
+	* src/adapter/book.cpp: method book_move overloaded to support
+	command 'book worst'.
+	* src/adapter/book.h: method book_move overloaded to support
+	command 'book worst'.
+	* src/adapter/adapter.cpp: ponder by default; support to commands:
+	book *, hash on/off, memory [N], null on/off.
+	* src/adapter/uci.cpp: support to hashsize command.
+	* src/adapter/main.cpp: support to hashsize command; use defaults 
+	if gnuchess.ini not found.
+	* src/engine/protocol.cpp: support to hash on/off command.
+	* src/engine/search_full.cpp: support to hash on/off command.
 
 Copyright (C) 2001-2011 Free Software Foundation, Inc.
 

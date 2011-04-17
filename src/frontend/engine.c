@@ -71,7 +71,7 @@ static int autoGo=false;
  * Forward declaration of functions
  */
 
-static int SendToEngine( char msg[] ); 
+int SendToEngine( char msg[] ); 
 static int GetNextLine( char buf[], char line[] );
 static int GetDataToEngine( char data[] );
 static int AnswerFromEngineExpected( void );
@@ -92,7 +92,7 @@ void InitFrontend( void )
  * Sends a char string message from the frontend to the adapter/engine.
  * The message must be a command or a move.
  */
-static int SendToEngine( char msg[] )
+int SendToEngine( char msg[] )
 {
     int outError=0;
     int msg_size = strlen( msg );
@@ -147,7 +147,7 @@ int ReadFromEngine( void )
     /* There are some data from the engine. Store it in buffer */
     strncpy( engineinputaux, zerochar, BUF_SIZE );
     nread = read( pipefd_a2f[0], engineinputaux, BUF_SIZE );
-    /*write( STDOUT_FILENO, engineinputaux, BUF_SIZE );*/
+    write( STDOUT_FILENO, engineinputaux, BUF_SIZE );
     strcat( engineinputbuf, engineinputaux );
     engineinputbuf[strlen( engineinputbuf ) + nread] = '\0'; 
   }
@@ -452,7 +452,6 @@ void SolvePosition( char move[], const char position[] )
   NextEngineCmd();
 
   strcpy( move, SANmv );
-  printf( "My move: %s\n\n", move );
 }
 
 /*

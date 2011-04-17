@@ -61,6 +61,8 @@ static bool Searching; // search in progress?
 static bool Infinite; // infinite or ponder mode?
 static bool Delay; // postpone "bestmove" in infinite/ponder mode?
 
+extern bool UseTrans;
+
 // Streams used for communication with the adapter
 
 extern FILE *pipefd_a2e_0_stream;
@@ -247,6 +249,15 @@ static void loop_step() {
       } else {
          ASSERT(false);
       }
+
+   } else if (string_equal(string,"hashon")) {
+
+      UseTrans = true;
+
+   } else if (string_equal(string,"hashoff")) {
+
+      UseTrans = false;
+
    }
 }
 

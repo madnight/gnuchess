@@ -66,6 +66,7 @@ static const int StringSize = 4096;
 // variables
 
 static bool Init;
+extern unsigned int HashSize;
 
 // prototypes
 
@@ -154,19 +155,21 @@ static void parse_option() {
    file_name = option_get_string("OptionFile");
 
    file = fopen(file_name,"r");
-   if (file == NULL) my_fatal("Can't open file \"%s\": %s\n",file_name,strerror(errno));
+   if (file == NULL) fprintf( stderr,"Can't open file \"%s\": %s - using defaults\n",file_name,strerror(errno));
 
    // PolyGlot options (assumed first)
 
-   while (true) {
+   if ( file != NULL ) {
+      while (true) {
 
-      if (!my_file_read_line(file,line,256)) {
-         my_fatal("parse_option(): missing [Engine] section\n");
+         if (!my_file_read_line(file,line,256)) {
+            my_fatal("parse_option(): missing [Engine] section\n");
+         }
+
+         if (my_string_case_equal(line,"[engine]")) break;
+
+         if (parse_line(line,&name,&value)) option_set(name,value);
       }
-
-      if (my_string_case_equal(line,"[engine]")) break;
-
-      if (parse_line(line,&name,&value)) option_set(name,value);
    }
 
    if (option_get_bool("Log")) {
@@ -182,18 +185,25 @@ static void parse_option() {
    Init = true; // engine has been launched
    uci_open(Uci,Engine);
 
-   while (my_file_read_line(file,line,256)) {
+   if ( file != NULL ) {
+      while (my_file_read_line(file,line,256)) {
 
-      if (line[0] == '[') my_fatal("parse_option(): unknown section %s\n",line);
+         if (line[0] == '[') my_fatal("parse_option(): unknown section %s\n",line);
 
-      if (parse_line(line,&name,&value)) {
-         uci_send_option(Uci,name,"%s",value);
+         if (parse_line(line,&name,&value)) {
+            if ( strcmp(name,"Hash") == 0 ) {
+               sscanf( value, "%d", &HashSize );
+            }
+            uci_send_option(Uci,name,"%s",value);
+         }
       }
    }
 
    uci_send_isready(Uci);
 
-   fclose(file);
+   if ( file != NULL ) {
+      fclose(file);
+   }
 
    if (my_string_equal(option_get_string("EngineName"),"<empty>")) {
       option_set("EngineName",Uci->name);

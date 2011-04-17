@@ -77,11 +77,6 @@ void Solve (char *file)
       printf ("Correct=%d Total=%d\n", correct, total);
    }
    printf ("\nTotal nodes = %ld\n", TotalNodes);
-   /* At least 100 postions, for a minimally realistic ELO */
-   if ( total > 100 ) {
-      elo =  6.7 * 100 * correct / total + 1995;
-      printf ( "\nEstimated ELO rating (assuming 10 seconds thinking per position): %d\n", elo );
-   }
    CLEAR (flags, SOLVE);
 }
 

@@ -125,7 +125,6 @@ void cmd_black(void)
  /* 
   * No longer used by Xboard but requested as a feature
   */
-
   printf( "'black' not currently supported\n" );
 }
 
@@ -142,24 +141,19 @@ void cmd_book(void)
     }
   } else if (tokeneq (token[1], "on") || tokeneq(token[1], "prefer")) {
     strcpy( data, "book on" );
-    printf( "'book on' not currently supported. Use gnuchess.ini.\n" );
-    /*printf("book now on.\n");*/
+    printf("book now on.\n");
   } else if (tokeneq (token[1], "off")) {
     strcpy( data, "book off" );
-    printf( "'book off' not currently supported. Use gnuchess.ini.\n" );
-    /*printf("book now off.\n");*/
+    printf("book now off.\n");
   } else if (tokeneq (token[1], "best")) {
     strcpy( data, "book best" );
-    printf( "'book best' not currently supported. Use gnuchess.ini.\n" );
-    /*printf("book now best.\n");*/
+    printf("book now best.\n");
   } else if (tokeneq (token[1], "worst")) {
     strcpy( data, "book worst" );
-    printf( "'book worst' not currently supported. Use gnuchess.ini.\n" );
-    /*printf("book now worst.\n");*/
+    printf("book now worst.\n");
   } else if (tokeneq (token[1], "random")) {
     strcpy( data, "book random" );
-    printf( "'book random' not currently supported. Use gnuchess.ini.\n" );
-    /*printf("book now random.\n");*/
+    printf("book now random.\n");
   } else {
     printf( "Incorrect book option\n" );
     return;
@@ -233,14 +227,14 @@ void cmd_hard(void)
 
 void cmd_hash(void)
 {
-  /* TODO: to be re-implemented based on Polyglot */
-  printf( "'hash' not currently supported\n" );
-}
-
-void cmd_hashsize(void)
-{
-  /* TODO: to be re-implemented based on Polyglot */
-  printf( "'hashsize' not current supported\n" );
+  if (tokeneq (token[1], "off")) {
+    CLEAR (flags, USEHASH);
+    SetDataToEngine( "hashoff" );
+  } else if (tokeneq (token[1], "on")) {
+    SET (flags, USEHASH);
+    SetDataToEngine( "hashon" );
+  }
+  printf ("Hashing %s\n", flags & USEHASH ? "on" : "off");
 }
 
 /* Give a possible move for the player to play */
@@ -327,6 +321,21 @@ void cmd_manual(void)
   SET (flags, MANUAL); 
 }
 
+void cmd_memory(void)
+{
+  if (token[1][0] == 0) {
+    SetDataToEngine( "memory" );
+    ExpectAnswerFromEngine( true );
+  } else {
+    unsigned int memory;
+    if ( sscanf( token[1], "%d", &memory ) == 1 ) {
+      char data[MAXSTR]="";
+      sprintf( data, "memory %d\nmemory", memory );
+      SetDataToEngine( data );
+    }
+  }
+}
+
 /* Move now, not applicable */
 void cmd_movenow(void)
 {
@@ -387,7 +396,14 @@ void cmd_nopost(void)
 
 void cmd_null(void)
 {
-  printf( "'null' not currently supported\n" );
+  if (tokeneq (token[1], "off")) {
+    CLEAR (flags, USENULL);
+    SetDataToEngine( "nulloff" );
+  } else if (tokeneq (token[1], "on")) {
+    SET (flags, USENULL);
+    SetDataToEngine( "nullon" );
+  }
+  printf ("Null moves %s\n", flags & USENULL ? "on" : "off");
 }
 
 void cmd_otim(void)
@@ -594,13 +610,18 @@ void cmd_usage(void)
      " -e, --easy         disable thinking in opponents time\n"
      " -m, --manual       enable manual mode\n"
      " -u, --uci          enable UCI protocol (externally behave as UCI engine)\n"
-     " -s size, --hashsize=size   specify hashtable size in slots\n"
+     " -M size, --memory=size   specify memory usage in MB for hashtable\n"
      "\n"
      " Options xboard and post are accepted without leading dashes\n"
      " for backward compatibility.\n"
      "\n"
      " Moves are accepted either in standard algebraic notation (SAN) or\n"
      " in coordinate algebraic notation.\n"
+     "\n"
+     " gnuchess.ini allows setting config options. See info for details.\n"
+     " The file will be looked up in the current directory and, if not found\n"
+     " there, in the directory pointed to by environment variable\n"
+     " GNUCHESS_PKGDATADIR.\n"
      "\n"
      "Report bugs to <bug-gnu-chess@gnu.org>.\n"
      "\n", progname);
@@ -829,8 +850,8 @@ static const char * const helpstr[] = {
    "hash",
    " on - enables using the memory hash table to speed search",
    " off - disables the memory hash table",
-   "hashsize N",
-   " Sets the hash table to permit storage of N positions",
+   "memory N",
+   " Sets the hash table to permit storage of N MB",
    "null",
    " on - enables using the null move heuristic to speed search",
    " off - disables using the null move heuristic",
@@ -953,7 +974,6 @@ const struct methodtable commands[] = {
   { "go", cmd_go },
   { "hard", cmd_hard },
   { "hash", cmd_hash },
-  { "hashsize", cmd_hashsize },
   { "help", cmd_help },
   { "hint", cmd_hint },
   { "ics", cmd_ics },
@@ -961,6 +981,7 @@ const struct methodtable commands[] = {
   { "list", cmd_list },
   { "load", cmd_load },
   { "manual", cmd_manual },
+  { "memory", cmd_memory },
   { "name", cmd_name },
   { "new", cmd_new },
   { "nopost", cmd_nopost },

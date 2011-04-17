@@ -51,6 +51,8 @@ static const int StringSize = 4096;
 
 uci_t Uci[1];
 
+unsigned int HashSize = 0;
+
 // prototypes
 
 static bool uci_is_ok      (const uci_t * uci);
@@ -753,6 +755,10 @@ static void parse_option(uci_t * uci, const char string[]) {
 
          if (!my_string_empty(argument)) {
             my_string_set(&opt->value,argument);
+         }
+
+         if ( strcmp(opt->name,"Hash") == 0 ) {
+            sscanf( opt->value, "%d", &HashSize );
          }
 
       } else if (my_string_equal(option,"max")) {

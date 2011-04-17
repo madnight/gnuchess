@@ -176,6 +176,70 @@ int book_move(const board_t * board, bool random) {
    return best_move;
 }
 
+// book_move()
+
+int book_move(const board_t * board, bool random, bool worst) {
+
+   int worst_move;
+   int worst_score;
+   int best_move;
+   int best_score;
+   int pos;
+   entry_t entry[1];
+   int move;
+   int score;
+
+   ASSERT(board!=NULL);
+   ASSERT(random==true||random==false);
+
+   worst_move = MoveNone;
+   worst_score = 10000;
+
+   best_move = MoveNone;
+   best_score = 0;
+
+   for (pos = find_pos(board->key); pos < BookSize; pos++) {
+
+      read_entry(entry,pos);
+      if (entry->key != board->key) break;
+
+      move = entry->move;
+      score = entry->count;
+
+      if (move != MoveNone && move_is_legal(move,board)) {
+
+         // pick this move?
+
+         ASSERT(score>0);
+
+         if (worst) {
+            if (score < worst_score) {
+               worst_move = move;
+               worst_score = score;
+            }
+         } else if (random) {
+            best_score += score;
+            if (my_random_int(best_score) < score) best_move = move;
+         } else {
+            if (score > best_score) {
+               best_move = move;
+               best_score = score;
+            }
+         }
+
+      } else {
+
+         ASSERT(false);
+      }
+   }
+
+   if (worst) {
+      best_move = worst_move;
+   }
+
+   return best_move;
+}
+
 // book_disp()
 
 void book_disp(const board_t * board) {

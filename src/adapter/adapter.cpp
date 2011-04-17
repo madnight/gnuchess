@@ -113,6 +113,8 @@ static xboard_t XBoard[1];
 static state_t State[1];
 static xb_t XB[1];
 
+extern unsigned int HashSize;
+
 // prototypes
 
 static void adapter_step      ();
@@ -181,7 +183,7 @@ void adapter_loop() {
    XB->ics = false;
    XB->new_hack = true;
    XB->ping = -1;
-   XB->ponder = false;
+   XB->ponder = true;
    XB->post = false;
    XB->proto_ver = 1;
    XB->result = false;
@@ -379,9 +381,6 @@ static void xboard_step() {
       XB->mps  = atoi(Star[0]);
       XB->base = double(atoi(Star[1])) * 60.0;
       XB->inc  = double(atoi(Star[2]));
-/* New */
-      //XB->my_time = XB->opp_time = XB->base;
-/* New */
 
    } else if (match(string,"name *")) {
 
@@ -680,13 +679,18 @@ static void xboard_step() {
          }
       }
 
-   } else if (match(string,"book *")) { // book command (from GNU Chess v5)
+   } else 
+
+   // Extended commands from GNU Chess frontend
+
+   if (match(string,"book *")) { // book command (from GNU Chess v5)
 
       // TODO Invoke Polyglot's book functionality
       // Subcommands: add, on, off, prefer, random, best, worst
       char *my_argv[4];
       char *token;
       token = strtok( Star[0], " " ); 
+
       if ( strcmp( token, "add" ) == 0 ) {
          token = strtok( NULL, " " ); 
          my_argv[0] = (char *)malloc( 2 );
@@ -697,9 +701,63 @@ static void xboard_step() {
          strcpy( my_argv[1], "make-book" );
          strcpy( my_argv[2], "-pgn" );
          strcpy( my_argv[3], token );
-         for ( int i=0; i<4; ++i ) fprintf ( stderr, "%s\n", my_argv[i] );
          book_make( 4, my_argv );
+
+      } else if ( strcmp( token, "on" ) == 0 ) {
+
+         option_set("Book","true");
+
+      } else if ( strcmp( token, "off" ) == 0 ) {
+
+         option_set("Book","false");
+
+      } else if ( strcmp( token, "best" ) == 0 ) {
+
+         option_set("BookRandom","false");
+         option_set("BookWorst","false");
+
+      } else if ( strcmp( token, "best" ) == 0 ) {
+
+         option_set("BookRandom","true");
+         option_set("BookWorst","false");
+
+      } else if ( strcmp( token, "worst" ) == 0 ) {
+
+         option_set("BookWorst","true");
+
       }
+
+   } else if (match(string,"hashon")) { // hash on command (from GNU Chess v5)
+
+      engine_send(Engine,"hashon");
+
+   } else if (match(string,"hashoff")) { // hash off command (from GNU Chess v5)
+
+      engine_send(Engine,"hashoff");
+
+   } else if (match(string,"memory")) { // memory command (from GNU Chess v5)
+
+      xboard_send(XBoard, "Current HashSize is %d MB", HashSize );
+
+   } else if (match(string,"memory *")) { // memory N command (from GNU Chess v5)
+
+      char *token;
+      unsigned int memory;
+      token = strtok( Star[0], " " ); 
+      if ( sscanf( token, "%d", &memory ) == 1 ) {
+        HashSize = memory;
+        uci_send_option(Uci,"Hash","%d",HashSize);
+        //xboard_send(XBoard, "Current HashSize is %d MB", HashSize );
+      }
+      engine_send(Uci->engine,"uci");
+
+   } else if (match(string,"nullon")) { // null on command (from GNU Chess v5)
+
+      uci_send_option(Uci,"NullMove Pruning","%s","Always");
+
+   } else if (match(string,"nulloff")) { // null off command (from GNU Chess v5)
+
+      uci_send_option(Uci,"NullMove Pruning","%s","Never");
 
    } else { // unknown command, maybe a move?
 
@@ -806,6 +864,7 @@ static void comp_move(int move) {
       if (!move_to_can(move,board,string,256)) my_fatal("comp_move(): move_to_can() failed\n");
    }
 
+fprintf(stderr,"Nodes=%d\n", Uci->node_nb);
    xboard_send(XBoard,"move %s",string);
 
    // resign?
@@ -1058,7 +1117,7 @@ static void search_update() {
 
          game_get_board(Game,Uci->board);
 
-         move = book_move(Uci->board,option_get_bool("BookRandom"));
+         move = book_move(Uci->board,option_get_bool("BookRandom"), option_get_bool("BookWorst"));
 
          if (move != MoveNone && move_is_legal(move,Uci->board)) {
 

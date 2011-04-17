@@ -69,6 +69,7 @@ static option_t Option[] = {
    { "BookFile",      NULL, }, // string
 
    { "BookRandom",    NULL, }, // true/false
+   { "BookWorst",     NULL, }, // true/false
    { "BookLearn",     NULL, }, // true/false
 
    { "KibitzMove",    NULL, }, // true/false
@@ -119,12 +120,12 @@ void option_init() {
 
    option_set("OptionFile",optionFile);
 
-   option_set("EngineName","<empty>");
+   option_set("EngineName","GNU Chess");
    option_set("EngineDir",".");
    option_set("EngineCommand","<empty>");
 
    option_set("Log","false");
-   option_set("LogFile","polyglot.log");
+   option_set("LogFile","adapter.log");
 
    option_set("Chess960","false");
 
@@ -138,6 +139,7 @@ void option_init() {
    option_set("BookFile","book.bin");
 
    option_set("BookRandom","true");
+   option_set("BookWorst","false");
    option_set("BookLearn","false");
 
    option_set("KibitzMove","false");

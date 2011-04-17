@@ -6,7 +6,39 @@ NEWS of GNU Chess
   are permitted in any medium without royalty provided the copyright
   notice and this notice are preserved.
 
-New in gnuchess 6.00:
+Version 5.9.92
+
+- Implement 'book *' commands as in v5.
+    (Implemented by extending the protocol messages between frontend and 
+    adapter. Engine book options uncontrollable, since I am more reluctant
+    to modify the protocol between adapter and engine (UCI), but it could 
+    be done.)
+- Implement v5 command 'hash on/off'.
+    (UseTrans to be variable and driven by new option.)
+- Implement v5 command 'null on/off'.
+    (UCI option NullMove Pruning)
+- Implement v5 command memory.
+    (UCI option UseTrans)
+- Implement v5 command memory N.
+    (UCI option Hash)
+- Remove v5 commands hashsize/hashsize N. Memory command replaces them.
+- Hard mode at startup.
+- Implement v5 command-line options not working in the previous version:
+    --post
+    --easy
+    --manual
+    --memory
+- All pieces of text doc transformed into texinfo.
+- Include v5 script gnuchessx for xboard mode.
+- Implement script gnuchessu for UCI mode, similar to gnuchessx.
+- Set writing to adapter.log to false by default.
+- Default config so that the config file gnuchess.ini is not mandatory.
+
+Version 5.9.91 (14 January 2011)
+
+- Relax dependency on config file gnuchess.ini
+
+New in gnuchess 5.9.90 (10 January 2011, first pretest version of v6.0.0)
 
 - Fruit 2.1 engine, by Fabien Letouzy
 - Polyglot 1.4 adapter, by Fabien Letouzy

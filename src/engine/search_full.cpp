@@ -54,7 +54,7 @@ static const bool UseDistancePruning = true;
 
 // transposition table
 
-static const bool UseTrans = true;
+bool UseTrans = true;
 static const int TransDepth = 1;
 
 static const bool UseMateValues = true; // use mate values from shallower searches?

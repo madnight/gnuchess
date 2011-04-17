@@ -17,10 +17,5 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-SUBDIRS = src doc
-dist_pkgdata_DATA = src/gnuchess.ini src/book.bin
-EXTRA_DIST = TODO src/gnuchess.ini src/book.bin iq6.epd src/gnuchessx src/gnuchessu doc/quotes.rb
-
-DISTCLEANFILES = *~ src/GCint.h
-pkgdatadir =$(datadir)/gnuchess
-
+info_TEXINFOS = gnuchess.texi
+gnuchess_TEXINFOS = fdl.texi

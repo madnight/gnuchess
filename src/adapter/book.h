@@ -40,6 +40,7 @@ extern void book_close      ();
 
 extern bool is_in_book      (const board_t * board);
 extern int  book_move       (const board_t * board, bool random);
+extern int  book_move       (const board_t * board, bool random, bool worst);
 extern void book_disp       (const board_t * board);
 
 extern void book_learn_move (const board_t * board, int move, int result);

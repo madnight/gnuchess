@@ -779,7 +779,6 @@ void cmd_force(void);
 void cmd_go(void);
 void cmd_hard(void);
 void cmd_hash(void);
-void cmd_hashsize(void);
 void cmd_help (void);
 void cmd_hint(void);
 void cmd_level(void);
@@ -867,6 +866,11 @@ void InitFrontend( void );
  * Reads a char string entered by the user.
 */
 void ReadFromUser( void );
+
+/*
+ * Sends a message to the adapter/engine.
+*/
+int SendToEngine( char msg[] );
 
 /*
  * Reads a char string message from the adapter/engine.

@@ -1,6 +1,4 @@
-# Process this file with automake to produce Makefile.in (in this,
-# and all subdirectories).
-# Makefile for the top-level directory of GNU Chess.
+#!/bin/sh
 #
 # Copyright (C) 2001-2011 Free Software Foundation, Inc.
 #
@@ -17,10 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-SUBDIRS = src doc
-dist_pkgdata_DATA = src/gnuchess.ini src/book.bin
-EXTRA_DIST = TODO src/gnuchess.ini src/book.bin iq6.epd src/gnuchessx src/gnuchessu doc/quotes.rb
+# Start GNU Chess in UCI mode, i.e. to behave as a UCI chess engine.
 
-DISTCLEANFILES = *~ src/GCint.h
-pkgdatadir =$(datadir)/gnuchess
+gnuchess --uci ${1+"$@"}
 

@@ -303,7 +303,7 @@ int main (int argc, char *argv[])
    */
  
   int c;
-  int opt_help = 0, opt_version = 0, opt_post = 0, opt_xboard = 0, opt_hash = 0,
+  int opt_help = 0, opt_version = 0, opt_post = 0, opt_xboard = 0, opt_memory = 0,
       opt_easy = 0, opt_manual = 0, opt_quiet = 0, opt_uci = 0;
   char *endptr;
 
@@ -313,7 +313,7 @@ int main (int argc, char *argv[])
   {
     static struct option long_options[] =
     {
-        {"hashsize", 1, 0, 's'},
+        {"memory", 1, 0, 'M'},
         {"version", 0, 0, 'v'},
         {"quiet", 0, 0, 'q'},
         {"silent", 0, 0, 'q'},
@@ -330,7 +330,7 @@ int main (int argc, char *argv[])
 
     int option_index = 0;
  
-    c = getopt_long (argc, argv, "qehmpvx:s:u",
+    c = getopt_long (argc, argv, "qehmpvxM:u",
              long_options, &option_index);
  
     /* Detect the end of the options. */
@@ -365,15 +365,15 @@ int main (int argc, char *argv[])
      case 'm':
        opt_manual = 1;
        break;
-     case 's':    
-       if  ( optarg == NULL ){ /* we have error such as two -s */
+     case 'M':    
+       if  ( optarg == NULL ){ /* we have error such as two -M */
          opt_help = 1;
          break;
        }
        errno = 0; /* zero error indicator */
-       opt_hash = strtol (optarg, &endptr, 10);
+       opt_memory = strtol (optarg, &endptr, 10);
        if ( errno != 0 || *endptr != '\0' ){
-         printf("Hashsize out of Range or Invalid\n");
+         printf("Memory out of Range or Invalid\n");
          return(1);
        }
        break;
@@ -409,13 +409,14 @@ int main (int argc, char *argv[])
     }
   }
   if (opt_xboard == 1)
-	SET (flags, XBOARD);
+    SET (flags, XBOARD);
   if (opt_uci == 1)
-	SET (flags, UCI);
-  if (opt_post == 1)
-	SET (flags, POST);	
+    SET (flags, UCI);
+  if (opt_post == 1) {
+    SET (flags, POST);	
+  }
   if (opt_manual ==1)
-	SET (flags, MANUAL);
+    SET (flags, MANUAL);
   cmd_version();
   
   /* If the version option was specified we can exit here */
@@ -439,7 +440,7 @@ int main (int argc, char *argv[])
   dbg_open(NULL);
 
   HashSize = 0 ; /* Set HashSize zero */
-  if ( opt_hash != 0 )
+  if ( opt_memory != 0 )
     ; /* TODO: to be removed - this is handled by the adapter */
 
   Initialize ();
@@ -452,8 +453,33 @@ int main (int argc, char *argv[])
     InitEngine();
   }
 
-  if ( opt_easy == 0)
-   SET (flags, HARD);
+  if ( opt_easy == 0 )
+    SET (flags, HARD);
+  else {
+    char data[9];
+    strcpy( data, "easy" );
+    SendToEngine( data );
+  }
+
+  if ( opt_memory > 0 ) {
+    char data[20];
+    sprintf( data, "memory %d", opt_memory );
+    SendToEngine( data );
+  }
+
+  if (opt_post == 1) {
+    SET (flags, POST);	
+    char data[9];
+    strcpy( data, "post" );
+    SendToEngine( data );
+  }
+
+  if (opt_manual == 1) {
+    SET (flags, MANUAL);
+    char data[9];
+    strcpy( data, "force" );
+    SendToEngine( data );
+  }
 
   if (argc > 1) {
     for (i = 0; i < argc; i++) {
