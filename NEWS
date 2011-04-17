@@ -1,0 +1,723 @@
+NEWS of GNU Chess
+
+  Copyright (C) 2001-2011 Free Software Foundation, Inc.
+
+  Copying and distribution of this file, with or without modification,
+  are permitted in any medium without royalty provided the copyright
+  notice and this notice are preserved.
+
+New in gnuchess 6.00:
+
+- Fruit 2.1 engine, by Fabien Letouzy
+- Polyglot 1.4 adapter, by Fabien Letouzy
+- Three decoupled components: frontend, engine and adapter
+
+New in gnuchess 5.07:
+
+- New PGN parser handles annotated PGN when creating opening book
+- Additional command line options
+- gnuchessx script added
+
+New in gnuchess 5.06:
+
+- Added code for pondering and analysis mode
+- Added white/black commands for use with icsDrone
+- Command line options now follow GNU standards (./gnuchess --help)
+- Some optimisations added
+- Book may be stored in /usr/share/games/gnuchess/book.dat
+- Program no longer starts search from scratch every move
+
+New in gnuchess 5.05:
+
+- Fixed a potential buffer overflow in pgn.c.
+- General code cleanups, bug fixes, and probably introduction
+  of new bugs, especially in pondering related code
+- The opening book is now looked for in 
+  /usr/lib/games/gnuchess/book.dat if it is not found in the
+  working directory.
+- Changes for easing compilation with MSVC
+- Removed support for the Novag Universal Board. The recommended
+  alternative is to use the winboard driver for this board, which
+  is linked to on http://www.tim-mann.org/extensions.html
+
+New in gnuchess 5.04:
+- Bug fixes (as always)
+
+New in gnuchess 5.03:
+- Bug fixes (The infamous "illegal move" bug should be dead by now.)
+- Architecture independent binary book. Yes, you may now move your
+  binary book around between little and big endian, 32 and 64 bit
+  machines and it should not break. 
+- Build system is now automake/autoconf, should ease porting gnuchess
+  to your favorite strange architecture. (Hell, what about gnuchess on
+  cellphones...?)
+
+Version 5.03
+
+  Book handling rewritten, and other major changes collected and applied
+  by Stuart Cracraft before use of CVS. Book need to be remade from PGN.
+
+  List of Grandmasters we "trust" in generating the opening book was
+  extended.
+
+  Contributed Bug fixes - various.
+
+  Code placed under CVS after some minor changes to 5.02.
+  Opening book not placed under CVS - too large.
+
+  Other changes managed under CVS
+
+  Installation instructions corrected "book create" to "book add".
+  Makefile modified to work with OpenBSD make.
+  Use of C++ reserved words as variable names removed for ease of reuse. 
+  The C Macro i386 replaced with Endianness test for portability.
+  Lots of unreachable code removed to make it more readable.
+  "#ifdef debug" and "#ifdef never" code removed.
+  Removed problem with "space" on the end of filenames.
+  Handle XBoard SIGINT gracefully (Caused Solaris Xboard problem).
+  Reduced default hashtable size.
+  Deleted Crafty style bad trade code as it was incorrect.
+
+  The calculations for hung and pinned pieces were using stale
+  information in the calculations. All relevant code was removed
+  from the position evaluation routine. 
+  
+  Fixed loop bound error that allowed King to remain in check!!!
+
+  Made input buffers consistent to stop crash on long commands.
+  Correct hashtable handling of En Passant.
+  Fixed EPD output when loading a game from file with Black to move.
+  Fixed file handling problem extending opening book.
+
+  Various modifications to SortMove to encourage examination of
+  pushing passed pawns, centralisation, before other moves. Some
+  modification have little effect, as the calling of sorting routines
+  is quite complex.
+
+  Added various EPD files for developer testing. These files cannot be
+  included in the released tar file until copyright issues are resolved.
+
+  Removed Outside passed pawn bonus from Evaluate as it was
+  incorrectly in the pawn hash section.
+
+  Removed the chess_faq.html file from the distribution, as this
+  belongs on the GNU web site.
+
+Version 5.02
+
+  Various bug fixes.
+
+Version 5.01
+
+  Sun Mar  4 11:02:52 EST 2001 - book/book.*
+    Stuart Cracraft <cracraftt@gnu.org>
+    Expanded opening book
+
+  Sun Dec 12 11:42:10 EST 1999 - src/version.c
+    Patrick Gundlach <gundlach@irb.cs.uni-dortmund.de>
+    fflush stdout in Xboard startup (i.e. "Chess" herald)
+
+Version 5.00 *** RELEASE ***		(September 30, 1999 - cracraft)
+
+o Found that after first ^C interrupt to running program a second one would
+  exit it. Added a new signal (..) call in EndSearch. Okay now.
+
+o Structure the tree (doc, book, src, etc.)
+
+o Rename the tree from gnuchess5.0 to chess-5.00
+
+o Revise version.h.
+
+o Revised copywrite.
+
+o Revised COPYING (update FSF address).
+
+o Default to post mode (statistics) if not xboard.
+
+Version 5.00j
+     - integrated 1.21k from Kong.
+     - added 
+	traditional anti-computer locked pawn structure penalty
+	traditional anti-computer stonewall pawn structure penalty
+	crafty's eight pawns penalty
+	old cobalt's ahopen traditional anti-computer edge-of-board attack
+	center pawns
+	shortened time until queen penalty (4 moves instead of 8)
+     EICS 5/31/99
+	Games:          83
+	Ave.opp:        1882
+	Percent:        77
+	Result:         63W + 4D + 16L = 77 %
+	Rating:         2093
+     FICS 6/15/99
+ 	Games:          125
+	Ave.opp:        1766
+	Percent:        81
+	Result:         100W + 10D + 15L = 81 %
+	Rating:         2017
+
+Version 5.00i
+     - use GNU 4.0 eval instead. toss out evaluation.
+     - Win-at-Chess test: 229/300 at 5 seconds per move. 10,949,825 nodes
+	1507 seconds
+     - Add Queen+Piece threat extension from Kong.
+     - WAC: 235/300 at 5 seconds per move. 9,656,161 nodes. 1525 seconds.
+     - Add the whole GNU 4.0 style calling sequence in Evaluate (lazy,
+       single lone king, etc.)
+     - WAC: 213/300 at 5 seconds per move, 17,911,670 nodes. 1437 seconds.
+     - FICS result:
+	Games:          34
+	Ave.opp:        1836
+	Percent:        85
+	Result:         28W + 4D + 2L = 85 %
+	Rating:         2132
+
+Version 5.00h
+     - book.c: when in XBOARD mode, the book needs to be quiet without status.
+     - eval.c: some formatting
+     - Win-at-Chess test: 219/300 at 5 seconds per move. 11,864,883 nodes.
+			  1441.7 seconds (out of 1500 permitted).
+     - eval.c: penalize knight on rim even more.
+               up undevelopment penalty.
+
+Version 5.00g
+     - Add Crafty-style bad-trade code for bad piece exchange penalty.
+
+Version 5.00f
+     - Kong contributed rotated bitboards move generator.
+       It tests 21% faster than the old move generator,
+       yet overall program speed is about 8% slower based
+       on testing.
+     - Added ROOKTRAPPED code for rook trapped by king.
+
+Version 5.00f
+     - BUGFIX: Kong provided a fix to prevent segmentation faults in
+       certain rare positions:
+		6Q1/8/8/4K3/8/8/p7/1k1 w - - bm 1; id 1;
+     - based on analysis of 7 lost games last night it was
+       noted that 6 of these were in positions where the program
+       played other than double king-pawn or double queen-pawn
+       instead opting for non-classical openings, so...
+       fix to always play double-pawn as long as the evaluation resolves
+       to that order of moves once book has been scored.
+       this is done by having the program choose from between the 
+       top 2 moves for white's first move (excluding Nf3, but including
+       e4 and d4) and only the top 1 move for black's first move
+       (excluding non-kp/qp replies to KP/QP by white). For odd
+       openings like Reti or Nc3, fairly good moves are picked with
+       the above algorithm, that may be preferable to just having
+       only kp/kp or qp/qp for this algorithm).
+     - BUGFIX: fix problem that resulted in friendly king not being
+       penalized enough for being far from enemy passed pawns.
+     - FEATURE: Add DistMap[m][n] array. This array has all
+       bits turned on that are n squares away from the m square where
+       m is A1..H8. Aids in rapid diagnosis of distances.
+     - FEATURE: Add penalty for every enemy pawn within 3 squares
+       of the friendly king in the opening and middlegame: KINGNEARENEMYPAWN.
+     - FEATURE: Add penalty for no friendly minors or queen within
+       3 squares of king in opening or middlegame: KINGNOSUPPORT.
+	Games: 		27
+	Ave.opp:	1631
+	Percent:	96
+	Result:		26W + 0D + 1L = 96 %
+	Rating:		2132
+
+Version 5.00e (beginning of March)
+     - try increasing pawncover values -- no good.
+     - try diminishing underattack values -- seems good.
+     - add pawn majority/minority calculation
+     - add in better connected passed pawn evaluator
+     - double penalty for open files adjacent to or on king's file if 
+       enemy queen present.
+	Games: 		91
+	Ave.opp:	1763
+	Percent:	87
+	Result:		79W + 2D + 10L = 87 %
+	Rating:		2085
+
+Version 5.00d (late February)
+     - cleaned up version prior to all the mods to get rating back.
+     - one night result:
+	Games: 		29
+	Ave.opp:	1616
+	Percent:	89
+	Result:		25W + 2D + 2L = 89 %
+	Rating:		1967
+     - fix up PGN save-to-file routine. Was putting black in result.
+     - ScoreDev returns only if fully developed.
+     - Diminish connected passed pawn penalty.
+	Games: 		104
+	Ave.opp:	1797
+	Percent:	77
+	Result:		80W + 2D + 22L = 77 %
+	Rating:		2008
+
+Version 5.00b (late January)
+     search.c - Razoring.  This applies at depth == 3.  If we are more
+	      than a Q behind and there is no extension, then reduce 
+	      the depth by 1. Extended futility pruning.  At depth == 2, 
+	      if we are more than 600 points behind and there is no 
+	      extension, then we only look at checking moves & captures 
+	      which bring the material score back to alpha. Everything 
+	      else is pruned away.  This is an extension of the basic
+	      futility pruning which applies at depth == 1.
+     cmd.c  - modify so that all games go to game.nnn and the
+	      log of their searches go to log.nnn where the two
+	      nnn's match.
+     version.c - split off VERSION/etc info into version.h
+     Makefile  - make version.c depend on version.h
+     pgn.c     - have PGNSaveGame record player's names based on "name" command
+     common.h  - adjust knight and bishop values
+     iterate.c - was not taking up to 2 x nominal time per move when in
+		 bad situations. fixed.
+     book.c    - for random choice amongst top N moves of preferred book
+		 now sorts all moves by stored book score and picks
+		 randomly amongst N based. Previous algorithm was flawed.
+     eval.c - add penalties for attacks against ones king in
+            - add OPENGAME heuristic (1/4 pawn reward for positions
+	      in which root position either side has more than 6 pawns
+	      and in the leaf position both sides have <= 6
+	      (idea due to Larry Kaufman and Don Dailey of Socrates)
+	    - lots of work on development scoring.
+     - Win-at-Chess test: 233/300 at 5 seconds per move. 14,940,780 nodes.
+     - Rating went to FICS 2050 with all the positional changes on 1/31/99.
+     - make king attacks per piece to reward multiple attacks to
+       same square by multiple pieces
+     - anti-stonewall
+     - credit protectors in front of king and penalize attackers.
+     - penalize repeat pawn moves before development complete.
+     - rating maintained at FICS 2049.
+
+Version 5.00a (13 Dec 98)
+
+  - integrated with WinBoard 4.0 / Xboard
+  - post/nopost (show iterative deepening)
+  - time controls (level, fischer, sudden-death, time, otim, etc.)
+  - works properly with FICS (Free Internet Chess Server)
+  - added opening book capability.
+  - futility pruning according to Kong.
+  - weak back rank handling for kings
+  - canned attacks against computer's king (via opening A/H file)
+  - penalize early minor piece repeat moves.
+  - wingpawn advance before castling penalty.
+  - Win-at-Chess test: 233/300 at 5 seconds per move. 14,977,757 nodes.
+  - Convert it to properly run on a standard Unix system, not just PC's.
+  - Make it work with "configure".
+  - Distribute to beta-testers
+  -  eval.c - PawnSq[], make penalty for d2/e2/d7/e7 pawns
+	      KingSq, KnightSq, PawnSq improved
+     eval.h - PINNED* worsened
+            - BISHOP_PAIR from 40 to 25. beta tester input.
+  -  iterate.c - disable Hyatt more-time-after-book algorithm
+		 disable Chua's dont-start-every-new-iteration
+  - this version made a 115 point rating jump (to FICS 2030).
+
+****************** BEGIN GNU 5 (Stuart Cracraft) ********************
+
+Version 1.19 (18 Jul 98)
+	a. Found problems when PV not updated when best >= beta; changed this
+	   in both Quiesce() and Search().
+	b. A ValidateBoard() function.
+	c. Bug fix in SwapOff().  In Evaluate(), position with KNN with no 
+	   pawns wasn't being scored as 0; done.
+	d. More accurate & faster hung piece evaluation.
+	e. We skip null search when MATERIAL+ValueP <= beta instead of alpha.
+	   This makes more sense as we are only interested in beta.  Also if
+	   the hash table returns an upper bound, the score < beta, so forget
+	   about doing the null test.  This both gives about 6% reduction in
+	   nodes searched.
+	f. In Search(), when doing TTGet, g0 is destroyed even though we use it
+	   in the null test later.  This is fixed.  Passed pawns made less
+	   valuable; increased CONNECTEDPP from 450 to 650 to compensate.
+	g. One-reply extensions should be checked before probing the hash table
+	   otherwise, such a probe will take place at a lesser depth than it 
+	   should.  The algorithm to prune if no faster mate is found is 
+	   also brought forward to before the hash probe.
+	h. When all root-moves fail low, it is still a good idea to try the
+	   best move found at the last iteration first.
+	i. Sometimes pawn-to-7th rank extensions wasn't being carried out.
+           This is fixed; also these extensions are only done at the leaf only.
+	   If a root move is a recapture, it is extended as well.
+	j. Bonus/penalties for rook behind/in front of passed pawn.  For ending
+	   don't give bonus for rook on open files as rook behind passed pawns
+	   are stronger.
+	k. SwapOff() wasn't handling promotion moves at all; this is now fixed.
+	   Some of the sort algorithm has to be changed to take into account
+	   the update to SwapOff.  Also minor bug fix to AddXrayPiece().
+	l. Penalize side where a pawn base is under attack by opponent's pawn.
+	m. At SearchRoot() we don't need to do any extensions.  For recapture
+	   extensions, we only extend if it is capture of equal or more 
+	   material so as to follow sacrifices (e.g QxP+ KxQ etc). 
+	n. Bonus for pawn on c6/f6 if opponent king is in the appropriate 
+	   corner.
+	o. Extension for useless interposing moves.  Limit recapture extensions
+	   to below Idepth+2.
+	p. For PV's we no longer back it up from the root.  Now the whole
+	   PV is taken from the hash table except for the first move.  This
+	   is a much cleaner way of managing it, saving code in search.  
+	   Otherwise, the PV that is return isn't always correct and its 
+	   really very difficult to fix.
+	q. There were some bugs with HashKey calculation in move.c, init.c
+	   and hash.c.  These have been fixed.  The idea is that for ALL  
+	   positions in a game, the HashKey must be equal to the HashKey
+	   calculated if the positions are epd-loaded.  Got rid of CptrCnt[]
+	   array; I no longer use it for capture extensions.
+	r. King position is now stored in the variable board; we no longer
+	   need to run leadz (board.b[side][king]) anymore, which takes place
+	   in quite a number of places!
+	s. An AttackXTo() routine which generates a bitboard of all pieces
+	   of side which attack a square.  This includes x-rays.  Bug in
+	   GenCheckEscapes() whereby a pawn capturing a checking piece is
+	   not checked for promotion.  When Idepth <= 3, we don't do null
+	   move.  This allows us to catch some mates in 2 which would 
+	   otherwise be pruned away by the null move.
+	t. Added in threat extension code.  A mate at any depth is better
+	   than a non-mate score, so it will replace it in the ttable.
+	   More "bug fixes", eg. sometimes null moves terminate the PV, 
+	   hopefully this is all fixed in this release.
+	u. A TTGetPV to pull the PV from the hash table.  This works better
+	   than TTGet which can sometimes miss the PV due to the way the
+	   hash tables are managed.
+	v. Bonus for fianchetto bishops.  Minor change to TTPut() whereby
+	   occasionally the same position can occupy both slots but the 2nd
+	   slot has a lower draft.  The 2nd slot is wasted.  This is changed
+	   so that this waste will no longer occur.
+
+Version 1.18 (18 Mar 98)
+	a. In MakeMove(), when a rook is captured, the castling flag has to be
+	   updated too.  This also means that in genmove.c, when generating
+	   castling moves, it is not necessary to check if the rook is on its
+	   original square.  However this check hasn't been removed yet.
+	b. Add "epdsave/save" command.
+	c. Debug code in quiesce.c wasn't being activated; fixed.  
+	d. In ttable.c, use & for calculating hashindex rather than the more
+	   expensive modulo operation.  Gain a couple of percent speedup.
+	   Also fix the hashsize command so that it is also a power of 2.
+	   Also get rid of modulo operation everywhere else in the code.
+	e. For connected pawns on 6th/7th rank only apply super bonus when
+	   the enemy only has rooks.
+	   When researching a fail high move & it fail low, immediately set
+	   alpha to -INF and research it.  This assumes that the original move
+	   did not fail high.
+	f. PhasePick() was sometimes trying out the Hashmv twice resulting in
+	   wasted time.  Fixed by making Hashmv[] an array.
+	g. Bug in trade down code fixed.  Also modified the way worstscore
+	   was calculated resulting in a significant speedup in Evaluate().
+	   Fine tune ScoreB().
+	h. Added a FindPins() function which returns a bitboard of all pinned
+	   pieces.  This is used in eval.c for evaluating pinned pieces.
+	i. Modify way in which sorting of captures was done.  This led to a
+	   reduction in the quiescent search speeding things up slightly.
+	j. For killers, only update them if best >= beta; this gives much
+	   improved pruning.  Remove killer updates in SearchRoot().
+	   Remove transposition lookup & updates in SearchRoot().  Got rid of
+	   pbest in SearchRoot().
+	k. In quiesce(), only update the PV if the score > alpha, not when 
+	   score > best.  When a mate in N plies have been found, at the N-1
+	   ply, we don't search the opponent moves; we only check to see if
+	   he is mated.  Simplify SearchRoot().
+	l. If the hash table returns an upperbound, then we don't want the
+	   move that is returned, so set Hashmv=0.  This improves pruning.
+	m. SquarePawnMask[] for pawns on 2nd rank is wrong; it is now set to
+	   mask for pawns on 3rd rank as they can advance 2 square.  SwapOff()
+	   used to assume that the side to move is the one moving the piece.
+	   This has been changed to that SwapOff() can be used for any side.
+	   Bug fixed in evaluation of trapped bishop.  Bug in GenCheckEscapes()
+	   whereby an e.p. capture was allowed even if the pawn is pinned;
+	   this is fixed.  A nicer and bigger board.
+	n. For endings with opposite colour bishops, half the score as they
+	   are mostly drawish.  Instead of penalizing weak pawns, give bonus
+	   to pieces which attack weak enemy pawns.  Lots of evaluation tuning.
+	   Commented out ShowThinking() resulting in faster search.  All this
+	   has improved the nodes per second by 50%! Fix bug in MakeMove() 
+	   whereby if a R captures another R, the castling flag for the
+	   captured rook is not cleared.
+	o. Updated FindPins() to include more pin situations. Introduce a 
+	   variable called computer; this hold the colour that the program
+	   plays.  Make a trapped bishop part of lazy evaluation as it gives a
+	   high penalty.  Promotion weren't taken into account in SortRoot().
+	p. A basic KPK evaluation for certain positions.  Another bug in 
+	   GenCheckEscape(); a promotion move to escape check isn't taken into
+	   account.  Introduced a board.pmaterial[] variable which holds the
+           pieces total value for a side.  PHASE is now calculated using only
+	   pieces values.  In Quiesce(), when side is in check we don't prune 
+	   even if best >= beta; this is now fixed; when in check, we see if
+	   we are checkmated, if not and there is a beta cut, do it saving
+	   some branches.  History was updated everytime best > alpha; now it		   is updated only when best >= beta, or when a score > alpha has been
+	   found.  All this gives rise to improved pruning about 2-3 %.
+	q. Some fine tuning of passed pawn eval.  Add quiesce move to ttable
+	   so that it can appear in the PV.
+
+Version 1.17 (9 Feb 98)
+	a. Added very elementary hanging piece evaluation.
+	b. For square of the pawn, instead of adding ValueQ - ValueP, we
+	   a fraction of ValueQ based on how far advance the pawn is.  This
+	   is to encourage the pawn to advance and queen.  Fix a bug in 
+	   IsLegalMove() whereby an en-passant was considered illegal.
+	c. More accurate hanging piece evaluation.
+	d. IsLegalMove() was missing out enpassant captures.  Fixed.
+	e. Added a ptype[] variable to distinguish between pawn & bpawn;
+	f. In Search(), initialize PVlen before checking for draws.  This fix
+	   problems with illegal moves in the PV (e.g. GMG1.epd 42).
+	g. Renamed Pinned() to PinnedOnKing().  A new Pinned() function will
+	   be written to be more generic.  Minor change to SearchRoot(), the
+	   first move is also moved within the main loop, making things tidy.
+	h. Xboard support.
+	i. In Search(), the first move is also moved into the main loop.  This
+	   is to make the code better suited for adding threat extensions.
+	   Game50 variable wasn't being properly updated; fixed.
+	j. Trapped bishop at A7/H7/A2/H2.  Rook moved before castling is now
+	   penalized.  Minor optimization in eval.c.  More eval tuning.
+	k. Also promotion moves were not being sorted properly; this is fixed.
+	l. board.ep was initialized to 0; now its -1 fixing a bug when 
+	   promotion happens at A1 square (square 0).
+	m. Instead of storing the whole board HashKey into the ttable, we now
+	   store the top 32 bits, saving memory.  Same for Pawn table.
+	n. Fix bug in backward pawn detection.  Fix bug in search whereby
+	   sometimes the best move wasn't being properly set.  Fortunately,
+	   this happens quite deep in the tree, so not much improvement might
+	   be seen.  Change the way that scores are returned from the hash
+	   table probe to improve pruning. 
+	o. Trade down bonus implemented.  Recaptures extensions modified so 
+	   that only recaptures of same value & square are extended.
+	p. In Quiesce(), check for mates as well.
+	q. Killers at ply-2 is also used for sorting.  Reduced tree size
+	   slightly (2-3%).
+	r. Moves in the Quiesce() search were not being recorded in the PV.
+	   This is now fixed.
+	s. Bug fix in evaluation of square of the pawn whereby if the opponent
+	   is on the move, the pawn isn't scored properly.
+	t. Phase pick is implemented.  Code seems to be working.  Also bug
+	   fixes in IsLegalMove() and Evaluate().
+
+Version 1.16 (26 Jan 98)
+	a. Added a Mvboard[] array which returns the number of times a piece
+	   on [sq] have moved.  Use it for penalizing early Q moves.
+	b. ScoreDev() returns only development of side-to-move instead of
+	   white-black.
+	c. Separate Search() into a SearchRoot() which is called at ply==1
+	   and Search().  Some modifications in search.
+	d. Added back GenAtaks() into evaluate when doing slow evaluation.
+	   Modifications in the ScoreX() routines to make use of attack tables.
+	e. Fixed a bug in UnmakeNullMove whereby the board.ep variable wasn't
+	   correctly restored.  
+	f. Added the passed BitBoard into the pawn hash table allowing us 
+	   to save the passed pawn board into the table.
+	g. In evaluate, when one side has no mating material, make sure the
+	   score is never > 0.
+	h. Added in Square of the pawn evaluation.  Fix a bug in ScoreP whereby
+	   passed pawns information was being changed.  In EvaluateDraw(),
+	   fix a bug whereby 2N vs 2N wasn't a draw.
+	i. Fix a bug which sometimes put an illegal move in the PV.  This
+	   was happening when an EXACTSCORE was returned, but the PVlen was
+	   incorrectly set.
+	j. Lots of changes/tuning to eval.c.
+	k. Added in an IsLegalMove() function to test if a move is legal.
+	l. Added a Pinned() function to test if a piece is pinned against
+	   the King. 
+	m. Added a GenCheckEscape() routine to generate move when a king is
+	   in check.  In SearchRoot(), there is no need to check if a move
+	   is legal as all root moves are legal.  
+	n. If King is in check, generate check escapes only and if there is
+	   only 1 move, extend by another move.
+
+Version 1.15 (16 Jan 1998)
+	a. Convert AlgbrMove() to return char * rather than void.
+	b. In the quiescent search, use SwapOff() to see if a capture is
+	   futile and prune it.  Removed as it wasn't working well.
+	c. Big bonus for connected passed pawns on the 6/7th rank.  Solves
+	   WAC/2 easily.
+	d. Bug fix and clean up of code in sort.c.  Results in improve capture
+	   sorting and better pruning.  Got rid of DeepExtCnt; not used.
+	e. For search extensions, limit capture to maximum of 2 and checks to
+	   maximum of Idepth, the iteration depth.
+	f. SwapOff() wasn't working for non-captures as pointed out by Stuart.
+	   Fixed SwapOff(); appears to be okay now. Used SwapOff() in capture 
+	   move ordering; seems to help a bit.
+	g. In Search(), move the Quiesce() call before the ttable probe.  
+	   Slight improvement in pruning and ttable stats are now much higher.
+	h. Still another bug in AddXrayPiece() was fixed.  
+	i. Slight change in GenMoves() to speed it up slightly.
+	j. Implemented pawn hash table.  Achieves good increase in nps (25%).
+	k. Added in a SquarePawnMask[] array.  This is to determine if a king
+	   is able to stop a passed in a king and pawns only endgame.
+	l. Material values of 100,350,350,550,1100.  Also some optimizations
+	   in move.c.  PHASE modified for new material values.
+	m. Implemented a two-tier transposition table.  Minimal gain in tree
+	   size reduction.
+	n. Only store non-captures as killers; try killers after captures
+	   in sort.  This gives more than 30% reductions in nodes searched.
+	   Also fix a bug in SortMoves().
+	o. Only give bonus for rook on 7th rank if enemy king is on 8th rank
+	   or there are enemy pawns on 7th rank.  Other bug fixes and tuning
+	   in eval.
+	p. Recognize and penalize backward pawns.
+
+Version 1.14 (3 Jan 98)
+	a. Fixed bug in solve.c whereby the test for a correct solution is not
+	   correctly done (pointed out by Stuart).
+	b. When searching for mates, eval just return MATERIAL saving time.
+	c. Uses EPD format rather than FEN; also clean up ParseEPD; fen.c
+	   now called epd.c
+	d. io.c renamed to output.c.  Game phase is now 1-8 (opening-ending).
+	e. In quiesce(), if a capture cannot bring the score near alpha,
+	   don't search it, speeding things up.
+	f. If we have a rootscore much worst that our previous iteration
+	   rootscore, we continuing searching.  (Fix from Stuart).
+	g. Got rid of nxtline, bstline way of updating the PV.  Instead use
+	   the method in cheops, resulting in much cleaner code. 
+	h. Got rid of savePVar[] array and all the code related to it.  
+	   What its for, I can't remember.
+	i. SortMoves() takes into account moves towards the centre.  Pruning
+	   is slightly improved.
+	j. AttackFrom() function is added.  This returns the bitboard of 
+	   squares attacked by a piece.  Remove GenAtaks() and other code
+	   in eval.c which required the use of attack tables.
+	k. Bug in ScoreDev() whereby an early Queen move which should be 
+	   penalized isn't.  Various bug fixes & tuning in eval code.
+	l. PGNReadFromFile() is able to read the 1st game in a pgn file.
+	m. In the null move, instead of searching with window [alpha,beta],
+	   we search with [beta-1,beta].
+	n. Added in a directions[][] array.  This array is used in swap.c 
+	   when checking for x-ray pieces.  Added AddXrayPiece() routine
+	   which is used in the static evaluator. 
+	o. Got rid of foundPV variable.  It isn't really necessary.
+	p. Don't flag mate score in ttable as exact score; they aren't.
+	q. Change some (best >= alpha) code to (best > alpha) in Search().
+	   What was I thinking of then!?
+
+Note:  From this point on, changes within a release are labelled as a-z.  This
+is also reflected in version.c
+
+Version 1.13 (1 Jan 98)
+	Got rid of history.c.  Killer is stored only if it is a beta cut.
+	Fix bug in pawn eval for isolated pawns and passed pawns.  Functions
+	like ScoreDev & MATERIAL now return the score for side to move instead
+	of score for white.  This also fixed a bug in the null move condition
+	whereby MATERIAL was only seen from white point of view when it should
+	be from the side-to-move view.  Got rid of SlowEval variable speeding
+	up things quite a bit.  GenAtaks() was NOT called in Evaluate(); this
+	is now fixed.
+
+Version 1.12 (27 Dec 97)
+        When a mate in n-ply is found, the search will never go deeper than
+        n-2 ply.  Fix some bugs in search.c.  Mate scores in hashtables are 
+	now always flag as EXACTSCORE, fixing some bugs in mates.  At ply 1,
+	we now don't return the hash score if it is an exact score as we
+	need to search the rest of the moves.  In ttable.c, SANMove() should
+	not be called as GenMoves(ply) was never called.  This affected the
+	debug code.  Now algebraic moves are printed rather than SANMove for
+	ttable debug code.  Fix repetition code, now gmg1.ci/42 can be solved.
+	In iterate.c, foundPV should be set to false when a research is 
+	being done.  A Hashmv variable is used to store the move return from
+	probing the hash table.  This is use for move sorting.  
+
+Version 1.11 (21 Nov 97)
+        Nulls can be toggled on/off.  Worstscore[] is now initialized to
+        -100 instead of infinity.  EvaluateDraw() is called after iterative
+        deepening is over to see if the game is a draw.  New routine
+        ScoreDev() to calculate development separately; "show eval" command
+        will print development score.  Got rid of Developed[2] global variable.
+        Some tweaking in search.c.  The decision to print '&' or '+' for a
+        PV is now in ShowLine().
+
+Version 1.10 (29 Aug 96)
+	KBBK with bishops of the same colour are now recognized as draws.
+	Matescore now starts from 32767 instead of 9999.  INFINITY 
+	extended to 32767.  Added Ctrl-C trap so that the search will end
+        instead of aborting the program.  Originally the move returned by
+        a hash probe is added to the history score.  This is removed and
+	the program show much improved pruning.
+
+Version 1.9 (17 Aug 96)
+	Change the way check/recapture extensions are tested; previously
+	check extensions only take place at <= Idepth*2.  Now a total of
+	Idepth+1 check extensions are allowed.  For recapture, a total 
+	of 2 extensions are allowed.  This makes the program search deeper.
+	Fix bug whereby a promotion move (e.g. d8=Q or d8Q) was considered
+	illegal if the opponent tried to enter it on the command line.  
+	Fixed a bug in the PVS search.
+
+Version 1.8 (12 Aug 96)
+	A lot of leaf struct variables are converted to int, making the
+	program slightly faster.  Search extension for pushing pawns to
+	7th rank.  The SANMove() code is now responsible for determining
+	if a checking move is mate and adds the '#' sign accordingly.
+	This is much cleaner.  Added passed-pawn evaluations.  Fix bug
+	in eval.c where EnemyKing was wrongly initialized.  Added KingSq[]
+	array to help King stay in the corner.  Added primitive development
+	code; if bishops and knights are on original squares, penalize.
+	Got rid of Material() and substitute a macro MATERIAL for speed.
+
+Version 1.7 (5 Aug 96)
+	A nullhashcode was added so that a null move will change the 
+	HashKey (a bad bug!).  Repetition code is now working correctly.
+	The enpassant and castling hash codes are now 64 bit hash values
+	instead of being bits in the HashKey.  A lone king evaluator is
+	added in.  This allows the program to perform elementary mates.
+	Got rid of FilterIllegalMoves() in search.  Now all pseudo-legal
+ 	moves are tried; they are immediately rejected if it is determined
+	that they are illegal.  An EvaluateDraw() routine is called early
+	in the Search() and Quiesce(); if the position is a known draw 
+	(e.g. not enough mating material), no searching is done.  A KBNK() 
+	mating routine is added; this seems to be working fine.
+
+Version 1.6 (2 Aug 96)
+	When displaying the PV and the end is reached, see if the rest of
+	the line can be found from the transposition table.  The random 
+	number generator is taken from Knuth.  FilterIllegalMoves is called 
+	to cull out illegal moves.  This prunes enough branches such that 
+	it turns out to be a gain.  Speeded up FilterIllegalMoves().  
+	Converted board.ep to short rather than using a BitBoard.  Also
+	fast evaluation is done in Evaluate() rather than quiesce.  Got rid
+	of epsq variable in leaf structure; it wasn't needed as a board.ep
+	already exists.  A bug was introduced when the new random number
+	generator was added; the top ten bits of the hashkey was being  
+	corrupted; this is now fixed.  Speeded up null.c code and MakeMove()
+	UnmakeMove() routines.  Got rid of piececap in leaf{} structure;
+	It has been integrated in the the leaf.flag variable.  The leaf.f
+	and leaf.t variable has been merged into the leaf.mv variable.
+
+Version 1.5 (29 Jul 96)
+	Mate stored in the transposition table need to be offset by (+-ply).
+	Pruning via killer moves has been improved.  A new HistoryStore()
+	is created for code dealing with history & killer.  InChk and 
+	GenMoves() are no longer needed in quiesce().  All that work is the 
+	responsibility of the full-width search.  Much improved pruning.  
+	The flag structure was replaced by an unsigned long.  Got rid of the 
+	ExScore variable.  Now all calls to Evaluate() will yield the exact 
+	score.
+
+Version 1.4 (19 Jul 96)
+	Check for repetition in search (code currently not working).
+	Added in transposition table code.  Currently there is no rehashing
+	done.  The whole PV was returned to the top of the tree. 
+
+Version 1.3 (16 Jul 96)
+	For null moves, if the current material+pawn value is less than
+	alpha, then we don't try the null move test.  The reason is that
+	since our position is already so poor, when playing a null move,
+	our score is going to be less (unless the position is zugzwang).
+	So its not going to be a beta-cut neither is it likely to improve
+	alpha.  This appears to reduce the nodecount.  Added a flag.ended 
+	variable to the flag structure.  When this is true, the game has 
+	ended and typing go will produce nothing.  
+
+Version 1.2 (13 Jul 96)
+	For sort captures, a recapture is always tried before another
+	capture of the same value.  This gives slightly better pruning.
+	Material for white & black is updated incrementally in make/unmake
+	move.  This speeded up the program significantly.  Stalemates are 
+	recognized during the search and a score of 0 is returned.
+
+Version 1.1 (19 Feb 96)
+	Added in the NULL move heuristics.  Currently the null move
+	depth reduction is 2.
+
+Version 1.0 (17 Feb 96)		(Chua Kong Sian)
+	This version plays a legal game of chess.  It supports all the
+	special moves (en passant, castling and promotion/underpromotion).
+	It uses the standard PVS search algorithm and incorporates the
+	fail-soft alpha-beta enhancement which gives tighter alpha-beta
+	bounds.  All evaluations are only done at the end-points.
+	Move ordering is by captures first and also history heuristics.
