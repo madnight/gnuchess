@@ -1,3 +1,13 @@
+2011-04-24  Antonio Ceballos  <aceballos@gmail.com>
+
+	* AUTHORS: correct e-mail address.
+	* Makefile.am: iq6.epd removed from distribution.
+	* test/: new directory, for test suites.
+	* test/iq6.epd: moved from .
+	* test/endgame.epd: new file, copied from CVS.
+	* test/BT2630.epd: new file, copied from CVS.
+	* test/README: new file, for the record of test executions.
+
 2011-04-18  Antonio Ceballos  <aceballos@gmail.com>
 
 	* ChangeLog: changes taking v5.9.91 as first version.

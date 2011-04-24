@@ -1,0 +1,25 @@
+README of GNU Chess tests
+
+  Copyright (C) 2001-2011 Free Software Foundation, Inc.
+
+  Copying and distribution of this file, with or without modification,
+  are permitted in any medium without royalty provided the copyright
+  notice and this notice are preserved.
+
+This text file records the results of tests run over well specified
+hardware. The file is written in reverse chronological order.
+
+* 2011/04/24
+
+Processor: 2.53 GHz Intel Core 2 Duo
+S.O.: Mac OS X 10.6
+Hash: 256 MB
+Nalimov cache: 16 MB
+Book off
+10 seconds per position
+v5.9.92
+
+Test                Score
+iq6.epd             155/188
+endgame.epd         35/46
+BT2630.epd          22/30

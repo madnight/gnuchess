@@ -19,7 +19,7 @@
 
 SUBDIRS = src doc
 dist_pkgdata_DATA = src/gnuchess.ini src/book.bin
-EXTRA_DIST = TODO src/gnuchess.ini src/book.bin iq6.epd src/gnuchessx src/gnuchessu doc/quotes.rb
+EXTRA_DIST = TODO src/gnuchess.ini src/book.bin src/gnuchessx src/gnuchessu doc/quotes.rb
 
 DISTCLEANFILES = *~ src/GCint.h
 pkgdatadir =$(datadir)/gnuchess
