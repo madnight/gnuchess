@@ -56,7 +56,7 @@ than /usr/local, replace the first line by
 
 You can build an opening book which may enhance the value
 of gnuchess quite a lot. In order to do so, get the file
-book_1.02.pgn.pgn (see doc/README for instructions on how to get it)
+book_1.02.pgn (see doc/README for instructions on how to get it)
 and type the following.
 
 	./gnuchess
