@@ -6,7 +6,12 @@ NEWS of GNU Chess
   are permitted in any medium without royalty provided the copyright
   notice and this notice are preserved.
 
-Version 5.9.92
+Version 6.0.0 (27 April 2011)
+
+- First official release of GNU Chess version 6!
+- iq6.epd no longer included in the distribution - stored in Subversion.
+
+Version 5.9.92 (24 April 2011)
 
 - Implement 'book *' commands as in v5.
     (Implemented by extending the protocol messages between frontend and 
