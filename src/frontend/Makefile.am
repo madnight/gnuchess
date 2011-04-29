@@ -21,7 +21,7 @@ noinst_LIBRARIES = libfrontend.a
 libfrontend_a_SOURCES = atak.c cmd.c debug.c epd.c genmove.c \
  init.c move.c output.c players.c\
  pgn.c solve.c \
- swap.c ttable.c util.c engine.c common.h \
+ swap.c util.c engine.c common.h \
  inlines.h version.h lexpgn.l lexpgn.h
 
 AM_CPPFLAGS = -I$(top_srcdir)/src

@@ -394,7 +394,6 @@ extern HashType BQCastlehash;
 extern HashType Sidehash;
 extern HashType HashKey;
 extern HashType PawnHashKey;
-extern HashSlot *HashTab[2];
 extern PawnSlot *PawnTab[2];
 extern int Idepth;
 extern int SxDec;

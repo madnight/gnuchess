@@ -178,7 +178,6 @@ void PGNReadFromFile (const char *file)
 
    fclose (fp);
    ShowBoard ();
-   TTClear ();
 }
 
 /* Only players in the table below are permitted into the opening book 

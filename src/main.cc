@@ -92,7 +92,6 @@ HashType BQCastlehash;
 HashType Sidehash;
 HashType HashKey;
 HashType PawnHashKey;
-HashSlot *HashTab[2];
 PawnSlot *PawnTab[2];
 int Idepth;
 int SxDec;
@@ -538,10 +537,6 @@ int main (int argc, char *argv[])
     }
   }
   
-  /*  Some cleaning up  */
-  free (HashTab[0]);
-  free (HashTab[1]);
-
   dbg_close();
   return (0);
 }

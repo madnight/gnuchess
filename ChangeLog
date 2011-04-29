@@ -1,3 +1,12 @@
+2011-04-29  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/frontend/Makefile.am: remove unused code: ttable.c
+	* src/frontend/ttable.c: remove unused file.
+	* src/frontend/common.h: remove declarations of functions defined
+	in ttable.c; remove declaration of unused variable: HashTab[].
+	* src/frontend/pgn.c: remove unused code: call to TTClear();
+	* src/main.cc: removed unused code: references to HashTab[].
+
 2011-04-27  Antonio Ceballos  <aceballos@gmail.com>
 
 	* INSTALL: typo in book file name.
