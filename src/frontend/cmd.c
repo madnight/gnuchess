@@ -252,7 +252,6 @@ void cmd_ics(void)
 void cmd_level(void)
 {
   SetDataToEngine( token[0] );
-  SearchDepth = 0;
   sscanf (token[1], "%d %f %d", &TCMove, &TCTime, &TCinc);
   if (TCMove == 0) {
     TCMove =  35 /* MIN((5*(GameCnt+1)/2)+1,60) */;

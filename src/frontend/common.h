@@ -336,14 +336,11 @@ typedef struct
 #define R_DRAW 3
 #define R_NORESULT 4
 
-extern short distance[64][64];
-extern short taxicab[64][64];
 extern unsigned char lzArray[65536];
 extern short Shift00[64];
 extern short Shift90[64];
 extern short Shift45[64];
 extern short Shift315[64];
-extern BitBoard DistMap[64][8];
 extern BitBoard BitPosArray[64];
 extern BitBoard NotBitPosArray[64];
 extern BitBoard MoveArray[8][64];
@@ -352,29 +349,14 @@ extern BitBoard FromToRay[64][64];
 extern BitBoard RankBit[8];
 extern BitBoard FileBit[8];
 extern BitBoard Ataks[2][7];
-extern BitBoard PassedPawnMask[2][64];
-extern BitBoard IsolaniMask[8];
-extern BitBoard SquarePawnMask[2][64];
 extern BitBoard Rook00Atak[64][256]; 
 extern BitBoard Rook90Atak[64][256]; 
 extern BitBoard Bishop45Atak[64][256];
 extern BitBoard Bishop315Atak[64][256];
-extern BitBoard pinned;
-extern BitBoard rings[4];
-extern BitBoard boxes[2];
-extern BitBoard stonewall[2];
-extern BitBoard pieces[2];
-extern BitBoard mask_kr_trapped_w[3];
-extern BitBoard mask_kr_trapped_b[3];
-extern BitBoard mask_qr_trapped_w[3];
-extern BitBoard mask_qr_trapped_b[3];
-extern BitBoard boardhalf[2];
-extern BitBoard boardside[2];
 extern short directions[64][64];
 extern unsigned char BitCount[65536];
 extern leaf Tree[MAXTREEDEPTH];
 extern leaf *TreePtr[MAXPLYDEPTH];
-extern int RootPV;
 extern GameRec Game[MAXGAMEDEPTH];
 extern int RealGameCnt;
 extern short RealSide;
@@ -394,71 +376,23 @@ extern HashType BQCastlehash;
 extern HashType Sidehash;
 extern HashType HashKey;
 extern HashType PawnHashKey;
-extern PawnSlot *PawnTab[2];
-extern int Idepth;
-extern int SxDec;
 extern int Game50;
-extern int lazyscore[2];
-extern int maxposnscore[2];
-extern int rootscore;
-extern int lastrootscore;
 extern unsigned long GenCnt;
 extern unsigned long NodeCnt;
 extern unsigned long QuiesCnt;
-extern unsigned long EvalCnt;
-extern unsigned long EvalCall;
-extern unsigned long ChkExtCnt;
-extern unsigned long OneRepCnt;
-extern unsigned long RcpExtCnt;
-extern unsigned long PawnExtCnt;
-extern unsigned long HorzExtCnt;
-extern unsigned long ThrtExtCnt;
-extern unsigned long KingExtCnt;
-extern unsigned long NullCutCnt;
-extern unsigned long FutlCutCnt;
-extern unsigned long RazrCutCnt;
-extern unsigned long TotalGetHashCnt;
-extern unsigned long GoodGetHashCnt;
-extern unsigned long TotalPutHashCnt;
-extern unsigned long CollHashCnt;
-extern unsigned long TotalPawnHashCnt;
-extern unsigned long GoodPawnHashCnt;
-extern unsigned long RepeatCnt;
-extern unsigned HashSize;
-extern unsigned long TTHashMask;
-extern unsigned long PHashMask;
 extern int slider[8];
 extern int Value[7];
 extern char SANmv[SANSZ];
-extern unsigned long history[2][4096];
-extern int killer1[MAXPLYDEPTH];
-extern int killer2[MAXPLYDEPTH];
-extern int ChkCnt[MAXPLYDEPTH];
-extern int ThrtCnt[MAXPLYDEPTH];
 extern char id[32];
 extern char solution[64];
 extern float SearchTime;
-extern int SearchDepth;
 extern int MoveLimit[2];
 extern float TimeLimit[2];
 extern int TCMove;
 extern int TCinc;
 extern float TCTime;
-extern int hunged[2];
 extern int phase;
-extern int Hashmv[MAXPLYDEPTH];
-extern short RootPieces;
-extern short RootPawns;
-extern short RootMaterial;
-extern short RootAlpha;
-extern short RootBeta;
-extern short pickphase[MAXPLYDEPTH];
-extern short InChk[MAXPLYDEPTH];
-extern short KingThrt[2][MAXPLYDEPTH];
-extern short KingSafety[2];
-extern short pscore[64];
 
-extern short bookmode;
 extern short bookfirstlast;
 
 extern int range[8];
@@ -474,10 +408,6 @@ extern int r315[64];
 extern int Mask45[64];
 extern int Mask315[64];
 
-extern int rank6[2];
-extern int rank7[2];
-extern int rank8[2];
-
 extern char *progname;
 extern FILE *ofp;
 extern int myrating, opprating;
@@ -485,13 +415,8 @@ extern int myrating, opprating;
 #define MAXNAMESZ 50
 extern char name[MAXNAMESZ];
 extern int computerplays;
-extern int wasbookmove;
-extern int nmovesfrombook;
-extern float maxtime;
 extern int n; 		/* Last mobility returned by CTL */
 extern int ExchCnt[2];
-extern int newpos, existpos;		/* For book statistics */
-extern int bookloaded;
 
 enum Piece { empty, pawn, knight, bishop, rook, queen, king, bpawn };
 
@@ -540,32 +465,9 @@ void InitDistance (void);
 void InitVars (void);
 void InitHashCode (void);
 void InitHashTable (void);
-void CalcHashSize (int);
 void NewPosition (void);
-void InitFICS (void);
 void InitInput (void);
 
-/* Cleanup routines */
-void CleanupInput(void);
-
-/*  The book routines */
-int BookQuery (int);
-
-/*
- * Return values (errorcodes) for the book routines,
- * maybe one should have a global enum of errorcodes
- */
-enum {
-  BOOK_SUCCESS,
-  BOOK_EFORMAT,  /* Wrong format (e.g. produced by older version) */
-  BOOK_EMIDGAME, /* Move is past the opening book's move limit */ 
-  BOOK_EIO,      /* I/O error, e.g. caused by wrong permissions */
-  BOOK_EFULL,    /* Book hash is full, new position was not added. */
-  BOOK_ENOBOOK,  /* No book present */
-  BOOK_ENOMOVES, /* No moves found (in BookQuery() only) */
-  BOOK_ENOMEM    /* Memory allocation failed */
-};
- 
 /*  The move generation routines  */
 void GenMoves (short);
 void GenCaptures (short);
@@ -621,60 +523,14 @@ void PGNSaveToFile (const char *, const char *);
 void PGNReadFromFile (const char *);
 int IsTrustedPlayer(const char *name);
 
-
-/*  The hash routines  */
-void CalcHashKey (void);
-void ShowHashKey (HashType);
-
-/*  The evaluation routines  */
-int ScoreP (short);
-int ScoreN (short);
-int ScoreB (short);
-int ScoreR (short);
-int ScoreQ (short);
-int ScoreK (short);
-int ScoreDev (short);
-short EvaluateDraw (void);
-
-/*  Hung routines  */
-int EvalHung (int);
-
-/*  The search routines  */
-void Iterate (void);
-int Search (uint8_t ply, short depth, int alpha, int beta, short nodetype);
-int SearchRoot (short depth, int alpha, int beta);
-int Quiesce (uint8_t ply, int alpha, int beta);
-void pick (leaf *, short);
-short Repeat (void);
-void ShowLine (int, int, char);
-
 /*
  * Set up a timer by first calling StartTiming(), saving
  * the return value and feeding it to GetElapsed() for
  * timings in seconds.
  */
 typedef struct timeval Timer;
-extern double ElapsedTime;
-extern Timer StartTime;
 Timer StartTiming (void);
 double GetElapsed (Timer start);
-
-/*  The transposition table routies */
-void TTPut (uint8_t side, uint8_t depth, uint8_t ply, 
-	    int alpha, int beta, int score, int move);
-/* Returns flag if it finds an entry, 0 otherwise */
-uint8_t TTGet (uint8_t side, uint8_t depth, uint8_t ply,
-	     int *score, int *move);
-short TTGetPV (uint8_t side, uint8_t ply, int score, int *move);
-void TTClear (void);
-void PTClear (void);
-
-/*  Sorting routines  */
-void SortCaptures (int);
-void SortMoves (int);
-void SortRoot (void);
-int PhasePick (leaf **, int);
-int PhasePick1 (leaf **, int);
 
 /*  Some output routines */
 void ShowMoveList (int);
@@ -687,22 +543,8 @@ void ShowMvboard (void);
 void ShowGame (void);
 void ShowTime (void);
 
-/*  Random numbers routines */
-uint32_t Rand32 (void);
-HashType Rand64 (void);
-
 /*  Solver routines  */
 void Solve (char *);
-
-/*  Test routines  */
-void TestMoveGenSpeed (void);
-void TestNonCaptureGenSpeed (void);
-void TestCaptureGenSpeed (void);
-void TestMoveList (void);
-void TestNonCaptureList (void);
-void TestCaptureList (void);
-void TestEvalSpeed (void);
-void TestEval (void);
 
 /* Player database */
 void DBSortPlayer (const char *style);
@@ -711,34 +553,6 @@ void DBReadPlayer (void);
 void DBWritePlayer (void);
 int DBSearchPlayer (const char *player);
 void DBUpdatePlayer (const char *player, const char *resultstr);
-void DBTest (void);
-
-/* Input thread and thread function */
-#include <pthread.h>
-extern pthread_t input_thread;
-void *input_func(void *);
-
-/*
- * Status variable used by the input thread to signal
- * pending input. Thought about using flags for this
- * but this can be refined and is conceptually different
- * from flags.
- */
-enum {
-  INPUT_NONE,
-  INPUT_AVAILABLE
-};
-extern volatile int input_status;
-
-/*
- * Function to wake up the input thread, should be called after
- * input has been parsed.
- */
-void input_wakeup(void);
-
-/* Wait for input. */
-
-void wait_for_input(void);
 
 /*
  * Input routine, initialized to one of the specific
@@ -752,9 +566,6 @@ extern char inputstr[BUF_SIZE];
 
 /* Input parser */
 void parse_input(void);
-
-/* Pondering */
-void ponder(void);
 
 /*  The command subroutines */
 void ShowCmd (char *);

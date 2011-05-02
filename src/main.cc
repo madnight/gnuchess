@@ -38,10 +38,7 @@ extern "C" {
 #include "frontend/common.h"
 }
 
-short distance[64][64];
-short taxicab[64][64];
 unsigned char lzArray[65536];
-BitBoard DistMap[64][8];
 BitBoard BitPosArray[64];
 BitBoard NotBitPosArray[64];
 BitBoard MoveArray[8][64];
@@ -50,29 +47,14 @@ BitBoard FromToRay[64][64];
 BitBoard RankBit[8];
 BitBoard FileBit[8];
 BitBoard Ataks[2][7];
-BitBoard PassedPawnMask[2][64];
-BitBoard IsolaniMask[8];
-BitBoard SquarePawnMask[2][64];
 BitBoard Rook00Atak[64][256];
 BitBoard Rook90Atak[64][256];
 BitBoard Bishop45Atak[64][256];
 BitBoard Bishop315Atak[64][256];
-BitBoard pinned;
-BitBoard rings[4];
-BitBoard boxes[2];
-BitBoard stonewall[2];
-BitBoard pieces[2];
-BitBoard mask_kr_trapped_w[3];
-BitBoard mask_kr_trapped_b[3];
-BitBoard mask_qr_trapped_w[3];
-BitBoard mask_qr_trapped_b[3];
-BitBoard boardhalf[2];
-BitBoard boardside[2];
 short directions[64][64];
 unsigned char BitCount[65536];
 leaf Tree[MAXTREEDEPTH];
 leaf *TreePtr[MAXPLYDEPTH];
-int RootPV;
 GameRec Game[MAXGAMEDEPTH];
 int GameCnt;
 int RealGameCnt;
@@ -92,87 +74,29 @@ HashType BQCastlehash;
 HashType Sidehash;
 HashType HashKey;
 HashType PawnHashKey;
-PawnSlot *PawnTab[2];
-int Idepth;
-int SxDec;
 int Game50;
-int lazyscore[2];
-int maxposnscore[2];
-int rootscore;
-int lastrootscore;
 unsigned long GenCnt;
 unsigned long NodeCnt;
 unsigned long QuiesCnt;
-unsigned long EvalCnt;
-unsigned long EvalCall;
-unsigned long ChkExtCnt;
-unsigned long OneRepCnt;
-unsigned long RcpExtCnt;
-unsigned long PawnExtCnt;
-unsigned long HorzExtCnt;
-unsigned long ThrtExtCnt;
-unsigned long KingExtCnt;
-unsigned long NullCutCnt;
-unsigned long FutlCutCnt;
-unsigned long RazrCutCnt;
-unsigned long TotalGetHashCnt;
-unsigned long GoodGetHashCnt;
-unsigned long TotalPutHashCnt;
-unsigned long CollHashCnt;
-unsigned long TotalPawnHashCnt;
-unsigned long GoodPawnHashCnt;
-unsigned long RepeatCnt;
-unsigned HashSize;
-unsigned long TTHashMask;
-unsigned long PHashMask;
 char SANmv[SANSZ];
-unsigned long history[2][4096];
-int killer1[MAXPLYDEPTH];
-int killer2[MAXPLYDEPTH];
-int ChkCnt[MAXPLYDEPTH];
-int ThrtCnt[MAXPLYDEPTH];
 char id[32];
 char solution[64];
-double ElapsedTime;
-Timer StartTime;
 float SearchTime;
-int SearchDepth;
 int MoveLimit[2];
 float TimeLimit[2];
 int TCMove;
 int TCinc;
 float TCTime;
-int castled[2];
-int hunged[2];
 int phase;
-int Hashmv[MAXPLYDEPTH];
-short RootPieces;
-short RootPawns;
-short RootMaterial;
-short RootAlpha;
-short RootBeta;
-short pickphase[MAXPLYDEPTH];
-short InChk[MAXPLYDEPTH];
-short KingThrt[2][MAXPLYDEPTH];
-short threatmv;
-uint8_t threatply;
-short KingSafety[2];
-short pscore[64];
-short bookmode;
 short bookfirstlast;
 
 char *progname;
 FILE *ofp;
-int myrating, opprating, suddendeath, TCionc;
+int myrating, opprating;
 char name[50];
 int computerplays;		/* Side computer is playing */
-int wasbookmove;		/* True if last move was book move */
-int nmovesfrombook;		/* Number of moves since last book move */
-int newpos, existpos;		/* For book statistics */
-float maxtime;		/* Max time for the next searched move */
 int n;		/* Last mobility returned by CTL */
 int ExchCnt[2];	/* How many exchanges? */
-int bookloaded = 0;  	/* Is the book loaded already into memory? */
 
 int slider[8] = { 0, 0, 0, 1, 1, 1, 0, 0 };
 int Value[7] = { 0, ValueP, ValueN, ValueB, ValueR, ValueQ, ValueK};
@@ -286,9 +210,6 @@ int Mask315[64] =
   0x7F, 0xFF, 0x7F, 0x3F, 0x1F, 0x0F, 0x07, 0x03,
   0xFF, 0x7F, 0x3F, 0x1F, 0x0F, 0x07, 0x03, 0x01 };
 
-int rank6[2] = { 5, 2 };
-int rank7[2] = { 6, 1 };
-int rank8[2] = { 7, 0 };
 extern char userinputbuf[];
 
 int main (int argc, char *argv[])
@@ -438,7 +359,6 @@ int main (int argc, char *argv[])
 
   dbg_open(NULL);
 
-  HashSize = 0 ; /* Set HashSize zero */
   if ( opt_memory != 0 )
     ; /* TODO: to be removed - this is handled by the adapter */
 
@@ -490,7 +410,6 @@ int main (int argc, char *argv[])
     }
   }
 
-  bookmode = BOOKPREFER;
   bookfirstlast = 3;
 
   

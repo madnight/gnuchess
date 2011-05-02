@@ -47,25 +47,11 @@ void Initialize (void)
    InitRay ();
    InitFromToRay (); 
    InitRankFileBit ();
-   InitPassedPawnMask ();
-   InitIsolaniMask ();
-   InitSquarePawnMask ();
    InitBitCount ();
    InitRotAtak ();
-   InitRandomMasks ();
-   InitDistance ();
    InitVars ();
 }
 
-
-void InitFICS (void)
-{
-   if (flags & XBOARD) {
-     printf ("tellics shout Greetings from %s %s. Ready for a game.\n", PROGRAM, VERSION);
-     printf ("tellics set 1 %s %s.\n",PROGRAM,VERSION);
-   }
-
-}
 
 #define NBITS 16
 
@@ -290,126 +276,6 @@ void InitRankFileBit (void)
 }
 
 
-void InitRandomMasks (void)
-{
-  mask_kr_trapped_w[0]=BitPosArray[H2];
-  mask_kr_trapped_w[1]=BitPosArray[H1]|BitPosArray[H2];
-  mask_kr_trapped_w[2]=BitPosArray[G1]|BitPosArray[H1]|BitPosArray[H2];
-  mask_qr_trapped_w[0]=BitPosArray[A2];
-  mask_qr_trapped_w[1]=BitPosArray[A1]|BitPosArray[A2];
-  mask_qr_trapped_w[2]=BitPosArray[A1]|BitPosArray[B1]|BitPosArray[A2];
-  mask_kr_trapped_b[0]=BitPosArray[H7];
-  mask_kr_trapped_b[1]=BitPosArray[H8]|BitPosArray[H7];
-  mask_kr_trapped_b[2]=BitPosArray[H8]|BitPosArray[G8]|BitPosArray[H7];
-  mask_qr_trapped_b[0]=BitPosArray[A7];
-  mask_qr_trapped_b[1]=BitPosArray[A8]|BitPosArray[A7];
-  mask_qr_trapped_b[2]=BitPosArray[A8]|BitPosArray[B8]|BitPosArray[A7];
-}
-
-void InitPassedPawnMask (void)
-/**************************************************************************
- *
- *  The PassedPawnMask variable is used to determine if a pawn is passed.
- *  This mask is basically all 1's from the square in front of the pawn to
- *  the promotion square, also duplicated on both files besides the pawn
- *  file.  Other bits will be set to zero.
- *  E.g. PassedPawnMask[white][b3] = 1's in a4-c4-c8-a8 rect, 0 otherwise.
- *
- **************************************************************************/
-{
-   unsigned int sq;
-
-   memset (PassedPawnMask, 0, sizeof (PassedPawnMask));
-
-   /*  Do for white pawns first */
-   for (sq = 0; sq < 64; sq++)
-   {
-      PassedPawnMask[white][sq] = Ray[sq][7];
-      if (ROW(sq) != 0)
-         PassedPawnMask[white][sq] |= Ray[sq-1][7];
-      if (ROW(sq) != 7)
-         PassedPawnMask[white][sq] |= Ray[sq+1][7];
-   }
-
-   /*  Do for black pawns */
-   for (sq = 0; sq < 64; sq++)
-   {
-      PassedPawnMask[black][sq] = Ray[sq][4];
-      if (ROW(sq) != 0)
-         PassedPawnMask[black][sq] |= Ray[sq-1][4];
-      if (ROW(sq) != 7)
-         PassedPawnMask[black][sq] |= Ray[sq+1][4];
-   }
-}
-
-
-void InitIsolaniMask (void)
-/**************************************************************************
- *
- *  The IsolaniMask variable is used to determine if a pawn is an isolani.
- *  This mask is basically all 1's on files beside the file the pawn is on.
- *  Other bits will be set to zero.
- *  E.g. IsolaniMask[d-file] = 1's in c-file & e-file, 0 otherwise.
- *  IMPORTANT:!!!!
- *  Make sure this routine is called AFTER InitRankFileBit().
- *
- **************************************************************************/
-{
-   int i;
-
-   IsolaniMask[0] = FileBit[1];
-   IsolaniMask[7] = FileBit[6];
-   for (i = 1; i <= 6; i++)
-      IsolaniMask[i] = FileBit[i-1] | FileBit[i+1];
-      
-}
-
-
-void InitSquarePawnMask (void)
-/**************************************************************************
- *
- *  The SquarePawnMask is used to determine if a king is in the square of
- *  the passed pawn and is able to prevent it from queening.  
- *  Caveat:  Pawns on 2nd rank have the same mask as pawns on the 3rd rank
- *  as they can advance 2 squares.
- *
- **************************************************************************/
-{
-   unsigned int sq;
-   int len, i, j;
-
-   memset (SquarePawnMask, 0, sizeof (PassedPawnMask));
-   for (sq = 0; sq < 64; sq++)
-   {
-      /*  White mask  */
-      len = 7 - RANK (sq);
-      i = MAX (sq & 56, sq - len);
-      j = MIN (sq | 7, sq + len);
-      while (i <= j)
-      {
-         SquarePawnMask[white][sq] |= (BitPosArray[i] | FromToRay[i][i|56]);
-         i++;
-      }
-
-      /*  Black mask  */
-      len = RANK (sq);
-      i = MAX (sq & 56, sq - len);
-      j = MIN (sq | 7, sq + len);
-      while (i <= j)
-      {
-         SquarePawnMask[black][sq] |= (BitPosArray[i] | FromToRay[i][i&7]);
-         i++;
-      }
-   }
-
-   /*  For pawns on 2nd rank, they have same mask as pawns on 3rd rank */
-   for (sq = A2; sq <= H2; sq++)
-      SquarePawnMask[white][sq] = SquarePawnMask[white][sq+8];
-   for (sq = A7; sq <= H7; sq++)
-      SquarePawnMask[black][sq] = SquarePawnMask[black][sq-8];
-}
-
- 
 void InitBitCount (void)
 /**************************************************************************
  *
@@ -531,48 +397,6 @@ void InitRotAtak (void)
 }
 
 
-void InitDistance (void)
-/**************************************************************************
- *
- *  There are two arrays dealing with distances.  The distance[s1][s2]
- *  array gives the minimum number of moves a king takes to get from s1
- *  to s2.  The taxicab[s1][s2] array is the taxicab distance.  Example:
- *  distance[a1][b3] = 2;  taxicab[a1[b3] = 3;
- *
- *************************************************************************/
-{
-   int f, t, j;
-   int d1, d2;
-
-   for (f = 0; f < 64; f++)
-     for (t = 0; t < 8; t++)
-       DistMap[f][t] = ULL(0);
-
-
-   for (f = 0; f < 64; f++)
-      for (t = f; t < 64; t++)
-      {
-         d1 = (t & 0x07) - (f & 0x07);
-         if (d1 < 0) d1 = -d1;
-         d2 = (t >> 3) - (f >> 3);
-         if (d2 < 0) d2 = -d2;
-         distance[f][t] = MAX (d1, d2);
-         distance[t][f] = MAX (d1, d2);
-         taxicab[f][t] = d1 + d2;
-         taxicab[t][f] = d1 + d2;
-      }
-
-   for (f = 0; f < 64; f++)
-     for (t = 0; t < 64; t++)
-	 DistMap[f][distance[t][f]] |= BitPosArray[t];
-
-   for (f = 0; f < 64; f++)
-     for (t = 0; t < 8; t++)
-       for (j = 0; j < t; j++)
-	 DistMap[f][t] |= DistMap[f][j];
-}
-
-
 void InitVars (void)
 /***************************************************************************
  *
@@ -604,27 +428,6 @@ void InitVars (void)
    SETBIT (board.b[black][bishop], 61);
    SETBIT (board.b[black][knight], 62);
    SETBIT (board.b[black][rook], 63);
-
-   SETBIT (stonewall[white], D4); /* SMC */
-   SETBIT (stonewall[white], E3); /* SMC */
-   SETBIT (stonewall[white], F4); /* SMC */
-
-   SETBIT (stonewall[black], D5); /* SMC */
-   SETBIT (stonewall[black], E6); /* SMC */
-   SETBIT (stonewall[black], F5); /* SMC */
-
-   rings[0] = ULL(0x0000001818000000);
-   rings[1] = ULL(0x00003C24243C0000);
-   rings[2] = ULL(0x007E424242427E00);
-   rings[3] = ULL(0xFF818181818181FF);
-
-   boxes[0] = ULL(0x00003C3C3C3C0000); /* rings[0] | rings[1] */
-   boxes[1] = ULL(0x007E7E7E7E7E7E00); /* rings[0] | rings[1] | rings[2] */
-
-   boardhalf[white] = RankBit[0]|RankBit[1]|RankBit[2]|RankBit[3];
-   boardhalf[black] = RankBit[4]|RankBit[5]|RankBit[6]|RankBit[7];
-   boardside[ks] = FileBit[4]|FileBit[5]|FileBit[6]|FileBit[7];
-   boardside[qs] = FileBit[0]|FileBit[1]|FileBit[2]|FileBit[3];
 
    board.flag |= (WCASTLE | BCASTLE);
    RealSide = board.side = white;
@@ -673,13 +476,8 @@ void InitVars (void)
    SET (flags, USEHASH);
    SET (flags, USENULL);
    SearchTime = 5;
-   SearchDepth = 0;
    board.castled[white] = board.castled[black] = false;
    phase = PHASE;
-
-/*  Calculate the ttable hashmask & pawntable hashmask */
-     
-   nmovesfrombook = 0;
 }
 
 
@@ -694,6 +492,5 @@ void NewPosition (void)
    Game50 = 0;
    RealGameCnt = GameCnt = -1;
    Game[0].hashkey = HashKey;
-   nmovesfrombook = 0;
    ExchCnt[white] = ExchCnt[black] = 0;
 }

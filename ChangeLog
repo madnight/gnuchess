@@ -1,3 +1,11 @@
+2011-05-02  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/frontend/common.h: remove declarations of unused functions 
+	and variables.
+	* src/frontend/cmd.c: remove initialization of unused variable,
+	* src/frontend/init.c: remove unused functions.
+	* src/main.cc: remove unused variables.
+
 2011-04-29  Antonio Ceballos  <aceballos@gmail.com>
 
 	* src/frontend/Makefile.am: remove unused code: ttable.c
