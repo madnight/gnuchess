@@ -696,7 +696,7 @@ static void xboard_step() {
          my_argv[0] = (char *)malloc( 2 );
          my_argv[1] = (char *)malloc( 10 );
          my_argv[2] = (char *)malloc( 5 );
-         my_argv[3] = (char *)malloc( sizeof(token) + 1 );
+         my_argv[3] = (char *)malloc( strlen(token) + 1 );
          strcpy( my_argv[0], "g" );
          strcpy( my_argv[1], "make-book" );
          strcpy( my_argv[2], "-pgn" );

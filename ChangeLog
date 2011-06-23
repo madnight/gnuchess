@@ -1,3 +1,8 @@
+2011-06-23  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/adapter/adapter.cpp: use strlen instead of sizeof to get
+	length of book file name.
+
 2011-05-02  Antonio Ceballos  <aceballos@gmail.com>
 
 	* src/frontend/common.h: remove declarations of unused functions 
