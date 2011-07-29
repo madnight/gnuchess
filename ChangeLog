@@ -1,3 +1,7 @@
+2011-07-29  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/adapter/adapter.cpp: after 'book on', open the book.
+
 2011-06-23  Antonio Ceballos  <aceballos@gmail.com>
 
 	* src/adapter/adapter.cpp: use strlen instead of sizeof to get
