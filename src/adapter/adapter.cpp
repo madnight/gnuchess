@@ -706,6 +706,7 @@ static void xboard_step() {
       } else if ( strcmp( token, "on" ) == 0 ) {
 
          option_set("Book","true");
+         book_open(option_get_string("BookFile"));
 
       } else if ( strcmp( token, "off" ) == 0 ) {
 
