@@ -1,6 +1,10 @@
 2011-07-30  Antonio Ceballos  <aceballos@gmail.com>
 
-	* src/components.cc:if gnuchess.ini is not found, report error
+	* INSTALL: 'cd src' before './gnuchess'
+
+2011-07-30  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/components.cc: if gnuchess.ini is not found, report error
 	before prompt.
 	* src/adapter/main.cpp: if gnuchess.ini is not found, report error
 	before prompt.
