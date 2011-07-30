@@ -23,6 +23,7 @@
 
 // includes
 
+#include <pthread.h>>
 #include <cerrno>
 #include <csignal>
 #include <cstdio>
@@ -67,6 +68,8 @@ static const int StringSize = 4096;
 
 static bool Init;
 extern unsigned int HashSize;
+pthread_mutex_t adapter_init_mutex;
+pthread_cond_t adapter_init_cond;
 
 // prototypes
 
@@ -133,8 +136,12 @@ int main_adapter(int argc, char * argv[]) {
    book_clear();
    if (option_get_bool("Book")) book_open(option_get_string("BookFile"));
 
-   // adapter
+   // flag adapter initialized
+   pthread_mutex_lock( &adapter_init_mutex );
+   pthread_cond_signal( &adapter_init_cond );
+   pthread_mutex_unlock( &adapter_init_mutex );
 
+   // adapter
    adapter_loop();
 
    engine_send(Engine,"quit");
