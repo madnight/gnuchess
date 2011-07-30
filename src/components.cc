@@ -33,6 +33,8 @@
 
 /* Main loop of adapter */
 namespace adapter {
+  extern pthread_mutex_t adapter_init_mutex;
+  extern pthread_cond_t adapter_init_cond;
   int main_adapter(int argc,char *argv[]);
 }
 
@@ -77,8 +79,16 @@ void InitAdapter()
     exit( 1 );
   }
 
+  pthread_mutex_init( &adapter::adapter_init_mutex, NULL );
+  pthread_cond_init( &adapter::adapter_init_cond, NULL );
+
   /* Start adapter thread */
   pthread_create(&adapter_thread, NULL, adapter_func, NULL);
+
+  /* Wait until the adapter is initialized */
+  pthread_mutex_lock( &adapter::adapter_init_mutex );
+  pthread_cond_wait( &adapter::adapter_init_cond, &adapter::adapter_init_mutex );
+  pthread_mutex_unlock( &adapter::adapter_init_mutex );
 }
 
 /*
