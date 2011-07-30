@@ -1,3 +1,11 @@
+2011-07-30  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/components.cc:if gnuchess.ini is not found, report error
+	before prompt.
+	* src/adapter/main.cpp: if gnuchess.ini is not found, report error
+	before prompt.
+	* TODO: if gnuchess.ini is not found, report error before prompt.
+
 2011-07-29  Antonio Ceballos  <aceballos@gmail.com>
 
 	* src/adapter/adapter.cpp: after 'book on', open the book.
