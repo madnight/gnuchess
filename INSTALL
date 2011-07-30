@@ -24,6 +24,7 @@ compilers.
 
 Test gnuchess by typing
 
+	cd src
 	./gnuchess on GNU/Linux / Unix / Mac OS X
 	easy
 	new
