@@ -313,7 +313,7 @@ Produce blurb on command line options.
 @cindex book
 Handle the book.  Requires a subcommand:
 
-add - compiles book.dat from book.pgn
+add - compiles book.bin from book.pgn
 
 on - enables use of book
 

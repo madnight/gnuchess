@@ -1,3 +1,7 @@
+2011-07-31  Antonio Ceballos  <aceballos@gmail.com>
+
+	* doc/gnuchess.texi: 'book.dat' replaced by 'book.bin'.
+
 2011-07-30  Antonio Ceballos  <aceballos@gmail.com>
 
 	* INSTALL: 'cd src' before './gnuchess'
