@@ -203,7 +203,11 @@ void adapter_loop() {
 
    // loop
 
-   while (true) adapter_step();
+   while (true) {
+     adapter_step();
+     sleep( 0 ); // Otherwise, sometimes the program will crash while spending
+                 // a long time solving a position
+   }
 }
 
 // adapter_step()
