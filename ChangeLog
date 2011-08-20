@@ -1,6 +1,7 @@
 2011-08-20  Antonio Ceballos  <aceballos@gmail.com>
 
-	* src/adapter/adapter.cpp: Fix program crash for solveepd with st 30.
+	* src/adapter/adapter.cpp: fix program crash for solveepd with st 30.
+	* src/frontend/engine.c: allow kibitz for solve command.
 
 2011-07-31  Antonio Ceballos  <aceballos@gmail.com>
 

@@ -403,6 +403,29 @@ static int GetNextLine( char buf[], char line[] )
 }
 
 /*
+ * Gets a line from 'buf' and copies it to 'line'.
+ * Unlike GetNextLine, it will not remove the line from the
+ * original buffer.
+ * 
+ * The end-of-line character is also copied.
+ */
+static int GetNextLineNoRemove( char buf[], char line[] )
+{
+  int i=0;
+  int found=0;
+
+  for ( i=0; i<strlen( buf ); ++i ) {
+    line[i] = buf[i];
+    line[i+1] = '\0';
+    if ( line[i] == '\n' ) {
+      found = 1;
+      break;
+    }
+  }
+  return found;
+}
+
+/*
  * Flags whether the color must be changed, e.g. due to an undo command.
  */
 void ChangeColor( int change )
@@ -433,6 +456,9 @@ int GetAutoGo( void )
 void SolvePosition( char move[], const char position[] )
 {
   char msg[BUF_SIZE]="";
+  char engineinput[BUF_SIZE]="";
+  int solved = 0;
+
   printf( "\nSolve position:\n\t%s\n", position );
 
   /* Send position to adapter/engine. */
@@ -446,7 +472,18 @@ void SolvePosition( char move[], const char position[] )
   SendToEngine( msg );
 
   /* Read adapter/engine's answer (the move). */
-  while (! ReadFromEngine() ) {
+  while ( ( ! ReadFromEngine() ) || ( ! solved ) ) {
+    if ( strlen( engineinputbuf ) > 0 ) {
+      GetNextLineNoRemove( engineinputbuf, engineinput );
+      assert( strlen( engineinput ) > 0 );
+      if ( strncmp( engineinput, "move", 4 ) == 0 ) {
+        solved = 1;
+        break;
+      } else {
+        GetNextLine( engineinputbuf, engineinput );
+        printf( "%s\n", engineinput );
+      }
+    }
     sleep( 0 );
   }
   NextEngineCmd();
