@@ -84,9 +84,3 @@ a UCI engine. This is not intended for interactive usage, but for backend
 engine of a UCI-enabled chess graphical interface. Type the following:
 
 	./gnuchess -u
-
-Original Author:
-
-Stuart Cracraft
-Laguna Niguel, CA
-March, 2001
