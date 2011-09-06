@@ -6,6 +6,18 @@ NEWS of GNU Chess
   are permitted in any medium without royalty provided the copyright
   notice and this notice are preserved.
 
+Version 6.0.1 (August 2011)
+
+- Allow kibitz for solve command.
+- If gnuchess.ini is not found, report error before prompt.
+- Fix 'book on' command.
+- Fix 'book add' command.
+- Insert sleep(0) in adapter thread - prevents from crash for
+solveepd with st 30.
+- Typo in info file: 'book.dat' replaced by 'book.bin'.
+- Correct INSTALL: 'cd src' before './gnuchess'
+- Remove some unused code.
+
 Version 6.0.0 (27 April 2011)
 
 - First official release of GNU Chess version 6!
