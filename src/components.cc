@@ -23,7 +23,6 @@
      cracraft@ai.mit.edu, cracraft@stanfordalumni.org, cracraft@earthlink.net
 */
 
-#include <pthread.h>
 #include <cstdio>
 #include <cstdlib>
 #include <unistd.h>
@@ -82,11 +81,14 @@ void InitAdapter()
   pthread_mutex_init( &adapter::adapter_init_mutex, NULL );
   pthread_cond_init( &adapter::adapter_init_cond, NULL );
 
+  /* Lock mutex before creating the adapter thread. Otherwise, it can happen
+   * that the adapter thread locks the mutex before the main thread. In such a
+   * case, the signal will be raised before the main thread can wait for it,
+   * and the main thread will be waiting forever. */
+  pthread_mutex_lock( &adapter::adapter_init_mutex );
   /* Start adapter thread */
   pthread_create(&adapter_thread, NULL, adapter_func, NULL);
-
-  /* Wait until the adapter is initialized */
-  pthread_mutex_lock( &adapter::adapter_init_mutex );
+  /* Wait until the adapter is initialized and unlock mutex */
   pthread_cond_wait( &adapter::adapter_init_cond, &adapter::adapter_init_mutex );
   pthread_mutex_unlock( &adapter::adapter_init_mutex );
 }
