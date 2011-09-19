@@ -1,3 +1,8 @@
+2011-09-20  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/frontend/epd.c: extend maximum file name length of EPD
+	files to 127 characters for the load and loadepd commands.
+
 2011-09-07  Antonio Ceballos  <aceballos@gmail.com>
 
 	* src/components.cc: fix race condition.
