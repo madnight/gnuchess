@@ -65,6 +65,7 @@ void *adapter_func(void *arg)
   InitEngine();
   /* Start adapter main loop */
   adapter::main_adapter( 0, 0 );
+  return 0;
 }
 
 /*
@@ -100,6 +101,7 @@ void *engine_func(void *arg)
 {
   /* Start engine main loop */
   engine::main_engine( 0, 0 );
+  return 0;
 }
 
 /*
