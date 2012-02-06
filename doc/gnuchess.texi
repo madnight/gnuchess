@@ -264,6 +264,12 @@ Enable UCI protocol (externally behave as UCI engine).
 @opindex -M
 Specify memory usage in MB for hashtable.
 
+@item --addbook filename
+@itemx -a filename
+@opindex --addbook
+@opindex -a
+Compile book.bin from pgn book 'filename' and quits.
+
 @end table
 
 

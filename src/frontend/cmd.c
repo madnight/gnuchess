@@ -610,6 +610,7 @@ void cmd_usage(void)
      " -m, --manual       enable manual mode\n"
      " -u, --uci          enable UCI protocol (externally behave as UCI engine)\n"
      " -M size, --memory=size   specify memory usage in MB for hashtable\n"
+     " -a filename, --addbook=filename   compile book.bin from pgn book 'filename'\n"
      "\n"
      " Options xboard and post are accepted without leading dashes\n"
      " for backward compatibility.\n"
@@ -798,7 +799,7 @@ static const char * const helpstr[] = {
    "help",
    " Produces a help blurb corresponding to this list of commands.",
    "book",
-   " add - compiles book.dat from book.pgn",
+   " add - compiles book.bin from a pgn book file",
    " on - enables use of book",
    " off - disables use of book",
    " worst - play worst move from book",

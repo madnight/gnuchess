@@ -1,3 +1,9 @@
+2012-02-06  Antonio Ceballos <aceballos@gmail.com>
+
+	* src/main.cpp: new --addbook option to compile book and quit.
+	* src/frontend/cmd.c: help for --addbook option.
+	* doc/gnuchess.texi: info for --addbook option.
+
 2011-12-26  Josef Reidinger  <jreidinger@suse.com>  (tiny change)
 
 	* src/components.cc: add missing return in functions returning

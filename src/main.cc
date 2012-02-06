@@ -225,6 +225,7 @@ int main (int argc, char *argv[])
   int c;
   int opt_help = 0, opt_version = 0, opt_post = 0, opt_xboard = 0, opt_memory = 0,
       opt_easy = 0, opt_manual = 0, opt_quiet = 0, opt_uci = 0;
+  char opt_addbook[MAXSTR+1] = "";
   char *endptr;
 
   progname = argv[0]; /* Save in global for cmd_usage */
@@ -243,6 +244,7 @@ int main (int argc, char *argv[])
         {"easy", 0, 0, 'e'},
         {"manual", 0, 0, 'm'},
         {"uci", 0, 0, 'u'},
+        {"addbook", 1, 0, 'a'},
         {0, 0, 0, 0}
     };
  
@@ -250,7 +252,7 @@ int main (int argc, char *argv[])
 
     int option_index = 0;
  
-    c = getopt_long (argc, argv, "qehmpvxM:u",
+    c = getopt_long (argc, argv, "qehmpvxM:ua:",
              long_options, &option_index);
  
     /* Detect the end of the options. */
@@ -302,6 +304,18 @@ int main (int argc, char *argv[])
        break;
      case 'u':
        opt_uci = 1;
+       break;
+     case 'a':    
+       if  ( optarg == NULL ){ /* we have error such as two -a */
+         opt_help = 1;
+         break;
+       }
+       errno = 0; /* zero error indicator */
+       if ( strlen( optarg ) > MAXSTR ) {
+         printf( "File name is too long (max = %d)\n", MAXSTR );
+         return(1);
+       }
+       strcpy( opt_addbook, optarg );
        break;
      default:
        puts ("Option Processing Failed\n");
@@ -370,6 +384,13 @@ int main (int argc, char *argv[])
   } else {
     /* Initialize the engine only; no adapter */
     InitEngine();
+  }
+
+  /* Compile book if the addbook option was specified. Ognore any other options. */
+  if ( strlen( opt_addbook ) > 0 ) {
+    char data[9+MAXSTR+1]="";
+    sprintf( data, "book add %s\nquit", opt_addbook );
+    SendToEngine( data );
   }
 
   if ( opt_easy == 0 )
