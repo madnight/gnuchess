@@ -1,6 +1,6 @@
 README of GNU Chess tests
 
-  Copyright (C) 2001-2011 Free Software Foundation, Inc.
+  Copyright (C) 2001-2012 Free Software Foundation, Inc.
 
   Copying and distribution of this file, with or without modification,
   are permitted in any medium without royalty provided the copyright
@@ -8,6 +8,23 @@ README of GNU Chess tests
 
 This text file records the results of tests run over well specified
 hardware. The file is written in reverse chronological order.
+
+* 2011/09/11
+
+Processor: 2.53 GHz Intel Core 2 Duo
+S.O.: Mac OS X 10.7
+Hash: 256 MB
+Nalimov cache: 16 MB
+Book on
+v6.0.1
+
+FICS
+Finger of GNUChessSix(C):
+
+          rating     RD      win    loss    draw   total   best
+Blitz      2293     43.7     125     125      65     315   2434 (03-Jan-2011)
+Standard   2289     74.0      39      39      21      99   2422 (16-Apr-2011)
+Lightning  2376     48.9      49      49      20     118   2461 (22-Jan-2011)
 
 * 2011/08/25
 
