@@ -1,6 +1,6 @@
-/* GNU Chess 5.90 - main.cc - entry point
+/* GNU Chess 6 - main.cc - entry point
 
-   Copyright (c) 2001-2011 Free Software Foundation, Inc.
+   Copyright (c) 2001-2012 Free Software Foundation, Inc.
 
    GNU Chess is based on the two research programs 
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
@@ -386,9 +386,9 @@ int main (int argc, char *argv[])
     InitEngine();
   }
 
-  /* Compile book if the addbook option was specified. Ognore any other options. */
+  /* Compile book if the addbook option was specified. Ignore any other options. */
   if ( strlen( opt_addbook ) > 0 ) {
-    char data[9+MAXSTR+1]="";
+    char data[9+MAXSTR+1+4]="";
     sprintf( data, "book add %s\nquit", opt_addbook );
     SendToEngine( data );
   }
