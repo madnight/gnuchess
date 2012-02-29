@@ -8,6 +8,8 @@ TODO of GNU Chess
 
 Items are in random order, mostly chronological.
 
+* Add analysis tools for the evaluation function.
+
 * Commands white/black/switch don't work. They are supposed to be 
 used for icsDrone. However, icsDrone reports to not work for 
 GNU Chess 5.02. Neither for v6...
@@ -41,3 +43,7 @@ to include some information compared with v5.
 * Get benefit from multiple-core processors, by sharing search across them.
 
 * End-game table
+
+* Consider using gettext for internationalization.
+
+* Read-only permission for opening the book.

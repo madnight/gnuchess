@@ -1,10 +1,15 @@
 NEWS of GNU Chess
 
-  Copyright (C) 2001-2011 Free Software Foundation, Inc.
+  Copyright (C) 2001-2012 Free Software Foundation, Inc.
 
   Copying and distribution of this file, with or without modification,
   are permitted in any medium without royalty provided the copyright
   notice and this notice are preserved.
+
+Version 6.0.2 (February 2012)
+
+- New option --addbook to compile a book.
+- Maximum file name length of EPD files extended to 127 characters.
 
 Version 6.0.1 (August 2011)
 

@@ -1,6 +1,17 @@
+2012-02-12  Antonio Ceballos <aceballos@gmail.com>
+
+	* src/main.cc: Fix version number in file heading.
+	Increase size of string for the --addbook option.
+	* src/components.cc: Fix version number in file heading.
+	* src/components.h: Fix version number in file heading.
+	* configure.ac: help for --addbook option.
+	* NEWS: changes in version 6.0.2
+	* test/README: record 6.0.1 ranking in FICS.
+	* configure.ac: version 6.0.2
+
 2012-02-06  Antonio Ceballos <aceballos@gmail.com>
 
-	* src/main.cpp: new --addbook option to compile book and quit.
+	* src/main.cc: new --addbook option to compile book and quit.
 	* src/frontend/cmd.c: help for --addbook option.
 	* doc/gnuchess.texi: info for --addbook option.
 
@@ -131,7 +142,7 @@
 	* src/frontend/engine.c: comment out extra output write.
 	* src/adapter/adapter.cpp: remove debug trace.
 
-Copyright (C) 2001-2011 Free Software Foundation, Inc.
+Copyright (C) 2001-2012 Free Software Foundation, Inc.
 
 Copying and distribution of this file, with or without modification,
 are permitted in any medium without royalty provided the copyright
