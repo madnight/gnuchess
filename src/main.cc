@@ -359,7 +359,7 @@ int main (int argc, char *argv[])
   
   /* Startup output */
   if ( !( flags & XBOARD ) && ( !opt_quiet ) && ( !opt_uci) ) {
-    printf( "Copyright (C) 2011 Free Software Foundation, Inc.\n" );
+    printf( "Copyright (C) 2012 Free Software Foundation, Inc.\n" );
     printf( "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\n" );
     printf( "This is free software: you are free to change and redistribute it.\n" );
     printf( "There is NO WARRANTY, to the extent permitted by law.\n" );
