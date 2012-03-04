@@ -1,6 +1,6 @@
 INSTALL of GNU Chess
 
-  Copyright (C) 2001-2011 Free Software Foundation, Inc.
+  Copyright (C) 2001-2012 Free Software Foundation, Inc.
 
   Copying and distribution of this file, with or without modification,
   are permitted in any medium without royalty provided the copyright
@@ -57,7 +57,7 @@ than /usr/local, replace the first line by
 
 You can build an opening book which may enhance the value
 of gnuchess quite a lot. In order to do so, get the file
-book_1.02.pgn (see doc/README for instructions on how to get it)
+book_1.02.pgn (http://ftp.gnu.org/gnu/chess/book_1.02.pgn.gz)
 and type the following.
 
 	./gnuchess
