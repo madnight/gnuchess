@@ -2,7 +2,7 @@
 
    GNU Chess protocol adapter
 
-   Copyright (C) 2001-2011 Free Software Foundation, Inc.
+   Copyright (C) 2001-2012 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -134,7 +134,13 @@ int main_adapter(int argc, char * argv[]) {
    // opening book
 
    book_clear();
-   if (option_get_bool("Book")) book_open(option_get_string("BookFile"));
+   if (option_get_bool("Book")) {
+      int mode = BookReadOnly;
+      if (option_get_bool("BookLearn")) {
+         mode = BookReadWrite;
+      }
+      book_open(option_get_string("BookFile"),mode);
+   }
 
    // flag adapter initialized
    pthread_mutex_lock( &adapter_init_mutex );

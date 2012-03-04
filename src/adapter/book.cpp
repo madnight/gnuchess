@@ -2,7 +2,7 @@
 
    GNU Chess protocol adapter
 
-   Copyright (C) 2001-2011 Free Software Foundation, Inc.
+   Copyright (C) 2001-2012 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -74,11 +74,14 @@ void book_clear() {
 
 // book_open()
 
-void book_open(const char file_name[]) {
+void book_open(const char file_name[], int mode) {
 
    ASSERT(file_name!=NULL);
+   ASSERT(mode==BookReadOnly || mode==BookReadWrite);
 
+   const int MaxModeLength = 4;
    char full_file_name[MaxFileNameSize+1];
+   char file_open_mode[MaxModeLength]="";
    FILE *bf;
    if ( ( bf = fopen(file_name, "r") ) != NULL ) {
       fclose(bf);
@@ -89,8 +92,20 @@ void book_open(const char file_name[]) {
    }
    strcat(full_file_name,file_name);
 
-   BookFile = fopen(full_file_name,"rb+");
-   if (BookFile == NULL) my_fatal("book_open(): can't open file \"%s\": %s\n",full_file_name,strerror(errno));
+   if (mode == BookReadWrite) {
+      strcpy(file_open_mode,"rb+");
+   } else {
+      strcpy(file_open_mode,"rb");
+   }
+   BookFile = fopen(full_file_name,file_open_mode);
+   if (BookFile == NULL) {
+      if (fopen(full_file_name,"rb") != NULL) {
+         fclose(bf);
+         my_fatal("book_open(): file \"%s\" is read only\n",full_file_name);
+      } else {
+         my_fatal("book_open(): can't open file \"%s\": %s\n",full_file_name,strerror(errno));
+      }
+   }
 
    if (fseek(BookFile,0,SEEK_END) == -1) {
       my_fatal("book_open(): fseek(): %s\n",strerror(errno));

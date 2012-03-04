@@ -2,7 +2,7 @@
 
    GNU Chess protocol adapter
 
-   Copyright (C) 2001-2011 Free Software Foundation, Inc.
+   Copyright (C) 2001-2012 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -31,11 +31,16 @@
 
 namespace adapter {
   
+// constants
+
+const int BookReadOnly   = 1;
+const int BookReadWrite  = 2;
+
 // functions
 
 extern void book_clear      ();
 
-extern void book_open       (const char file_name[]);
+extern void book_open       (const char file_name[], int mode);
 extern void book_close      ();
 
 extern bool is_in_book      (const board_t * board);

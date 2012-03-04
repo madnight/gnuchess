@@ -2,7 +2,7 @@
 
    GNU Chess protocol adapter
 
-   Copyright (C) 2001-2011 Free Software Foundation, Inc.
+   Copyright (C) 2001-2012 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -710,7 +710,11 @@ static void xboard_step() {
       } else if ( strcmp( token, "on" ) == 0 ) {
 
          option_set("Book","true");
-         book_open(option_get_string("BookFile"));
+         int mode = BookReadOnly;
+         if (option_get_bool("BookLearn")) {
+            mode = BookReadWrite;
+         }
+         book_open(option_get_string("BookFile"),mode);
 
       } else if ( strcmp( token, "off" ) == 0 ) {
 
