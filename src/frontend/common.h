@@ -127,24 +127,6 @@ typedef struct
    char *comments;
 } GameRec;
 
-typedef struct
-{
-   HashType key;    /* Full 64 bit hash */
-   int move;        /* Best move */
-   int score;       /* Estimated score, may be lower or upper bound */
-   uint8_t flag;    /* Is this alpha, beta, quiescent or exact? */
-   uint8_t depth;   /* Search depth */
-} HashSlot;   
-
-typedef struct
-{
-   KeyType pkey;  
-   BitBoard passed;
-   BitBoard weaked;
-   int score;
-   int phase;
-} PawnSlot;
-
 
 /*  MACRO definitions */
 
@@ -166,10 +148,7 @@ typedef struct
   } while (0)
 
 /* Draw score can be used to penalise draws if desired */
-#define	DRAWSCORE   0 
-#define MATERIAL     (board.material[side] - board.material[1^side])
 #define PHASE	     (8 - (board.material[white]+board.material[black]) / 1150)
-#define KEY(a)	     (a >> 32) 
 
 /*  Attack MACROS */
 
@@ -289,19 +268,6 @@ typedef struct
 #define HARD    0x4000 /* Pondering is turned on */
 #define ANALYZE 0x8000 /* In ANALYZE mode */
 
-/*  Node types  */ 
-#define PV  0
-#define ALL 1
-#define CUT 2
-
-/*  Transposition table flags  */
-#define EXACTSCORE  1
-#define LOWERBOUND  2
-#define UPPERBOUND  3
-#define POORDRAFT   4
-#define QUIESCENT   5
-#define STICKY      8
-
 /*  Book modes */
 #define BOOKOFF 0
 #define BOOKRAND 1
@@ -309,27 +275,9 @@ typedef struct
 #define BOOKWORST 3
 #define BOOKPREFER 4
 
-/*  The various phases during move selection  */
-#define PICKHASH    1
-#define PICKGEN1    2
-#define PICKCAPT    3
-#define PICKKILL1   4
-#define PICKKILL2   5
-#define PICKGEN2    6
-#define PICKHIST    7
-#define PICKREST    8
-#define PICKCOUNTER 9
-
 #define MAXTREEDEPTH  2000
 #define MAXPLYDEPTH   65
 #define MAXGAMEDEPTH  600
-
-/* 
-   Smaller HASHSLOT defaults 20011017 to improve blitz play
-   and make it easier to run on old machines
-*/
-#define HASHSLOTS 1024 
-#define PAWNSLOTS 512
 
 #define R_WHITE_WINS 1
 #define R_BLACK_WINS 2
@@ -378,8 +326,6 @@ extern HashType HashKey;
 extern HashType PawnHashKey;
 extern int Game50;
 extern unsigned long GenCnt;
-extern unsigned long NodeCnt;
-extern unsigned long QuiesCnt;
 extern int slider[8];
 extern int Value[7];
 extern char SANmv[SANSZ];
@@ -478,24 +424,15 @@ void FilterIllegalMoves (short);
 /*  The move routines  */
 void MakeMove (int, int *);
 void UnmakeMove (int, int *);
-void MakeNullMove (int);
-void UnmakeNullMove (int);
 void SANMove (int, int);
 leaf *ValidateMove (char *);
 leaf *IsInMoveList (int, int, int, char);
-int IsLegalMove (int);
 char *AlgbrMove (int);
 
 /*  The attack routines  */
 short SqAtakd (short sq, short side);
-void GenAtaks (void);
 BitBoard AttackTo (int, int);
-BitBoard AttackXTo (int, int);
-BitBoard AttackFrom (int, int, int);
-BitBoard AttackXFrom (int, int);
 int PinnedOnKing (int, int);
-void FindPins (BitBoard *);
-int MateScan (int);
 
 /*  The swap routines  */
 int SwapOff (int);
@@ -521,22 +458,11 @@ short ValidateBoard (void);
 /*  PGN routines  */
 void PGNSaveToFile (const char *, const char *);
 void PGNReadFromFile (const char *);
-int IsTrustedPlayer(const char *name);
-
-/*
- * Set up a timer by first calling StartTiming(), saving
- * the return value and feeding it to GetElapsed() for
- * timings in seconds.
- */
-typedef struct timeval Timer;
-Timer StartTiming (void);
-double GetElapsed (Timer start);
 
 /*  Some output routines */
 void ShowMoveList (int);
 void ShowSmallBoard (void);
 void ShowBoard (void);
-void ShowBitBoard (BitBoard *);
 void ShowCBoard (void);
 void ShowMvboard (void);
 
@@ -554,11 +480,6 @@ void DBWritePlayer (void);
 int DBSearchPlayer (const char *player);
 void DBUpdatePlayer (const char *player, const char *resultstr);
 
-/*
- * Input routine, initialized to one of the specific
- * input routines. The given argument is the prompt.
- */
-
 #define BUF_SIZE 4096
 
 #define MAXSTR 128
@@ -566,11 +487,6 @@ extern char inputstr[BUF_SIZE];
 
 /* Input parser */
 void parse_input(void);
-
-/*  The command subroutines */
-void ShowCmd (char *);
-void BookCmd (char *);
-void TestCmd (char *);
 
 /* Commands from the input engine */
 void cmd_activate(void); 

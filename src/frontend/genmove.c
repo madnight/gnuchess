@@ -29,9 +29,6 @@
 
 #include "common.h"
 
-const short raybeg[7] = { 0, 0, 0, 0, 4, 0, 0 };
-const short rayend[7] = { 0, 0, 0, 4, 8, 8, 0 };
-
 static leaf *node;
 
 #define ADDMOVE(a,b,c)            \

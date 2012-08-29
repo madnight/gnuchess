@@ -6,6 +6,16 @@ TODO of GNU Chess
   are permitted in any medium without royalty provided the copyright
   notice and this notice are preserved.
 
+TODO immediately: (suggested by Sebastian Pipping)
+ - Could the shipped file "book.bin" be renamed
+  to "smallbook.bin" for the next release?
+  That would resolve the name competition
+  with the full book's file that I have on distro level
+
+ - Book book_1.01.pgn seems to crash gnuchess 6.0.2
+  soon after start of the import.  Please add
+  proper handling to catch this.
+
 Items are in random order, mostly chronological.
 
 * Add analysis tools for the evaluation function.
@@ -46,4 +56,6 @@ to include some information compared with v5.
 
 * Consider using gettext for internationalization.
 
-* Read-only permission for opening the book.
+* Bug: in FICS, after quiting in the middle of a game, logging in again,
+accepting resuming game as proposed by opponent, the opponent moved but
+GNU Chess never moved again. GNU Chess ran out of it.

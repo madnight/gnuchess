@@ -43,13 +43,11 @@ void Solve (char *file)
  *****************************************************************************/
 {
    int total, correct, found;
-   long TotalNodes;
    char *p;
    char myMove[100]="";
    int elo;
 
    total = correct = 0;
-   TotalNodes = 0;
    SET (flags, SOLVE); 
    while (ReadEPDFile (file, 0))
    {
@@ -57,7 +55,6 @@ void Solve (char *file)
       total++;
       ShowBoard (); 
       SolvePosition( myMove, epd_line );
-      TotalNodes += NodeCnt + QuiesCnt;
       p = solution;
       found = false;
       while (*p != '\0')
@@ -76,7 +73,6 @@ void Solve (char *file)
       printf ("<%s> %s\n", myMove, solution);
       printf ("Correct=%d Total=%d\n", correct, total);
    }
-   printf ("\nTotal nodes = %ld\n", TotalNodes);
    CLEAR (flags, SOLVE);
 }
 

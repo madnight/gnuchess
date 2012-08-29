@@ -130,31 +130,6 @@ void ShowSmallBoard (void)
   
 
 
-void ShowBitBoard (BitBoard *b)
-/*****************************************************************************
- *
- * Just to print a lousy ascii board  
- *
- *****************************************************************************/
-{
-   int r, c;
-
-   printf ("\n");
-   for (r = 56; r >= 0; r -= 8)
-   {
-      for (c = 0; c < 8; c++)
-      {
-         if (*b & BitPosArray[r + c])
-            printf ("1 ");
-         else
-            printf (". "); 
-      }
-      printf ("\n");
-   }
-   printf ("\n");
-}
-
-
 void ShowBoard (void)     
 /*****************************************************************************
  *

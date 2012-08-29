@@ -76,8 +76,6 @@ HashType HashKey;
 HashType PawnHashKey;
 int Game50;
 unsigned long GenCnt;
-unsigned long NodeCnt;
-unsigned long QuiesCnt;
 char SANmv[SANSZ];
 char id[32];
 char solution[64];

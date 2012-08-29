@@ -1,3 +1,14 @@
+2012-08-29  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/frontend/output.c: removed unused code.
+	* src/frontend/genmove.c: removed unused code.
+	* src/frontend/move.c: removed unused code.
+	* src/frontend/atak.c: removed unused code.
+	* src/frontend/solve.c: removed unused code.
+	* src/frontend/common.h: removed unused code.
+	* src/main.cc: removed unused code.
+	* TODO: added some tasks
+
 2012-03-05  Antonio Ceballos  <aceballos@gmail.com>
 
 	* INSTALL: Remove reference to inexistent doc/README.
