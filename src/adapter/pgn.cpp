@@ -150,7 +150,20 @@ bool pgn_next_game(pgn_t * pgn) {
 
       pgn_token_read(pgn);
       if (pgn->token_type != ']') {
-         my_fatal("pgn_next_game(): malformed tag at line %d, column %d\n",pgn->token_line,pgn->token_column);
+         if ( (my_string_equal(name,"Result")) || (my_string_equal(name,"FEN")) ) {
+            my_fatal("pgn_next_game(): malformed tag at line %d, column %d\n",pgn->token_line,pgn->token_column);
+         } else {
+            // Ignore rest of line up to ']'
+            my_log("pgn_next_game(): malformed tag at line %d, column %d\n",pgn->token_line,pgn->token_column);
+            while (pgn->char_hack!= ']') {
+               pgn_char_read(pgn);
+            }
+            pgn_char_unread(pgn);
+            pgn_token_read(pgn);
+            if (pgn->token_type != ']') {
+               my_fatal("pgn_next_game(): malformed tag at line %d, column %d\n",pgn->token_line,pgn->token_column);
+            }
+         }
       }
 
       // special tag?

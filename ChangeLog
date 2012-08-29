@@ -1,5 +1,11 @@
 2012-08-29  Antonio Ceballos  <aceballos@gmail.com>
 
+	* src/adapter/pgn.cpp: Ignore rest of line instead of
+	crashing when unexpected token is found in game line.
+	This way, book_1.01.pgn can be successfully read.
+
+2012-08-29  Antonio Ceballos  <aceballos@gmail.com>
+
 	* src/frontend/output.c: removed unused code.
 	* src/frontend/genmove.c: removed unused code.
 	* src/frontend/move.c: removed unused code.
