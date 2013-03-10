@@ -1,5 +1,10 @@
 2013-03-10  Antonio Ceballos  <aceballos@gmail.com>
 
+	* configure.ac: replace AM_CONFIG_HEADER by AC_CONFIG_HEADERS;
+	modernize AM_INIT_AUTOMAKE.
+
+2013-03-10  Antonio Ceballos  <aceballos@gmail.com>
+
 	* src/frontend/cmd.c: if in manual mode, keep it after undo.
 	* src/main.cc: sleep 100us in main loop to avoid 100% CPU.
 
