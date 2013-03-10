@@ -1,5 +1,13 @@
 2013-03-10  Antonio Ceballos  <aceballos@gmail.com>
 
+	* configure.ac: version 6.0.3
+	* NEWS: changes in version 6.0.3
+	* doc/gnuchess.texi: date
+	* doc/version.texi: version
+
+
+2013-03-10  Antonio Ceballos  <aceballos@gmail.com>
+
 	* configure.ac: replace AM_CONFIG_HEADER by AC_CONFIG_HEADERS;
 	modernize AM_INIT_AUTOMAKE.
 
@@ -33,9 +41,9 @@
 
 	Idea from Kamil Rytarowski <n54@gmx.com>
 	* src/adapter/main.cpp: Open book file in read-only or read-write
-	mode depending on BookLearn option false or ture, respectively.
+	mode depending on BookLearn option false or true, respectively.
 	* src/adapter/adapter.cpp: Open book file in read-only or read-write
-	mode depending on BookLearn option false or ture, respectively.
+	mode depending on BookLearn option false or true, respectively.
 	* src/adapter/book.h: book_open() can open a book file in
 	read-only or read-write mode.
 	* src/adapter/book.cpp: book_open() can open a book file in

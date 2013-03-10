@@ -1,10 +1,20 @@
 NEWS of GNU Chess
 
-  Copyright (C) 2001-2012 Free Software Foundation, Inc.
+  Copyright (C) 2001-2013 Free Software Foundation, Inc.
 
   Copying and distribution of this file, with or without modification,
   are permitted in any medium without royalty provided the copyright
   notice and this notice are preserved.
+
+Version 6.0.3 (March 2013)
+
+- Run autoreconf and configure based on autoconf 2.69 and automake 1.13
+to get rid of these vulnerabilies:
+  http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4029
+  http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3386
+- Update configure.ac to automake 1.13.
+- If in manual mode, keep it after undo.
+- Remove some unused code.
 
 Version 6.0.2 (March 2012)
 
