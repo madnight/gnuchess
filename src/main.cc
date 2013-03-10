@@ -472,6 +472,8 @@ int main (int argc, char *argv[])
       ReadFromUser();
       /* Check if engine input ready for reading. If so, store it in a buffer. */
       ReadFromEngine();
+
+      usleep(100);
     }
   }
   

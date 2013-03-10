@@ -1,3 +1,8 @@
+2013-03-10  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/frontend/cmd.c: if in manual mode, keep it after undo.
+	* src/main.cc: sleep 100us in main loop to avoid 100% CPU.
+
 2012-08-29  Antonio Ceballos  <aceballos@gmail.com>
 
 	* src/adapter/pgn.cpp: Ignore rest of line instead of
@@ -177,7 +182,7 @@
 	* src/frontend/engine.c: comment out extra output write.
 	* src/adapter/adapter.cpp: remove debug trace.
 
-Copyright (C) 2001-2012 Free Software Foundation, Inc.
+Copyright (C) 2001-2013 Free Software Foundation, Inc.
 
 Copying and distribution of this file, with or without modification,
 are permitted in any medium without royalty provided the copyright
