@@ -1,5 +1,9 @@
 2013-03-10  Antonio Ceballos  <aceballos@gmail.com>
 
+	* configure.ac: explicit package name in AC_INIT.
+
+2013-03-10  Antonio Ceballos  <aceballos@gmail.com>
+
 	* configure.ac: version 6.0.3
 	* NEWS: changes in version 6.0.3
 	* doc/gnuchess.texi: date
