@@ -218,6 +218,7 @@ void cmd_go(void)
   ExpectAnswerFromEngine( true );
   ChangeColor( true );
   SetDataToEngine( token[0] );
+  pgnloaded = 0;
 }
 
 void cmd_hard(void)
@@ -287,6 +288,7 @@ void cmd_load(void)
 {
   char data[MAXSTR]="";
   LoadEPD (token[1]);
+  pgnloaded = 0; 
   if (!ValidateBoard()) {
     SET (flags, ENDED);
     printf ("Board is wrong!\n");
@@ -424,6 +426,7 @@ void cmd_pgnload(void)
     printf( "Incorrect epd file\n" );
     return;
   }
+
   strcpy( data, "setboard " );
   int i=0;
   while ( epdline[i] != '\n' ) {
@@ -431,8 +434,103 @@ void cmd_pgnload(void)
     ++i;
   }
   data[i+9] = '\0';
+
   SetDataToEngine( data );
   SetAutoGo( true );
+
+  pgnloaded = 1;
+  pgncnt = GameCnt;
+  
+  while (GameCnt >= 0) {
+    if (GameCnt >= 0) {
+      CLEAR (flags, ENDED);
+      CLEAR (flags, TIMEOUT);
+      ChangeColor( true );
+      SetAutoGo( true );
+      UnmakeMove (board.side, &Game[GameCnt].move);
+      if (GameCnt >= 0) {
+        UnmakeMove (board.side, &Game[GameCnt].move);
+      }
+    }
+  }
+
+  ShowBoard (); 
+}
+
+void cmd_next(void)
+{
+  if (!pgnloaded)
+    return;
+
+  if ((GameCnt+1) <= pgncnt) {
+    ChangeColor( true );
+    SetAutoGo( true );
+    MakeMove (board.side, &Game[GameCnt+1].move);
+  } else {
+    printf("No more moves. Game reached the end.\n");    
+    return;
+  }
+  
+  printf("%d. ",GameCnt/2+1);
+  printf("%s\n", Game[GameCnt].SANmv);    
+  ShowBoard (); 
+}
+
+void cmd_previous(void)
+{
+  if (!pgnloaded)
+    return;
+
+  if (GameCnt >= 0) {
+    ChangeColor( true );
+    SetAutoGo( true );
+    UnmakeMove (board.side, &Game[GameCnt].move);
+  }
+  else {
+    printf("Initial position reached. No more moves before.\n");
+    return;
+  } 
+
+  printf("%d. ",GameCnt/2+1);
+  printf("%s\n", Game[GameCnt].SANmv);    
+  ShowBoard (); 
+}
+
+void cmd_last(void)
+{
+  if (!pgnloaded)
+    return;
+
+  while (GameCnt+1 <= pgncnt) {
+    ChangeColor( true );
+    SetAutoGo( true );
+    MakeMove (board.side, &Game[GameCnt+1].move);
+  }
+
+  printf("%d. ",GameCnt/2+1);
+  printf("%s\n", Game[GameCnt].SANmv);
+  ShowBoard (); 
+}
+
+void cmd_prior(void)
+{
+  if (!pgnloaded)
+    return;
+
+  while (GameCnt >= 0) {
+    if (GameCnt >= 0) {
+      CLEAR (flags, ENDED);
+      CLEAR (flags, TIMEOUT);
+      ChangeColor( true );
+      SetAutoGo( true );
+      UnmakeMove (board.side, &Game[GameCnt].move);
+      if (GameCnt >= 0) {
+        UnmakeMove (board.side, &Game[GameCnt].move);
+      }
+    }
+  }
+
+  ShowBoard (); 
 }
 
 /*
@@ -446,6 +544,18 @@ void cmd_pgnsave(void)
     PGNSaveToFile (token[1], "");
   else
     printf("Invalid filename.\n");
+}
+
+void cmd_graphic(void)
+{
+  graphicmodeoutput = 1;
+  printf("graphicmode enabled.\n");
+}
+
+void cmd_nographic(void)
+{
+  graphicmodeoutput = 0;
+  printf("graphicmode disabled.\n");
 }
  
 void cmd_ping(void)
@@ -644,6 +754,7 @@ void cmd_usermove(void)
       */
      SetUserInputValidMove( 1 );
      SetDataToEngine( token[0] );
+     pgnloaded = 0;
      ExpectAnswerFromEngine( true );
      SANMove (ptr->move, 1);
      MakeMove (board.side, &ptr->move);
@@ -808,10 +919,21 @@ static const char * const helpstr[] = {
    " random - play any move from book",
    "version",
    " prints out the version of this program",
+   "p",
+   " back on move in pgn loaded game",
    "pgnsave FILENAME",
    " saves the game so far to the file from memory",
    "pgnload FILENAME",
    " loads the game in the file into memory",
+   "previous",
+   " back on move in pgn loaded game",
+   "n",
+   "next",
+   " advances on move in pgn loaded game",
+   "prior",
+   " go to begin position of pgn loaded game",
+   "last",
+   " go to end position of pgn loaded game",
    "force",
    "manual",
    " Makes the program stop moving. You may now enter moves",
@@ -901,6 +1023,10 @@ static const char * const helpstr[] = {
    " evalspeed tests speed of the evaluator",
    "bk",
    " show moves from opening book.",
+   "graphic",
+   " enable display board in a new look",
+   "nographic",
+   " disable new board look and display classical view",
    NULL,
    NULL
 };
@@ -972,25 +1098,33 @@ const struct methodtable commands[] = {
   { "exit", cmd_exit },
   { "force", cmd_force },
   { "go", cmd_go },
+  { "graphic", cmd_graphic },
   { "hard", cmd_hard },
   { "hash", cmd_hash },
   { "help", cmd_help },
   { "hint", cmd_hint },
   { "ics", cmd_ics },
+  { "last", cmd_last },
   { "level", cmd_level },
   { "list", cmd_list },
   { "load", cmd_load },
   { "manual", cmd_manual },
   { "memory", cmd_memory },
+  { "n", cmd_next },
   { "name", cmd_name },
   { "new", cmd_new },
+  { "next", cmd_next },
+  { "nographic", cmd_nographic  },
   { "nopost", cmd_nopost },
   { "null", cmd_null },
   { "otim", cmd_otim },
+  { "p", cmd_previous },
   { "pgnload", cmd_pgnload },
   { "pgnsave", cmd_pgnsave },
   { "ping", cmd_ping },
   { "post", cmd_post },
+  { "prev", cmd_previous },
+  { "prior", cmd_prior },
   { "protover", cmd_protover },
   { "quit", cmd_quit },
   { "random", cmd_random },
@@ -1053,6 +1187,7 @@ void parse_input(void)
       */
      SetUserInputValidMove( 1 );
      SetDataToEngine( token[0] );
+     pgnloaded = 0;
      ExpectAnswerFromEngine( true );
      SANMove (ptr->move, 1);
      MakeMove (board.side, &ptr->move);

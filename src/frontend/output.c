@@ -2,7 +2,7 @@
 
    GNU Chess frontend
 
-   Copyright (C) 2001-2011 Free Software Foundation, Inc.
+   Copyright (C) 2001-2013 Free Software Foundation, Inc.
 
    GNU Chess is based on the two research programs 
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
@@ -27,7 +27,41 @@
 
 
 #include <stdio.h>
+#include <string.h>
 #include "common.h"
+
+#define MAX_BOARD_RANGE 65
+#define PIECE_SIZE 8
+const char w_pieces[6][PIECE_SIZE] = {"\u2654 ", "\u2655 ", "\u2656 ", "\u2657 ", "\u2658 ", "\u2659 "};
+const char b_pieces[6][PIECE_SIZE] = {"\u265A ", "\u265B ", "\u265C ", "\u265D ", "\u265E ", "\u265F "};
+const unsigned ui_king = 0;
+const unsigned ui_queen = 1;
+const unsigned ui_rook = 2;
+const unsigned ui_bishop = 3;
+const unsigned ui_knight = 4;
+const unsigned ui_pawn = 5;
+
+const char white_square[] = "\033[7;37m";
+const char black_square[] = "\033[7;35m";
+const char default_console[] = "\033[0m";
+const char blank_place[] = "  ";
+
+
+/**************************************************************************
+ * Print out the board in a new style way.
+ **************************************************************************/
+static void ShowStylishBoard(const char *boardmap);
+
+/**************************************************************************
+ * Fill the array piece with the new style piece code
+ **************************************************************************/
+static void GetPiece(const char orig_piece, char *piece);
+
+/**************************************************************************
+ * Print out the classical gnuchess board.
+ **************************************************************************/
+static void ShowClassicalBoard(const char *boardmap);
+
 
 void ShowTime (void)
 /**************************************************************************
@@ -141,6 +175,11 @@ void ShowBoard (void)
    int r, c, sq;
 
    fprintf (ofp, "\n");
+
+   if ( graphicmodeoutput == 1) {
+      fprintf(ofp, "  ");   
+   }
+   
    if (board.side == white)
       fprintf (ofp, "white  ");
    else
@@ -159,42 +198,148 @@ void ShowBoard (void)
       fprintf (ofp, "  %s", algbr[board.ep]);
 
    fprintf (ofp, "\n");
+
+   char arr_board[MAX_BOARD_RANGE];
+   unsigned bIndex = 0;
+   memset(arr_board, '\0', MAX_BOARD_RANGE);   
+
    for (r = 56; r >= 0; r -= 8)
    {
       for (c = 0; c < 8; c++)
       {
          sq = r + c;
          if (board.b[white][pawn]   & BitPosArray[sq])
-            fprintf (ofp, "P ");
+            arr_board[bIndex++] = 'P';
          else if (board.b[white][knight] & BitPosArray[sq])
-            fprintf (ofp, "N ");
+            arr_board[bIndex++] = 'N';
          else if (board.b[white][bishop] & BitPosArray[sq])
-            fprintf (ofp, "B ");
+            arr_board[bIndex++] = 'B';
          else if (board.b[white][rook]   & BitPosArray[sq])
-            fprintf (ofp, "R ");
+            arr_board[bIndex++] = 'R';
          else if (board.b[white][queen]  & BitPosArray[sq])
-            fprintf (ofp, "Q ");
+            arr_board[bIndex++] = 'Q';
          else if (board.b[white][king]   & BitPosArray[sq])
-            fprintf (ofp, "K ");
+            arr_board[bIndex++] = 'K';
          else if (board.b[black][pawn]   & BitPosArray[sq])
-            fprintf (ofp, "p ");
+            arr_board[bIndex++] = 'p';
          else if (board.b[black][knight] & BitPosArray[sq])
-            fprintf (ofp, "n ");
+            arr_board[bIndex++] = 'n';
          else if (board.b[black][bishop] & BitPosArray[sq])
-            fprintf (ofp, "b ");
+            arr_board[bIndex++] = 'b';
          else if (board.b[black][rook]   & BitPosArray[sq])
-            fprintf (ofp, "r ");
+            arr_board[bIndex++] = 'r';
          else if (board.b[black][queen]  & BitPosArray[sq])
-            fprintf (ofp, "q ");
+            arr_board[bIndex++] = 'q';
          else if (board.b[black][king]   & BitPosArray[sq])
-            fprintf (ofp, "k ");
+            arr_board[bIndex++] = 'k';
          else
-            fprintf (ofp, ". ");
+            arr_board[bIndex++] = '.';
       }
-      fprintf (ofp, "\n");
    }
-   fprintf (ofp, "\n");
+
+   if ( graphicmodeoutput == 1) {
+     ShowStylishBoard(arr_board);
+   } else {
+     ShowClassicalBoard(arr_board);   
+   }
+
+  fprintf (ofp, "\n");
 }
+
+
+void ShowStylishBoard(const char *boardmap)
+{
+  unsigned i = 0;
+  unsigned row = 8; 
+  const char column[8] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};     
+  int b_white = 1;    
+  char tmp_piece[PIECE_SIZE];      
+  memset(tmp_piece, '\0', PIECE_SIZE);  
+
+  fprintf(ofp, "%d ", row--);  
+
+  for (i =0; i < MAX_BOARD_RANGE; ++i)
+    {
+        fprintf(ofp, "%s", default_console);
+
+        if ((i > 0) && (i % 8 == 0))
+            {
+            fprintf(ofp, "\n");
+            b_white = !b_white;
+
+            if (row >=1)
+                fprintf(ofp, "%d ", row--);
+            else
+                break;                
+            }
+ 
+        GetPiece(boardmap[i], tmp_piece);
+
+        if (b_white)
+            {
+            fprintf(ofp, "%s%s", white_square, tmp_piece);
+            }
+        else
+            {
+            fprintf(ofp, "%s%s", black_square, tmp_piece);
+            }   
+
+        b_white = !b_white;
+    }    
+
+   fprintf(ofp, "%s  ", default_console);
+
+   for (i = 0; i < 8; ++i)
+     {
+        fprintf(ofp, "%c ", column[i]);
+     }
+}
+
+
+void GetPiece(const char orig_piece, char *piece)
+{
+    if (orig_piece == 'p')
+        strcpy(piece, b_pieces[ui_pawn]);
+    else if (orig_piece == 'P')
+        strcpy(piece, w_pieces[ui_pawn]);
+    else if (orig_piece == 'n')
+        strcpy(piece, b_pieces[ui_knight]);
+    else if (orig_piece == 'N')
+        strcpy(piece, w_pieces[ui_knight]);
+    else if (orig_piece == 'b')
+        strcpy(piece, b_pieces[ui_bishop]);
+    else if (orig_piece == 'B')
+        strcpy(piece, w_pieces[ui_bishop]);
+    else if (orig_piece == 'r')
+        strcpy(piece, b_pieces[ui_rook]);
+    else if (orig_piece == 'R')
+        strcpy(piece, w_pieces[ui_rook]);
+    else if (orig_piece == 'q')
+        strcpy(piece, b_pieces[ui_queen]);
+    else if (orig_piece == 'Q')
+        strcpy(piece, w_pieces[ui_queen]);
+    else if (orig_piece == 'k')
+        strcpy(piece, b_pieces[ui_king]);
+    else if (orig_piece == 'K')
+        strcpy(piece, w_pieces[ui_king]);
+    else if (orig_piece == '.')
+        strcpy(piece, blank_place);
+}    
+
+
+void ShowClassicalBoard(const char *boardmap)
+{
+  unsigned i = 0;
+
+  for (i =0; i < MAX_BOARD_RANGE; ++i) {
+    if ((i > 0) && (i % 8 == 0)) {
+      fprintf(ofp, "\n");
+    }
+ 
+    fprintf(ofp, "%c ", boardmap[i]);
+    }    
+}
+
 
 void ShowCBoard (void)
 /*****************************************************************************

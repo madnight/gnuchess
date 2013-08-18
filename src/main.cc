@@ -87,7 +87,10 @@ int TCinc;
 float TCTime;
 int phase;
 short bookfirstlast;
-
+short graphicmodeoutput;
+short pgnloaded = 0;
+int pgncnt = 0;
+    
 char *progname;
 FILE *ofp;
 int myrating, opprating;
@@ -222,9 +225,13 @@ int main (int argc, char *argv[])
  
   int c;
   int opt_help = 0, opt_version = 0, opt_post = 0, opt_xboard = 0, opt_memory = 0,
-      opt_easy = 0, opt_manual = 0, opt_quiet = 0, opt_uci = 0;
+      opt_easy = 0, opt_manual = 0, opt_quiet = 0, opt_uci = 0, opt_graphic = 0;
   char opt_addbook[MAXSTR+1] = "";
   char *endptr;
+
+  /*disable graphic output by default */
+  graphicmodeoutput = 0;
+  
 
   progname = argv[0]; /* Save in global for cmd_usage */
 
@@ -243,6 +250,7 @@ int main (int argc, char *argv[])
         {"manual", 0, 0, 'm'},
         {"uci", 0, 0, 'u'},
         {"addbook", 1, 0, 'a'},
+        {"graphic", 0, 0, 'g'},                
         {0, 0, 0, 0}
     };
  
@@ -250,7 +258,7 @@ int main (int argc, char *argv[])
 
     int option_index = 0;
  
-    c = getopt_long (argc, argv, "qehmpvxM:ua:",
+    c = getopt_long (argc, argv, "qehmpvxgM:ua:",
              long_options, &option_index);
  
     /* Detect the end of the options. */
@@ -282,9 +290,12 @@ int main (int argc, char *argv[])
      case 'e':
        opt_easy = 1;
        break;
+     case 'g':
+         opt_graphic = 1;
+       break;
      case 'm':
        opt_manual = 1;
-       break;
+       break;       
      case 'M':    
        if  ( optarg == NULL ){ /* we have error such as two -M */
          opt_help = 1;
@@ -427,6 +438,11 @@ int main (int argc, char *argv[])
 	SET (flags, POST);
       } 
     }
+
+  if ( opt_graphic == 1) {
+    graphicmodeoutput = 1;
+  }
+  
   }
 
   bookfirstlast = 3;

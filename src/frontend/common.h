@@ -340,6 +340,9 @@ extern float TCTime;
 extern int phase;
 
 extern short bookfirstlast;
+extern short graphicmodeoutput;
+extern short pgnloaded; /* was pgn game loaded */
+extern int pgncnt; /* total moves loaded in pgn game */
 
 extern int range[8];
 extern int ptype[2];
@@ -503,17 +506,21 @@ void cmd_epd(void);
 void cmd_exit(void);
 void cmd_force(void);
 void cmd_go(void);
+void cmd_graphic(void);
 void cmd_hard(void);
 void cmd_hash(void);
 void cmd_help (void);
 void cmd_hint(void);
+void cmd_last(void);
 void cmd_level(void);
 void cmd_list(void);
 void cmd_load(void);
 void cmd_manual(void);
 void cmd_movenow(void);
 void cmd_name(void);
+void cmd_next(void);
 void cmd_new(void);
+void cmd_nographic(void);
 void cmd_nopost(void);
 void cmd_null(void);
 void cmd_otim(void);
@@ -521,6 +528,8 @@ void cmd_pgnload(void);
 void cmd_pgnsave(void);
 void cmd_ping(void);
 void cmd_post(void);
+void cmd_previous(void);
+void cmd_prior(void);
 void cmd_protover(void);
 void cmd_quit(void);
 void cmd_random(void);
@@ -542,6 +551,7 @@ void cmd_variant(void);
 void cmd_version(void);
 void cmd_white(void);
 void cmd_xboard(void);
+
 
 /*
  * Define NO_INLINE only if you really must, implementations will be
