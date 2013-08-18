@@ -1,5 +1,11 @@
 2013-08-19  Antonio Ceballos  <aceballos@gmail.com>
 
+	* src/frontend/cmd.c: graphic mode usage and help improved;
+	replace 'prior' by 'first' for pgnload.
+	* src/frontend/common.h: replace 'prior' by 'first' for pgnload.
+
+2013-08-19  Antonio Ceballos  <aceballos@gmail.com>
+
 	* src/main.cc: avoid 100% CPU usage in UCI mode.
 
 2013-08-18  Antonio Ceballos  <aceballos@gmail.com>

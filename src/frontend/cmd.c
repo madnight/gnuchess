@@ -512,7 +512,7 @@ void cmd_last(void)
   ShowBoard (); 
 }
 
-void cmd_prior(void)
+void cmd_first(void)
 {
   if (!pgnloaded)
     return;
@@ -721,6 +721,7 @@ void cmd_usage(void)
      " -u, --uci          enable UCI protocol (externally behave as UCI engine)\n"
      " -M size, --memory=size   specify memory usage in MB for hashtable\n"
      " -a filename, --addbook=filename   compile book.bin from pgn book 'filename'\n"
+     " -g, --graphic      enable graphic mode\n"
      "\n"
      " Options xboard and post are accepted without leading dashes\n"
      " for backward compatibility.\n"
@@ -919,18 +920,17 @@ static const char * const helpstr[] = {
    " random - play any move from book",
    "version",
    " prints out the version of this program",
+   "previous",
    "p",
-   " back on move in pgn loaded game",
+   " back one move in pgn loaded game",
    "pgnsave FILENAME",
    " saves the game so far to the file from memory",
    "pgnload FILENAME",
    " loads the game in the file into memory",
-   "previous",
-   " back on move in pgn loaded game",
-   "n",
    "next",
-   " advances on move in pgn loaded game",
-   "prior",
+   "n",
+   " advances one move in pgn loaded game",
+   "first",
    " go to begin position of pgn loaded game",
    "last",
    " go to end position of pgn loaded game",
@@ -1024,9 +1024,9 @@ static const char * const helpstr[] = {
    "bk",
    " show moves from opening book.",
    "graphic",
-   " enable display board in a new look",
+   " enable display board in graphic mode",
    "nographic",
-   " disable new board look and display classical view",
+   " disable graphic mode and display classical view",
    NULL,
    NULL
 };
@@ -1110,21 +1110,21 @@ const struct methodtable commands[] = {
   { "load", cmd_load },
   { "manual", cmd_manual },
   { "memory", cmd_memory },
-  { "n", cmd_next },
   { "name", cmd_name },
   { "new", cmd_new },
   { "next", cmd_next },
+  { "n", cmd_next },
   { "nographic", cmd_nographic  },
   { "nopost", cmd_nopost },
   { "null", cmd_null },
   { "otim", cmd_otim },
-  { "p", cmd_previous },
   { "pgnload", cmd_pgnload },
   { "pgnsave", cmd_pgnsave },
   { "ping", cmd_ping },
   { "post", cmd_post },
-  { "prev", cmd_previous },
-  { "prior", cmd_prior },
+  { "previous", cmd_previous },
+  { "p", cmd_previous },
+  { "first", cmd_first },
   { "protover", cmd_protover },
   { "quit", cmd_quit },
   { "random", cmd_random },

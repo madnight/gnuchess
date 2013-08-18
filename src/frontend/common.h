@@ -529,7 +529,7 @@ void cmd_pgnsave(void);
 void cmd_ping(void);
 void cmd_post(void);
 void cmd_previous(void);
-void cmd_prior(void);
+void cmd_first(void);
 void cmd_protover(void);
 void cmd_quit(void);
 void cmd_random(void);
