@@ -270,6 +270,12 @@ Specify memory usage in MB for hashtable.
 @opindex -a
 Compile book.bin from pgn book 'filename' and quits.
 
+@item --graphic
+@itemx -g
+@opindex --graphic
+@opindex -g
+Enable graphic mode based on Unicode chess symbols.
+
 @end table
 
 
@@ -563,6 +569,19 @@ communicating analysis to an external interface using the Xboard
 chess engine protocol.  It enables "force", "post", and
 "hard", at the same time, whilst altering the
 output format of post to conform with the engine protocol.	
+
+@item graphic
+@cindex graphic
+Enables graphic mode. In this mode, the board is displayed using the
+Unicode chess symbols (Codepoints from U+2654 to U+265F).
+The graphic mode requires a terminal with Unicode support.
+
+(Same as @command{gnuchess --graphic})
+
+@item nographic
+@cindex nographic
+Disables graphic mode. The board is displayed using the good-old 
+classic view based on plain ASCII.
 
 @end table
 

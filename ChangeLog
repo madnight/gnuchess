@@ -1,4 +1,9 @@
 2013-08-19  Antonio Ceballos  <aceballos@gmail.com>
+TBC
+
+	* doc/gnuchess.info: graphic mode explained.
+
+2013-08-19  Antonio Ceballos  <aceballos@gmail.com>
 
 	* src/frontend/cmd.c: graphic mode usage and help improved;
 	replace 'prior' by 'first' for pgnload.
