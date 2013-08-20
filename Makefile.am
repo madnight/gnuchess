@@ -18,8 +18,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 SUBDIRS = src doc
-dist_pkgdata_DATA = src/gnuchess.ini src/book.bin
-EXTRA_DIST = TODO src/gnuchess.ini src/book.bin src/gnuchessx src/gnuchessu doc/quotes.rb
+dist_pkgdata_DATA = src/gnuchess.ini src/smallbook.bin
+EXTRA_DIST = TODO src/gnuchess.ini src/smallbook.bin src/gnuchessx src/gnuchessu doc/quotes.rb
 
 DISTCLEANFILES = *~ src/GCint.h
 pkgdatadir =$(datadir)/gnuchess
