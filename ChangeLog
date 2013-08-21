@@ -1,3 +1,9 @@
+2013-08-21  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/frontend/cmd.c: fix setboard so that the engine is aware of
+	the loaded position.
+	* src/frontend/common.h: likewise.
+
 2013-08-20  Antonio Ceballos  <aceballos@gmail.com>
 
 	* src/book.bin: deleted - moved to src/smallbook.bin.

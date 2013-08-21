@@ -289,6 +289,7 @@ void cmd_load(void)
   char data[MAXSTR]="";
   LoadEPD (token[1]);
   pgnloaded = 0; 
+  check_board();
   if (!ValidateBoard()) {
     SET (flags, ENDED);
     printf ("Board is wrong!\n");
@@ -655,8 +656,12 @@ void cmd_save(void)
 void cmd_setboard(void)
 {
   /* setboard uses FEN, not EPD, but ParseEPD will accept FEN too */
+  char data[MAXSTR]="";
   ParseEPD (token[1]);
   NewPosition();
+  check_board();
+  snprintf(data, sizeof(data), "setboard %s", token[1]);
+  SetDataToEngine(data);
 }
 
 void cmd_solve(void) { Solve (token[1]); }
@@ -1216,3 +1221,25 @@ void parse_input(void)
      fflush(stdout);
    }  
 }
+
+void check_board()
+/*************************************************************************
+ *
+ *  When the board is changed by commands, call the Validation
+ *  routine, and if it fails set flags to prevent the analysis of
+ *  illegal positions, as the code is not robust against the
+ *  analysis of such positions (To Do).
+ *
+ *************************************************************************/
+{
+  if (!ValidateBoard()) {
+    SET (flags, ENDED);
+    if (flags & XBOARD) {
+    printf ("telluser Board is wrong!\n");
+        fflush(stdout);
+    } else {
+        printf ("Board is wrong!\n");
+    }
+  }
+}
+

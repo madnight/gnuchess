@@ -491,6 +491,9 @@ extern char inputstr[BUF_SIZE];
 /* Input parser */
 void parse_input(void);
 
+/* Check Board to avoid analysis of incorrectly input positions */
+void check_board(void);
+
 /* Commands from the input engine */
 void cmd_activate(void); 
 void cmd_analyze(void);
