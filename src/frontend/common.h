@@ -341,7 +341,7 @@ extern int phase;
 
 extern short bookfirstlast;
 extern short graphicmodeoutput;
-extern short pgnloaded; /* was pgn game loaded */
+extern short pgnloaded; /* was pgn game loaded by command pgnreplay */
 extern int pgncnt; /* total moves loaded in pgn game */
 
 extern int range[8];
@@ -460,7 +460,7 @@ short ValidateBoard (void);
 
 /*  PGN routines  */
 void PGNSaveToFile (const char *, const char *);
-void PGNReadFromFile (const char *);
+void PGNReadFromFile (const char *, int showheading);
 
 /*  Some output routines */
 void ShowMoveList (int);
@@ -528,6 +528,7 @@ void cmd_nopost(void);
 void cmd_null(void);
 void cmd_otim(void);
 void cmd_pgnload(void);
+void cmd_pgnreplay(void);
 void cmd_pgnsave(void);
 void cmd_ping(void);
 void cmd_post(void);

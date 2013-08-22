@@ -420,7 +420,34 @@ void cmd_pgnload(void)
   FILE *epdfile=NULL;
   char epdline[MAXSTR]="";
 
-  PGNReadFromFile (token[1]);
+  PGNReadFromFile (token[1],0);
+  SaveEPD( tmp_epd );
+  epdfile = fopen( tmp_epd, "r" );
+  if ( fgets( epdline, MAXSTR, epdfile ) == NULL ) {
+    printf( "Incorrect epd file\n" );
+    return;
+  }
+  strcpy( data, "setboard " );
+  int i=0;
+  while ( epdline[i] != '\n' ) {
+    data[i+9] = epdline[i];
+    ++i;
+  }
+  data[i+9] = '\0';
+  SetDataToEngine( data );
+  SetAutoGo( true );
+  pgnloaded = 0;
+}
+
+void cmd_pgnreplay(void)
+{
+  char tmp_epd[]=".tmp.epd";
+  char data[MAXSTR]="";
+  FILE *epdfile=NULL;
+  char epdline[MAXSTR]="";
+
+  PGNReadFromFile (token[1],1);
+
   SaveEPD( tmp_epd );
   epdfile = fopen( tmp_epd, "r" );
   if ( fgets( epdline, MAXSTR, epdfile ) == NULL ) {
@@ -455,7 +482,7 @@ void cmd_pgnload(void)
     }
   }
 
-  ShowBoard (); 
+  cmd_first();
 }
 
 void cmd_next(void)
@@ -932,6 +959,9 @@ static const char * const helpstr[] = {
    " saves the game so far to the file from memory",
    "pgnload FILENAME",
    " loads the game in the file into memory",
+   "pgnreplay FILENAME",
+   " loads the game in the file into memory, and enables",
+   " commands first, last, next, previous",
    "next",
    "n",
    " advances one move in pgn loaded game",
@@ -1124,6 +1154,7 @@ const struct methodtable commands[] = {
   { "null", cmd_null },
   { "otim", cmd_otim },
   { "pgnload", cmd_pgnload },
+  { "pgnreplay", cmd_pgnreplay },
   { "pgnsave", cmd_pgnsave },
   { "ping", cmd_ping },
   { "post", cmd_post },

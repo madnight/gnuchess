@@ -1,3 +1,16 @@
+2013-08-22  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/frontend/cmd.c: add command pgnreplay and keep former
+	pgnload as is in version 6.0.3.
+	* src/frontend/pgn.c: add flag in PGNReadFromFile() to optionally
+	show a summary (used by pgnreplay).
+	* src/frontend/common.h: add flag in PGNReadFromFile();
+	declare pgnreplay().
+	* doc/gnuchess.texi: explain commands pgnreplay, first, last,
+	next, n, previous, p.
+	* src/frontend/Makefile.am: CFLAGS += -std=c99, so that output.c
+	happily compiles unicode characters.
+
 2013-08-21  Antonio Ceballos  <aceballos@gmail.com>
 
 	* src/frontend/cmd.c: fix setboard so that the engine is aware of
@@ -13,7 +26,7 @@
 
 2013-08-19  Antonio Ceballos  <aceballos@gmail.com>
 
-	* doc/gnuchess.info: graphic mode explained.
+	* doc/gnuchess.texi: graphic mode explained.
 
 2013-08-19  Antonio Ceballos  <aceballos@gmail.com>
 

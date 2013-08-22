@@ -353,6 +353,38 @@ Saves the game so far to the file from memory
 @item pgnload FILENAME
 @cindex pgnload
 Loads the game in the file into memory
+(cf. pgnreplay)
+
+@item pgnreplay FILENAME
+@cindex pgnreplay
+Loads the game in the file into memory, and enables
+commands first, last, next, previous.
+This allows replaying a saved game step by step.
+(cf. pgnload)
+
+@item first
+@cindex first
+Go to start position of pgn loaded game with pgnreplay.
+
+@item last
+@cindex last
+Go to last position of pgn loaded game with pgnreplay.
+
+@item next
+@cindex next
+Advances one move in pgn loaded game with pgnreplay.
+
+@item n
+@cindex n
+Advances one move in pgn loaded game with pgnreplay.
+
+@item previous
+@cindex previous
+Back one move in pgn loaded game with pgnreplay.
+
+@item p
+@cindex p
+Back one move in pgn loaded game with pgnreplay.
 
 @item force
 @itemx manual

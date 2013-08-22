@@ -40,6 +40,8 @@
 
 extern FILE *yyin;
 
+extern int yylex (void);
+
 void PGNSaveToFile (const char *file, const char *resultstr)
 /****************************************************************************
  *
@@ -154,7 +156,7 @@ void PGNSaveToFile (const char *file, const char *resultstr)
 }      
 
 
-void PGNReadFromFile (const char *file)
+void PGNReadFromFile (const char *file, int showheading)
 /****************************************************************************
  *
  *  To read a game from a PGN file.
@@ -178,13 +180,17 @@ void PGNReadFromFile (const char *file)
 
    fclose (fp);
 
-   printf("\n--------------------------------------------------\n");
-   printf("%s (%s) x %s (%s) - %s\nSite: %s\nDate: %s\n", 
-          pgn_white  != NULL ? pgn_white  : "Unknown", pgn_whiteELO != NULL ? pgn_whiteELO : "Unknown",
-          pgn_black  != NULL ? pgn_black  : "Unknown", pgn_blackELO != NULL ? pgn_blackELO : "Unknown",
-          pgn_result != NULL ? pgn_result : "Unknown", pgn_site     != NULL ? pgn_site     : "Unknown", 
-          pgn_date   != NULL ? pgn_date   : "Unknown");
-   printf("--------------------------------------------------\n");
+   ShowBoard ();
+
+   if ( showheading ) {
+      printf("\n--------------------------------------------------\n");
+      printf("%s (%s) x %s (%s) - %s\nSite: %s\nDate: %s\n", 
+             pgn_white  != NULL ? pgn_white  : "Unknown", pgn_whiteELO != NULL ? pgn_whiteELO : "Unknown",
+             pgn_black  != NULL ? pgn_black  : "Unknown", pgn_blackELO != NULL ? pgn_blackELO : "Unknown",
+             pgn_result != NULL ? pgn_result : "Unknown", pgn_site     != NULL ? pgn_site     : "Unknown", 
+             pgn_date   != NULL ? pgn_date   : "Unknown");
+      printf("--------------------------------------------------\n");
+   }
 }
 
 /* Only players in the table below are permitted into the opening book 

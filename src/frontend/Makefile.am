@@ -26,9 +26,11 @@ libfrontend_a_SOURCES = atak.c cmd.c debug.c epd.c genmove.c \
 
 AM_CPPFLAGS = -I$(top_srcdir)/src
 
-AM_CFLAGS = $(PTHREAD_CFLAGS)
+AM_CFLAGS = $(PTHREAD_CFLAGS) -std=c99
 
 AM_LDFLAGS = $(PTHREAD_LDFLAGS) $(PTHREAD_LIBS)
+
+#CFLAGS += -std=c99
 
 DISTCLEANFILES = *~
 
