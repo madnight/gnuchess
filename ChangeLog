@@ -1,5 +1,9 @@
 2013-08-23  Antonio Ceballos  <aceballos@gmail.com>
 
+	* po/es.po: add some Spanish translations.
+
+2013-08-23  Antonio Ceballos  <aceballos@gmail.com>
+
 	gettextize GNU Chess:
 
 	* configure.ac: add gettext macros; set version 6.0.90.
