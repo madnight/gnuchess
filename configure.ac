@@ -10,7 +10,7 @@ dnl This program is distributed in the hope that it will be useful, but
 dnl WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 dnl implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-AC_INIT([GNU Chess], [6.0.3], [bug-gnu-chess@gnu.org], [gnuchess])
+AC_INIT([GNU Chess], [6.0.90], [bug-gnu-chess@gnu.org], [gnuchess])
 AC_PREREQ(2.13)
 AC_CONFIG_HEADERS(src/config.h)
 AC_CONFIG_SRCDIR([src/main.cc])
@@ -72,5 +72,10 @@ dnl just use bundled version like hello does
 dnl AC_SUBST(LIBOBJS)
 dnl AC_CHECK_FUNCS(getopt_long , , [LIBOBJS="$LIBOBJS getopt.o getopt1.o"] )
 ACX_PTHREAD()
-AC_CONFIG_FILES(Makefile src/Makefile src/frontend/Makefile src/adapter/Makefile src/engine/Makefile doc/Makefile)
+
+# Support from GNU gettext.
+AM_GNU_GETTEXT_VERSION([0.18.3])
+AM_GNU_GETTEXT([external])
+
+AC_CONFIG_FILES(Makefile src/Makefile src/frontend/Makefile src/adapter/Makefile src/engine/Makefile doc/Makefile po/Makefile.in)
 AC_OUTPUT

@@ -36,6 +36,7 @@ extern "C" {
 
 extern "C" {
 #include "frontend/common.h"
+#include "gettext.h"
 }
 
 unsigned char lzArray[65536];
@@ -216,6 +217,15 @@ extern char userinputbuf[];
 int main (int argc, char *argv[])
 {
   int i;
+
+  /* Set locale via LC_ALL.  */
+  setlocale (LC_ALL, "");
+
+#if ENABLE_NLS
+  /* Set the text message domain.  */
+  bindtextdomain (PACKAGE, LOCALEDIR);
+  textdomain (PACKAGE);
+#endif
 
   /*
    * Parse command line arguments conforming with getopt_long syntax

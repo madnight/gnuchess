@@ -6,6 +6,17 @@ NEWS of GNU Chess
   are permitted in any medium without royalty provided the copyright
   notice and this notice are preserved.
 
+Version 6.0.90 (August 2013, pretest version of v6.1.0)
+
+- Add support for package internationalization based on GNU gettext.
+- Graphic mode, a new board shape based on the unicode characters
+for chess.
+- pgnreplay command, similar to pgnload, with the capability of
+manually showing a saved game step by step and moving backwards.
+- Fix bug in setboard.
+- Avoid using 100% CPU in UCI mode.
+- Rename the small book.bin as smallbook.bin.
+
 Version 6.0.3 (March 2013)
 
 - Run autoreconf and configure based on autoconf 2.69 and automake 1.13
@@ -15,6 +26,7 @@ to get rid of these vulnerabilies:
 - Update configure.ac to automake 1.13.
 - If in manual mode, keep it after undo.
 - Remove some unused code.
+- Avoid crashing when importing book_1.01.pgn
 
 Version 6.0.2 (March 2012)
 

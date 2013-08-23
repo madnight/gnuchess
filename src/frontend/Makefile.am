@@ -24,7 +24,7 @@ libfrontend_a_SOURCES = atak.c cmd.c debug.c epd.c genmove.c \
  swap.c util.c engine.c common.h \
  inlines.h version.h lexpgn.l lexpgn.h
 
-AM_CPPFLAGS = -I$(top_srcdir)/src
+AM_CPPFLAGS = -I$(top_srcdir)/src -I$(top_srcdir)/lib
 
 AM_CFLAGS = $(PTHREAD_CFLAGS) -std=c99
 

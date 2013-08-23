@@ -17,10 +17,18 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-SUBDIRS = src doc
+# Find gnulib headers.
+ACLOCAL_AMFLAGS = --install -I m4
+
+# Subdirectories to descend into.
+SUBDIRS = src doc po
+
 dist_pkgdata_DATA = src/gnuchess.ini src/smallbook.bin
-EXTRA_DIST = TODO src/gnuchess.ini src/smallbook.bin src/gnuchessx src/gnuchessu doc/quotes.rb
+
+# Additional files to distribute.
+EXTRA_DIST = config.rpath m4/ChangeLog  TODO src/gnuchess.ini src/smallbook.bin src/gnuchessx src/gnuchessu doc/quotes.rb lib/gettext.h
 
 DISTCLEANFILES = *~ src/GCint.h
 pkgdatadir =$(datadir)/gnuchess
 
+AM_CPPFLAGS = -I$(top_srcdir)/lib -I$(top_builddir)/lib

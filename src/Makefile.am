@@ -26,10 +26,15 @@ AM_CXXFLAGS = $(PTHREAD_CXXFLAGS)
 
 AM_LDFLAGS = $(PTHREAD_LDFLAGS) $(PTHREAD_LIBS)
 
+localedir = $(datadir)/locale
+
+AM_CPPFLAGS = -I$(top_srcdir)/lib -I$(top_builddir)/lib
+DEFS = -DLOCALEDIR=\"$(localedir)\" @DEFS@
+
 DISTCLEANFILES = *~
 
 SUBDIRS = frontend adapter engine
-gnuchess_LDADD = frontend/libfrontend.a adapter/libadapter.a engine/libengine.a
+gnuchess_LDADD = $(LIBINTL) frontend/libfrontend.a adapter/libadapter.a engine/libengine.a
 
 configmake.h: Makefile
 	rm -f $@-t $@

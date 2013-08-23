@@ -1,3 +1,23 @@
+2013-08-23  Antonio Ceballos  <aceballos@gmail.com>
+
+	gettextize GNU Chess:
+
+	* configure.ac: add gettext macros; set version 6.0.90.
+	* Makefile.am: add gettext flags.
+	* src/Makefile.am: add gettext flags.
+	* src/main.cc: initialize locale data.
+	* src/frontend/Makefile.am: add gettext flags.
+	* src/frontend/cmd.c: mark translatable strings .
+	* doc/version.texi: set version 6.0.90.
+	* lib: create directory.
+	* lib/gettext.h: copied from gettext 0.18.3.
+	* po: create file as explained in gettext maintainers.
+
+2013-08-23  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* Makefile.am (EXTRA_DIST): Add config.rpath, m4/ChangeLog.
+	* configure.ac (AC_CONFIG_FILES): Add po/Makefile.in.
+
 2013-08-22  Antonio Ceballos  <aceballos@gmail.com>
 
 	* src/frontend/cmd.c: add command pgnreplay and keep former
