@@ -1,5 +1,5 @@
 # Spanish translations for PACKAGE package
-# Traducciones al espaÒol para el paquete PACKAGE.
+# Traducciones al espa√±ol para el paquete PACKAGE.
 # Copyright (C) 2013 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Antonio <aceballos@gmail.com>, 2013.
@@ -21,12 +21,12 @@ msgstr ""
 #: src/frontend/cmd.c:101
 #, c-format
 msgid "'activate' not currently supported\n"
-msgstr "'activate' no est· implementado actualmente\n"
+msgstr "'activate' no est√° implementado actualmente\n"
 
 #: src/frontend/cmd.c:131
 #, c-format
 msgid "'black' not currently supported\n"
-msgstr "'black' no est· implementado actualmente\n"
+msgstr "'black' no est√° implementado actualmente\n"
 
 #: src/frontend/cmd.c:140
 #, c-format
@@ -35,19 +35,19 @@ msgid ""
 "\n"
 "\tbook add file.pgn\n"
 msgstr ""
-"La sintaxis para aÒadir un nuevo libro es:\n"
+"La sintaxis para a√±adir un nuevo libro es:\n"
 "\n"
 "\tbook add file.pgn\n"
 
 #: src/frontend/cmd.c:161
 #, c-format
 msgid "Incorrect book option\n"
-msgstr "OpciÛn de libro incorrecta\n"
+msgstr "Opci√≥n de libro incorrecta\n"
 
 #: src/frontend/cmd.c:174
 #, c-format
 msgid "Search to a depth of %d\n"
-msgstr "Profundidad de b˙squeda %d\n"
+msgstr "Profundidad de b√∫squeda %d\n"
 
 #: src/frontend/cmd.c:266 src/frontend/cmd.c:273
 #, c-format
@@ -62,7 +62,7 @@ msgstr "Control de tiempo: %d movimientos en %.2f s\n"
 #: src/frontend/cmd.c:281
 #, c-format
 msgid "name    - list known players alphabetically\n"
-msgstr "name    - lista de jugadores conocidos por orden alfabÈtico\n"
+msgstr "name    - lista de jugadores conocidos por orden alfab√©tico\n"
 
 #: src/frontend/cmd.c:282
 #, c-format
@@ -98,7 +98,7 @@ msgstr "No se pudo crear fichero de log, no hay espacio libre. \n"
 #, c-format
 msgid "You may consider deleting or renaming your existing logfiles.\n"
 msgstr ""
-"Puede usted considerar la opciÛn de borrar o renombrar los ficheros de log que "
+"Puede usted considerar la opci√≥n de borrar o renombrar los ficheros de log que "
 "existen actualmente.\n"
 
 #: src/frontend/cmd.c:411
@@ -114,27 +114,27 @@ msgstr "Fichero epd incorrecto\n"
 #: src/frontend/cmd.c:501
 #, c-format
 msgid "No more moves. Game reached the end.\n"
-msgstr "No hay m·s movimientos. Final de partida.\n"
+msgstr "No hay m√°s movimientos. Final de partida.\n"
 
 #: src/frontend/cmd.c:521
 #, c-format
 msgid "Initial position reached. No more moves before.\n"
-msgstr "PosiciÛn inicial. No hay movimientos anteriores.\n"
+msgstr "Posici√≥n inicial. No hay movimientos anteriores.\n"
 
 #: src/frontend/cmd.c:577 src/frontend/cmd.c:683
 #, c-format
 msgid "Invalid filename.\n"
-msgstr "Nombre de fichero inv·lido.\n"
+msgstr "Nombre de fichero inv√°lido.\n"
 
 #: src/frontend/cmd.c:583
 #, c-format
 msgid "graphicmode enabled.\n"
-msgstr "Modo gr·fico activado.\n"
+msgstr "Modo gr√°fico activado.\n"
 
 #: src/frontend/cmd.c:589
 #, c-format
 msgid "graphicmode disabled.\n"
-msgstr "Modo gr·fico desactiviado.\n"
+msgstr "Modo gr√°fico desactiviado.\n"
 
 #: src/frontend/cmd.c:619
 #, c-format
@@ -142,23 +142,23 @@ msgid ""
 "feature setboard=1 analyze=1 ping=1 draw=0 sigint=0 variants=\"normal\" "
 "myname=\"%s %s\" done=1\n"
 msgstr ""
-"caracterÌstica setboard=1 analyze=1 ping=1 draw=0 sigint=0 variants=\"normal\" "
+"caracter√≠stica setboard=1 analyze=1 ping=1 draw=0 sigint=0 variants=\"normal\" "
 "myname=\"%s %s\" done=1\n"
 
 #: src/frontend/cmd.c:630
 #, c-format
 msgid "'random' not currently supported\n"
-msgstr "'random' no est· implementado actualmente\n"
+msgstr "'random' no est√° implementado actualmente\n"
 
 #: src/frontend/cmd.c:638
 #, c-format
 msgid "my rating = %d, opponent rating = %d\n"
-msgstr "mi puntuaciÛn = %d, puntuaciÛn del  adversario = %d\n"
+msgstr "mi puntuaci√≥n = %d, puntuaci√≥n del  adversario = %d\n"
 
 #: src/frontend/cmd.c:662 src/frontend/cmd.c:732
 #, c-format
 msgid "No moves to undo! \n"
-msgstr "°No hay ning˙n movimiento que deshacer! \n"
+msgstr "¬°No hay ning√∫n movimiento que deshacer! \n"
 
 #: src/frontend/cmd.c:672
 #, c-format
@@ -168,17 +168,17 @@ msgstr "Guardar en %s\n"
 #: src/frontend/cmd.c:713
 #, c-format
 msgid "'switch' not currently supported\n"
-msgstr "'switch' no est· implementado actualmente\n"
+msgstr "'switch' no est√° implementado actualmente\n"
 
 #: src/frontend/cmd.c:719
 #, c-format
 msgid "Old TimeLimit = %g\n"
-msgstr "LÌmite de tiempo anterior = %g\n"
+msgstr "L√≠mite de tiempo anterior = %g\n"
 
 #: src/frontend/cmd.c:721
 #, c-format
 msgid "New TimeLimit = %g\n"
-msgstr "LÌmite de tiempo nuevo = %g\n"
+msgstr "L√≠mite de tiempo nuevo = %g\n"
 
 #: src/frontend/cmd.c:740
 #, c-format
@@ -190,7 +190,7 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"Modo de empleo: %s [OPCI”N]...\n"
+"Modo de empleo: %s [OPCI√ìN]...\n"
 "\n"
 "Juega al ajedrez\n"
 "\n"
@@ -206,7 +206,7 @@ msgid ""
 msgstr ""
 "Opciones:\n"
 " -h, --help         muestra esta ayuda y termina\n"
-" -v, --version      muestra informaciÛn sobre la versiÛn y termina\n"
+" -v, --version      muestra informaci√≥n sobre la versi√≥n y termina\n"
 " -q, --quiet        arranca el programa de forma silenciosa\n"
 "     --silent       igual que -q\n"
 "\n"
@@ -230,11 +230,11 @@ msgstr ""
 " -m, --manual       activa modo manual\n"
 " -u, --uci          activa el protocolo UCI (externamente se comporta como "
 "un motor UCI)\n"
-" -M tamaÒo, --memory=tamaÒo   especifica el uso de memoria en MB para la tabla "
+" -M tama√±o, --memory=tama√±o   especifica el uso de memoria en MB para la tabla "
 "hash\n"
 " -a fichero, --addbook=fichero   compila book.bin a partir del libro pgn "
 "'fichero'\n"
-" -g, --graphic      activa el modo  gr·fico\n"
+" -g, --graphic      activa el modo  gr√°fico\n"
 "\n"
 
 #: src/frontend/cmd.c:761
@@ -253,8 +253,8 @@ msgid ""
 " in coordinate algebraic notation.\n"
 "\n"
 msgstr ""
-" Se aceptan movimientos en notaciÛn algebraica est·ndar (SAN, en inglÈs) o\n"
-" en notaciÛn algebraica de coordenadas.\n"
+" Se aceptan movimientos en notaci√≥n algebraica est√°ndar (SAN, en ingl√©s) o\n"
+" en notaci√≥n algebraica de coordenadas.\n"
 "\n"
 
 #: src/frontend/cmd.c:769
@@ -265,9 +265,9 @@ msgid ""
 " GNUCHESS_PKGDATADIR.\n"
 "\n"
 msgstr ""
-" gnuchess.ini permite establecer opciones de configuraciÛn. VÈase info para "
+" gnuchess.ini permite establecer opciones de configuraci√≥n. V√©ase info para "
 "consultar detalles.\n"
-" El fichero se busca en el directorio actual y, si no se encuentra allÌ,\n"
+" El fichero se busca en el directorio actual y, si no se encuentra all√≠,\n"
 " en el directorio indicado por la variable de entorno\n"
 " GNUCHESS_PKGDATADIR.\n"
 "\n"
@@ -288,7 +288,7 @@ msgstr ""
 #: src/frontend/cmd.c:840
 #, c-format
 msgid "'white' not currently supported\n"
-msgstr "'whtie' no est· implementado actualmente\n"
+msgstr "'whtie' no est√° implementado actualmente\n"
 
 #: src/frontend/cmd.c:871
 #, c-format

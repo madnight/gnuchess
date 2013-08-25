@@ -1,3 +1,7 @@
+2013-08-25  Antonio Ceballos  <aceballos@gmail.com>
+
+	* po/es.po: convert from ISO-8859-1 to UTF-8.
+
 2013-08-23  Antonio Ceballos  <aceballos@gmail.com>
 
 	* po/es.po: add some Spanish translations.
