@@ -144,19 +144,19 @@ void cmd_book(void)
     }
   } else if (tokeneq (token[1], "on") || tokeneq(token[1], "prefer")) {
     strcpy( data, "book on" );
-    printf("book now on.\n");
+    printf(_("book is now on\n"));
   } else if (tokeneq (token[1], "off")) {
     strcpy( data, "book off" );
-    printf("book now off.\n");
+    printf(_("book is now off\n"));
   } else if (tokeneq (token[1], "best")) {
     strcpy( data, "book best" );
-    printf("book now best.\n");
+    printf(_("book is now best\n"));
   } else if (tokeneq (token[1], "worst")) {
     strcpy( data, "book worst" );
-    printf("book now worst.\n");
+    printf(_("book is now worst\n"));
   } else if (tokeneq (token[1], "random")) {
     strcpy( data, "book random" );
-    printf("book now random.\n");
+    printf(_("book is now random\n"));
   } else {
     printf( _("Incorrect book option\n") );
     return;
@@ -238,7 +238,11 @@ void cmd_hash(void)
     SET (flags, USEHASH);
     SetDataToEngine( "hashon" );
   }
-  printf ("Hashing %s\n", flags & USEHASH ? "on" : "off");
+  if ( flags & USEHASH ) {
+    printf( _("Hashing is on.\n") );
+  } else {
+    printf( _("Hashing is off.\n") );
+  }
 }
 
 /* Give a possible move for the player to play */
@@ -408,7 +412,11 @@ void cmd_null(void)
     SET (flags, USENULL);
     SetDataToEngine( "nullon" );
   }
-  printf (_("Null moves %s\n"), flags & USENULL ? "on" : "off");
+  if ( flags & USENULL ) {
+    printf( _("Null move heuristic is on.\n") );
+  } else {
+    printf( _("Null move heuristic is off.\n") );
+  }
 }
 
 void cmd_otim(void)
@@ -518,7 +526,7 @@ void cmd_previous(void)
     UnmakeMove (board.side, &Game[GameCnt].move);
   }
   else {
-    printf(_("Initial position reached. No more moves before.\n"));
+    printf(_("Initial position reached. There are no earlier moves.\n"));
     return;
   } 
 
@@ -580,13 +588,13 @@ void cmd_pgnsave(void)
 void cmd_graphic(void)
 {
   graphicmodeoutput = 1;
-  printf(_("graphicmode enabled.\n"));
+  printf(_("Graphic mode is enabled.\n"));
 }
 
 void cmd_nographic(void)
 {
   graphicmodeoutput = 0;
-  printf(_("graphicmode disabled.\n"));
+  printf(_("Graphic mode is disabled.\n"));
 }
  
 void cmd_ping(void)
@@ -616,8 +624,8 @@ void cmd_protover(void)
   return;
   if (flags & XBOARD) {
     /* Note: change this if "draw" command is added, etc. */
-    printf(_("feature setboard=1 analyze=1 ping=1 draw=0 sigint=0\
- variants=\"normal\" myname=\"%s %s\" done=1\n"),
+    printf("feature setboard=1 analyze=1 ping=1 draw=0 sigint=0\
+ variants=\"normal\" myname=\"%s %s\" done=1\n",
 	   PROGRAM, VERSION);
     fflush(stdout);
   }
@@ -659,7 +667,7 @@ void cmd_remove(void)
     }
     PGNSaveToFile ("game.log","");
   } else
-    printf (_("No moves to undo! \n"));
+    printf (_("No moves to undo!\n"));
 }
 
 void cmd_result(void)
@@ -738,25 +746,37 @@ void cmd_undo(void)
 void cmd_usage(void) 
 {
       printf ( _("\n\
-Usage: %s [OPTION]...\n\
-\n\
-Play the game of chess\n\
-\n"), progname );
-      fputs( _("Options:\n\
- -h, --help         display this help and exit\n\
- -v, --version      display version information and exit\n\
- -q, --quiet        make the program silent on startup\n\
-     --silent       same as -q\n\
+Usage: %s [OPTION]...\n\n"), progname );
+      fputs( _("\
+Play the game of chess\n\n"), stdout );
+      fputs( _("Options:\n"), stdout );
+      fputs( _("\
+ -h, --help         display this help and exit\n"), stdout );
+      fputs( _("\
+ -v, --version      display version information and exit\n"), stdout );
+      fputs( _("\
+ -q, --quiet        make the program silent on startup\n"), stdout );
+      fputs( _("\
+     --silent       same as -q\n"), stdout );
+      fputs( _("\
 \n"), stdout );
       fputs( _("\
- -x, --xboard       start in engine mode\n\
- -p, --post         start up showing thinking\n\
- -e, --easy         disable thinking in opponents time\n\
- -m, --manual       enable manual mode\n\
- -u, --uci          enable UCI protocol (externally behave as UCI engine)\n\
- -M size, --memory=size   specify memory usage in MB for hashtable\n\
- -a filename, --addbook=filename   compile book.bin from pgn book 'filename'\n\
- -g, --graphic      enable graphic mode\n\
+ -x, --xboard       start in engine mode\n"), stdout );
+      fputs( _("\
+ -p, --post         start up showing thinking\n"), stdout );
+      fputs( _("\
+ -e, --easy         disable thinking in opponents time\n"), stdout );
+      fputs( _("\
+ -m, --manual       enable manual mode\n"), stdout );
+      fputs( _("\
+ -u, --uci          enable UCI protocol (externally behave as UCI engine)\n"), stdout );
+      fputs( _("\
+ -M size, --memory=size   specify memory usage in MB for hashtable\n"), stdout );
+      fputs( _("\
+ -a filename, --addbook=filename   compile book.bin from pgn book 'filename'\n"), stdout );
+      fputs( _("\
+ -g, --graphic      enable graphic mode\n"), stdout );
+      fputs( _("\
 \n"), stdout );
       fputs( _("\
  Options xboard and post are accepted without leading dashes\n\
@@ -967,8 +987,8 @@ static const char * const helpstr[] = {
    "pgnload FILENAME",
    gettext_noop(" loads the game in the file into memory"),
    "pgnreplay FILENAME",
-   gettext_noop(" loads the game in the file into memory, and enables"),
-   gettext_noop(" commands first, last, next, previous"),
+   gettext_noop(" loads the game in the file into memory, and enables\n\
+ commands first, last, next, previous"),
    "next",
    "n",
    gettext_noop(" advances one move in pgn loaded game"),
@@ -978,39 +998,39 @@ static const char * const helpstr[] = {
    gettext_noop(" go to end position of pgn loaded game"),
    "force",
    "manual",
-   gettext_noop(" Makes the program stop moving. You may now enter moves"),
-   gettext_noop(" to reach some position in the future."),
+   gettext_noop(" Makes the program stop moving. You may now enter moves\n\
+ to reach some position in the future."),
    " ",
    "white",
    gettext_noop(" Program plays white"),
    "black",
    gettext_noop(" Program plays black"),
    "go",
-   gettext_noop(" Computer takes whichever side is on move and begins its"),
-   gettext_noop(" thinking immediately"),
+   gettext_noop(" Computer takes whichever side is on move and begins its\n\
+ thinking immediately"),
    "post",
-   gettext_noop(" Arranges for verbose thinking output showing variation, score,"),
-   gettext_noop(" time, depth, etc."),
+   gettext_noop(" Arranges for verbose thinking output showing variation, score,\n\
+ time, depth, etc."),
    "nopost",
    gettext_noop(" Turns off verbose thinking output"),
    "name NAME",
-   gettext_noop(" Lets you input your name. Also writes the log.nnn and a"),
-   gettext_noop(" corresponding game.nnn file. For details please see"),
-   gettext_noop(" auxillary file format sections."),
+   gettext_noop(" Lets you input your name. Also writes the log.nnn and a\n\
+ corresponding game.nnn file. For details please see\n\
+ auxillary file format sections."),
    "result",
    gettext_noop(" Mostly used by Internet Chess server."),
    "activate",
-   gettext_noop(" This command reactivates a game that has been terminated automatically"),
-   gettext_noop(" due to checkmate or no more time on the clock. However, it does not"),
-   gettext_noop(" alter those conditions. You would have to undo a move or two or"),
-   gettext_noop(" add time to the clock with level or time in that case."),
+   gettext_noop(" This command reactivates a game that has been terminated automatically\n\
+ to checkmate or no more time on the clock. However, it does not\n\
+ those conditions. You would have to undo a move or two or\n\
+ add time to the clock with level or time in that case."),
    "rating COMPUTERRATING OPPONENTRATING",
    gettext_noop(" Inputs the estimated rating for computer and for its opponent"),
    "new",
    gettext_noop(" Sets up new game (i.e. positions in original positions)"),
    "time",
-   gettext_noop(" Inputs time left in game for computer in hundredths of a second."),
-   gettext_noop(" Mostly used by Internet Chess server."),
+   gettext_noop(" Inputs time left in game for computer in hundredths of a second.\n\
+ used by Internet Chess server."),
    "hash",
    gettext_noop(" on - enables using the memory hash table to speed search"),
    gettext_noop(" off - disables the memory hash table"),
@@ -1023,9 +1043,9 @@ static const char * const helpstr[] = {
    gettext_noop(" on - enables use of xboard/winboard"),
    gettext_noop(" off - disables use of xboard/winboard"),
    "depth N",
-   gettext_noop(" Sets the program to look N ply (half-moves) deep for every"),
-   gettext_noop(" search it performs. If there is a checkmate or other condition"),
-   gettext_noop(" that does not allow that depth, then it will not be "),
+   gettext_noop(" Sets the program to look N ply (half-moves) deep for every\n\
+ it performs. If there is a checkmate or other condition\n\
+ does not allow that depth, then it will not be"),
    "level MOVES MINUTES INCREMENT",
    gettext_noop(" Sets time control to be MOVES in MINUTES with each move giving"),
    gettext_noop(" an INCREMENT (in seconds, i.e. Fischer-style clock)."),
