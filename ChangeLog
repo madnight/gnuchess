@@ -1,3 +1,10 @@
+2013-08-27  Antonio Ceballos  <aceballos@gmail.com>
+
+	* po/es.po: fix some formats.
+	* src/frontend/cmd.c: make some texts more suitable for
+	translation.
+	* configure.ac: set version 6.0.92.
+
 2013-08-26  Antonio Ceballos  <aceballos@gmail.com>
 
 	* po/es.po: convert from ISO-8859-1 to UTF-8.

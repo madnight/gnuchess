@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-26 08:07+0200\n"
+"POT-Creation-Date: 2013-08-27 21:35+0200\n"
 "PO-Revision-Date: 2013-08-26 08:15+0200\n"
 "Last-Translator: Antonio <aceballos@gmail.com>\n"
 "Language-Team: Spanish\n"
@@ -20,16 +20,16 @@ msgstr ""
 
 #: src/frontend/cmd.c:101
 #, c-format
-msgid "'activate' not currently supported\n"
-msgstr "'activate' no está implementado actualmente\n"
+msgid "'activate' is not currently supported.\n"
+msgstr "'activate' no está implementado actualmente.\n"
 
 #.
 #. * No longer used by Xboard but requested as a feature
 #.
 #: src/frontend/cmd.c:131
 #, c-format
-msgid "'black' not currently supported\n"
-msgstr "'black' no está implementado actualmente\n"
+msgid "'black' is not currently supported.\n"
+msgstr "'black' no está implementado actualmente.\n"
 
 #: src/frontend/cmd.c:140
 #, c-format
@@ -141,12 +141,12 @@ msgstr ""
 
 #: src/frontend/cmd.c:416
 #, c-format
-msgid "Null move heuristic is on.\n"
+msgid "Null-move heuristic is on.\n"
 msgstr "La heurística de movimiento nulo está activada.\n"
 
 #: src/frontend/cmd.c:418
 #, c-format
-msgid "Null move heuristic is off.\n"
+msgid "Null-move heuristic is off.\n"
 msgstr "La heurística de movimiento nulo está desactivada.\n"
 
 #: src/frontend/cmd.c:438 src/frontend/cmd.c:465
@@ -181,8 +181,8 @@ msgstr "Modo gráfico desactiviado.\n"
 
 #: src/frontend/cmd.c:638
 #, c-format
-msgid "'random' not currently supported\n"
-msgstr "'random' no está implementado actualmente\n"
+msgid "'random' is not currently supported.\n"
+msgstr "'random' no está implementado actualmente.\n"
 
 #: src/frontend/cmd.c:646
 #, c-format
@@ -201,8 +201,8 @@ msgstr "Guardar en %s\n"
 
 #: src/frontend/cmd.c:721
 #, c-format
-msgid "'switch' not currently supported\n"
-msgstr "'switch' no está implementado actualmente\n"
+msgid "'switch' is not currently supported.\n"
+msgstr "'switch' no está implementado actualmente.\n"
 
 #: src/frontend/cmd.c:727
 #, c-format
@@ -231,7 +231,6 @@ msgstr ""
 "\n"
 
 #: src/frontend/cmd.c:750
-#, c-format
 msgid ""
 "Play the game of chess\n"
 "\n"
@@ -283,11 +282,14 @@ msgstr " -m, --manual       activa el modo manual\n"
 msgid ""
 " -u, --uci          enable UCI protocol (externally behave as UCI engine)\n"
 msgstr ""
-" -u, --uci          activa el protocolo UCI (externamente se exhibe como un motor UCI)\n"
+" -u, --uci          activa el protocolo UCI (externamente se exhibe como un "
+"motor UCI)\n"
 
 #: src/frontend/cmd.c:773
 msgid " -M size, --memory=size   specify memory usage in MB for hashtable\n"
-msgstr " -M size, --memory=size   especifica el uso de memoria en MB para la tabla hash\n"
+msgstr ""
+" -M size, --memory=size   especifica el uso de memoria en MB para la tabla "
+"hash\n"
 
 #: src/frontend/cmd.c:775
 msgid ""
@@ -323,17 +325,16 @@ msgstr ""
 
 #: src/frontend/cmd.c:789
 msgid ""
-" gnuchess.ini allows setting config options. See info for details.\n"
-" The file will be looked up in the current directory and, if not found\n"
-" there, in the directory pointed to by environment variable\n"
-" GNUCHESS_PKGDATADIR.\n"
+" The file 'gnuchess.ini' allows setting config options. See\n"
+" 'info gnuchess' for details. The file will be looked up in the current\n"
+" directory or, if not found there, in the directory pointed to by\n"
+" environment variable GNUCHESS_PKGDATADIR.\n"
 "\n"
 msgstr ""
-" gnuchess.ini permite establecer opciones de configuración. Véase info para "
-"consultar detalles.\n"
-" El fichero se busca en el directorio actual y, si no se encuentra allí,\n"
-" en el directorio indicado por la variable de entorno\n"
-" GNUCHESS_PKGDATADIR.\n"
+" El fichero 'gnuchess.ini' permite establecer opciones de configuración.\n"
+" Véase 'info gnuchess' para consultar detalles. El fichero se busca en el\n"
+" directorio actual y, si no se encuentra allí, en el directorio\n"
+" indicado por la variable de entorno GNUCHESS_PKGDATADIR.\n"
 "\n"
 
 #: src/frontend/cmd.c:795
@@ -358,8 +359,8 @@ msgstr ""
 #.
 #: src/frontend/cmd.c:860
 #, c-format
-msgid "'white' not currently supported\n"
-msgstr "'whtie' no está implementado actualmente\n"
+msgid "'white' is not currently supported.\n"
+msgstr "'whtie' no está implementado actualmente.\n"
 
 #: src/frontend/cmd.c:891
 #, c-format
@@ -387,21 +388,21 @@ msgstr ""
 
 #: src/frontend/cmd.c:930
 #, c-format
-msgid "'show eval/score' not currently supported\n"
-msgstr ""
+msgid "'show eval/score' is not currently supported.\n"
+msgstr "'show eval/score' no está implementado actualmente.\n"
 
 #: src/frontend/cmd.c:937
 #, c-format
-msgid "'show pin' not currently supported\n"
-msgstr ""
+msgid "'show pin' is not currently supported.\n"
+msgstr "'show pin' no está implementado actualmente.\n"
 
 #: src/frontend/cmd.c:949
 #, c-format
-msgid "'test' not currently supported\n"
-msgstr ""
+msgid "'test' is not currently supported.\n"
+msgstr "'test' no está implementado actualmente.\n"
 
 #: src/frontend/cmd.c:967
-msgid " quit the program."
+msgid " Quits the program."
 msgstr ""
 
 #: src/frontend/cmd.c:969
@@ -441,37 +442,37 @@ msgid " random - play any move from book"
 msgstr ""
 
 #: src/frontend/cmd.c:981
-msgid " prints out the version of this program"
+msgid " Prints out the version of this program."
 msgstr ""
 
 #: src/frontend/cmd.c:984
-msgid " back one move in pgn loaded game"
+msgid " Backs up one move in pgn loaded game."
 msgstr ""
 
 #: src/frontend/cmd.c:986
-msgid " saves the game so far to the file from memory"
+msgid " Saves the game so far to the file from memory."
 msgstr ""
 
 #: src/frontend/cmd.c:988
-msgid " loads the game in the file into memory"
+msgid " Loads the game in the file into memory."
 msgstr ""
 
 #: src/frontend/cmd.c:990
 msgid ""
-" loads the game in the file into memory, and enables\n"
-" commands first, last, next, previous"
+" Loads the game in the file into memory, and enables\n"
+" commands first, last, next, previous."
 msgstr ""
 
 #: src/frontend/cmd.c:994
-msgid " advances one move in pgn loaded game"
+msgid " Advances one move in pgn loaded game."
 msgstr ""
 
 #: src/frontend/cmd.c:996
-msgid " go to begin position of pgn loaded game"
+msgid " Goes to begin position of pgn loaded game."
 msgstr ""
 
 #: src/frontend/cmd.c:998
-msgid " go to end position of pgn loaded game"
+msgid " Goes to end position of pgn loaded game."
 msgstr ""
 
 #: src/frontend/cmd.c:1001
@@ -481,17 +482,17 @@ msgid ""
 msgstr ""
 
 #: src/frontend/cmd.c:1005
-msgid " Program plays white"
+msgid " Program plays white."
 msgstr ""
 
 #: src/frontend/cmd.c:1007
-msgid " Program plays black"
+msgid " Program plays black."
 msgstr ""
 
 #: src/frontend/cmd.c:1009
 msgid ""
 " Computer takes whichever side is on move and begins its\n"
-" thinking immediately"
+" thinking immediately."
 msgstr ""
 
 #: src/frontend/cmd.c:1012
@@ -501,7 +502,7 @@ msgid ""
 msgstr ""
 
 #: src/frontend/cmd.c:1015
-msgid " Turns off verbose thinking output"
+msgid " Turns off verbose thinking output."
 msgstr ""
 
 #: src/frontend/cmd.c:1017
@@ -524,11 +525,11 @@ msgid ""
 msgstr ""
 
 #: src/frontend/cmd.c:1028
-msgid " Inputs the estimated rating for computer and for its opponent"
+msgid " Inputs the estimated rating for computer and for its opponent."
 msgstr ""
 
 #: src/frontend/cmd.c:1030
-msgid " Sets up new game (i.e. positions in original positions)"
+msgid " Sets up new game (i.e. positions in original positions)."
 msgstr ""
 
 #: src/frontend/cmd.c:1032
@@ -546,7 +547,7 @@ msgid " off - disables the memory hash table"
 msgstr ""
 
 #: src/frontend/cmd.c:1038
-msgid " Sets the hash table to permit storage of N MB"
+msgid " Sets the hash table to permit storage of N MB."
 msgstr ""
 
 #: src/frontend/cmd.c:1040
@@ -569,7 +570,7 @@ msgstr ""
 msgid ""
 " Sets the program to look N ply (half-moves) deep for every\n"
 " it performs. If there is a checkmate or other condition\n"
-" does not allow that depth, then it will not be"
+" does not allow that depth, then it will not be."
 msgstr ""
 
 #: src/frontend/cmd.c:1050
@@ -589,23 +590,23 @@ msgid " Saves game position into EPD format from memory to disk."
 msgstr ""
 
 #: src/frontend/cmd.c:1059
-msgid " Switches side to move"
+msgid " Switches side to move."
 msgstr ""
 
 #: src/frontend/cmd.c:1062
-msgid " Solves the positions in FILENAME"
+msgid " Solves the positions in FILENAME."
 msgstr ""
 
 #: src/frontend/cmd.c:1064
-msgid " Backs up two moves in game history"
+msgid " Backs up two moves in game history."
 msgstr ""
 
 #: src/frontend/cmd.c:1066
-msgid " Backs up one move in game history"
+msgid " Backs up one move in game history."
 msgstr ""
 
 #: src/frontend/cmd.c:1068
-msgid " Display command line syntax"
+msgid " Displays command line syntax."
 msgstr ""
 
 #: src/frontend/cmd.c:1070
@@ -670,15 +671,15 @@ msgid " evalspeed tests speed of the evaluator"
 msgstr ""
 
 #: src/frontend/cmd.c:1087
-msgid " show moves from opening book."
+msgid " Shows moves from opening book."
 msgstr ""
 
 #: src/frontend/cmd.c:1089
-msgid " enable display board in graphic mode"
+msgid " Enables display board in graphic mode."
 msgstr ""
 
 #: src/frontend/cmd.c:1091
-msgid " disable graphic mode and display classical view"
+msgid " Disables graphic mode and display classical view."
 msgstr ""
 
 #: src/frontend/cmd.c:1117

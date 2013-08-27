@@ -98,7 +98,7 @@ void cmd_accepted(void)
 
 void cmd_activate(void) 
 {
-  printf( _("'activate' not currently supported\n") );
+  printf( _("'activate' is not currently supported.\n") );
 }
  
 void cmd_analyze(void)
@@ -128,7 +128,7 @@ void cmd_black(void)
  /* 
   * No longer used by Xboard but requested as a feature
   */
-  printf( _("'black' not currently supported\n") );
+  printf( _("'black' is not currently supported.\n") );
 }
 
 void cmd_book(void)
@@ -413,9 +413,9 @@ void cmd_null(void)
     SetDataToEngine( "nullon" );
   }
   if ( flags & USENULL ) {
-    printf( _("Null move heuristic is on.\n") );
+    printf( _("Null-move heuristic is on.\n") );
   } else {
-    printf( _("Null move heuristic is off.\n") );
+    printf( _("Null-move heuristic is off.\n") );
   }
 }
 
@@ -635,7 +635,7 @@ void cmd_quit(void) { SET (flags, QUIT); }
 
 void cmd_random(void)
 {
-  printf( _("'random' not currently supported\n") );
+  printf( _("'random' is not currently supported.\n") );
   SetDataToEngine( token[0] );
 }
 
@@ -718,7 +718,7 @@ void cmd_st(void)
 
 void cmd_switch(void)
 {
-  printf( _("'switch' not currently supported\n") );
+  printf( _("'switch' is not currently supported.\n") );
 }
 
 void cmd_time(void)
@@ -787,10 +787,10 @@ Play the game of chess\n\n"), stdout );
  in coordinate algebraic notation.\n\
 \n"), stdout );
       fputs( _("\
- gnuchess.ini allows setting config options. See info for details.\n\
- The file will be looked up in the current directory and, if not found\n\
- there, in the directory pointed to by environment variable\n\
- GNUCHESS_PKGDATADIR.\n\
+ The file 'gnuchess.ini' allows setting config options. See\n\
+ 'info gnuchess' for details. The file will be looked up in the current\n\
+ directory or, if not found there, in the directory pointed to by\n\
+ environment variable GNUCHESS_PKGDATADIR.\n\
 \n"), stdout );
       fputs( _("\
 Report bugs to <bug-gnu-chess@gnu.org>.\n\
@@ -857,7 +857,7 @@ void cmd_white(void)
  /* 
   * No longer used by Xboard but requested as a feature
   */
-  printf( _("'white' not currently supported\n") );
+  printf( _("'white' is not currently supported.\n") );
 }
 
 void cmd_xboard(void)
@@ -927,14 +927,14 @@ void cmd_show (void)
    }
    else if (tokeneq (token[1], "eval") || tokeneq (token[1], "score"))
    {
-      printf( _("'show eval/score' not currently supported\n") );
+      printf( _("'show eval/score' is not currently supported.\n") );
       return;
    }
    else if (tokeneq (token[1], "game"))
      ShowGame ();
    else if (tokeneq (token[1], "pin"))
    {
-      printf( _("'show pin' not currently supported\n") );
+      printf( _("'show pin' is not currently supported.\n") );
       return;
    }
 }
@@ -946,7 +946,7 @@ void cmd_test (void)
  *
  *************************************************************************/
 {
-  printf( _("'test' not currently supported\n") );
+  printf( _("'test' is not currently supported.\n") );
 }
 
 /*
@@ -964,7 +964,7 @@ void cmd_test (void)
 
 static const char * const helpstr[] = {
    "quit",
-   gettext_noop(" quit the program."),
+   gettext_noop(" Quits the program."),
    "exit",
    gettext_noop(" In analysis mode this stops analysis, otherwise it quits the program."),
    "help",
@@ -978,64 +978,64 @@ static const char * const helpstr[] = {
    gettext_noop(" prefer - default, same as 'book on'"),
    gettext_noop(" random - play any move from book"),
    "version",
-   gettext_noop(" prints out the version of this program"),
+   gettext_noop(" Prints out the version of this program."),
    "previous",
    "p",
-   gettext_noop(" back one move in pgn loaded game"),
+   gettext_noop(" Backs up one move in pgn loaded game."),
    "pgnsave FILENAME",
-   gettext_noop(" saves the game so far to the file from memory"),
+   gettext_noop(" Saves the game so far to the file from memory."),
    "pgnload FILENAME",
-   gettext_noop(" loads the game in the file into memory"),
+   gettext_noop(" Loads the game in the file into memory."),
    "pgnreplay FILENAME",
-   gettext_noop(" loads the game in the file into memory, and enables\n\
- commands first, last, next, previous"),
+   gettext_noop(" Loads the game in the file into memory, and enables\n"
+                " commands first, last, next, previous."),
    "next",
    "n",
-   gettext_noop(" advances one move in pgn loaded game"),
+   gettext_noop(" Advances one move in pgn loaded game."),
    "first",
-   gettext_noop(" go to begin position of pgn loaded game"),
+   gettext_noop(" Goes to begin position of pgn loaded game."),
    "last",
-   gettext_noop(" go to end position of pgn loaded game"),
+   gettext_noop(" Goes to end position of pgn loaded game."),
    "force",
    "manual",
-   gettext_noop(" Makes the program stop moving. You may now enter moves\n\
- to reach some position in the future."),
+   gettext_noop(" Makes the program stop moving. You may now enter moves\n"
+                " to reach some position in the future."),
    " ",
    "white",
-   gettext_noop(" Program plays white"),
+   gettext_noop(" Program plays white."),
    "black",
-   gettext_noop(" Program plays black"),
+   gettext_noop(" Program plays black."),
    "go",
-   gettext_noop(" Computer takes whichever side is on move and begins its\n\
- thinking immediately"),
+   gettext_noop(" Computer takes whichever side is on move and begins its\n"
+                " thinking immediately."),
    "post",
-   gettext_noop(" Arranges for verbose thinking output showing variation, score,\n\
- time, depth, etc."),
+   gettext_noop(" Arranges for verbose thinking output showing variation, score,\n"
+                " time, depth, etc."),
    "nopost",
-   gettext_noop(" Turns off verbose thinking output"),
+   gettext_noop(" Turns off verbose thinking output."),
    "name NAME",
-   gettext_noop(" Lets you input your name. Also writes the log.nnn and a\n\
- corresponding game.nnn file. For details please see\n\
- auxillary file format sections."),
+   gettext_noop(" Lets you input your name. Also writes the log.nnn and a\n"
+                " corresponding game.nnn file. For details please see\n"
+                " auxillary file format sections."),
    "result",
    gettext_noop(" Mostly used by Internet Chess server."),
    "activate",
-   gettext_noop(" This command reactivates a game that has been terminated automatically\n\
- to checkmate or no more time on the clock. However, it does not\n\
- those conditions. You would have to undo a move or two or\n\
- add time to the clock with level or time in that case."),
+   gettext_noop(" This command reactivates a game that has been terminated automatically\n"
+                " to checkmate or no more time on the clock. However, it does not\n"
+                " those conditions. You would have to undo a move or two or\n"
+                " add time to the clock with level or time in that case."),
    "rating COMPUTERRATING OPPONENTRATING",
-   gettext_noop(" Inputs the estimated rating for computer and for its opponent"),
+   gettext_noop(" Inputs the estimated rating for computer and for its opponent."),
    "new",
-   gettext_noop(" Sets up new game (i.e. positions in original positions)"),
+   gettext_noop(" Sets up new game (i.e. positions in original positions)."),
    "time",
-   gettext_noop(" Inputs time left in game for computer in hundredths of a second.\n\
- used by Internet Chess server."),
+   gettext_noop(" Inputs time left in game for computer in hundredths of a second.\n"
+                " used by Internet Chess server."),
    "hash",
    gettext_noop(" on - enables using the memory hash table to speed search"),
    gettext_noop(" off - disables the memory hash table"),
    "memory N",
-   gettext_noop(" Sets the hash table to permit storage of N MB"),
+   gettext_noop(" Sets the hash table to permit storage of N MB."),
    "null",
    gettext_noop(" on - enables using the null move heuristic to speed search"),
    gettext_noop(" off - disables using the null move heuristic"),
@@ -1043,9 +1043,9 @@ static const char * const helpstr[] = {
    gettext_noop(" on - enables use of xboard/winboard"),
    gettext_noop(" off - disables use of xboard/winboard"),
    "depth N",
-   gettext_noop(" Sets the program to look N ply (half-moves) deep for every\n\
- it performs. If there is a checkmate or other condition\n\
- does not allow that depth, then it will not be"),
+   gettext_noop(" Sets the program to look N ply (half-moves) deep for every\n"
+                " it performs. If there is a checkmate or other condition\n"
+                " does not allow that depth, then it will not be."),
    "level MOVES MINUTES INCREMENT",
    gettext_noop(" Sets time control to be MOVES in MINUTES with each move giving"),
    gettext_noop(" an INCREMENT (in seconds, i.e. Fischer-style clock)."),
@@ -1056,16 +1056,16 @@ static const char * const helpstr[] = {
    "epdsave",
    gettext_noop(" Saves game position into EPD format from memory to disk."),
    "switch",
-   gettext_noop(" Switches side to move"),
+   gettext_noop(" Switches side to move."),
    "solve FILENAME",
    "solveepd FILENAME",
-   gettext_noop(" Solves the positions in FILENAME"),
+   gettext_noop(" Solves the positions in FILENAME."),
    "remove",
-   gettext_noop(" Backs up two moves in game history"),
+   gettext_noop(" Backs up two moves in game history."),
    "undo",
-   gettext_noop(" Backs up one move in game history"),
+   gettext_noop(" Backs up one move in game history."),
    "usage",
-   gettext_noop(" Display command line syntax"),
+   gettext_noop(" Displays command line syntax."),
    "show",
    gettext_noop(" board - displays the current board"),
    gettext_noop(" time - displays the time settings"),
@@ -1084,11 +1084,11 @@ static const char * const helpstr[] = {
    gettext_noop(" eval - reads in an epd file and shows evaluation for its entries"),
    gettext_noop(" evalspeed tests speed of the evaluator"),
    "bk",
-   gettext_noop(" show moves from opening book."),
+   gettext_noop(" Shows moves from opening book."),
    "graphic",
-   gettext_noop(" enable display board in graphic mode"),
+   gettext_noop(" Enables display board in graphic mode."),
    "nographic",
-   gettext_noop(" disable graphic mode and display classical view"),
+   gettext_noop(" Disables graphic mode and display classical view."),
    NULL,
    NULL
 };
