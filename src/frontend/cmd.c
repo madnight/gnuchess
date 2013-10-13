@@ -4,7 +4,7 @@
 
    Copyright (C) 2001-2013 Free Software Foundation, Inc.
 
-   GNU Chess is based on the two research programs 
+   GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
 
    This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-   Contact Info: 
+   Contact Info:
      bug-gnu-chess@gnu.org
      cracraft@ai.mit.edu, cracraft@stanfordalumni.org, cracraft@earthlink.net
 */
@@ -90,17 +90,17 @@ static int tokeneq(const char *s, const char *t)
   }
   return (!*s || isspace(*s)) && (!*t || isspace(*t));
 }
-  
-void cmd_accepted(void) 
+
+void cmd_accepted(void)
 {
   SetDataToEngine( token[0] );
 }
 
-void cmd_activate(void) 
+void cmd_activate(void)
 {
-  printf( _("'activate' is not currently supported.\n") );
+  printf( _("Command 'activate' is currently not supported.\n") );
 }
- 
+
 void cmd_analyze(void)
 {
   /*
@@ -123,12 +123,12 @@ void cmd_bk(void)
   SetDataToEngine( "bk" );
 }
 
-void cmd_black(void) 
+void cmd_black(void)
 {
- /* 
+ /*
   * No longer used by Xboard but requested as a feature
   */
-  printf( _("'black' is not currently supported.\n") );
+  printf( _("Command 'black' is currently not supported.\n") );
 }
 
 void cmd_book(void)
@@ -180,7 +180,7 @@ void cmd_easy(void)
 }
 
 /* Predecessor to setboard */
-void cmd_edit(void) 
+void cmd_edit(void)
 {
   if ( flags & XBOARD ) {
     printf("tellusererror command 'edit' not implemented\n");
@@ -188,8 +188,8 @@ void cmd_edit(void)
   }
 }
 
-void cmd_exit(void) 
-{ 
+void cmd_exit(void)
+{
   /*
    * "exit" is a synonym for quit except in engine mode
    * when it means leave analyze mode
@@ -199,10 +199,8 @@ void cmd_exit(void)
     flags = preanalyze_flags ; /* this implicitly clears ANALYZE flag */
     SetDataToEngine( token[0] );
   } else {
-    cmd_quit(); 
+    cmd_quit();
   }
-   
-
 }
 
 void cmd_force(void)
@@ -272,8 +270,11 @@ void cmd_level(void)
     MoveLimit[white] = MoveLimit[black] = TCMove - (GameCnt+1)/2;
     TimeLimit[white] = TimeLimit[black] = TCTime * 60;
     if (!(flags & XBOARD)) {
-      printf (_("Time Control: %d moves in %.2f secs\n"), 
-	      MoveLimit[white], TimeLimit[white]);
+      /* TRANSLATORS: Please be aware that the word 'move' is sometimes
+         used as a synonym of 'ply', and sometimes in the sense of a 
+         full 2-ply move. */
+      printf (_("Time Control: %d moves in %.2f secs\n"),
+      MoveLimit[white], TimeLimit[white]);
       printf(_("Fischer increment of %d seconds\n"),TCinc);
     }
   }
@@ -295,7 +296,7 @@ void cmd_load(void)
 {
   char data[MAXSTR]="";
   LoadEPD (token[1]);
-  pgnloaded = 0; 
+  pgnloaded = 0;
   check_board();
   if (!ValidateBoard()) {
     SET (flags, ENDED);
@@ -327,7 +328,7 @@ void cmd_load(void)
 void cmd_manual(void)
 {
   SetDataToEngine( "force" );
-  SET (flags, MANUAL); 
+  SET (flags, MANUAL);
 }
 
 void cmd_memory(void)
@@ -354,7 +355,7 @@ void cmd_movenow(void)
 /*
  * TODO: Add a logpath variable or macro, not always dump into current
  * dir. Again, how does one handle paths portably across Unix/Windows?
- *   -- Lukas 
+ *   -- Lukas
  */
 void cmd_name(void)
 {
@@ -368,14 +369,14 @@ void cmd_name(void)
     sprintf(gamefile,"game.%03d",suffix);
     /*
      * There is an obvious race condition here but who cares, we just
-     * bail out in case of failure... --Lukas 
+     * bail out in case of failure... --Lukas
      */
     if (access(logfile,F_OK) < 0) {
       ofp = fopen(logfile,"w");
       if (ofp == NULL) {
-	ofp = stdout;
-	fprintf(stderr, _("Failed to open %s for writing: %s\n"), 
-		logfile, strerror(errno));
+        ofp = stdout;
+        fprintf(stderr, _("Failed to open %s for writing: %s\n"),
+        logfile, strerror(errno));
       }
       return;
     }
@@ -479,7 +480,7 @@ void cmd_pgnreplay(void)
 
   pgnloaded = 1;
   pgncnt = GameCnt;
-  
+
   while (GameCnt >= 0) {
     if (GameCnt >= 0) {
       CLEAR (flags, ENDED);
@@ -506,13 +507,13 @@ void cmd_next(void)
     SetAutoGo( true );
     MakeMove (board.side, &Game[GameCnt+1].move);
   } else {
-    printf(_("No more moves. Game reached the end.\n"));    
+    printf(_("No more moves. Game reached the end.\n"));
     return;
   }
-  
+
   printf("%d. ",GameCnt/2+1);
-  printf("%s\n", Game[GameCnt].SANmv);    
-  ShowBoard (); 
+  printf("%s\n", Game[GameCnt].SANmv);
+  ShowBoard ();
 }
 
 void cmd_previous(void)
@@ -528,11 +529,11 @@ void cmd_previous(void)
   else {
     printf(_("Initial position reached. There are no earlier moves.\n"));
     return;
-  } 
+  }
 
   printf("%d. ",GameCnt/2+1);
-  printf("%s\n", Game[GameCnt].SANmv);    
-  ShowBoard (); 
+  printf("%s\n", Game[GameCnt].SANmv);
+  ShowBoard ();
 }
 
 void cmd_last(void)
@@ -548,7 +549,7 @@ void cmd_last(void)
 
   printf("%d. ",GameCnt/2+1);
   printf("%s\n", Game[GameCnt].SANmv);
-  ShowBoard (); 
+  ShowBoard ();
 }
 
 void cmd_first(void)
@@ -569,12 +570,12 @@ void cmd_first(void)
     }
   }
 
-  ShowBoard (); 
+  ShowBoard ();
 }
 
 /*
  * XXX - Filenames with spaces will break here,
- * do we want to support them? I vote for "no" 
+ * do we want to support them? I vote for "no"
  *   - Lukas
  */
 void cmd_pgnsave(void)
@@ -596,18 +597,18 @@ void cmd_nographic(void)
   graphicmodeoutput = 0;
   printf(_("Graphic mode is disabled.\n"));
 }
- 
+
 void cmd_ping(void)
 {
   SetDataToEngine( token[0] );
-  /* If ping is received when we are on move, we are supposed to 
+  /* If ping is received when we are on move, we are supposed to
      reply only after moving.  In this version of GNU Chess, we
      never read commands while we are on move, so we don't have to
      worry about that here. */
   printf("pong %s\n", token[1]);
   fflush(stdout);
 }
- 
+
 void cmd_post(void)
 {
   SET (flags, POST);
@@ -626,7 +627,7 @@ void cmd_protover(void)
     /* Note: change this if "draw" command is added, etc. */
     printf("feature setboard=1 analyze=1 ping=1 draw=0 sigint=0\
  variants=\"normal\" myname=\"%s %s\" done=1\n",
-	   PROGRAM, VERSION);
+      PROGRAM, VERSION);
     fflush(stdout);
   }
 }
@@ -635,7 +636,7 @@ void cmd_quit(void) { SET (flags, QUIT); }
 
 void cmd_random(void)
 {
-  printf( _("'random' is not currently supported.\n") );
+  printf( _("Command 'random' is currently not supported.\n") );
   SetDataToEngine( token[0] );
 }
 
@@ -643,7 +644,7 @@ void cmd_rating(void)
 {
   myrating = atoi(token[1]);
   opprating = atoi(token[2]);
-  fprintf(ofp,_("my rating = %d, opponent rating = %d\n"),myrating,opprating); 
+  fprintf(ofp,_("my rating = %d, opponent rating = %d\n"),myrating,opprating);
   /* Change randomness of book based on opponent rating. */
   /* Basically we play narrower book the higher the opponent */
   if (opprating >= 1700) bookfirstlast = 2;
@@ -673,18 +674,18 @@ void cmd_remove(void)
 void cmd_result(void)
 {
   SetDataToEngine( token[0] );
-  if (ofp != stdout) {  
+  if (ofp != stdout) {
     fprintf(ofp, "result: %s\n",token[1]);
-    fclose(ofp); 
+    fclose(ofp);
     ofp = stdout;
     printf(_("Save to %s\n"),gamefile);
     PGNSaveToFile (gamefile, token[1]);
     DBUpdatePlayer (name, token[1]);
   }
 }
-	
+
 void cmd_save(void)
-{  
+{
   if ( strlen(token[1]) > 0 )
     SaveEPD (token[1]);
   else
@@ -705,7 +706,7 @@ void cmd_setboard(void)
 void cmd_solve(void) { Solve (token[1]); }
 
 /* Set total time for move to be N seconds is "st N" */
-void cmd_st(void) 
+void cmd_st(void)
 {
   char data[MAXSTR]="";
   /* Approximately level 1 0 N */
@@ -718,7 +719,7 @@ void cmd_st(void)
 
 void cmd_switch(void)
 {
-  printf( _("'switch' is not currently supported.\n") );
+  printf( _("Command 'switch' is currently not supported.\n") );
 }
 
 void cmd_time(void)
@@ -737,13 +738,13 @@ void cmd_undo(void)
   if (GameCnt >= 0)
     UnmakeMove (board.side, &Game[GameCnt].move);
   else
-    printf (_("No moves to undo! \n"));
+    printf (_("No moves to undo!\n"));
   MoveLimit[board.side]++;
   TimeLimit[board.side] += Game[GameCnt+1].et;
   if (!(flags & XBOARD)) ShowBoard ();
 }
 
-void cmd_usage(void) 
+void cmd_usage(void)
 {
       printf ( _("\n\
 Usage: %s [OPTION]...\n\n"), progname );
@@ -805,7 +806,7 @@ void cmd_usermove(void)
 {
   /* TODO: Remove the first SetDataToEngine */
   /*SetDataToEngine( token[0] );*/
-   leaf *ptr; 
+   leaf *ptr;
    ptr = ValidateMove (token[1]);
    if (ptr != NULL) {
      /* Since the user entered a move:
@@ -831,7 +832,7 @@ void cmd_usermove(void)
        fputc('\n',ofp);
        fflush(ofp);
      }
-     if (!(flags & XBOARD)) ShowBoard (); 
+     if (!(flags & XBOARD)) ShowBoard ();
      SET (flags, THINK);
    }
    else {
@@ -841,7 +842,7 @@ void cmd_usermove(void)
       */
      printf(_("Invalid move: %s\n"),token[1]);
      fflush(stdout);
-   }  
+   }
 }
 
 void cmd_version(void)
@@ -852,12 +853,12 @@ void cmd_version(void)
      printf ("Chess\n");
 }
 
-void cmd_white(void) 
+void cmd_white(void)
 {
- /* 
+ /*
   * No longer used by Xboard but requested as a feature
   */
-  printf( _("'white' is not currently supported.\n") );
+  printf( _("Command 'white' is currently not supported.\n") );
 }
 
 void cmd_xboard(void)
@@ -868,7 +869,7 @@ void cmd_xboard(void)
   else if (tokeneq (token[1], "on"))
     SET (flags, XBOARD);
   else if (!(flags & XBOARD)) { /* set if unset and only xboard called */
-    SET (flags, XBOARD);	    /* like in xboard/winboard usage */
+    SET (flags, XBOARD);        /* like in xboard/winboard usage */
   }
 }
 
@@ -890,20 +891,20 @@ void cmd_show (void)
    {
       printf(_("My rating = %d\n"),myrating);
       printf(_("Opponent rating = %d\n"),opprating);
-   } 
+   }
    else if (tokeneq (token[1], _("time")))
       ShowTime ();
    else if (tokeneq (token[1], _("moves"))) {
       GenCnt = 0;
       TreePtr[2] = TreePtr[1];
-      GenMoves (1);      
+      GenMoves (1);
       ShowMoveList (1);
       printf (_("No. of moves generated = %ld\n"), GenCnt);
    }
    else if (tokeneq (token[1], "escape")) {
       GenCnt = 0;
       TreePtr[2] = TreePtr[1];
-      GenCheckEscapes (1);      
+      GenCheckEscapes (1);
       ShowMoveList (1);
       printf (_("No. of moves generated = %ld\n"), GenCnt);
    }
@@ -911,7 +912,7 @@ void cmd_show (void)
    {
       GenCnt = 0;
       TreePtr[2] = TreePtr[1];
-      GenNonCaptures (1);      
+      GenNonCaptures (1);
       FilterIllegalMoves (1);
       ShowMoveList (1);
       printf (_("No. of moves generated = %ld\n"), GenCnt);
@@ -920,21 +921,21 @@ void cmd_show (void)
    {
       GenCnt = 0;
       TreePtr[2] = TreePtr[1];
-      GenCaptures (1);      
+      GenCaptures (1);
       FilterIllegalMoves (1);
       ShowMoveList (1);
       printf (_("No. of moves generated = %ld\n"), GenCnt);
    }
    else if (tokeneq (token[1], "eval") || tokeneq (token[1], "score"))
    {
-      printf( _("'show eval/score' is not currently supported.\n") );
+      printf( _("Command 'show eval/score' is currently not supported.\n") );
       return;
    }
    else if (tokeneq (token[1], "game"))
      ShowGame ();
    else if (tokeneq (token[1], "pin"))
    {
-      printf( _("'show pin' is not currently supported.\n") );
+      printf( _("Command 'show pin' is currently not supported.\n") );
       return;
    }
 }
@@ -946,7 +947,7 @@ void cmd_test (void)
  *
  *************************************************************************/
 {
-  printf( _("'test' is not currently supported.\n") );
+  printf( _("Command 'test' is currently not supported.\n") );
 }
 
 /*
@@ -957,7 +958,7 @@ void cmd_test (void)
  * use tabs for indentation, only spaces. CAPITALS are
  * reserved for parameters in the command names. The
  * array must be terminated by two NULLs.
- * 
+ *
  * This one should be integrated in the method table.
  * (Very much like docstrings in Lisp.)
  */
@@ -971,24 +972,24 @@ static const char * const helpstr[] = {
    gettext_noop(" Produces a help blurb corresponding to this list of commands."),
    "book",
    gettext_noop(" add - compiles book.bin from a pgn book file"),
-   gettext_noop(" on - enables use of book"),
+   gettext_noop(" on - enables use of book (default)"),
    gettext_noop(" off - disables use of book"),
-   gettext_noop(" worst - play worst move from book"),
-   gettext_noop(" best - play best move from book"),
-   gettext_noop(" prefer - default, same as 'book on'"),
-   gettext_noop(" random - play any move from book"),
+   gettext_noop(" worst - plays worst move from book"),
+   gettext_noop(" best - plays best move from book"),
+   gettext_noop(" prefer - same as 'book on' (default)"),
+   gettext_noop(" random - plays any move from book"),
    "version",
    gettext_noop(" Prints out the version of this program."),
    "previous",
    "p",
    gettext_noop(" Backs up one move in pgn loaded game."),
    "pgnsave FILENAME",
-   gettext_noop(" Saves the game so far to the file from memory."),
+   gettext_noop(" Saves the game so far from memory to the file."),
    "pgnload FILENAME",
    gettext_noop(" Loads the game in the file into memory."),
    "pgnreplay FILENAME",
    gettext_noop(" Loads the game in the file into memory, and enables\n"
-                " commands first, last, next, previous."),
+                " the commands 'first', 'last', 'next', 'previous'."),
    "next",
    "n",
    gettext_noop(" Advances one move in pgn loaded game."),
@@ -1018,34 +1019,34 @@ static const char * const helpstr[] = {
                 " corresponding game.nnn file. For details please see\n"
                 " auxillary file format sections."),
    "result",
-   gettext_noop(" Mostly used by Internet Chess server."),
+   gettext_noop(" Mostly used by Internet Chess Server."),
    "activate",
    gettext_noop(" This command reactivates a game that has been terminated automatically\n"
-                " to checkmate or no more time on the clock. However, it does not\n"
-                " those conditions. You would have to undo a move or two or\n"
-                " add time to the clock with level or time in that case."),
+                " due to checkmate or no more time on the clock. However, it does not\n"
+                " alter those conditions. You would have to undo a move or two or\n"
+                " add time to the clock with 'level' or 'time'."),
    "rating COMPUTERRATING OPPONENTRATING",
    gettext_noop(" Inputs the estimated rating for computer and for its opponent."),
    "new",
-   gettext_noop(" Sets up new game (i.e. positions in original positions)."),
+   gettext_noop(" Sets up a new game (i.e. pieces in original positions)."),
    "time",
    gettext_noop(" Inputs time left in game for computer in hundredths of a second.\n"
-                " used by Internet Chess server."),
+                " Mostly used by Internet Chess Server."),
    "hash",
-   gettext_noop(" on - enables using the memory hash table to speed search"),
+   gettext_noop(" on - enables using the memory hash table to speed up search"),
    gettext_noop(" off - disables the memory hash table"),
    "memory N",
    gettext_noop(" Sets the hash table to permit storage of N MB."),
    "null",
-   gettext_noop(" on - enables using the null move heuristic to speed search"),
-   gettext_noop(" off - disables using the null move heuristic"),
+   gettext_noop(" on - enables using the null-move heuristic to speed up search"),
+   gettext_noop(" off - disables using the null-move heuristic"),
    "xboard",
    gettext_noop(" on - enables use of xboard/winboard"),
    gettext_noop(" off - disables use of xboard/winboard"),
    "depth N",
    gettext_noop(" Sets the program to look N ply (half-moves) deep for every\n"
-                " it performs. If there is a checkmate or other condition\n"
-                " does not allow that depth, then it will not be."),
+                " search it performs. If there is a checkmate or other condition\n"
+                " that does not allow that depth, then it will not be."),
    "level MOVES MINUTES INCREMENT",
    gettext_noop(" Sets time control to be MOVES in MINUTES with each move giving"),
    gettext_noop(" an INCREMENT (in seconds, i.e. Fischer-style clock)."),
@@ -1082,7 +1083,7 @@ static const char * const helpstr[] = {
    gettext_noop(" movegenspeed - tests speed of move generator"),
    gettext_noop(" capturespeed - tests speed of capture move generator"),
    gettext_noop(" eval - reads in an epd file and shows evaluation for its entries"),
-   gettext_noop(" evalspeed tests speed of the evaluator"),
+   gettext_noop(" evalspeed - tests speed of the evaluator"),
    "bk",
    gettext_noop(" Shows moves from opening book."),
    "graphic",
@@ -1105,14 +1106,14 @@ void cmd_help (void)
 
    if (strlen(token[1])>0) {
       for (p=gettext(helpstr), count=0; *p; p++) {
-	 if  (strncmp(*p, token[1], strlen(token[1])) == 0) {
-	    puts(*p);
-	    while (*++p && **p != ' ') /* Skip aliases */ ;
-	    for (; *p && **p == ' '; p++) {
-	       puts(*p);
-	    }
-	    return;
-	 }
+        if (strncmp(*p, token[1], strlen(token[1])) == 0) {
+           puts(*p);
+           while (*++p && **p != ' ') /* Skip aliases */ ;
+           for (; *p && **p == ' '; p++) {
+              puts(*p);
+           }
+           return;
+        }
       }
       printf(_("Help for command %s not found\n\n"), token[1]);
    }
@@ -1120,11 +1121,11 @@ void cmd_help (void)
    for (p=gettext(helpstr), count=0; *p; p++) {
       len = strcspn(*p, " ");
       if (len > 0) {
-	 count += printf("%.*s  ", len, *p);
-	 if (count > 60) {
-	    count = 0;
-	    puts("");
-	 }
+        count += printf("%.*s  ", len, *p);
+        if (count > 60) {
+           count = 0;
+           puts("");
+        }
       }
    }
    puts("");
@@ -1140,7 +1141,7 @@ struct methodtable {
   void (*method) (void);
 };
 
-/* Last entry contains to NULL pointers */
+/* Last entry contains two NULL pointers */
 
 /* List commands we don't implement to avoid illegal moving them */
 
@@ -1221,19 +1222,19 @@ void parse_input(void)
  *
  *************************************************************************/
 {
-   leaf *ptr; 
+   leaf *ptr;
    const struct methodtable * meth;
- 
+
    dbg_printf("parse_input() called, inputstr = *%s*\n", inputstr);
 
-   /* Initialize variables used to send messages to the engine */ 
+   /* Initialize variables used to send messages to the engine */
    SetDataToEngine( "" );
    ExpectAnswerFromEngine( false );
    SetUserInputValidMove( 0 );
    ChangeColor( false );
 
    split_input();
-  
+
    for (meth = commands; meth->name != NULL; meth++) {
      if (tokeneq(token[0], meth->name)) {
        meth->method();
@@ -1267,7 +1268,7 @@ void parse_input(void)
        fputc('\n',ofp);
        fflush(ofp);
      }
-     if (!(flags & XBOARD)) ShowBoard (); 
+     if (!(flags & XBOARD)) ShowBoard ();
      SET (flags, THINK);
    }
    else {
@@ -1277,7 +1278,7 @@ void parse_input(void)
       */
      printf(_("Invalid move: %s\n"),token[0]);
      fflush(stdout);
-   }  
+   }
 }
 
 void check_board()
