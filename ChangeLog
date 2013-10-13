@@ -1,3 +1,9 @@
+2013-10-12  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/main.cc: add #include <locale.h>.
+	* src/frontend/cmd.c: remove blank spaces.
+	* configure.ac: set version 6.0.93.
+
 2013-08-27  Antonio Ceballos  <aceballos@gmail.com>
 
 	* po/es.po: fix some formats.

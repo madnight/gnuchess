@@ -10,7 +10,7 @@ dnl This program is distributed in the hope that it will be useful, but
 dnl WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 dnl implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-AC_INIT([GNU Chess], [6.0.92], [bug-gnu-chess@gnu.org], [gnuchess])
+AC_INIT([GNU Chess], [6.0.93], [bug-gnu-chess@gnu.org], [gnuchess])
 AC_PREREQ(2.13)
 AC_CONFIG_HEADERS(src/config.h)
 AC_CONFIG_SRCDIR([src/main.cc])
