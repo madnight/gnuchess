@@ -12,8 +12,6 @@ Items are in random order, mostly reverse chronological.
 
 * Consider adding resign and draw offer commands.
 
-* Translate into Spanish.
-
 * Consider using readline.
 
 * Add analysis tools for the evaluation function.
@@ -51,8 +49,6 @@ to include some information compared with v5.
 * Get benefit from multiple-core processors, by sharing search across them.
 
 * End-game table
-
-* Consider using gettext for internationalization.
 
 * Bug: in FICS, after quiting in the middle of a game, logging in again,
 accepting resuming game as proposed by opponent, the opponent moved but

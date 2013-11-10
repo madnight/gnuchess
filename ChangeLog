@@ -1,3 +1,21 @@
+2013-11-08  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/main.cc: clean up includes.
+	* src/frontend/cmd.c: correct help gextextization.
+	* configure.ac: set version 6.1.0.
+	* doc/version.texi: set version 6.1.0.
+	* doc/gnuchess.texi: translations section.
+	* TODO: remove gettext and Spanish translation tasks.
+	* po/gnuchess.pot: update.
+	* po/LINGUAS: added uk, de, sr, nl.
+	* po/es.po: update.
+	* po/de.po: added.
+	* po/uk.po: added.
+	* po/sr.po: added.
+	* po/nl.po: added.
+	* NEWS: changes in version 6.1.0.
+	* test/README: record 6.1.0 ranking in FICS.
+
 2013-10-12  Antonio Ceballos  <aceballos@gmail.com>
 
 	* src/main.cc: add #include <locale.h>.

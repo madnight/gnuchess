@@ -9,6 +9,23 @@ README of GNU Chess tests
 This text file records the results of tests run over well specified
 hardware. The file is written in reverse chronological order.
 
+* 2013/11/10
+
+Processor: 2.53 GHz Intel Core 2 Duo
+S.O.: Mac OS X 10.7
+Hash: 1024 MB
+Nalimov cache: 16 MB
+Book on
+v6.1.0
+
+FICS
+Finger of GNUChessSix(C):
+
+          rating     RD      win    loss    draw   total   best
+Blitz      2340     67.8     163     180      94     437   2434 (03-Jan-2011)
+Standard   2376     63.9      58      64      32     154   2422 (16-Apr-2011)
+Lightning  2364     62.8      61      82      39     182   2461 (22-Jan-2011)
+
 * 2011/09/11
 
 Processor: 2.53 GHz Intel Core 2 Duo

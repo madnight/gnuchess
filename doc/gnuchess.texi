@@ -66,6 +66,7 @@ This manual is for GNU Chess (version @value{VERSION}, @value{UPDATED}).
 * History::		A brief review of the long history of GNU Chess.
 * Known problems::	Known problems
 * Developers::		Notes for developers.
+* Translations::	GNU Chess in other languages.
 * GNU Free Documentation License:: Copying and sharing this documentation.
 * Concept index::	Index of concepts.
 @end menu
@@ -1542,6 +1543,32 @@ yet enabled by default)
 Fruit is not fast (in nodes per second) given the little it is
 calculating.  Some "optimisations" could be undone in order
 to make the code shorter and more flexible.
+
+
+@node Translations
+@chapter Translations
+
+English is the native language of GNU Chess, as usual in the 
+GNU Project.
+Starting on version 6.1.0, GNU Chess features internationalization
+support based on GNU @command{gettext}. The Translation Project
+contributes message strings translated into other languages. See the 
+@uref{http://translationproject.org/domain/gnuchess.html,
+Translation Project page for GNU Chess} for the currently available
+translations.
+
+During the installation of the operating system, the language to 
+be used is selected. This selection is made system-wide.
+An individual user can select his or her own language by setting the
+`locale' through environment variables. Typically, a command like this
+(in @command{bash}) will set German as the language to be used:
+
+@example
+export LANGUAGE=de_DE
+@end example
+
+See details on this at 
+@uref{http://www.gnu.org/software/gettext/manual/gettext.html#Users}
 
 
 @node GNU Free Documentation License

@@ -1105,12 +1105,12 @@ void cmd_help (void)
    int count, len;
 
    if (strlen(token[1])>0) {
-      for (p=gettext(helpstr), count=0; *p; p++) {
+      for (p=helpstr, count=0; *p; p++) {
         if (strncmp(*p, token[1], strlen(token[1])) == 0) {
            puts(*p);
            while (*++p && **p != ' ') /* Skip aliases */ ;
            for (; *p && **p == ' '; p++) {
-              puts(*p);
+              puts(_(*p));
            }
            return;
         }
@@ -1118,7 +1118,7 @@ void cmd_help (void)
       printf(_("Help for command %s not found\n\n"), token[1]);
    }
    printf(_("List of commands: (help COMMAND to get more help)\n"));
-   for (p=gettext(helpstr), count=0; *p; p++) {
+   for (p=helpstr, count=0; *p; p++) {
       len = strcspn(*p, " ");
       if (len > 0) {
         count += printf("%.*s  ", len, *p);

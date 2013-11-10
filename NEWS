@@ -6,6 +6,30 @@ NEWS of GNU Chess
   are permitted in any medium without royalty provided the copyright
   notice and this notice are preserved.
 
+Version 6.1.0 (November 2013)
+
+- Add support for package internationalization based on GNU gettext.
+- Include first translations provided by the Translation Team.
+- Graphic mode, a new board shape based on the unicode characters
+for chess.
+- pgnreplay command, similar to pgnload, with the capability of
+manually showing a saved game step by step and moving backwards.
+- Fix bug in setboard.
+- Avoid using 100% CPU in UCI mode.
+- Rename the small book.bin as smallbook.bin.
+
+Version 6.0.93 (October 2013, pretest version of v6.1.0)
+
+- Fix gettext support.
+
+Version 6.0.92 (August 2013, pretest version of v6.1.0)
+
+- Fix gettext support.
+
+Version 6.0.91 (August 2013, pretest version of v6.1.0)
+
+- Fix gettext support.
+
 Version 6.0.90 (August 2013, pretest version of v6.1.0)
 
 - Add support for package internationalization based on GNU gettext.

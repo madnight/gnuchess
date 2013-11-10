@@ -35,13 +35,8 @@ extern "C" {
 #include <unistd.h>
 #include <locale.h>
 
-extern "C" {
-#include "gettext.h"
-}
-
-extern "C" {
 #include "frontend/common.h"
-}
+#include "gettext.h"
 
 unsigned char lzArray[65536];
 BitBoard BitPosArray[64];
