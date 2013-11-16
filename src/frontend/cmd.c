@@ -746,7 +746,8 @@ void cmd_undo(void)
 
 void cmd_usage(void)
 {
-      printf ( _("\n\
+      printf ( "\n" );
+      printf ( _("\
 Usage: %s [OPTION]...\n\n"), progname );
       fputs( _("\
 Play the game of chess\n\n"), stdout );
@@ -1015,15 +1016,15 @@ static const char * const helpstr[] = {
    "nopost",
    gettext_noop(" Turns off verbose thinking output."),
    "name NAME",
-   gettext_noop(" Lets you input your name. Also writes the log.nnn and a\n"
-                " corresponding game.nnn file. For details please see\n"
-                " auxillary file format sections."),
+   gettext_noop(" Lets you input your name. Also writes the log.nnn and\n"
+                " corresponding game.nnn files. For details please see\n"
+                " the auxiliary file format sections."),
    "result",
    gettext_noop(" Mostly used by Internet Chess Server."),
    "activate",
    gettext_noop(" This command reactivates a game that has been terminated automatically\n"
                 " due to checkmate or no more time on the clock. However, it does not\n"
-                " alter those conditions. You would have to undo a move or two or\n"
+                " alter those conditions. So you would have to undo a move or two, or\n"
                 " add time to the clock with 'level' or 'time'."),
    "rating COMPUTERRATING OPPONENTRATING",
    gettext_noop(" Inputs the estimated rating for computer and for its opponent."),
@@ -1048,8 +1049,8 @@ static const char * const helpstr[] = {
                 " search it performs. If there is a checkmate or other condition\n"
                 " that does not allow that depth, then it will not be."),
    "level MOVES MINUTES INCREMENT",
-   gettext_noop(" Sets time control to be MOVES in MINUTES with each move giving"),
-   gettext_noop(" an INCREMENT (in seconds, i.e. Fischer-style clock)."),
+   gettext_noop(" Sets time control to be MOVES in MINUTES, with each move giving\n"
+                " an INCREMENT (in seconds, i.e. a Fischer-style clock)."),
    "load",
    "epdload",
    gettext_noop(" Loads a position in EPD format from disk into memory."),

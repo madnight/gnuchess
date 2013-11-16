@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gnuchess 6.0.93\n"
 "Report-Msgid-Bugs-To: bug-gnu-chess@gnu.org\n"
 "POT-Creation-Date: 2013-10-12 21:34+0200\n"
-"PO-Revision-Date: 2013-11-04 11:48+0200\n"
+"PO-Revision-Date: 2013-11-14 12:42+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
@@ -382,7 +382,7 @@ msgstr "  Sluit het programma af."
 
 #: src/frontend/cmd.c:970
 msgid " In analysis mode this stops analysis, otherwise it quits the program."
-msgstr ""
+msgstr "  In analysemodus stopt het de analyse, anders sluit het het programma af."
 
 #: src/frontend/cmd.c:972
 msgid " Produces a help blurb corresponding to this list of commands."
@@ -479,7 +479,7 @@ msgid ""
 " Arranges for verbose thinking output showing variation, score,\n"
 " time, depth, etc."
 msgstr ""
-"  Schakelt gedetailleerde denkuitvoer in, met variatie, score,\n"
+"  Schakelt gedetailleerde denkuitvoer in: variatie, score,\n"
 "  tijd, diepte, enzovoort."
 
 #: src/frontend/cmd.c:1016
@@ -495,7 +495,7 @@ msgstr ""
 
 #: src/frontend/cmd.c:1022
 msgid " Mostly used by Internet Chess Server."
-msgstr ""
+msgstr "  Voornamelijk gebruikt door de Internet Chess Server."
 
 #: src/frontend/cmd.c:1024
 msgid ""
@@ -507,17 +507,19 @@ msgstr ""
 
 #: src/frontend/cmd.c:1029
 msgid " Inputs the estimated rating for computer and for its opponent."
-msgstr ""
+msgstr "  Geschatte ratings voor computer en diens opponent."
 
 #: src/frontend/cmd.c:1031
 msgid " Sets up a new game (i.e. pieces in original positions)."
-msgstr ""
+msgstr "  Zet een nieuwe partij op (alle stukken in hun beginpositie)."
 
 #: src/frontend/cmd.c:1033
 msgid ""
 " Inputs time left in game for computer in hundredths of a second.\n"
 " Mostly used by Internet Chess Server."
 msgstr ""
+"  Resterende speeltijd voor computer in honderdsten van seconden.\n"
+"  Voornamelijk gebruikt door de Internet Chess Server."
 
 #: src/frontend/cmd.c:1036
 msgid " on - enables using the memory hash table to speed up search"
@@ -564,19 +566,19 @@ msgstr ""
 
 #: src/frontend/cmd.c:1055
 msgid " Loads a position in EPD format from disk into memory."
-msgstr ""
+msgstr "  Laadt een partijpositie in EPD-opmaak, van schijf naar geheugen."
 
 #: src/frontend/cmd.c:1058
 msgid " Saves game position into EPD format from memory to disk."
-msgstr ""
+msgstr "  Slaat de partijpositie in EPD-opmaak op, van geheugen naar schijf."
 
 #: src/frontend/cmd.c:1060
 msgid " Switches side to move."
-msgstr ""
+msgstr "  Maakt de andere kleur aan zet."
 
 #: src/frontend/cmd.c:1063
 msgid " Solves the positions in FILENAME."
-msgstr ""
+msgstr "  Lost de posities in het gegeven bestand op."
 
 #: src/frontend/cmd.c:1065
 msgid " Backs up two moves in game history."
@@ -588,67 +590,67 @@ msgstr "  Gaat één ply terug in de partijgeschiedenis."
 
 #: src/frontend/cmd.c:1069
 msgid " Displays command line syntax."
-msgstr ""
+msgstr "  Toont de opdrachtregel-syntax."
 
 #: src/frontend/cmd.c:1071
 msgid " board - displays the current board"
-msgstr ""
+msgstr "  board - toont het huidige bord"
 
 #: src/frontend/cmd.c:1072
 msgid " time - displays the time settings"
-msgstr ""
+msgstr "  time - toont de tijdsinstellingen"
 
 #: src/frontend/cmd.c:1073
 msgid " moves - shows all moves using one call to routine"
-msgstr ""
+msgstr "  moves - toont alle zetten (met één aanroep)"
 
 #: src/frontend/cmd.c:1074
 msgid " escape - shows moves that escape from check using one call to routine"
-msgstr ""
+msgstr "  escape - toont de zetten om aan schaak te ontsnappen (met één aanroep)"
 
 #: src/frontend/cmd.c:1075
 msgid " noncapture - shows non-capture moves"
-msgstr ""
+msgstr "  noncapture - toont de niet-neemzetten"
 
 #: src/frontend/cmd.c:1076
 msgid " capture - shows capture moves"
-msgstr ""
+msgstr "  capture - toont de neemzetten"
 
 #: src/frontend/cmd.c:1077
 msgid " eval [or score] - shows the evaluation per piece and overall"
-msgstr ""
+msgstr "  eval [of: score] - toont de evaluatie per stuk en algeheel"
 
 #: src/frontend/cmd.c:1078
 msgid " game - shows moves in game history"
-msgstr ""
+msgstr "  game - toont de zetten in de partijgeschiedenis"
 
 #: src/frontend/cmd.c:1079
 msgid " pin - shows pinned pieces"
-msgstr ""
+msgstr "  pin - toont welke stukken gepend zijn"
 
 #: src/frontend/cmd.c:1081
 msgid " movelist - reads in an epd file and shows legal moves for its entries"
-msgstr ""
+msgstr "  movelist - leest een EPD-bestand in en toont de mogelijke zetten"
 
 #: src/frontend/cmd.c:1082
 msgid " capture - reads in an epd file and shows legal captures for its entries"
-msgstr ""
+msgstr "  capture - leest een EPD-bestand in en toont de mogelijke neemzetten"
 
 #: src/frontend/cmd.c:1083
 msgid " movegenspeed - tests speed of move generator"
-msgstr ""
+msgstr "  movegenspeed - test de snelheid van de zetten-generator"
 
 #: src/frontend/cmd.c:1084
 msgid " capturespeed - tests speed of capture move generator"
-msgstr ""
+msgstr "  capturespeed - test de snelheid van de neemzetten-generator"
 
 #: src/frontend/cmd.c:1085
 msgid " eval - reads in an epd file and shows evaluation for its entries"
-msgstr ""
+msgstr "  eval - leest een EPD-bestand in en toont de evaluatie van diens items"
 
 #: src/frontend/cmd.c:1086
 msgid " evalspeed - tests speed of the evaluator"
-msgstr ""
+msgstr "  evalspeed - test de snelheid van de evaluator"
 
 #: src/frontend/cmd.c:1088
 msgid " Shows moves from opening book."

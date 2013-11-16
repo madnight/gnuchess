@@ -1,3 +1,13 @@
+2013-11-16  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/adapter/main.cc: remove extra '>'.
+	* src/frontend/cmd.c: small corrections in translatable strings.
+	* po/gnuchess.pot: update.
+	* po/LINGUAS: added eo.
+	* po/es.po: update.
+	* po/nl.po: update.
+	* po/eo.po: added.
+
 2013-11-08  Antonio Ceballos  <aceballos@gmail.com>
 
 	* src/main.cc: clean up includes.

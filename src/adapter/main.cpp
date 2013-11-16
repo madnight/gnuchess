@@ -23,7 +23,7 @@
 
 // includes
 
-#include <pthread.h>>
+#include <pthread.h>
 #include <cerrno>
 #include <csignal>
 #include <cstdio>
