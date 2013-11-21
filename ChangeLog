@@ -2,9 +2,12 @@
 
 	* src/frontend/cmd.c: small corrections in translatable strings.
 
-2013-11-16  Antonio Ceballos  <aceballos@gmail.com>
+2013-11-16  Sebastian Pipping <sebastian@pipping.org>  (tiny change)
 
 	* src/adapter/main.cc: remove extra '>'.
+
+2013-11-16  Antonio Ceballos  <aceballos@gmail.com>
+
 	* po/gnuchess.pot: update.
 	* po/LINGUAS: added eo.
 	* po/es.po: update.
