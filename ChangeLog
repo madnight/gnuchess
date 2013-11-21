@@ -116,14 +116,17 @@
 
 	* src/main.cc: avoid 100% CPU usage in UCI mode.
 
-2013-08-18  Antonio Ceballos  <aceballos@gmail.com>
+2013-08-18  Elvis Vasconcelos  <elvisvasc2@gmail.com>
 
 	* src/main.cc: graphic mode and pgnload enhancements.
 	* src/frontend/output.c: likewise.
 	* src/frontend/cmd.c: likewise.
 	* src/frontend/pgn.c: likewise.
 	* src/frontend/common.h: likewise.
-	* AUTHORS: likewise.
+
+2013-08-18  Antonio Ceballos  <aceballos@gmail.com>
+
+	* AUTHORS: graphic mode and pgnload enhancements..
 
 2013-03-11  Antonio Ceballos  <aceballos@gmail.com>
 
