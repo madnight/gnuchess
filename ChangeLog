@@ -1,5 +1,15 @@
 2013-11-23  Antonio Ceballos  <aceballos@gmail.com>
 
+	* src/frontend/: *.l renamed as *.ll.
+	* src/frontend/: *.c renamed as *.cc.
+	* src/frontend/players.cc: cast required in C++.
+	* src/frontend/Makefile.am: *.l renamed as *.ll;
+	*.c renamed as *.cc.
+	* src/main.cc: 'remove extern "C"'.
+	* doc/gnuchess.texi: frontend no longer compiled in C; now in C++.
+
+2013-11-23  Antonio Ceballos  <aceballos@gmail.com>
+
 	* configure.ac: require autoconf 2.69.
 
 2013-11-16  Benno Schulenberg  <bensberg@justemail.net>  (tiny change)

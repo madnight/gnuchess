@@ -25,7 +25,6 @@
 
 #include "components.h"
 
-extern "C" {
 #include <time.h>
 #include <string.h>
 #include <stdio.h>
@@ -504,6 +503,4 @@ int main (int argc, char *argv[])
   
   dbg_close();
   return (0);
-}
-
 }

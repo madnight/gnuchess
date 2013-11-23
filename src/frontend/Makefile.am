@@ -18,19 +18,15 @@
 
 noinst_LIBRARIES = libfrontend.a
 
-libfrontend_a_SOURCES = atak.c cmd.c debug.c epd.c genmove.c \
- init.c move.c output.c players.c\
- pgn.c solve.c \
- swap.c util.c engine.c common.h \
- inlines.h version.h lexpgn.l lexpgn.h
+libfrontend_a_SOURCES = atak.cc cmd.cc debug.cc epd.cc genmove.cc \
+ init.cc move.cc output.cc players.cc\
+ pgn.cc solve.cc \
+ swap.cc util.cc engine.cc common.h \
+ inlines.h version.h lexpgn.ll lexpgn.h
 
 AM_CPPFLAGS = -I$(top_srcdir)/src -I$(top_srcdir)/lib
 
-AM_CFLAGS = $(PTHREAD_CFLAGS) -std=c99
-
 AM_LDFLAGS = $(PTHREAD_LDFLAGS) $(PTHREAD_LIBS)
-
-#CFLAGS += -std=c99
 
 DISTCLEANFILES = *~
 

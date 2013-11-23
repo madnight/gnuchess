@@ -1398,17 +1398,20 @@ libengine.a
 
 @cindex C
 @cindex C++
-There is no problem in having both C and C++ in the same program.  However, 
-there is no technical reason for this heterogeneity.  The only reason is the
-different origins of the code.  It is desirable to get a more homogeneous
-program in the future.
+The source code of the frontend comes mainly from version 5.07, which was 
+written in C.  There is no problem in having both C and C++ in the same 
+program, and so have they live together in all versions from 6.0.0 to 6.1.0.
+However, in version 6.1.1 and subsequent versions the frontend is compiled
+in C++. This change has been introduced to avoid compilation warnings in
+output.cc (former output.c) as a result of the introduction of Unicode
+literals.
 
 @cindex namespaces
 PolyGlot and Fruit have a common origin, which means that there is a lot of
 shared code.  The point is that the shared code is very similar but not
 identical, which would make hard an eventual unification.  In order to avoid
 massive name clash, all the code has been wrapped in namespaces, one for the
-adapter, one for the engine.  The frontend remains compiled as C code.
+adapter, one for the engine.  The frontend remains in the default namespace.
 
 
 @node Chess engine

@@ -49,8 +49,8 @@ static char lname[MAXNAMESZ];
 
 static int rscorecompare(const void *aa, const void *bb)
 {
-    const playerentry *a = aa;
-    const playerentry *b = bb;   
+    const playerentry *a = (const playerentry *)aa;
+    const playerentry *b = (const playerentry *)bb;   
     float ascore, bscore;
     ascore = (a->wins+(a->draws/2))/(a->wins+a->draws+a->losses);
     bscore = (b->wins+(b->draws/2))/(b->wins+b->draws+b->losses);
@@ -61,8 +61,8 @@ static int rscorecompare(const void *aa, const void *bb)
 
 static int scorecompare(const void *aa, const void *bb)
 {
-    const playerentry *a = aa;
-    const playerentry *b = bb;   
+    const playerentry *a = (const playerentry *)aa;
+    const playerentry *b = (const playerentry *)bb;   
     int ascore, bscore;
     ascore = 100*(a->wins+(a->draws/2))/(a->wins+a->draws+a->losses);
     bscore = 100*(b->wins+(b->draws/2))/(b->wins+b->draws+b->losses);
@@ -73,8 +73,8 @@ static int scorecompare(const void *aa, const void *bb)
 
 static int namecompare(const void *aa, const void *bb)
 {
-    const playerentry *a = aa;
-    const playerentry *b = bb;   
+    const playerentry *a = (const playerentry *)aa;
+    const playerentry *b = (const playerentry *)bb;   
     if (strcmp(a->player,b->player) > 0) return(1);
     else if (strcmp(a->player,b->player) < 0) return(-1);
     else return(0);
