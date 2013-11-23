@@ -1,5 +1,10 @@
 2013-11-23  Antonio Ceballos  <aceballos@gmail.com>
 
+	* configure.ac: set version 6.1.1.
+	* NEWS: changes in version 6.1.1.
+
+2013-11-23  Antonio Ceballos  <aceballos@gmail.com>
+
 	* po/LINGUAS: added pt_BR.
 	* po/eo.po: added (forgot to really add it on 2013-11-16).
 	* po/pt_BR.po: added.

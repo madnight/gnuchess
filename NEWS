@@ -6,6 +6,14 @@ NEWS of GNU Chess
   are permitted in any medium without royalty provided the copyright
   notice and this notice are preserved.
 
+Version 6.1.1 (November 2013)
+
+- Include translations to other languages.
+- Minor corrections in translatable strings.
+- Migrate frontend to C++.
+- Use autoconf 2.69 and require it in configure.ac.
+- Use automake 1.14.
+
 Version 6.1.0 (November 2013)
 
 - Add support for package internationalization based on GNU gettext.

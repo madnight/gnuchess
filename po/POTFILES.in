@@ -7,4 +7,4 @@
 # List of source files which contain translatable strings.
 
 # Package source files.
-src/frontend/cmd.c
+src/frontend/cmd.cc

@@ -1400,7 +1400,7 @@ libengine.a
 @cindex C++
 The source code of the frontend comes mainly from version 5.07, which was 
 written in C.  There is no problem in having both C and C++ in the same 
-program, and so have they live together in all versions from 6.0.0 to 6.1.0.
+program, and so have they lived together in all versions from 6.0.0 to 6.1.0.
 However, in version 6.1.1 and subsequent versions the frontend is compiled
 in C++. This change has been introduced to avoid compilation warnings in
 output.cc (former output.c) as a result of the introduction of Unicode

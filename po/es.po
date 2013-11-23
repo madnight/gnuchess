@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnuchess 6.1.0\n"
 "Report-Msgid-Bugs-To: bug-gnu-chess@gnu.org\n"
-"POT-Creation-Date: 2013-11-16 08:59+0100\n"
+"POT-Creation-Date: 2013-11-23 10:57+0100\n"
 "PO-Revision-Date: 2013-11-16 13:00+0200\n"
 "Last-Translator: Antonio Ceballos <aceballos@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -18,17 +18,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/frontend/cmd.c:101
+#: src/frontend/cmd.cc:101
 #, c-format
 msgid "Command 'activate' is currently not supported.\n"
 msgstr "La orden 'activate' no está implementada actualmente.\n"
 
-#: src/frontend/cmd.c:131
+#.
+#. * No longer used by Xboard but requested as a feature
+#.
+#: src/frontend/cmd.cc:131
 #, c-format
 msgid "Command 'black' is currently not supported.\n"
 msgstr "La orden 'black' no está implementada actualmente.\n"
 
-#: src/frontend/cmd.c:140
+#: src/frontend/cmd.cc:140
 #, c-format
 msgid ""
 "The syntax to add a new book is:\n"
@@ -39,52 +42,52 @@ msgstr ""
 "\n"
 "\tbook add file.pgn\n"
 
-#: src/frontend/cmd.c:147
+#: src/frontend/cmd.cc:147
 #, c-format
 msgid "book is now on\n"
 msgstr "El libro está activado.\n"
 
-#: src/frontend/cmd.c:150
+#: src/frontend/cmd.cc:150
 #, c-format
 msgid "book is now off\n"
 msgstr "El libro está desactivado.\n"
 
-#: src/frontend/cmd.c:153
+#: src/frontend/cmd.cc:153
 #, c-format
 msgid "book is now best\n"
 msgstr "El libro está en modo mejor.\n"
 
-#: src/frontend/cmd.c:156
+#: src/frontend/cmd.cc:156
 #, c-format
 msgid "book is now worst\n"
 msgstr "El libro está en modo peor.\n"
 
-#: src/frontend/cmd.c:159
+#: src/frontend/cmd.cc:159
 #, c-format
 msgid "book is now random\n"
 msgstr "El libro está en modo aleatorio.\n"
 
-#: src/frontend/cmd.c:161
+#: src/frontend/cmd.cc:161
 #, c-format
 msgid "Incorrect book option\n"
 msgstr "Opción de libro incorrecta\n"
 
-#: src/frontend/cmd.c:174
+#: src/frontend/cmd.cc:174
 #, c-format
 msgid "Search to a depth of %d\n"
 msgstr "Profundidad de búsqueda %d\n"
 
-#: src/frontend/cmd.c:240
+#: src/frontend/cmd.cc:240
 #, c-format
 msgid "Hashing is on.\n"
 msgstr "Tabla de transposición activada.\n"
 
-#: src/frontend/cmd.c:242
+#: src/frontend/cmd.cc:242
 #, c-format
 msgid "Hashing is off.\n"
 msgstr "Tabla de transposición desactivada.\n"
 
-#: src/frontend/cmd.c:268 src/frontend/cmd.c:278
+#: src/frontend/cmd.cc:268 src/frontend/cmd.cc:278
 #, c-format
 msgid "Fischer increment of %d seconds\n"
 msgstr "Incremento Fischer de %d segundos\n"
@@ -92,129 +95,129 @@ msgstr "Incremento Fischer de %d segundos\n"
 #. TRANSLATORS: Please be aware that the word 'move' is sometimes
 #. used as a synonym of 'ply', and sometimes in the sense of a
 #. full 2-ply move.
-#: src/frontend/cmd.c:276
+#: src/frontend/cmd.cc:276
 #, c-format
 msgid "Time Control: %d moves in %.2f secs\n"
 msgstr "Control de tiempo: %d movimientos en %.2f s\n"
 
-#: src/frontend/cmd.c:286
+#: src/frontend/cmd.cc:286
 #, c-format
 msgid "name    - list known players alphabetically\n"
 msgstr "name    - lista de jugadores conocidos por orden alfabético\n"
 
-#: src/frontend/cmd.c:287
+#: src/frontend/cmd.cc:287
 #, c-format
 msgid "score   - list by GNU best result first \n"
 msgstr "puntos  - lista por mejor resultado de GNU\n"
 
-#: src/frontend/cmd.c:288
+#: src/frontend/cmd.cc:288
 #, c-format
 msgid "reverse - list by GNU worst result first\n"
 msgstr "inversa - lista por peor resultado de GNU\n"
 
-#: src/frontend/cmd.c:303 src/frontend/cmd.c:1301
+#: src/frontend/cmd.cc:303 src/frontend/cmd.cc:1301
 #, c-format
 msgid "Board is wrong!\n"
 msgstr "Tablero incorrecto\n"
 
-#: src/frontend/cmd.c:309 src/frontend/cmd.c:312
+#: src/frontend/cmd.cc:309 src/frontend/cmd.cc:312
 #, c-format
 msgid "Error reading file '%s'\n"
 msgstr "Error leyendo fichero '%s'\n"
 
-#: src/frontend/cmd.c:378
+#: src/frontend/cmd.cc:378
 #, c-format
 msgid "Failed to open %s for writing: %s\n"
 msgstr "Fallo al abrir %s para escribir: %s\n"
 
-#: src/frontend/cmd.c:384
+#: src/frontend/cmd.cc:384
 #, c-format
 msgid "Could not create logfile, all slots occupied.\n"
 msgstr "No se pudo crear fichero de log, no hay espacio libre. \n"
 
-#: src/frontend/cmd.c:385
+#: src/frontend/cmd.cc:385
 #, c-format
 msgid "You may consider deleting or renaming your existing logfiles.\n"
 msgstr ""
 " Puede usted considerar la opción de borrar o renombrar los ficheros\n"
 " de log que existen actualmente.\n"
 
-#: src/frontend/cmd.c:417
+#: src/frontend/cmd.cc:417
 #, c-format
 msgid "Null-move heuristic is on.\n"
 msgstr "La heurística de movimiento nulo está activada.\n"
 
-#: src/frontend/cmd.c:419
+#: src/frontend/cmd.cc:419
 #, c-format
 msgid "Null-move heuristic is off.\n"
 msgstr "La heurística de movimiento nulo está desactivada.\n"
 
-#: src/frontend/cmd.c:439 src/frontend/cmd.c:466
+#: src/frontend/cmd.cc:439 src/frontend/cmd.cc:466
 #, c-format
 msgid "Incorrect epd file\n"
 msgstr "Fichero epd incorrecto\n"
 
-#: src/frontend/cmd.c:510
+#: src/frontend/cmd.cc:510
 #, c-format
 msgid "No more moves. Game reached the end.\n"
 msgstr "No hay más movimientos. Final de partida.\n"
 
-#: src/frontend/cmd.c:530
+#: src/frontend/cmd.cc:530
 #, c-format
 msgid "Initial position reached. There are no earlier moves.\n"
 msgstr "Posición inicial. No hay movimientos anteriores.\n"
 
-#: src/frontend/cmd.c:586 src/frontend/cmd.c:692
+#: src/frontend/cmd.cc:586 src/frontend/cmd.cc:692
 #, c-format
 msgid "Invalid filename.\n"
 msgstr "Nombre de fichero inválido.\n"
 
-#: src/frontend/cmd.c:592
+#: src/frontend/cmd.cc:592
 #, c-format
 msgid "Graphic mode is enabled.\n"
 msgstr "Modo gráfico activado.\n"
 
-#: src/frontend/cmd.c:598
+#: src/frontend/cmd.cc:598
 #, c-format
 msgid "Graphic mode is disabled.\n"
 msgstr "Modo gráfico desactiviado.\n"
 
-#: src/frontend/cmd.c:639
+#: src/frontend/cmd.cc:639
 #, c-format
 msgid "Command 'random' is currently not supported.\n"
 msgstr "La orden 'random' no está implementada actualmente.\n"
 
-#: src/frontend/cmd.c:647
+#: src/frontend/cmd.cc:647
 #, c-format
 msgid "my rating = %d, opponent rating = %d\n"
 msgstr "mi puntuación = %d, puntuación del  adversario = %d\n"
 
-#: src/frontend/cmd.c:671 src/frontend/cmd.c:741
+#: src/frontend/cmd.cc:671 src/frontend/cmd.cc:741
 #, c-format
 msgid "No moves to undo!\n"
 msgstr "¡No hay ningún movimiento que deshacer!\n"
 
-#: src/frontend/cmd.c:681
+#: src/frontend/cmd.cc:681
 #, c-format
 msgid "Save to %s\n"
 msgstr "Guardar en %s\n"
 
-#: src/frontend/cmd.c:722
+#: src/frontend/cmd.cc:722
 #, c-format
 msgid "Command 'switch' is currently not supported.\n"
 msgstr "La orden 'switch' no está implementada actualmente.\n"
 
-#: src/frontend/cmd.c:728
+#: src/frontend/cmd.cc:728
 #, c-format
 msgid "Old TimeLimit = %g\n"
 msgstr "Límite de tiempo anterior = %g\n"
 
-#: src/frontend/cmd.c:730
+#: src/frontend/cmd.cc:730
 #, c-format
 msgid "New TimeLimit = %g\n"
 msgstr "Límite de tiempo nuevo = %g\n"
 
-#: src/frontend/cmd.c:750
+#: src/frontend/cmd.cc:750
 #, c-format
 msgid ""
 "Usage: %s [OPTION]...\n"
@@ -223,7 +226,7 @@ msgstr ""
 "Modo de empleo: %s [OPCIÓN]...\n"
 "\n"
 
-#: src/frontend/cmd.c:752
+#: src/frontend/cmd.cc:752
 msgid ""
 "Play the game of chess\n"
 "\n"
@@ -231,60 +234,60 @@ msgstr ""
 "Programa para jugar al ajedrez\n"
 "\n"
 
-#: src/frontend/cmd.c:754
+#: src/frontend/cmd.cc:754
 msgid "Options:\n"
 msgstr "Opciones:\n"
 
-#: src/frontend/cmd.c:755
+#: src/frontend/cmd.cc:755
 msgid " -h, --help         display this help and exit\n"
 msgstr " -h, --help         muestra esta ayuda y termina\n"
 
-#: src/frontend/cmd.c:757
+#: src/frontend/cmd.cc:757
 msgid " -v, --version      display version information and exit\n"
 msgstr " -v, --version      muestra información de la versión y termina\n"
 
-#: src/frontend/cmd.c:759
+#: src/frontend/cmd.cc:759
 msgid " -q, --quiet        make the program silent on startup\n"
 msgstr " -q, --quiet        arranca de modo silencioso\n"
 
-#: src/frontend/cmd.c:761
+#: src/frontend/cmd.cc:761
 msgid "     --silent       same as -q\n"
 msgstr "     --silent       igual que -q\n"
 
-#: src/frontend/cmd.c:763 src/frontend/cmd.c:781
+#: src/frontend/cmd.cc:763 src/frontend/cmd.cc:781
 msgid "\n"
 msgstr "\n"
 
-#: src/frontend/cmd.c:765
+#: src/frontend/cmd.cc:765
 msgid " -x, --xboard       start in engine mode\n"
 msgstr " -x, --xboard       arranca en modo xboard\n"
 
-#: src/frontend/cmd.c:767
+#: src/frontend/cmd.cc:767
 msgid " -p, --post         start up showing thinking\n"
 msgstr " -p, --post         arranca en modo 'mostrar lo que piensa'\n"
 
-#: src/frontend/cmd.c:769
+#: src/frontend/cmd.cc:769
 msgid " -e, --easy         disable thinking in opponents time\n"
 msgstr " -e, --easy         no piensa durante el turno del adversario\n"
 
-#: src/frontend/cmd.c:771
+#: src/frontend/cmd.cc:771
 msgid " -m, --manual       enable manual mode\n"
 msgstr " -m, --manual       activa el modo manual\n"
 
-#: src/frontend/cmd.c:773
+#: src/frontend/cmd.cc:773
 msgid ""
 " -u, --uci          enable UCI protocol (externally behave as UCI engine)\n"
 msgstr ""
 " -u, --uci          activa el protocolo UCI (externamente se exhibe como un "
 "motor UCI)\n"
 
-#: src/frontend/cmd.c:775
+#: src/frontend/cmd.cc:775
 msgid " -M size, --memory=size   specify memory usage in MB for hashtable\n"
 msgstr ""
 " -M tamaño, --memory=tamaño   especifica el uso de memoria en MB para la "
 "tabla de transposición (hash)\n"
 
-#: src/frontend/cmd.c:777
+#: src/frontend/cmd.cc:777
 msgid ""
 " -a filename, --addbook=filename   compile book.bin from pgn book "
 "'filename'\n"
@@ -292,11 +295,11 @@ msgstr ""
 " -a fichero,  --addbook=fichero    compila book.bin desde el libro pgn "
 "'fichero'\n"
 
-#: src/frontend/cmd.c:779
+#: src/frontend/cmd.cc:779
 msgid " -g, --graphic      enable graphic mode\n"
 msgstr " -g, --graphic      activa el modo gráfico\n"
 
-#: src/frontend/cmd.c:783
+#: src/frontend/cmd.cc:783
 msgid ""
 " Options xboard and post are accepted without leading dashes\n"
 " for backward compatibility.\n"
@@ -306,7 +309,7 @@ msgstr ""
 " por compatibilidad con versiones anteiores.\n"
 "\n"
 
-#: src/frontend/cmd.c:787
+#: src/frontend/cmd.cc:787
 msgid ""
 " Moves are accepted either in standard algebraic notation (SAN) or\n"
 " in coordinate algebraic notation.\n"
@@ -316,7 +319,7 @@ msgstr ""
 " en notación algebraica de coordenadas.\n"
 "\n"
 
-#: src/frontend/cmd.c:791
+#: src/frontend/cmd.cc:791
 msgid ""
 " The file 'gnuchess.ini' allows setting config options. See\n"
 " 'info gnuchess' for details. The file will be looked up in the current\n"
@@ -330,7 +333,7 @@ msgstr ""
 " indicado por la variable de entorno GNUCHESS_PKGDATADIR.\n"
 "\n"
 
-#: src/frontend/cmd.c:797
+#: src/frontend/cmd.cc:797
 msgid ""
 "Report bugs to <bug-gnu-chess@gnu.org>.\n"
 "\n"
@@ -342,7 +345,7 @@ msgstr ""
 #. * Must Output Illegal move to prevent Xboard accepting illegal
 #. * en passant captures and other subtle mistakes
 #.
-#: src/frontend/cmd.c:844 src/frontend/cmd.c:1280
+#: src/frontend/cmd.cc:844 src/frontend/cmd.cc:1280
 #, c-format
 msgid "Invalid move: %s\n"
 msgstr "Movimiento inválido: %s\n"
@@ -350,109 +353,109 @@ msgstr "Movimiento inválido: %s\n"
 #.
 #. * No longer used by Xboard but requested as a feature
 #.
-#: src/frontend/cmd.c:862
+#: src/frontend/cmd.cc:862
 #, c-format
 msgid "Command 'white' is currently not supported.\n"
 msgstr "La orden 'white' no está implementada actualmente.\n"
 
-#: src/frontend/cmd.c:893
+#: src/frontend/cmd.cc:893
 #, c-format
 msgid "My rating = %d\n"
 msgstr "Mi puntuación = %d\n"
 
-#: src/frontend/cmd.c:894
+#: src/frontend/cmd.cc:894
 #, c-format
 msgid "Opponent rating = %d\n"
 msgstr "Puntuación del adversario = %d\n"
 
-#: src/frontend/cmd.c:896
+#: src/frontend/cmd.cc:896
 msgid "time"
 msgstr "tiempo"
 
-#: src/frontend/cmd.c:898
+#: src/frontend/cmd.cc:898
 msgid "moves"
 msgstr "movimientos"
 
-#: src/frontend/cmd.c:903 src/frontend/cmd.c:910 src/frontend/cmd.c:919
-#: src/frontend/cmd.c:928
+#: src/frontend/cmd.cc:903 src/frontend/cmd.cc:910 src/frontend/cmd.cc:919
+#: src/frontend/cmd.cc:928
 #, c-format
 msgid "No. of moves generated = %ld\n"
 msgstr "Número de movimientos generados = %ld\n"
 
-#: src/frontend/cmd.c:932
+#: src/frontend/cmd.cc:932
 #, c-format
 msgid "Command 'show eval/score' is currently not supported.\n"
 msgstr "La orden 'show eval/score' no está implementada actualmente.\n"
 
-#: src/frontend/cmd.c:939
+#: src/frontend/cmd.cc:939
 #, c-format
 msgid "Command 'show pin' is currently not supported.\n"
 msgstr "La orden 'show pin' no está implementada actualmente.\n"
 
-#: src/frontend/cmd.c:951
+#: src/frontend/cmd.cc:951
 #, c-format
 msgid "Command 'test' is currently not supported.\n"
 msgstr "La orden 'test' no está implementada actualmente.\n"
 
-#: src/frontend/cmd.c:969
+#: src/frontend/cmd.cc:969
 msgid " Quits the program."
 msgstr " Sale del programa."
 
-#: src/frontend/cmd.c:971
+#: src/frontend/cmd.cc:971
 msgid " In analysis mode this stops analysis, otherwise it quits the program."
 msgstr ""
 " En el modo de análisis esto detiene el análisis; en caso contrario, sale "
 "del programa."
 
-#: src/frontend/cmd.c:973
+#: src/frontend/cmd.cc:973
 msgid " Produces a help blurb corresponding to this list of commands."
 msgstr " Produce una nota de ayuda correspondiente a esta lista de órdenes."
 
-#: src/frontend/cmd.c:975
+#: src/frontend/cmd.cc:975
 msgid " add - compiles book.bin from a pgn book file"
 msgstr " add - compila book.bin desde un fichero pgn"
 
-#: src/frontend/cmd.c:976
+#: src/frontend/cmd.cc:976
 msgid " on - enables use of book (default)"
 msgstr " on - activa el uso del libro"
 
-#: src/frontend/cmd.c:977
+#: src/frontend/cmd.cc:977
 msgid " off - disables use of book"
 msgstr " off - desactiva el uso del libro"
 
-#: src/frontend/cmd.c:978
+#: src/frontend/cmd.cc:978
 msgid " worst - plays worst move from book"
 msgstr " worst - juega el peor movimiento del libro"
 
-#: src/frontend/cmd.c:979
+#: src/frontend/cmd.cc:979
 msgid " best - plays best move from book"
 msgstr " best - juega el mejor movimiento del libro"
 
-#: src/frontend/cmd.c:980
+#: src/frontend/cmd.cc:980
 msgid " prefer - same as 'book on' (default)"
 msgstr " prefer - opción predeterminada, igual que 'book on'"
 
-#: src/frontend/cmd.c:981
+#: src/frontend/cmd.cc:981
 msgid " random - plays any move from book"
 msgstr " random - juega un movimiento cualquiera del libro"
 
-#: src/frontend/cmd.c:983
+#: src/frontend/cmd.cc:983
 msgid " Prints out the version of this program."
 msgstr " Imprime la versión de este programa."
 
-#: src/frontend/cmd.c:986
+#: src/frontend/cmd.cc:986
 msgid " Backs up one move in pgn loaded game."
 msgstr " Retrocede un movimiento en la partida pgn cargada."
 
-#: src/frontend/cmd.c:988
+#: src/frontend/cmd.cc:988
 msgid " Saves the game so far from memory to the file."
 msgstr " Guarda la partida en la posición actual a un fichero."
 
-#: src/frontend/cmd.c:990
+#: src/frontend/cmd.cc:990
 msgid " Loads the game in the file into memory."
 msgstr " Carga la partida del fichero a la memoria."
 
-#: src/frontend/cmd.c:992
+#: src/frontend/cmd.cc:992
 msgid ""
 " Loads the game in the file into memory, and enables\n"
 " the commands 'first', 'last', 'next', 'previous'."
@@ -460,19 +463,19 @@ msgstr ""
 " Carga la partida del fichero a la memoria, y activa\n"
 " los commandos first, last, next, previous."
 
-#: src/frontend/cmd.c:996
+#: src/frontend/cmd.cc:996
 msgid " Advances one move in pgn loaded game."
 msgstr " Avanza un movimiento de la partida pgn cargada."
 
-#: src/frontend/cmd.c:998
+#: src/frontend/cmd.cc:998
 msgid " Goes to begin position of pgn loaded game."
 msgstr " Va a la posición inicial de la partida pgn cargada."
 
-#: src/frontend/cmd.c:1000
+#: src/frontend/cmd.cc:1000
 msgid " Goes to end position of pgn loaded game."
 msgstr " Va a la posición final de la partida pgn cargada."
 
-#: src/frontend/cmd.c:1003
+#: src/frontend/cmd.cc:1003
 msgid ""
 " Makes the program stop moving. You may now enter moves\n"
 " to reach some position in the future."
@@ -480,15 +483,15 @@ msgstr ""
 " Hace que el programa deje de mover. Ahora se pueden introducir movimientos\n"
 " para llegar a una determinada posición futura."
 
-#: src/frontend/cmd.c:1007
+#: src/frontend/cmd.cc:1007
 msgid " Program plays white."
 msgstr " El programa juega con blancas."
 
-#: src/frontend/cmd.c:1009
+#: src/frontend/cmd.cc:1009
 msgid " Program plays black."
 msgstr " El programa juega con negras."
 
-#: src/frontend/cmd.c:1011
+#: src/frontend/cmd.cc:1011
 msgid ""
 " Computer takes whichever side is on move and begins its\n"
 " thinking immediately."
@@ -496,7 +499,7 @@ msgstr ""
 " El ordenador juega con el color al que le toca mover y\n"
 " comienza a pensar inmediatamente."
 
-#: src/frontend/cmd.c:1014
+#: src/frontend/cmd.cc:1014
 msgid ""
 " Arranges for verbose thinking output showing variation, score,\n"
 " time, depth, etc."
@@ -504,11 +507,11 @@ msgstr ""
 " Configura la salida en modo verboso mostrando variante,\n"
 " puntuación, tiempo, profundidad, etc."
 
-#: src/frontend/cmd.c:1017
+#: src/frontend/cmd.cc:1017
 msgid " Turns off verbose thinking output."
 msgstr " Desactiva el modo verboso de la salida."
 
-#: src/frontend/cmd.c:1019
+#: src/frontend/cmd.cc:1019
 #, fuzzy
 msgid ""
 " Lets you input your name. Also writes the log.nnn and\n"
@@ -520,11 +523,11 @@ msgstr ""
 " detalles, véanse las secciones sobre formato de los ficheros\n"
 " auxiliares."
 
-#: src/frontend/cmd.c:1023
+#: src/frontend/cmd.cc:1023
 msgid " Mostly used by Internet Chess Server."
 msgstr " Principalmente utilizado por Internet Chess Server."
 
-#: src/frontend/cmd.c:1025
+#: src/frontend/cmd.cc:1025
 #, fuzzy
 msgid ""
 " This command reactivates a game that has been terminated automatically\n"
@@ -537,15 +540,15 @@ msgstr ""
 " esas condiciones. Habría que deshacer un movimiento o dos o\n"
 " añadir tiempo al reloj con 'level' o 'time' en ese caso."
 
-#: src/frontend/cmd.c:1030
+#: src/frontend/cmd.cc:1030
 msgid " Inputs the estimated rating for computer and for its opponent."
 msgstr " Introduce la puntuación estimada del ordenador y de su adversario."
 
-#: src/frontend/cmd.c:1032
+#: src/frontend/cmd.cc:1032
 msgid " Sets up a new game (i.e. pieces in original positions)."
 msgstr " Prepara una nueva partida (piezas en la posición inicial)."
 
-#: src/frontend/cmd.c:1034
+#: src/frontend/cmd.cc:1034
 msgid ""
 " Inputs time left in game for computer in hundredths of a second.\n"
 " Mostly used by Internet Chess Server."
@@ -554,39 +557,39 @@ msgstr ""
 " centésimas de segundo. Principalmente utilizado por\n"
 " Internet Chess Server."
 
-#: src/frontend/cmd.c:1037
+#: src/frontend/cmd.cc:1037
 msgid " on - enables using the memory hash table to speed up search"
 msgstr ""
 " on - activa el uso de tabla de transposiciones (hash) para acelerar la "
 "búsqueda"
 
-#: src/frontend/cmd.c:1038
+#: src/frontend/cmd.cc:1038
 msgid " off - disables the memory hash table"
 msgstr " off - desactiva la tabla de transposiciones (hash)"
 
-#: src/frontend/cmd.c:1040
+#: src/frontend/cmd.cc:1040
 msgid " Sets the hash table to permit storage of N MB."
 msgstr ""
 " Configura la tabla de transposiciones (hash) para poder almacenar N MB"
 
-#: src/frontend/cmd.c:1042
+#: src/frontend/cmd.cc:1042
 msgid " on - enables using the null-move heuristic to speed up search"
 msgstr ""
 " on - activa la heurística de movimiento nulo para acelerar la búsqueda"
 
-#: src/frontend/cmd.c:1043
+#: src/frontend/cmd.cc:1043
 msgid " off - disables using the null-move heuristic"
 msgstr " off - desactiva la heurística de movimiento nulo"
 
-#: src/frontend/cmd.c:1045
+#: src/frontend/cmd.cc:1045
 msgid " on - enables use of xboard/winboard"
 msgstr " no - activa xboard/winboard"
 
-#: src/frontend/cmd.c:1046
+#: src/frontend/cmd.cc:1046
 msgid " off - disables use of xboard/winboard"
 msgstr " off - desactiva xboard/winboard"
 
-#: src/frontend/cmd.c:1048
+#: src/frontend/cmd.cc:1048
 msgid ""
 " Sets the program to look N ply (half-moves) deep for every\n"
 " search it performs. If there is a checkmate or other condition\n"
@@ -596,7 +599,7 @@ msgstr ""
 " profundidad cada vez que busca. Si se llega a jaque mate o a otra\n"
 " condición que no permita esa profundidad, entonces no se hace."
 
-#: src/frontend/cmd.c:1052
+#: src/frontend/cmd.cc:1052
 #, fuzzy
 msgid ""
 " Sets time control to be MOVES in MINUTES, with each move giving\n"
@@ -605,115 +608,115 @@ msgstr ""
 " Configura el control de tiempo a MOVIMIENTOS en MINUTOS con cada movimiento "
 "dando"
 
-#: src/frontend/cmd.c:1056
+#: src/frontend/cmd.cc:1056
 msgid " Loads a position in EPD format from disk into memory."
 msgstr " Carga en memoria una posición de un fichero en formato EPD."
 
-#: src/frontend/cmd.c:1059
+#: src/frontend/cmd.cc:1059
 msgid " Saves game position into EPD format from memory to disk."
 msgstr " Guarda la posición de una partida a un fichero en formato EPD."
 
-#: src/frontend/cmd.c:1061
+#: src/frontend/cmd.cc:1061
 msgid " Switches side to move."
 msgstr " Cambia el lado al que le toca mover."
 
-#: src/frontend/cmd.c:1064
+#: src/frontend/cmd.cc:1064
 msgid " Solves the positions in FILENAME."
 msgstr " Resuelve las posiciones que se encuentran en FICHERO."
 
-#: src/frontend/cmd.c:1066
+#: src/frontend/cmd.cc:1066
 msgid " Backs up two moves in game history."
 msgstr " Retrocede dos movimientos."
 
-#: src/frontend/cmd.c:1068
+#: src/frontend/cmd.cc:1068
 msgid " Backs up one move in game history."
 msgstr " Retrocede un movimiento."
 
-#: src/frontend/cmd.c:1070
+#: src/frontend/cmd.cc:1070
 msgid " Displays command line syntax."
 msgstr " Muestra la sintaxis de la línea de comando."
 
-#: src/frontend/cmd.c:1072
+#: src/frontend/cmd.cc:1072
 msgid " board - displays the current board"
 msgstr " board - muestra el tablero actual"
 
-#: src/frontend/cmd.c:1073
+#: src/frontend/cmd.cc:1073
 msgid " time - displays the time settings"
 msgstr " time - muestra la configuración de tiempo"
 
-#: src/frontend/cmd.c:1074
+#: src/frontend/cmd.cc:1074
 msgid " moves - shows all moves using one call to routine"
 msgstr " moves - muestra todos los movimientos usando una llamada a rutina"
 
-#: src/frontend/cmd.c:1075
+#: src/frontend/cmd.cc:1075
 msgid " escape - shows moves that escape from check using one call to routine"
 msgstr ""
 " escape - muestra los movimientos que sacan de jaque usando una llamada a "
 "rutina"
 
-#: src/frontend/cmd.c:1076
+#: src/frontend/cmd.cc:1076
 msgid " noncapture - shows non-capture moves"
 msgstr " noncapture - muestra los movimientos que no capturan pieza"
 
-#: src/frontend/cmd.c:1077
+#: src/frontend/cmd.cc:1077
 msgid " capture - shows capture moves"
 msgstr " capture - muestra los movimientos que capturan pieza"
 
-#: src/frontend/cmd.c:1078
+#: src/frontend/cmd.cc:1078
 msgid " eval [or score] - shows the evaluation per piece and overall"
 msgstr " eval [o score] - muestra la evaluación por pieza y la global"
 
-#: src/frontend/cmd.c:1079
+#: src/frontend/cmd.cc:1079
 msgid " game - shows moves in game history"
 msgstr " game - muestra los movimientos de la historia de la partida"
 
-#: src/frontend/cmd.c:1080
+#: src/frontend/cmd.cc:1080
 msgid " pin - shows pinned pieces"
 msgstr " pin - muestra las piezas clavadas"
 
-#: src/frontend/cmd.c:1082
+#: src/frontend/cmd.cc:1082
 msgid " movelist - reads in an epd file and shows legal moves for its entries"
 msgstr ""
 " movelist - lee un fichero epd y muestra los movimientos válidos que contiene"
 
-#: src/frontend/cmd.c:1083
+#: src/frontend/cmd.cc:1083
 msgid ""
 " capture - reads in an epd file and shows legal captures for its entries"
 msgstr ""
 " capture - lee un fichero epd y muestra las capturas válidas que contiene"
 
-#: src/frontend/cmd.c:1084
+#: src/frontend/cmd.cc:1084
 msgid " movegenspeed - tests speed of move generator"
 msgstr " movegenspeed - prueva la velocidad del generador de movimientos"
 
-#: src/frontend/cmd.c:1085
+#: src/frontend/cmd.cc:1085
 msgid " capturespeed - tests speed of capture move generator"
 msgstr ""
 " capturespeed - prueba la velocidad del generador de movimientos de captura"
 
-#: src/frontend/cmd.c:1086
+#: src/frontend/cmd.cc:1086
 msgid " eval - reads in an epd file and shows evaluation for its entries"
 msgstr ""
 " eval - lee un fichero epd y muestra la evaluación de las posiciones que "
 "contiene"
 
-#: src/frontend/cmd.c:1087
+#: src/frontend/cmd.cc:1087
 msgid " evalspeed - tests speed of the evaluator"
 msgstr " evalspeed - prueba la velocidad del evaluador"
 
-#: src/frontend/cmd.c:1089
+#: src/frontend/cmd.cc:1089
 msgid " Shows moves from opening book."
 msgstr " Muestra los movimientos del libro de aperturas."
 
-#: src/frontend/cmd.c:1091
+#: src/frontend/cmd.cc:1091
 msgid " Enables display board in graphic mode."
 msgstr " Activa el modo gráfico del tablero."
 
-#: src/frontend/cmd.c:1093
+#: src/frontend/cmd.cc:1093
 msgid " Disables graphic mode and display classical view."
 msgstr " Desactiva el modo gráfico y muestra la vista clásica."
 
-#: src/frontend/cmd.c:1119
+#: src/frontend/cmd.cc:1119
 #, c-format
 msgid ""
 "Help for command %s not found\n"
@@ -722,7 +725,7 @@ msgstr ""
 "No hay ayuda para la orden %s\n"
 "\n"
 
-#: src/frontend/cmd.c:1121
+#: src/frontend/cmd.cc:1121
 #, c-format
 msgid "List of commands: (help COMMAND to get more help)\n"
 msgstr "Lista de órdenes: (help ORDEN para obtener más ayuda)\n"
