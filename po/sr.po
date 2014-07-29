@@ -1,30 +1,26 @@
 # Serbian translation of gnuchess.
 # Copyright (C) 2013 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnuchess package.
-# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2013.
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2013, 2014.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnuchess 6.0.93\n"
+"Project-Id-Version: gnuchess 6.1.1\n"
 "Report-Msgid-Bugs-To: bug-gnu-chess@gnu.org\n"
-"POT-Creation-Date: 2013-11-23 10:57+0100\n"
-"PO-Revision-Date: 2013-11-02 11:08+0200\n"
+"POT-Creation-Date: 2013-11-23 11:06+0100\n"
+"PO-Revision-Date: 2014-01-13 17:20+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: src/frontend/cmd.cc:101
 #, c-format
 msgid "Command 'activate' is currently not supported.\n"
 msgstr "Наредба „activate“ тренутно није подржана.\n"
 
-#.
-#. * No longer used by Xboard but requested as a feature
-#.
 #: src/frontend/cmd.cc:131
 #, c-format
 msgid "Command 'black' is currently not supported.\n"
@@ -137,9 +133,7 @@ msgstr "Не могу да направим датотеку дневника, �
 #: src/frontend/cmd.cc:385
 #, c-format
 msgid "You may consider deleting or renaming your existing logfiles.\n"
-msgstr ""
-"Можете да размотрите брисање или преименовање ваших постојећих датотека "
-"дневника.\n"
+msgstr "Можете да размотрите брисање или преименовање ваших постојећих датотека дневника.\n"
 
 #: src/frontend/cmd.cc:417
 #, c-format
@@ -217,12 +211,11 @@ msgid "New TimeLimit = %g\n"
 msgstr "Ново време = %g\n"
 
 #: src/frontend/cmd.cc:750
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Usage: %s [OPTION]...\n"
 "\n"
 msgstr ""
-"\n"
 "Употреба: %s [ОПЦИЈА]...\n"
 "\n"
 
@@ -273,29 +266,20 @@ msgid " -m, --manual       enable manual mode\n"
 msgstr " -m, --manual       укључује ручни режим\n"
 
 #: src/frontend/cmd.cc:773
-msgid ""
-" -u, --uci          enable UCI protocol (externally behave as UCI engine)\n"
-msgstr ""
-" -u, --uci          укључује УЦИ протокол (споља се понаша као УЦИ машина)\n"
+msgid " -u, --uci          enable UCI protocol (externally behave as UCI engine)\n"
+msgstr " -u, --uci          укључује УЦИ протокол (споља се понаша као УЦИ машина)\n"
 
 #: src/frontend/cmd.cc:775
 msgid " -M size, --memory=size   specify memory usage in MB for hashtable\n"
-msgstr ""
-" -M величина, --memory=величина                наводи коришћење меморије у "
-"MB за хеш табелу\n"
+msgstr " -M величина, --memory=величина                наводи коришћење меморије у MB за хеш табелу\n"
 
 #: src/frontend/cmd.cc:777
-msgid ""
-" -a filename, --addbook=filename   compile book.bin from pgn book "
-"'filename'\n"
-msgstr ""
-" -a назив датотеке, --addbook=назив датотеке   преводи „book.bin“ из „назива "
-"датотеке“  пгн књиге\n"
+msgid " -a filename, --addbook=filename   compile book.bin from pgn book 'filename'\n"
+msgstr " -a назив датотеке, --addbook=назив датотеке   преводи „book.bin“ из „назива датотеке“  пгн књиге\n"
 
 #: src/frontend/cmd.cc:779
 msgid " -g, --graphic      enable graphic mode\n"
-msgstr ""
-" -g, --graphic                                 укључује графички режим\n"
+msgstr " -g, --graphic                                 укључује графички режим\n"
 
 #: src/frontend/cmd.cc:783
 msgid ""
@@ -337,18 +321,11 @@ msgid ""
 "\n"
 msgstr "Пријавите грешке на <bug-gnu-chess@gnu.org>.\n"
 
-#.
-#. * Must Output Illegal move to prevent Xboard accepting illegal
-#. * en passant captures and other subtle mistakes
-#.
 #: src/frontend/cmd.cc:844 src/frontend/cmd.cc:1280
 #, c-format
 msgid "Invalid move: %s\n"
 msgstr "Неисправан потез: %s\n"
 
-#.
-#. * No longer used by Xboard but requested as a feature
-#.
 #: src/frontend/cmd.cc:862
 #, c-format
 msgid "Command 'white' is currently not supported.\n"
@@ -399,8 +376,7 @@ msgstr " Излази из програма."
 
 #: src/frontend/cmd.cc:971
 msgid " In analysis mode this stops analysis, otherwise it quits the program."
-msgstr ""
-" У режиму анализирања зауставља анализирање, у супротном излази из програма."
+msgstr " У режиму анализирања зауставља анализирање, у супротном излази из програма."
 
 #: src/frontend/cmd.cc:973
 msgid " Produces a help blurb corresponding to this list of commands."
@@ -507,22 +483,20 @@ msgid " Turns off verbose thinking output."
 msgstr " Искључује излаз опширног размишљања."
 
 #: src/frontend/cmd.cc:1019
-#, fuzzy
 msgid ""
 " Lets you input your name. Also writes the log.nnn and\n"
 " corresponding game.nnn files. For details please see\n"
 " the auxiliary file format sections."
 msgstr ""
-" Даје вам да унесете ваше име. Такође пише „log.nnn“ и\n"
-" одговарајућу „game.nnn“ датотеку. За појединости погледајте\n"
-" одељке обликовања помоћне датотеке."
+" Даје вам да унесете ваше име. Такође пише „log.nnn“\n"
+" и одговарајућу „game.nnn“ датотеку. За појединости\n"
+" погледајте одељке обликовања помоћне датотеке."
 
 #: src/frontend/cmd.cc:1023
 msgid " Mostly used by Internet Chess Server."
 msgstr " Углавном га користи Интернет шаховски сервер."
 
 #: src/frontend/cmd.cc:1025
-#, fuzzy
 msgid ""
 " This command reactivates a game that has been terminated automatically\n"
 " due to checkmate or no more time on the clock. However, it does not\n"
@@ -589,13 +563,12 @@ msgstr ""
 " који не дозвољава ту дубину, онда га неће бити."
 
 #: src/frontend/cmd.cc:1052
-#, fuzzy
 msgid ""
 " Sets time control to be MOVES in MINUTES, with each move giving\n"
 " an INCREMENT (in seconds, i.e. a Fischer-style clock)."
 msgstr ""
-" Подешава управљање временом да буде ПОТЕЗА у МИНУТА са сваким дајућим "
-"потезом"
+" Подешава управљање временом на ПОТЕЗА у МИНУТИМА, са сваким потезом\n"
+" који даје ПОВЕЋАЊЕ (у секундама, тј. сат у Фишеровом стилу)."
 
 #: src/frontend/cmd.cc:1056
 msgid " Loads a position in EPD format from disk into memory."
@@ -639,9 +612,7 @@ msgstr " moves — показује све потезе користећи је�
 
 #: src/frontend/cmd.cc:1075
 msgid " escape - shows moves that escape from check using one call to routine"
-msgstr ""
-" escape — приказује потезе који измичу провери користећи један позив по "
-"рутини"
+msgstr " escape — приказује потезе који измичу провери користећи један позив по рутини"
 
 #: src/frontend/cmd.cc:1076
 msgid " noncapture - shows non-capture moves"
@@ -665,15 +636,11 @@ msgstr " pin — показује прикачене фигуре"
 
 #: src/frontend/cmd.cc:1082
 msgid " movelist - reads in an epd file and shows legal moves for its entries"
-msgstr ""
-" movelist — чита у епд датотеци и показује исправне потезе за њене уносе"
+msgstr " movelist — чита у епд датотеци и показује исправне потезе за њене уносе"
 
 #: src/frontend/cmd.cc:1083
-msgid ""
-" capture - reads in an epd file and shows legal captures for its entries"
-msgstr ""
-" capture — чита у епд датотеци и показује исправне потезе који задају шах за "
-"њене уносе"
+msgid " capture - reads in an epd file and shows legal captures for its entries"
+msgstr " capture — чита у епд датотеци и показује исправне потезе који задају шах за њене уносе"
 
 #: src/frontend/cmd.cc:1084
 msgid " movegenspeed - tests speed of move generator"

@@ -5,29 +5,24 @@
 # Yuri Chornoivan <yurchor@ukr.net>, 2013.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnuchess 6.0.93\n"
+"Project-Id-Version: gnuchess 6.1.1\n"
 "Report-Msgid-Bugs-To: bug-gnu-chess@gnu.org\n"
-"POT-Creation-Date: 2013-11-23 10:57+0100\n"
-"PO-Revision-Date: 2013-10-20 12:40+0300\n"
+"POT-Creation-Date: 2013-11-23 11:06+0100\n"
+"PO-Revision-Date: 2013-11-23 18:38+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 1.5\n"
 
 #: src/frontend/cmd.cc:101
 #, c-format
 msgid "Command 'activate' is currently not supported.\n"
-msgstr ""
-"У поточному режимі роботи програми команди «activate» не передбачено.\n"
+msgstr "У поточному режимі роботи програми команди «activate» не передбачено.\n"
 
-#.
-#. * No longer used by Xboard but requested as a feature
-#.
 #: src/frontend/cmd.cc:131
 #, c-format
 msgid "Command 'black' is currently not supported.\n"
@@ -218,12 +213,11 @@ msgid "New TimeLimit = %g\n"
 msgstr "Нове обмеження за часом = %g\n"
 
 #: src/frontend/cmd.cc:750
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Usage: %s [OPTION]...\n"
 "\n"
 msgstr ""
-"\n"
 "Користування: %s [ПАРАМЕТР]...\n"
 "\n"
 
@@ -269,33 +263,23 @@ msgstr " -p, --post         запуск з показом обмірковув�
 
 #: src/frontend/cmd.cc:769
 msgid " -e, --easy         disable thinking in opponents time\n"
-msgstr ""
-" -e, --easy         вимкнути обмірковування позиції під час ходу суперника\n"
+msgstr " -e, --easy         вимкнути обмірковування позиції під час ходу суперника\n"
 
 #: src/frontend/cmd.cc:771
 msgid " -m, --manual       enable manual mode\n"
 msgstr " -m, --manual       увімкнути ручний режим\n"
 
 #: src/frontend/cmd.cc:773
-msgid ""
-" -u, --uci          enable UCI protocol (externally behave as UCI engine)\n"
-msgstr ""
-" -u, --uci          увімкнути протокол UCI (виводити дані до інтерфейсу у "
-"форматі рушія UCI)\n"
+msgid " -u, --uci          enable UCI protocol (externally behave as UCI engine)\n"
+msgstr " -u, --uci          увімкнути протокол UCI (виводити дані до інтерфейсу у форматі рушія UCI)\n"
 
 #: src/frontend/cmd.cc:775
 msgid " -M size, --memory=size   specify memory usage in MB for hashtable\n"
-msgstr ""
-" -M розмір, --memory=розмір вказати об’єм пам’яті у МБ, який можна "
-"використовувати для таблиці хешів\n"
+msgstr " -M розмір, --memory=розмір вказати об’єм пам’яті у МБ, який можна використовувати для таблиці хешів\n"
 
 #: src/frontend/cmd.cc:777
-msgid ""
-" -a filename, --addbook=filename   compile book.bin from pgn book "
-"'filename'\n"
-msgstr ""
-" -a файл, --addbook=файл           створити book.bin на основі вказаного "
-"файла збірника pgn\n"
+msgid " -a filename, --addbook=filename   compile book.bin from pgn book 'filename'\n"
+msgstr " -a файл, --addbook=файл           створити book.bin на основі вказаного файла збірника pgn\n"
 
 #: src/frontend/cmd.cc:779
 msgid " -g, --graphic      enable graphic mode\n"
@@ -331,10 +315,8 @@ msgid ""
 msgstr ""
 " За допомогою файла «gnuchess.ini» можна визначати параметри налаштування.\n"
 " Докладніший опис можна отримати за допомогою команди «info gnuchess».\n"
-" Програма шукатиме файл або у поточному каталозі, або, якщо його там не "
-"буде\n"
-" знайдено, у каталозі, на який вказує змінна середовища "
-"GNUCHESS_PKGDATADIR.\n"
+" Програма шукатиме файл або у поточному каталозі, або, якщо його там не буде\n"
+" знайдено, у каталозі, на який вказує змінна середовища GNUCHESS_PKGDATADIR.\n"
 "\n"
 
 #: src/frontend/cmd.cc:797
@@ -345,18 +327,11 @@ msgstr ""
 "Про вади повідомляйте за адресою <bug-gnu-chess@gnu.org>.\n"
 "\n"
 
-#.
-#. * Must Output Illegal move to prevent Xboard accepting illegal
-#. * en passant captures and other subtle mistakes
-#.
 #: src/frontend/cmd.cc:844 src/frontend/cmd.cc:1280
 #, c-format
 msgid "Invalid move: %s\n"
 msgstr "Некоректний хід: %s\n"
 
-#.
-#. * No longer used by Xboard but requested as a feature
-#.
 #: src/frontend/cmd.cc:862
 #, c-format
 msgid "Command 'white' is currently not supported.\n"
@@ -389,15 +364,12 @@ msgstr "К-ть згенерованих ходів = %ld\n"
 #: src/frontend/cmd.cc:932
 #, c-format
 msgid "Command 'show eval/score' is currently not supported.\n"
-msgstr ""
-"У поточному режимі роботи програми команди «show eval/score» не "
-"передбачено.\n"
+msgstr "У поточному режимі роботи програми команди «show eval/score» не передбачено.\n"
 
 #: src/frontend/cmd.cc:939
 #, c-format
 msgid "Command 'show pin' is currently not supported.\n"
-msgstr ""
-"У поточному режимі роботи програми команди «show pin» не передбачено.\n"
+msgstr "У поточному режимі роботи програми команди «show pin» не передбачено.\n"
 
 #: src/frontend/cmd.cc:951
 #, c-format
@@ -410,8 +382,7 @@ msgstr " Завершує роботу програми."
 
 #: src/frontend/cmd.cc:971
 msgid " In analysis mode this stops analysis, otherwise it quits the program."
-msgstr ""
-" У режимі аналізу припиняє аналіз, у інших режимах завершує роботу програми."
+msgstr " У режимі аналізу припиняє аналіз, у інших режимах завершує роботу програми."
 
 #: src/frontend/cmd.cc:973
 msgid " Produces a help blurb corresponding to this list of commands."
@@ -518,7 +489,6 @@ msgid " Turns off verbose thinking output."
 msgstr " Вимикає режим докладного виведення."
 
 #: src/frontend/cmd.cc:1019
-#, fuzzy
 msgid ""
 " Lets you input your name. Also writes the log.nnn and\n"
 " corresponding game.nnn files. For details please see\n"
@@ -533,7 +503,6 @@ msgid " Mostly used by Internet Chess Server."
 msgstr " Здебільшого використовується для роботи з Internet Chess Server."
 
 #: src/frontend/cmd.cc:1025
-#, fuzzy
 msgid ""
 " This command reactivates a game that has been terminated automatically\n"
 " due to checkmate or no more time on the clock. However, it does not\n"
@@ -542,8 +511,8 @@ msgid ""
 msgstr ""
 " За допомогою цієї команди можна активувати гру, яку було автоматично\n"
 " перервано через мат або вичерпання обмеження за часом. Втім, команда\n"
-" не знімає обмежень. Вам доведеться скасувати один чи два ходи або\n"
-" додати часу за допомогою команди «level» або «time»."
+" не знімає обмежень. Отже, вам доведеться скасувати один чи два ходи\n"
+" або додати часу за допомогою команди «level» або «time»."
 
 #: src/frontend/cmd.cc:1030
 msgid " Inputs the estimated rating for computer and for its opponent."
@@ -563,8 +532,7 @@ msgstr ""
 
 #: src/frontend/cmd.cc:1037
 msgid " on - enables using the memory hash table to speed up search"
-msgstr ""
-" on - вмикає використання таблиці хешів у пам’яті для пришвидшення пошуку"
+msgstr " on - вмикає використання таблиці хешів у пам’яті для пришвидшення пошуку"
 
 #: src/frontend/cmd.cc:1038
 msgid " off - disables the memory hash table"
@@ -576,8 +544,7 @@ msgstr " Встановлює граничний розмір таблиці х�
 
 #: src/frontend/cmd.cc:1042
 msgid " on - enables using the null-move heuristic to speed up search"
-msgstr ""
-" on - вмикає використання евристики нульового ходу для пришвидшення пошуку"
+msgstr " on - вмикає використання евристики нульового ходу для пришвидшення пошуку"
 
 #: src/frontend/cmd.cc:1043
 msgid " off - disables using the null-move heuristic"
@@ -602,13 +569,12 @@ msgstr ""
 " не дозволяє подібний пошук, обмеження не буде застосовано."
 
 #: src/frontend/cmd.cc:1052
-#, fuzzy
 msgid ""
 " Sets time control to be MOVES in MINUTES, with each move giving\n"
 " an INCREMENT (in seconds, i.e. a Fischer-style clock)."
 msgstr ""
-" Встановлює контроль часу у вказаній кількості ходів на вказану кількість "
-"хвилин з кожним ходом"
+" Встановлює контроль часу у вказаній кількості ходів на вказану\n"
+" кількість секунд з кожним ходом (тобто годинник Фішера)."
 
 #: src/frontend/cmd.cc:1056
 msgid " Loads a position in EPD format from disk into memory."
@@ -652,9 +618,7 @@ msgstr " moves - показує усі ходи за допомогою одно
 
 #: src/frontend/cmd.cc:1075
 msgid " escape - shows moves that escape from check using one call to routine"
-msgstr ""
-" escape - показує ходи, які не пройшли перевірки за допомогою одного виклику "
-"підпрограми"
+msgstr " escape - показує ходи, які не пройшли перевірки за допомогою одного виклику підпрограми"
 
 #: src/frontend/cmd.cc:1076
 msgid " noncapture - shows non-capture moves"
@@ -678,16 +642,11 @@ msgstr " pin - показує зв’язані фігури"
 
 #: src/frontend/cmd.cc:1082
 msgid " movelist - reads in an epd file and shows legal moves for its entries"
-msgstr ""
-" movelist - виконує читання файла epd і показує коректні ходи на основі його "
-"записів"
+msgstr " movelist - виконує читання файла epd і показує коректні ходи на основі його записів"
 
 #: src/frontend/cmd.cc:1083
-msgid ""
-" capture - reads in an epd file and shows legal captures for its entries"
-msgstr ""
-" capture - виконує читання файла epd і показує можливі взяття на основі його "
-"записів"
+msgid " capture - reads in an epd file and shows legal captures for its entries"
+msgstr " capture - виконує читання файла epd і показує можливі взяття на основі його записів"
 
 #: src/frontend/cmd.cc:1084
 msgid " movegenspeed - tests speed of move generator"
@@ -715,8 +674,7 @@ msgstr " Вмикає показ дошки у графічному режимі
 
 #: src/frontend/cmd.cc:1093
 msgid " Disables graphic mode and display classical view."
-msgstr ""
-" Вимикає графічний режим і перемикає програму на класичний режим перегляду."
+msgstr " Вимикає графічний режим і перемикає програму на класичний режим перегляду."
 
 #: src/frontend/cmd.cc:1119
 #, c-format
@@ -733,5 +691,4 @@ msgid "List of commands: (help COMMAND to get more help)\n"
 msgstr "Список команд: (help КОМАНДА, щоб отримати додаткову довідку)\n"
 
 #~ msgid " an INCREMENT (in seconds, i.e. Fischer-style clock)."
-#~ msgstr ""
-#~ " збільшення часу на хід (у секундах, тобто годинник у стилі Фішера)."
+#~ msgstr " збільшення часу на хід (у секундах, тобто годинник у стилі Фішера)."

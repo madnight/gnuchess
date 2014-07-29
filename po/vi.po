@@ -1,32 +1,32 @@
-# Spanish translations for gnuchess package
-# Traducciones al español para el paquete gnuchess.
-# Copyright (C) 2013 Free Software Foundation, Inc.
+# Vietnamese translations for gnuchess package
+# Bản dịch tiếng Việt cho gói gnuchess.
+# Copyright (C) 2014 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnuchess package.
-# Antonio Ceballos <aceballos@gmail.com>, 2013.
+# Trần Ngọc Quân <vnwildman@gmail.com>, 2013-2014.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnuchess 6.1.1\n"
+"Project-Id-Version: gnuchess-6.1.1\n"
 "Report-Msgid-Bugs-To: bug-gnu-chess@gnu.org\n"
 "POT-Creation-Date: 2013-11-23 11:06+0100\n"
-"PO-Revision-Date: 2013-11-23 21:15+0200\n"
-"Last-Translator: Antonio Ceballos <aceballos@gmail.com>\n"
-"Language-Team: Spanish <es@li.org>\n"
-"Language: es\n"
+"PO-Revision-Date: 2014-07-21 09:03+0700\n"
+"Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
+"Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: src/frontend/cmd.cc:101
 #, c-format
 msgid "Command 'activate' is currently not supported.\n"
-msgstr "La orden 'activate' no está implementada actualmente.\n"
+msgstr "Lệnh “activate” hiện nay chưa được hỗ trợ.\n"
 
 #: src/frontend/cmd.cc:131
 #, c-format
 msgid "Command 'black' is currently not supported.\n"
-msgstr "La orden 'black' no está implementada actualmente.\n"
+msgstr "Lệnh “black” hiện nay chưa được hỗ trợ.\n"
 
 #: src/frontend/cmd.cc:140
 #, c-format
@@ -35,59 +35,59 @@ msgid ""
 "\n"
 "\tbook add file.pgn\n"
 msgstr ""
-"La sintaxis para añadir un nuevo libro es:\n"
+"Cú pháp để thêm một sách mới là:\n"
 "\n"
-"\tbook add file.pgn\n"
+"\tbook add tập-tin.pgn\n"
 
 #: src/frontend/cmd.cc:147
 #, c-format
 msgid "book is now on\n"
-msgstr "El libro está activado.\n"
+msgstr "sách bây giờ được bật\n"
 
 #: src/frontend/cmd.cc:150
 #, c-format
 msgid "book is now off\n"
-msgstr "El libro está desactivado.\n"
+msgstr "sách bây giờ được tắt\n"
 
 #: src/frontend/cmd.cc:153
 #, c-format
 msgid "book is now best\n"
-msgstr "El libro está en modo mejor.\n"
+msgstr "sách giờ là tốt nhất\n"
 
 #: src/frontend/cmd.cc:156
 #, c-format
 msgid "book is now worst\n"
-msgstr "El libro está en modo peor.\n"
+msgstr "sách giờ là tệ nhất\n"
 
 #: src/frontend/cmd.cc:159
 #, c-format
 msgid "book is now random\n"
-msgstr "El libro está en modo aleatorio.\n"
+msgstr "sách giờ là ngẫu nhiên\n"
 
 #: src/frontend/cmd.cc:161
 #, c-format
 msgid "Incorrect book option\n"
-msgstr "Opción de libro incorrecta\n"
+msgstr "Tùy chọn sách không hợp lệ\n"
 
 #: src/frontend/cmd.cc:174
 #, c-format
 msgid "Search to a depth of %d\n"
-msgstr "Profundidad de búsqueda %d\n"
+msgstr "Tìm đến mức sâu %d\n"
 
 #: src/frontend/cmd.cc:240
 #, c-format
 msgid "Hashing is on.\n"
-msgstr "Tabla de transposición activada.\n"
+msgstr "Băm được bật.\n"
 
 #: src/frontend/cmd.cc:242
 #, c-format
 msgid "Hashing is off.\n"
-msgstr "Tabla de transposición desactivada.\n"
+msgstr "Băm bị tắt.\n"
 
 #: src/frontend/cmd.cc:268 src/frontend/cmd.cc:278
 #, c-format
 msgid "Fischer increment of %d seconds\n"
-msgstr "Incremento Fischer de %d segundos\n"
+msgstr "Fischer gia tăng %d giây\n"
 
 #. TRANSLATORS: Please be aware that the word 'move' is sometimes
 #. used as a synonym of 'ply', and sometimes in the sense of a
@@ -95,161 +95,157 @@ msgstr "Incremento Fischer de %d segundos\n"
 #: src/frontend/cmd.cc:276
 #, c-format
 msgid "Time Control: %d moves in %.2f secs\n"
-msgstr "Control de tiempo: %d movimientos en %.2f s\n"
+msgstr "Điều khiển thời gian: %d nước đi trong %.2f giây\n"
 
 #: src/frontend/cmd.cc:286
 #, c-format
 msgid "name    - list known players alphabetically\n"
-msgstr "name    - lista de jugadores conocidos por orden alfabético\n"
+msgstr "name    - liệt kê toàn bộ các tay cờ được biết theo bảng chữ cái\n"
 
 #: src/frontend/cmd.cc:287
 #, c-format
 msgid "score   - list by GNU best result first \n"
-msgstr "puntos  - lista por mejor resultado de GNU\n"
+msgstr "score   - liệt kê theo kết quả GNU tốt xếp trước\n"
 
 #: src/frontend/cmd.cc:288
 #, c-format
 msgid "reverse - list by GNU worst result first\n"
-msgstr "inversa - lista por peor resultado de GNU\n"
+msgstr "reverse - liệt kê theo kết quả GNU kém xếp trước\n"
 
 #: src/frontend/cmd.cc:303 src/frontend/cmd.cc:1301
 #, c-format
 msgid "Board is wrong!\n"
-msgstr "Tablero incorrecto\n"
+msgstr "Bàn cờ bị sai!\n"
 
 #: src/frontend/cmd.cc:309 src/frontend/cmd.cc:312
 #, c-format
 msgid "Error reading file '%s'\n"
-msgstr "Error leyendo fichero '%s'\n"
+msgstr "Gặp lỗi khi đọc tập tin “%s”\n"
 
 #: src/frontend/cmd.cc:378
 #, c-format
 msgid "Failed to open %s for writing: %s\n"
-msgstr "Fallo al abrir %s para escribir: %s\n"
+msgstr "Gặp lỗi khi mở %s để ghi: %s\n"
 
 #: src/frontend/cmd.cc:384
 #, c-format
 msgid "Could not create logfile, all slots occupied.\n"
-msgstr "No se pudo crear fichero de log, no hay espacio libre. \n"
+msgstr "Không thể tạo tập tin nhật ký, mọi khe đã hỏng.\n"
 
 #: src/frontend/cmd.cc:385
 #, c-format
 msgid "You may consider deleting or renaming your existing logfiles.\n"
-msgstr ""
-" Puede usted considerar la opción de borrar o renombrar los ficheros\n"
-" de log que existen actualmente.\n"
+msgstr "Bạn có thể cân nhắc xóa hay đổi tên tập tin nhật ký có trước của mình.\n"
 
 #: src/frontend/cmd.cc:417
 #, c-format
 msgid "Null-move heuristic is on.\n"
-msgstr "La heurística de movimiento nulo está activada.\n"
+msgstr "Phỏng đoán “Null-move” được bật.\n"
 
 #: src/frontend/cmd.cc:419
 #, c-format
 msgid "Null-move heuristic is off.\n"
-msgstr "La heurística de movimiento nulo está desactivada.\n"
+msgstr "Phỏng đoán “Null-move” đã tắt.\n"
 
 #: src/frontend/cmd.cc:439 src/frontend/cmd.cc:466
 #, c-format
 msgid "Incorrect epd file\n"
-msgstr "Fichero epd incorrecto\n"
+msgstr "Tập tin epd không hợp lệ\n"
 
 #: src/frontend/cmd.cc:510
 #, c-format
 msgid "No more moves. Game reached the end.\n"
-msgstr "No hay más movimientos. Final de partida.\n"
+msgstr "Không còn nước đi nào nữa. Ván đấu đã đến điểm kết.\n"
 
 #: src/frontend/cmd.cc:530
 #, c-format
 msgid "Initial position reached. There are no earlier moves.\n"
-msgstr "Posición inicial. No hay movimientos anteriores.\n"
+msgstr "Đã đến điểm khởi đầu. Không còn nước đi nào trước nước này.\n"
 
 #: src/frontend/cmd.cc:586 src/frontend/cmd.cc:692
 #, c-format
 msgid "Invalid filename.\n"
-msgstr "Nombre de fichero inválido.\n"
+msgstr "Tên tập tin không hợp lệ.\n"
 
 #: src/frontend/cmd.cc:592
 #, c-format
 msgid "Graphic mode is enabled.\n"
-msgstr "Modo gráfico activado.\n"
+msgstr "Chế độ đồ họa được bật.\n"
 
 #: src/frontend/cmd.cc:598
 #, c-format
 msgid "Graphic mode is disabled.\n"
-msgstr "Modo gráfico desactiviado.\n"
+msgstr "Chế độ đồ họa bị tắt.\n"
 
 #: src/frontend/cmd.cc:639
 #, c-format
 msgid "Command 'random' is currently not supported.\n"
-msgstr "La orden 'random' no está implementada actualmente.\n"
+msgstr "Lệnh “random” hiện nay chưa được hỗ trợ.\n"
 
 #: src/frontend/cmd.cc:647
 #, c-format
 msgid "my rating = %d, opponent rating = %d\n"
-msgstr "mi puntuación = %d, puntuación del  adversario = %d\n"
+msgstr "điểm của tôi = %d, điểm của đối thủ = %d\n"
 
 #: src/frontend/cmd.cc:671 src/frontend/cmd.cc:741
 #, c-format
 msgid "No moves to undo!\n"
-msgstr "¡No hay ningún movimiento que deshacer!\n"
+msgstr "Không có nước đi nào để mà hủy bước cả!\n"
 
 #: src/frontend/cmd.cc:681
 #, c-format
 msgid "Save to %s\n"
-msgstr "Guardar en %s\n"
+msgstr "Ghi vào %s\n"
 
 #: src/frontend/cmd.cc:722
 #, c-format
 msgid "Command 'switch' is currently not supported.\n"
-msgstr "La orden 'switch' no está implementada actualmente.\n"
+msgstr "Lệnh “switch” hiện nay chưa được hỗ trợ.\n"
 
 #: src/frontend/cmd.cc:728
 #, c-format
 msgid "Old TimeLimit = %g\n"
-msgstr "Límite de tiempo anterior = %g\n"
+msgstr "Giới-hạn-giờ cũ  = %g\n"
 
 #: src/frontend/cmd.cc:730
 #, c-format
 msgid "New TimeLimit = %g\n"
-msgstr "Límite de tiempo nuevo = %g\n"
+msgstr "Giới-hạn-giờ mới = %g\n"
 
 #: src/frontend/cmd.cc:750
 #, c-format
 msgid ""
 "Usage: %s [OPTION]...\n"
 "\n"
-msgstr ""
-"Modo de empleo: %s [OPCIÓN]...\n"
-"\n"
+msgstr "Cách dùng: %s [TÙY-CHỌN]...\n"
 
 #: src/frontend/cmd.cc:752
 msgid ""
 "Play the game of chess\n"
 "\n"
 msgstr ""
-"Programa para jugar al ajedrez\n"
+"Trình diễn các ván cờ\n"
 "\n"
 
 #: src/frontend/cmd.cc:754
 msgid "Options:\n"
-msgstr "Opciones:\n"
+msgstr "Tùy chọn:\n"
 
 #: src/frontend/cmd.cc:755
 msgid " -h, --help         display this help and exit\n"
-msgstr " -h, --help         muestra esta ayuda y termina\n"
+msgstr " -h, --help         hiển thị trợ giúp này rồi thoát\n"
 
 #: src/frontend/cmd.cc:757
 msgid " -v, --version      display version information and exit\n"
-msgstr " -v, --version      muestra información de la versión y termina\n"
+msgstr " -v, --version      hiển thị thông tin phiên bản rồi thoát\n"
 
 #: src/frontend/cmd.cc:759
 msgid " -q, --quiet        make the program silent on startup\n"
-msgstr " -q, --quiet        arranca de modo silencioso\n"
+msgstr " -q, --quiet        khởi động chương trình im lặng\n"
 
 #: src/frontend/cmd.cc:761
 msgid "     --silent       same as -q\n"
-msgstr "     --silent       igual que -q\n"
+msgstr "     --silent       giống với -q\n"
 
 #: src/frontend/cmd.cc:763 src/frontend/cmd.cc:781
 msgid "\n"
@@ -257,35 +253,35 @@ msgstr "\n"
 
 #: src/frontend/cmd.cc:765
 msgid " -x, --xboard       start in engine mode\n"
-msgstr " -x, --xboard       arranca en modo xboard\n"
+msgstr " -x, --xboard       khởi động trong chế độ bộ máy\n"
 
 #: src/frontend/cmd.cc:767
 msgid " -p, --post         start up showing thinking\n"
-msgstr " -p, --post         arranca en modo 'mostrar lo que piensa'\n"
+msgstr " -p, --post         hiển thị máy đang tính gì\n"
 
 #: src/frontend/cmd.cc:769
 msgid " -e, --easy         disable thinking in opponents time\n"
-msgstr " -e, --easy         no piensa durante el turno del adversario\n"
+msgstr " -e, --easy         tắt suy nghĩ trong lúc đối thủ đánh\n"
 
 #: src/frontend/cmd.cc:771
 msgid " -m, --manual       enable manual mode\n"
-msgstr " -m, --manual       activa el modo manual\n"
+msgstr " -m, --manual       bật chế độ thủ công\n"
 
 #: src/frontend/cmd.cc:773
 msgid " -u, --uci          enable UCI protocol (externally behave as UCI engine)\n"
-msgstr " -u, --uci          activa el protocolo UCI (externamente se exhibe como un motor UCI)\n"
+msgstr " -u, --uci          bật giao thức UCI (ứng xử như là bộ máy UCI)\n"
 
 #: src/frontend/cmd.cc:775
 msgid " -M size, --memory=size   specify memory usage in MB for hashtable\n"
-msgstr " -M tamaño, --memory=tamaño   especifica el uso de memoria en MB para la tabla de transposición (hash)\n"
+msgstr " -M cỡ, --memory=cỡ chỉ định dung lượng bộ nhớ dành cho bảng băm tính theo MB\n"
 
 #: src/frontend/cmd.cc:777
 msgid " -a filename, --addbook=filename   compile book.bin from pgn book 'filename'\n"
-msgstr " -a fichero,  --addbook=fichero    compila book.bin desde el libro pgn 'fichero'\n"
+msgstr " -a filename, --addbook=tập-tin    biên dịch sách.bin từ sách pgn “filename”\n"
 
 #: src/frontend/cmd.cc:779
 msgid " -g, --graphic      enable graphic mode\n"
-msgstr " -g, --graphic      activa el modo gráfico\n"
+msgstr " -g, --graphic      bật chế độ đồ họa\n"
 
 #: src/frontend/cmd.cc:783
 msgid ""
@@ -293,8 +289,8 @@ msgid ""
 " for backward compatibility.\n"
 "\n"
 msgstr ""
-" Se admiten las opciones xboard y post sin guiones\n"
-" por compatibilidad con versiones anteiores.\n"
+" Các tùy chọn xboard và post được chấp nhận mà không có gạch nối ở đầu\n"
+" để mà tương thích ngược.\n"
 "\n"
 
 #: src/frontend/cmd.cc:787
@@ -303,8 +299,8 @@ msgid ""
 " in coordinate algebraic notation.\n"
 "\n"
 msgstr ""
-" Se aceptan movimientos en notación algebraica estándar (SAN, en inglés) o\n"
-" en notación algebraica de coordenadas.\n"
+" Nước đi được chấp nhận hoặc là gi chú đại số tiêu chuẩn (SAN) hoặc là\n"
+" ghi chú đại số tọa độ.\n"
 "\n"
 
 #: src/frontend/cmd.cc:791
@@ -315,10 +311,10 @@ msgid ""
 " environment variable GNUCHESS_PKGDATADIR.\n"
 "\n"
 msgstr ""
-" El fichero 'gnuchess.ini' permite establecer opciones de configuración.\n"
-" Véase 'info gnuchess' para consultar detalles. El fichero se busca en el\n"
-" directorio actual y, si no se encuentra allí, en el directorio\n"
-" indicado por la variable de entorno GNUCHESS_PKGDATADIR.\n"
+" Tập tin “gnuchess.ini” cho phép đặt các tùy chọn để cấu hình. Xem\n"
+" “info gnuchess” để biết thêm chi tiết. Tập tin sẽ được tìm trong thư mục\n"
+" hiện tại hoặc nếu không tìm thấy, thư mục sẽ được chỉ ra bởi\n"
+" biến môi trường GNUCHESS_PKGDATADIR.\n"
 "\n"
 
 #: src/frontend/cmd.cc:797
@@ -326,169 +322,170 @@ msgid ""
 "Report bugs to <bug-gnu-chess@gnu.org>.\n"
 "\n"
 msgstr ""
-"Imformar de errores a <bug-gnu-chess@gnu.org>.\n"
+"Báo cáo lỗi cho <bug-gnu-chess@gnu.org>.\n"
+"Báo cáo lỗi dịch cho <http://translationproject.org/team/vi.html>.\n"
 "\n"
 
 #: src/frontend/cmd.cc:844 src/frontend/cmd.cc:1280
 #, c-format
 msgid "Invalid move: %s\n"
-msgstr "Movimiento inválido: %s\n"
+msgstr "Nước đi không hợp lệ: %s\n"
 
 #: src/frontend/cmd.cc:862
 #, c-format
 msgid "Command 'white' is currently not supported.\n"
-msgstr "La orden 'white' no está implementada actualmente.\n"
+msgstr "Lệnh “white” hiện nay chưa được hỗ trợ.\n"
 
 #: src/frontend/cmd.cc:893
 #, c-format
 msgid "My rating = %d\n"
-msgstr "Mi puntuación = %d\n"
+msgstr "Điểm của tôi = %d\n"
 
 #: src/frontend/cmd.cc:894
 #, c-format
 msgid "Opponent rating = %d\n"
-msgstr "Puntuación del adversario = %d\n"
+msgstr "Điểm của đối thủ = %d\n"
 
 #: src/frontend/cmd.cc:896
 msgid "time"
-msgstr "tiempo"
+msgstr "thời gian"
 
 #: src/frontend/cmd.cc:898
 msgid "moves"
-msgstr "movimientos"
+msgstr "Nước đi"
 
 #: src/frontend/cmd.cc:903 src/frontend/cmd.cc:910 src/frontend/cmd.cc:919
 #: src/frontend/cmd.cc:928
 #, c-format
 msgid "No. of moves generated = %ld\n"
-msgstr "Número de movimientos generados = %ld\n"
+msgstr "Số lượng nước đi đã tạo = %ld\n"
 
 #: src/frontend/cmd.cc:932
 #, c-format
 msgid "Command 'show eval/score' is currently not supported.\n"
-msgstr "La orden 'show eval/score' no está implementada actualmente.\n"
+msgstr "Lệnh “show eval/score” hiện nay chưa được hỗ trợ.\n"
 
 #: src/frontend/cmd.cc:939
 #, c-format
 msgid "Command 'show pin' is currently not supported.\n"
-msgstr "La orden 'show pin' no está implementada actualmente.\n"
+msgstr "Lệnh “show pin” hiện nay chưa được hỗ trợ.\n"
 
 #: src/frontend/cmd.cc:951
 #, c-format
 msgid "Command 'test' is currently not supported.\n"
-msgstr "La orden 'test' no está implementada actualmente.\n"
+msgstr "Lệnh “test” hiện nay chưa được hỗ trợ.\n"
 
 #: src/frontend/cmd.cc:969
 msgid " Quits the program."
-msgstr " Sale del programa."
+msgstr " Thoát khỏi chương trình."
 
 #: src/frontend/cmd.cc:971
 msgid " In analysis mode this stops analysis, otherwise it quits the program."
-msgstr " En el modo de análisis esto detiene el análisis; en caso contrario,  sale del programa."
+msgstr " Trong chế độ phân tích cái này phân tích những cái tốt nhất, nếu không thì thoát khỏi chương trình."
 
 #: src/frontend/cmd.cc:973
 msgid " Produces a help blurb corresponding to this list of commands."
-msgstr " Produce una nota de ayuda correspondiente a esta lista de órdenes."
+msgstr " Sản sinh ra lời hướng dẫn ngắn gọn tương ứng với những lệnh trong danh sách này."
 
 #: src/frontend/cmd.cc:975
 msgid " add - compiles book.bin from a pgn book file"
-msgstr " add - compila book.bin desde un fichero pgn"
+msgstr " add - biên dịch book.bin từ tập tin sách pgn"
 
 #: src/frontend/cmd.cc:976
 msgid " on - enables use of book (default)"
-msgstr " on - activa el uso del libro"
+msgstr " on - cho dùng sách (mặc định)"
 
 #: src/frontend/cmd.cc:977
 msgid " off - disables use of book"
-msgstr " off - desactiva el uso del libro"
+msgstr " off - không dùng sách"
 
 #: src/frontend/cmd.cc:978
 msgid " worst - plays worst move from book"
-msgstr " worst - juega el peor movimiento del libro"
+msgstr " worst - trình diễn nước đi tồi nhất từ sách"
 
 #: src/frontend/cmd.cc:979
 msgid " best - plays best move from book"
-msgstr " best - juega el mejor movimiento del libro"
+msgstr " best - trình diễn nước đi tốt nhất từ sách"
 
 #: src/frontend/cmd.cc:980
 msgid " prefer - same as 'book on' (default)"
-msgstr " prefer - opción predeterminada, igual que 'book on'"
+msgstr " prefer - giống với “book on” (mặc định)"
 
 #: src/frontend/cmd.cc:981
 msgid " random - plays any move from book"
-msgstr " random - juega un movimiento cualquiera del libro"
+msgstr " random - trình diễn mọi nước đi từ sách"
 
 #: src/frontend/cmd.cc:983
 msgid " Prints out the version of this program."
-msgstr " Imprime la versión de este programa."
+msgstr " In ra phiên bản của chương trình này."
 
 #: src/frontend/cmd.cc:986
 msgid " Backs up one move in pgn loaded game."
-msgstr " Retrocede un movimiento en la partida pgn cargada."
+msgstr " Sao lưu lại một nước đi trong ván đấu pgn đã tải."
 
 #: src/frontend/cmd.cc:988
 msgid " Saves the game so far from memory to the file."
-msgstr " Guarda la partida en la posición actual a un fichero."
+msgstr " Ghi lại ván đấu từ bộ nhớ ra tập tin."
 
 #: src/frontend/cmd.cc:990
 msgid " Loads the game in the file into memory."
-msgstr " Carga la partida del fichero a la memoria."
+msgstr " Tải ván đâú trong tập tin vào bộ nhớ."
 
 #: src/frontend/cmd.cc:992
 msgid ""
 " Loads the game in the file into memory, and enables\n"
 " the commands 'first', 'last', 'next', 'previous'."
 msgstr ""
-" Carga la partida del fichero a la memoria, y activa\n"
-" los commandos first, last, next, previous."
+" Tải ván đâú trong tập tin vào bộ nhớ, và bật\n"
+" lệnh “first”, “last”, “next”, “previous”."
 
 #: src/frontend/cmd.cc:996
 msgid " Advances one move in pgn loaded game."
-msgstr " Avanza un movimiento de la partida pgn cargada."
+msgstr " Hiển thị nước đi sẽ đi tiếp trong ván đấu pgn đã được tải."
 
 #: src/frontend/cmd.cc:998
 msgid " Goes to begin position of pgn loaded game."
-msgstr " Va a la posición inicial de la partida pgn cargada."
+msgstr " Đi đến nước đi đầu của ván đấu từ tập tin pgn đã tải."
 
 #: src/frontend/cmd.cc:1000
 msgid " Goes to end position of pgn loaded game."
-msgstr " Va a la posición final de la partida pgn cargada."
+msgstr " Đi đến nước đi cuối của ván đấu từ tập tin pgn đã tải."
 
 #: src/frontend/cmd.cc:1003
 msgid ""
 " Makes the program stop moving. You may now enter moves\n"
 " to reach some position in the future."
 msgstr ""
-" Hace que el programa deje de mover. Ahora se pueden introducir movimientos\n"
-" para llegar a una determinada posición futura."
+" Làm chương trình ngừng chơi. Bạn có thể nhập vào nước đi\n"
+" cho đến vài vị trí trong tương lai."
 
 #: src/frontend/cmd.cc:1007
 msgid " Program plays white."
-msgstr " El programa juega con blancas."
+msgstr " Máy tính đi quân trắng"
 
 #: src/frontend/cmd.cc:1009
 msgid " Program plays black."
-msgstr " El programa juega con negras."
+msgstr " Máy tính đi quân đen."
 
 #: src/frontend/cmd.cc:1011
 msgid ""
 " Computer takes whichever side is on move and begins its\n"
 " thinking immediately."
 msgstr ""
-" El ordenador juega con el color al que le toca mover y\n"
-" comienza a pensar inmediatamente."
+" Máy tính cầm bất cứ bên nào mà nó được đi và bắt đầu\n"
+" tính toán nước đi của nó ngay lập tức."
 
 #: src/frontend/cmd.cc:1014
 msgid ""
 " Arranges for verbose thinking output showing variation, score,\n"
 " time, depth, etc."
 msgstr ""
-" Configura la salida en modo verboso mostrando variante,\n"
-" puntuación, tiempo, profundidad, etc."
+" Sắp đặt cho kết xuất tính toán chi tiết để biến thiên, điểm số,\n"
+" giời, độ sâu, v.v.."
 
 #: src/frontend/cmd.cc:1017
 msgid " Turns off verbose thinking output."
-msgstr " Desactiva el modo verboso de la salida."
+msgstr " Tắt các kết xuất chi tiết về suy nghĩ của máy tính"
 
 #: src/frontend/cmd.cc:1019
 msgid ""
@@ -496,14 +493,13 @@ msgid ""
 " corresponding game.nnn files. For details please see\n"
 " the auxiliary file format sections."
 msgstr ""
-" Permite al jugador introducir su nombre. También escribe el\n"
-" fichero log.nnn y el correspondiente fichero game.nnn. Para\n"
-" detalles, véanse las secciones sobre formato de los ficheros\n"
-" auxiliares."
+" Hãy đặt tên bạn. Đồng thời ghi tập tin log.nnn và\n"
+" game.nnn tương ứng. Để biết thêm chi tiết hãy xem\n"
+" phần phụ trợ về định dạng tập tin."
 
 #: src/frontend/cmd.cc:1023
 msgid " Mostly used by Internet Chess Server."
-msgstr " Principalmente utilizado por Internet Chess Server."
+msgstr " Được dùng phổ biến bởi Dịch vụ chơi cờ trên Internet (Internet Chess Server)"
 
 #: src/frontend/cmd.cc:1025
 msgid ""
@@ -512,55 +508,54 @@ msgid ""
 " alter those conditions. So you would have to undo a move or two, or\n"
 " add time to the clock with 'level' or 'time'."
 msgstr ""
-" Esta orden reactiva una partida que había terminado automáticamente\n"
-" por jaque mate o por tiempo agotado. Sin embargo, no altera\n"
-" esas condiciones. Habría que deshacer un movimiento o dos o\n"
-" añadir tiempo al reloj con 'level' o 'time' en ese caso."
+" Lệnh này sẽ kích hoạt lại ván đấu mà nó đã bị chấm dứt một cách tự\n"
+" động do chiếu hết hoặc do hết giờ. Tuy nhiên, nó không thay đổi\n"
+" những điều kiện này. Do vậy bạn cần phải hủy một, hai nước đi, hoặc\n"
+" thêm giờ vào đồng hồ với lệnh “level” hoặc “time”."
 
 #: src/frontend/cmd.cc:1030
 msgid " Inputs the estimated rating for computer and for its opponent."
-msgstr " Introduce la puntuación estimada del ordenador y de su adversario."
+msgstr " Nhập vào điểm số ước tính cho máy tính và các đối thủ của nó."
 
 #: src/frontend/cmd.cc:1032
 msgid " Sets up a new game (i.e. pieces in original positions)."
-msgstr " Prepara una nueva partida (piezas en la posición inicial)."
+msgstr " Cài đặt một ván mới (vd: đặt các quân cờ vào vị trí nguyên gốc)."
 
 #: src/frontend/cmd.cc:1034
 msgid ""
 " Inputs time left in game for computer in hundredths of a second.\n"
 " Mostly used by Internet Chess Server."
 msgstr ""
-" Introduce el tiempo de partida que le queda al ordenador en\n"
-" centésimas de segundo. Principalmente utilizado por\n"
-" Internet Chess Server."
+" Nhập vào thời gian còn lại trong ván đấu cho máy tính, tính theo phần trăm giây.\n"
+" Phần lớn được dùng bởi “Internet Chess Server” (Dịch vụ chơi cờ trên Internet)."
 
 #: src/frontend/cmd.cc:1037
 msgid " on - enables using the memory hash table to speed up search"
-msgstr " on - activa el uso de tabla de transposiciones (hash) para acelerar la búsqueda"
+msgstr " on - bật sử dụng bảng băm bộ nhớ để tăng tốc tìm kiếm"
 
 #: src/frontend/cmd.cc:1038
 msgid " off - disables the memory hash table"
-msgstr " off - desactiva la tabla de transposiciones (hash)"
+msgstr " on - không sử dụng bảng băm bộ nhớ"
 
 #: src/frontend/cmd.cc:1040
 msgid " Sets the hash table to permit storage of N MB."
-msgstr " Configura la tabla de transposiciones (hash) para poder almacenar N MB"
+msgstr " Đặt bảng băm để cho phép lưu trữ N MB."
 
 #: src/frontend/cmd.cc:1042
 msgid " on - enables using the null-move heuristic to speed up search"
-msgstr " on - activa la heurística de movimiento nulo para acelerar la búsqueda"
+msgstr " on - bật dùng phỏng đoán null-move để tăng tốc độ tìm kiếm"
 
 #: src/frontend/cmd.cc:1043
 msgid " off - disables using the null-move heuristic"
-msgstr " off - desactiva la heurística de movimiento nulo"
+msgstr " off - tắt dùng phỏng đoán null-move để tăng tốc độ tìm kiếm"
 
 #: src/frontend/cmd.cc:1045
 msgid " on - enables use of xboard/winboard"
-msgstr " no - activa xboard/winboard"
+msgstr " on - cho dùng xboard/winboard"
 
 #: src/frontend/cmd.cc:1046
 msgid " off - disables use of xboard/winboard"
-msgstr " off - desactiva xboard/winboard"
+msgstr " off - không dùng xboard/winboard"
 
 #: src/frontend/cmd.cc:1048
 msgid ""
@@ -568,117 +563,117 @@ msgid ""
 " search it performs. If there is a checkmate or other condition\n"
 " that does not allow that depth, then it will not be."
 msgstr ""
-" Configura el programa para buscar N ply (medios movimientos) de\n"
-" profundidad cada vez que busca. Si se llega a jaque mate o a otra\n"
-" condición que no permita esa profundidad, entonces no se hace."
+" Đặt chương trình tìm kiếm ở mức sâu N lớp (nửa bước đi) mỗi khi\n"
+" tìm nước đi. Nếu đây là một nước chiếu hết hay điều kiện khác\n"
+" mà nó không cho phép mức sâu này, thế thì nó sẽ không thế."
 
 #: src/frontend/cmd.cc:1052
 msgid ""
 " Sets time control to be MOVES in MINUTES, with each move giving\n"
 " an INCREMENT (in seconds, i.e. a Fischer-style clock)."
 msgstr ""
-" Configura el control de tiempo a MOVIMIENTOS en MINUTOS, aumentando\n"
-" INCREMENTO (en segundos) con cada movimiento (es decir, reloj de tipo Fischer)."
+" Đặt thời gian điều khiển NƯỚC ĐI trong PHÚT, với từng nước đi đưa ra\n"
+" một SỐ GIA (tính bằng giây, ví dụ như là một đồng hồ kiểu-Fischer)."
 
 #: src/frontend/cmd.cc:1056
 msgid " Loads a position in EPD format from disk into memory."
-msgstr " Carga en memoria una posición de un fichero en formato EPD."
+msgstr " Tải vị trí từ định dạng EPD từ đĩa vào bộ nhớ."
 
 #: src/frontend/cmd.cc:1059
 msgid " Saves game position into EPD format from memory to disk."
-msgstr " Guarda la posición de una partida a un fichero en formato EPD."
+msgstr " Lưu ván đấu vào định dạng EPD từ bộ nhớ vào đĩa."
 
 #: src/frontend/cmd.cc:1061
 msgid " Switches side to move."
-msgstr " Cambia el lado al que le toca mover."
+msgstr " Chuyển cạnh để đi."
 
 #: src/frontend/cmd.cc:1064
 msgid " Solves the positions in FILENAME."
-msgstr " Resuelve las posiciones que se encuentran en FICHERO."
+msgstr " Phân giải vị trí trong TẬP-TIN."
 
 #: src/frontend/cmd.cc:1066
 msgid " Backs up two moves in game history."
-msgstr " Retrocede dos movimientos."
+msgstr " Sao lưu lại hai nước đi trong lịch sử ván đấu."
 
 #: src/frontend/cmd.cc:1068
 msgid " Backs up one move in game history."
-msgstr " Retrocede un movimiento."
+msgstr " Sao lưu lại một nước đi trong lịch sử ván đấu."
 
 #: src/frontend/cmd.cc:1070
 msgid " Displays command line syntax."
-msgstr " Muestra la sintaxis de la línea de comando."
+msgstr " Hiển thị cú pháp dòng lệnh."
 
 #: src/frontend/cmd.cc:1072
 msgid " board - displays the current board"
-msgstr " board - muestra el tablero actual"
+msgstr " board - hiển thị bàn cờ hiện tại"
 
 #: src/frontend/cmd.cc:1073
 msgid " time - displays the time settings"
-msgstr " time - muestra la configuración de tiempo"
+msgstr " time - hiển thị các cài đặt về thời gian"
 
 #: src/frontend/cmd.cc:1074
 msgid " moves - shows all moves using one call to routine"
-msgstr " moves - muestra todos los movimientos usando una llamada a rutina"
+msgstr " moves - hiển thị các nước đi dùng một cú gọi thủ tục"
 
 #: src/frontend/cmd.cc:1075
 msgid " escape - shows moves that escape from check using one call to routine"
-msgstr " escape - muestra los movimientos que sacan de jaque usando una llamada a rutina"
+msgstr " escape - hiển thị các nước đi mà thoát chiếu dùng một cú gọi thủ tục"
 
 #: src/frontend/cmd.cc:1076
 msgid " noncapture - shows non-capture moves"
-msgstr " noncapture - muestra los movimientos que no capturan pieza"
+msgstr " noncapture - hiển thị các nước không ăn quân"
 
 #: src/frontend/cmd.cc:1077
 msgid " capture - shows capture moves"
-msgstr " capture - muestra los movimientos que capturan pieza"
+msgstr " capture - hiện các nước ăn quân"
 
 #: src/frontend/cmd.cc:1078
 msgid " eval [or score] - shows the evaluation per piece and overall"
-msgstr " eval [o score] - muestra la evaluación por pieza y la global"
+msgstr " eval [hay score] - hiển thị lượng giá trên mỗi quân cờ và tổng thể"
 
 #: src/frontend/cmd.cc:1079
 msgid " game - shows moves in game history"
-msgstr " game - muestra los movimientos de la historia de la partida"
+msgstr " game - hiển thị các nước đi trong lịch sử của ván đấu"
 
 #: src/frontend/cmd.cc:1080
 msgid " pin - shows pinned pieces"
-msgstr " pin - muestra las piezas clavadas"
+msgstr " pin - hiển thị các quân cờ đã đóng"
 
 #: src/frontend/cmd.cc:1082
 msgid " movelist - reads in an epd file and shows legal moves for its entries"
-msgstr " movelist - lee un fichero epd y muestra los movimientos válidos que contiene"
+msgstr " movelist - đọc trong tập tin epd và hiển thị những nước đi hợp lệ cho các mục của nó"
 
 #: src/frontend/cmd.cc:1083
 msgid " capture - reads in an epd file and shows legal captures for its entries"
-msgstr " capture - lee un fichero epd y muestra las capturas válidas que contiene"
+msgstr " capture - đọc trong tập tin epd và hiển thị các nước bắt quân cho những mục này"
 
 #: src/frontend/cmd.cc:1084
 msgid " movegenspeed - tests speed of move generator"
-msgstr " movegenspeed - prueva la velocidad del generador de movimientos"
+msgstr " movegenspeed - kiểm tra tốc độ của bộ tạo nước đi"
 
 #: src/frontend/cmd.cc:1085
 msgid " capturespeed - tests speed of capture move generator"
-msgstr " capturespeed - prueba la velocidad del generador de movimientos de captura"
+msgstr " capturespeed - kiểm tra tốc độ của bộ tạo nước bắt mục tiêu"
 
 #: src/frontend/cmd.cc:1086
 msgid " eval - reads in an epd file and shows evaluation for its entries"
-msgstr " eval - lee un fichero epd y muestra la evaluación de las posiciones que contiene"
+msgstr " eval - đọc trong tập tin epd và hiển thị đánh giá về những mục trong đó"
 
 #: src/frontend/cmd.cc:1087
 msgid " evalspeed - tests speed of the evaluator"
-msgstr " evalspeed - prueba la velocidad del evaluador"
+msgstr " evalspeed - kiểm tra tốc độ của bộ đánh giá"
 
 #: src/frontend/cmd.cc:1089
 msgid " Shows moves from opening book."
-msgstr " Muestra los movimientos del libro de aperturas."
+msgstr " Hiển thị các nước đi từ sách đang được mở."
 
 #: src/frontend/cmd.cc:1091
 msgid " Enables display board in graphic mode."
-msgstr " Activa el modo gráfico del tablero."
+msgstr " Bật hiển thị bàn cờ trong chế độ đồ họa."
 
 #: src/frontend/cmd.cc:1093
 msgid " Disables graphic mode and display classical view."
-msgstr " Desactiva el modo gráfico y muestra la vista clásica."
+msgstr " Tắt chế độ đồ họa và hiển thị trình bày kiểu cổ điển."
 
 #: src/frontend/cmd.cc:1119
 #, c-format
@@ -686,10 +681,10 @@ msgid ""
 "Help for command %s not found\n"
 "\n"
 msgstr ""
-"No hay ayuda para la orden %s\n"
+"Không tìm thấy trợ giúp cho lệnh %s\n"
 "\n"
 
 #: src/frontend/cmd.cc:1121
 #, c-format
 msgid "List of commands: (help COMMAND to get more help)\n"
-msgstr "Lista de órdenes: (help ORDEN para obtener más ayuda)\n"
+msgstr "Danh sách các câu lệnh: (help LỆNH để có thêm thông tin)\n"

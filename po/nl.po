@@ -7,10 +7,10 @@
 # Benno Schulenberg <benno@vertaalt.nl>, 2013.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnuchess 6.0.93\n"
+"Project-Id-Version: gnuchess 6.1.1\n"
 "Report-Msgid-Bugs-To: bug-gnu-chess@gnu.org\n"
-"POT-Creation-Date: 2013-11-23 10:57+0100\n"
-"PO-Revision-Date: 2013-11-18 20:51+0100\n"
+"POT-Creation-Date: 2013-11-23 11:06+0100\n"
+"PO-Revision-Date: 2013-11-23 22:48+0100\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
@@ -25,9 +25,6 @@ msgstr ""
 msgid "Command 'activate' is currently not supported.\n"
 msgstr "Commando 'activate' wordt nog niet ondersteund.\n"
 
-#.
-#. * No longer used by Xboard but requested as a feature
-#.
 #: src/frontend/cmd.cc:131
 #, c-format
 msgid "Command 'black' is currently not supported.\n"
@@ -218,12 +215,11 @@ msgid "New TimeLimit = %g\n"
 msgstr "Nieuwe tijdslimiet = %g\n"
 
 #: src/frontend/cmd.cc:750
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Usage: %s [OPTION]...\n"
 "\n"
 msgstr ""
-"\n"
 "Gebruik:  %s [OPTIE]...\n"
 "\n"
 
@@ -249,8 +245,7 @@ msgstr "  -v, --version     programmaversie tonen en stoppen\n"
 
 #: src/frontend/cmd.cc:759
 msgid " -q, --quiet        make the program silent on startup\n"
-msgstr ""
-"  -q, --quiet       stil zijn (tijdens starten geen uitvoer produceren)\n"
+msgstr "  -q, --quiet       stil zijn (tijdens starten geen uitvoer produceren)\n"
 
 #: src/frontend/cmd.cc:761
 msgid "     --silent       same as -q\n"
@@ -277,21 +272,15 @@ msgid " -m, --manual       enable manual mode\n"
 msgstr "  -m, --manual      handmatige modus inschakelen\n"
 
 #: src/frontend/cmd.cc:773
-msgid ""
-" -u, --uci          enable UCI protocol (externally behave as UCI engine)\n"
-msgstr ""
-"  -u, --uci         UCI-protocol inschakelen (extern als UCI-engine "
-"functioneren)\n"
+msgid " -u, --uci          enable UCI protocol (externally behave as UCI engine)\n"
+msgstr "  -u, --uci         UCI-protocol inschakelen (extern als UCI-engine functioneren)\n"
 
 #: src/frontend/cmd.cc:775
 msgid " -M size, --memory=size   specify memory usage in MB for hashtable\n"
-msgstr ""
-"  -M, --memory=GROOTTE   te gebruiken aantal megabytes voor hash-tabel\n"
+msgstr "  -M, --memory=GROOTTE   te gebruiken aantal megabytes voor hash-tabel\n"
 
 #: src/frontend/cmd.cc:777
-msgid ""
-" -a filename, --addbook=filename   compile book.bin from pgn book "
-"'filename'\n"
+msgid " -a filename, --addbook=filename   compile book.bin from pgn book 'filename'\n"
 msgstr "  -a, --addbook=BESTAND  «book.bin» compileren uit dit PGN-bestand\n"
 
 #: src/frontend/cmd.cc:779
@@ -326,8 +315,7 @@ msgid ""
 " environment variable GNUCHESS_PKGDATADIR.\n"
 "\n"
 msgstr ""
-"  In het bestand «gnuchess.ini» kunnen configuratie-opties ingesteld "
-"worden;\n"
+"  In het bestand «gnuchess.ini» kunnen configuratie-opties ingesteld worden;\n"
 "  zie 'info gnuchess' voor de details.  Het bestand wordt in de huidige map\n"
 "  gezocht of, als daar niet gevonden, in de map waarnaar omgevingsvariabele\n"
 "  GNUCHESS_PKGDATADIR verwijst.\n"
@@ -342,18 +330,11 @@ msgstr ""
 "meld fouten in de vertaling aan <vertaling@vrijschrift.org>.\n"
 "\n"
 
-#.
-#. * Must Output Illegal move to prevent Xboard accepting illegal
-#. * en passant captures and other subtle mistakes
-#.
 #: src/frontend/cmd.cc:844 src/frontend/cmd.cc:1280
 #, c-format
 msgid "Invalid move: %s\n"
 msgstr "Ongeldige zet: %s\n"
 
-#.
-#. * No longer used by Xboard but requested as a feature
-#.
 #: src/frontend/cmd.cc:862
 #, c-format
 msgid "Command 'white' is currently not supported.\n"
@@ -404,8 +385,7 @@ msgstr "  Sluit het programma af."
 
 #: src/frontend/cmd.cc:971
 msgid " In analysis mode this stops analysis, otherwise it quits the program."
-msgstr ""
-"  In analysemodus stopt het de analyse, anders sluit het het programma af."
+msgstr "  In analysemodus stopt het de analyse, anders sluit het het programma af."
 
 #: src/frontend/cmd.cc:973
 msgid " Produces a help blurb corresponding to this list of commands."
@@ -515,6 +495,9 @@ msgid ""
 " corresponding game.nnn files. For details please see\n"
 " the auxiliary file format sections."
 msgstr ""
+"  Geeft u de mogelijkheid uw naam in te voeren.  Ook schrijft het\n"
+"  de log.nnn en bijbehorende game.nnn bestanden.  Voor de details,\n"
+"  zie de handleiding, de secties over de hulpbestandsindelingen."
 
 #: src/frontend/cmd.cc:1023
 msgid " Mostly used by Internet Chess Server."
@@ -527,6 +510,10 @@ msgid ""
 " alter those conditions. So you would have to undo a move or two, or\n"
 " add time to the clock with 'level' or 'time'."
 msgstr ""
+"  Dit commando reactiveert een partij die automatisch werd beëindigd wegens\n"
+"  schaakmat of tijdsoverschrijding.  Maar het verandert die toestand niet,\n"
+"  dus u dient zelf een zet of twee ongedaan te maken, of tijd toe te voegen\n"
+"  middels het commando 'level' of 'time'."
 
 #: src/frontend/cmd.cc:1030
 msgid " Inputs the estimated rating for computer and for its opponent."
@@ -586,6 +573,8 @@ msgid ""
 " Sets time control to be MOVES in MINUTES, with each move giving\n"
 " an INCREMENT (in seconds, i.e. a Fischer-style clock)."
 msgstr ""
+"  Stelt de tijdsbeperking in op MOVES zetten in MINUTES minuten, terwijl\n"
+"  elke zet INCREMENT seconden toevoegt (oftewel een Fischer-stijl klok)."
 
 #: src/frontend/cmd.cc:1056
 msgid " Loads a position in EPD format from disk into memory."
@@ -629,8 +618,7 @@ msgstr "  moves - toont alle zetten (met één aanroep)"
 
 #: src/frontend/cmd.cc:1075
 msgid " escape - shows moves that escape from check using one call to routine"
-msgstr ""
-"  escape - toont de zetten om aan schaak te ontsnappen (met één aanroep)"
+msgstr "  escape - toont de zetten om aan schaak te ontsnappen (met één aanroep)"
 
 #: src/frontend/cmd.cc:1076
 msgid " noncapture - shows non-capture moves"
@@ -657,8 +645,7 @@ msgid " movelist - reads in an epd file and shows legal moves for its entries"
 msgstr "  movelist - leest een EPD-bestand in en toont de mogelijke zetten"
 
 #: src/frontend/cmd.cc:1083
-msgid ""
-" capture - reads in an epd file and shows legal captures for its entries"
+msgid " capture - reads in an epd file and shows legal captures for its entries"
 msgstr "  capture - leest een EPD-bestand in en toont de mogelijke neemzetten"
 
 #: src/frontend/cmd.cc:1084
@@ -671,8 +658,7 @@ msgstr "  capturespeed - test de snelheid van de neemzetten-generator"
 
 #: src/frontend/cmd.cc:1086
 msgid " eval - reads in an epd file and shows evaluation for its entries"
-msgstr ""
-"  eval - leest een EPD-bestand in en toont de evaluatie van diens items"
+msgstr "  eval - leest een EPD-bestand in en toont de evaluatie van diens items"
 
 #: src/frontend/cmd.cc:1087
 msgid " evalspeed - tests speed of the evaluator"
@@ -702,5 +688,4 @@ msgstr ""
 #: src/frontend/cmd.cc:1121
 #, c-format
 msgid "List of commands: (help COMMAND to get more help)\n"
-msgstr ""
-"Lijst van commando's: (gebruik 'help COMMANDO' om meer hulp te krijgen)\n"
+msgstr "Lijst van commando's: (gebruik 'help COMMANDO' om meer hulp te krijgen)\n"

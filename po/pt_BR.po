@@ -5,13 +5,12 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnuchess 6.1.0\n"
+"Project-Id-Version: gnuchess 6.1.1\n"
 "Report-Msgid-Bugs-To: bug-gnu-chess@gnu.org\n"
-"POT-Creation-Date: 2013-11-23 10:57+0100\n"
-"PO-Revision-Date: 2013-11-22 02:39-0300\n"
+"POT-Creation-Date: 2013-11-23 11:06+0100\n"
+"PO-Revision-Date: 2013-11-25 01:19-0300\n"
 "Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
-"Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge."
-"net>\n"
+"Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge.net>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,9 +23,6 @@ msgstr ""
 msgid "Command 'activate' is currently not supported.\n"
 msgstr "Sem suporte ao comando \"activate\" no momento.\n"
 
-#.
-#. * No longer used by Xboard but requested as a feature
-#.
 #: src/frontend/cmd.cc:131
 #, c-format
 msgid "Command 'black' is currently not supported.\n"
@@ -217,12 +213,11 @@ msgid "New TimeLimit = %g\n"
 msgstr "Limite de tempo novo = %g\n"
 
 #: src/frontend/cmd.cc:750
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Usage: %s [OPTION]...\n"
 "\n"
 msgstr ""
-"\n"
 "Uso: %s [OPÇÃO]...\n"
 "\n"
 
@@ -248,8 +243,7 @@ msgstr " -v, --version      exibe a informação da versão e sai\n"
 
 #: src/frontend/cmd.cc:759
 msgid " -q, --quiet        make the program silent on startup\n"
-msgstr ""
-" -q, --quiet        torna o programa silencioso durante a inicialização\n"
+msgstr " -q, --quiet        torna o programa silencioso durante a inicialização\n"
 
 #: src/frontend/cmd.cc:761
 msgid "     --silent       same as -q\n"
@@ -276,8 +270,7 @@ msgid " -m, --manual       enable manual mode\n"
 msgstr " -m, --manual       habilita o modo manual\n"
 
 #: src/frontend/cmd.cc:773
-msgid ""
-" -u, --uci          enable UCI protocol (externally behave as UCI engine)\n"
+msgid " -u, --uci          enable UCI protocol (externally behave as UCI engine)\n"
 msgstr ""
 " -u, --uci          habilita o protocolo UCI (se comporta externamente como\n"
 "                    um motor UCI)\n"
@@ -289,9 +282,7 @@ msgstr ""
 "                    especifica o uso de memória em MB para a tabela hash\n"
 
 #: src/frontend/cmd.cc:777
-msgid ""
-" -a filename, --addbook=filename   compile book.bin from pgn book "
-"'filename'\n"
+msgid " -a filename, --addbook=filename   compile book.bin from pgn book 'filename'\n"
 msgstr ""
 " -a arquivo, --addbook=arquivo\n"
 "                    compila book.bin de um livro pgn \"arquivo\"\n"
@@ -343,18 +334,11 @@ msgstr ""
 "Relate erros para <bug-gnu-chess@gnu.org>.\n"
 "\n"
 
-#.
-#. * Must Output Illegal move to prevent Xboard accepting illegal
-#. * en passant captures and other subtle mistakes
-#.
 #: src/frontend/cmd.cc:844 src/frontend/cmd.cc:1280
 #, c-format
 msgid "Invalid move: %s\n"
 msgstr "Movimento inválido: %s\n"
 
-#.
-#. * No longer used by Xboard but requested as a feature
-#.
 #: src/frontend/cmd.cc:862
 #, c-format
 msgid "Command 'white' is currently not supported.\n"
@@ -512,14 +496,13 @@ msgid " Turns off verbose thinking output."
 msgstr " Desliga a exibição de pensamento detalhado."
 
 #: src/frontend/cmd.cc:1019
-#, fuzzy
 msgid ""
 " Lets you input your name. Also writes the log.nnn and\n"
 " corresponding game.nnn files. For details please see\n"
 " the auxiliary file format sections."
 msgstr ""
 " Permite que você informe seu nome. Também grava o\n"
-" log.nnn e o arquivo game.nnn correspondente. Para\n"
+" log.nnn e os arquivos game.nnn correspondente. Para\n"
 " mais detalhes, veja as seções de formato de arquivo\n"
 " auxiliar."
 
@@ -528,7 +511,6 @@ msgid " Mostly used by Internet Chess Server."
 msgstr " Usado principalmente pelo Internet Chess Server."
 
 #: src/frontend/cmd.cc:1025
-#, fuzzy
 msgid ""
 " This command reactivates a game that has been terminated automatically\n"
 " due to checkmate or no more time on the clock. However, it does not\n"
@@ -542,8 +524,7 @@ msgstr ""
 
 #: src/frontend/cmd.cc:1030
 msgid " Inputs the estimated rating for computer and for its opponent."
-msgstr ""
-" Informa a classificação estimada para o computador e para seu oponente."
+msgstr " Informa a classificação estimada para o computador e para seu oponente."
 
 #: src/frontend/cmd.cc:1032
 msgid " Sets up a new game (i.e. pieces in original positions)."
@@ -554,14 +535,12 @@ msgid ""
 " Inputs time left in game for computer in hundredths of a second.\n"
 " Mostly used by Internet Chess Server."
 msgstr ""
-" Informa o tempo restante de jogo para computador com centenas de um "
-"segundo.\n"
+" Informa o tempo restante de jogo para computador com centenas de um segundo.\n"
 " Usado principalmente pelo Internet Chess Server."
 
 #: src/frontend/cmd.cc:1037
 msgid " on - enables using the memory hash table to speed up search"
-msgstr ""
-" on - habilita o uso de tabela hash de memória para agilizar a pesquisa"
+msgstr " on - habilita o uso de tabela hash de memória para agilizar a pesquisa"
 
 # Acrescentei "o uso da", em que pese não existir na msgid, para ficar igual às demais mensagens próximas a esta. -- Rafael Ferreira
 #: src/frontend/cmd.cc:1038
@@ -599,13 +578,14 @@ msgstr ""
 " um xeque-mate ou outra condição que não permita aquela\n"
 " profundidade, então não haverá."
 
-# Essa mensagem está associada à mensagem abaixo
 #: src/frontend/cmd.cc:1052
-#, fuzzy
 msgid ""
 " Sets time control to be MOVES in MINUTES, with each move giving\n"
 " an INCREMENT (in seconds, i.e. a Fischer-style clock)."
-msgstr " Configura o controle de tempo para ser MOVIMENTOS em MINUTOS com cada"
+msgstr ""
+" Configura o controle de tempo para ser MOVIMENTOS em MINUTOS\n"
+"com cada movimento dando um INCREMENTO (em segundos, i.e. um\n"
+"relógio estilo Fischer)."
 
 #: src/frontend/cmd.cc:1056
 msgid " Loads a position in EPD format from disk into memory."
@@ -649,9 +629,7 @@ msgstr " moves - mostra todos os movimentos usando uma chamada para a rotina"
 
 #: src/frontend/cmd.cc:1075
 msgid " escape - shows moves that escape from check using one call to routine"
-msgstr ""
-" escape - mostra movimentos que escapam da verificação usando uma chamada "
-"para a rotina"
+msgstr " escape - mostra movimentos que escapam da verificação usando uma chamada para a rotina"
 
 #: src/frontend/cmd.cc:1076
 msgid " noncapture - shows non-capture moves"
@@ -675,15 +653,11 @@ msgstr " pin - mostra peças presas"
 
 #: src/frontend/cmd.cc:1082
 msgid " movelist - reads in an epd file and shows legal moves for its entries"
-msgstr ""
-" movelist - lê em um arquivo epd e mostra movimentos válidos para suas "
-"entradas"
+msgstr " movelist - lê em um arquivo epd e mostra movimentos válidos para suas entradas"
 
 #: src/frontend/cmd.cc:1083
-msgid ""
-" capture - reads in an epd file and shows legal captures for its entries"
-msgstr ""
-" capture - lê em um arquivo epd e mostra capturas válidas para suas entradas"
+msgid " capture - reads in an epd file and shows legal captures for its entries"
+msgstr " capture - lê em um arquivo epd e mostra capturas válidas para suas entradas"
 
 #: src/frontend/cmd.cc:1084
 msgid " movegenspeed - tests speed of move generator"
@@ -726,9 +700,3 @@ msgstr ""
 #, c-format
 msgid "List of commands: (help COMMAND to get more help)\n"
 msgstr "Lista de comandos: (help COMANDO para obter mais ajuda)\n"
-
-# Essa mensagem está associada à mensagem acima
-#~ msgid " an INCREMENT (in seconds, i.e. Fischer-style clock)."
-#~ msgstr ""
-#~ " movimento dado um INCREMENTO (em segundos, i.e. relógio do estilo "
-#~ "Fischer)."

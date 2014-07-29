@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnuchess 6.0.93\n"
+"Project-Id-Version: gnuchess 6.1.1\n"
 "Report-Msgid-Bugs-To: bug-gnu-chess@gnu.org\n"
-"POT-Creation-Date: 2013-11-23 10:57+0100\n"
-"PO-Revision-Date: 2013-11-13 15:30-0300\n"
+"POT-Creation-Date: 2013-11-23 11:06+0100\n"
+"PO-Revision-Date: 2013-11-25 08:03-0300\n"
 "Last-Translator: Felipe Castro <fefcas@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
 "Language: eo\n"
@@ -22,9 +22,6 @@ msgstr ""
 msgid "Command 'activate' is currently not supported.\n"
 msgstr "Komando 'activate' nune ne estas subtenata.\n"
 
-#.
-#. * No longer used by Xboard but requested as a feature
-#.
 #: src/frontend/cmd.cc:131
 #, c-format
 msgid "Command 'black' is currently not supported.\n"
@@ -137,9 +134,7 @@ msgstr "Ne eblis krei protokolon, ĉiuj ingoj estas okupataj.\n"
 #: src/frontend/cmd.cc:385
 #, c-format
 msgid "You may consider deleting or renaming your existing logfiles.\n"
-msgstr ""
-"Vi povas konsideri forigo aŭ renomigo de viaj ekzistantaj protokol-"
-"dosieroj.\n"
+msgstr "Vi povas konsideri forigo aŭ renomigo de viaj ekzistantaj protokol-dosieroj.\n"
 
 #: src/frontend/cmd.cc:417
 #, c-format
@@ -217,12 +212,11 @@ msgid "New TimeLimit = %g\n"
 msgstr "Nova TempLimo = %g\n"
 
 #: src/frontend/cmd.cc:750
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Usage: %s [OPTION]...\n"
 "\n"
 msgstr ""
-"\n"
 "Uzmaniero: %s [MODIFILO]...\n"
 "\n"
 
@@ -275,23 +269,16 @@ msgid " -m, --manual       enable manual mode\n"
 msgstr " -m, --manual       ebligi malaŭtomata reĝimo\n"
 
 #: src/frontend/cmd.cc:773
-msgid ""
-" -u, --uci          enable UCI protocol (externally behave as UCI engine)\n"
-msgstr ""
-" -u, --uci          ebligi protokolon UCI (ekstere konduti kiel maŝinon "
-"UCI)\n"
+msgid " -u, --uci          enable UCI protocol (externally behave as UCI engine)\n"
+msgstr " -u, --uci          ebligi protokolon UCI (ekstere konduti kiel maŝinon UCI)\n"
 
 #: src/frontend/cmd.cc:775
 msgid " -M size, --memory=size   specify memory usage in MB for hashtable\n"
-msgstr ""
-" -M grando, --memory=grando indiki uzadon de memoro laŭ MB por haket-tabelo\n"
+msgstr " -M grando, --memory=grando indiki uzadon de memoro laŭ MB por haket-tabelo\n"
 
 #: src/frontend/cmd.cc:777
-msgid ""
-" -a filename, --addbook=filename   compile book.bin from pgn book "
-"'filename'\n"
-msgstr ""
-" -a dnomo, --addbook=dnomo         kompili book.bin el pgn-libro 'dnomo'\n"
+msgid " -a filename, --addbook=filename   compile book.bin from pgn book 'filename'\n"
+msgstr " -a dnomo, --addbook=dnomo         kompili book.bin el pgn-libro 'dnomo'\n"
 
 #: src/frontend/cmd.cc:779
 msgid " -g, --graphic      enable graphic mode\n"
@@ -338,18 +325,11 @@ msgstr ""
 "Raportu program-misojn al <bug-gnu-chess@gnu.org>.\n"
 "\n"
 
-#.
-#. * Must Output Illegal move to prevent Xboard accepting illegal
-#. * en passant captures and other subtle mistakes
-#.
 #: src/frontend/cmd.cc:844 src/frontend/cmd.cc:1280
 #, c-format
 msgid "Invalid move: %s\n"
 msgstr "Malvalida movo: %s\n"
 
-#.
-#. * No longer used by Xboard but requested as a feature
-#.
 #: src/frontend/cmd.cc:862
 #, c-format
 msgid "Command 'white' is currently not supported.\n"
@@ -400,8 +380,7 @@ msgstr " Eliras la programon."
 
 #: src/frontend/cmd.cc:971
 msgid " In analysis mode this stops analysis, otherwise it quits the program."
-msgstr ""
-" En analiza reĝimo tio ĉi haltigas la analizon, alie ĝi eliras la programon."
+msgstr " En analiza reĝimo tio ĉi haltigas la analizon, alie ĝi eliras la programon."
 
 #: src/frontend/cmd.cc:973
 msgid " Produces a help blurb corresponding to this list of commands."
@@ -508,14 +487,13 @@ msgid " Turns off verbose thinking output."
 msgstr " Malŝaltas detalan eligon pri cerbumado."
 
 #: src/frontend/cmd.cc:1019
-#, fuzzy
 msgid ""
 " Lets you input your name. Also writes the log.nnn and\n"
 " corresponding game.nnn files. For details please see\n"
 " the auxiliary file format sections."
 msgstr ""
 " Permesas al vi enigi vian nomon. Ankaŭ skribas la dosieron\n"
-" log.nnn kaj ties korespondan dosieron game.nnn. Por pli da\n"
+" log.nnn kaj korespondajn dosierojn game.nnn. Por pli da\n"
 " detaloj, bonvolu konsulti helpajn dosier-formajn sekciojn."
 
 #: src/frontend/cmd.cc:1023
@@ -523,7 +501,6 @@ msgid " Mostly used by Internet Chess Server."
 msgstr " Plejparte uzata de la Interreta Ŝak-servilo."
 
 #: src/frontend/cmd.cc:1025
-#, fuzzy
 msgid ""
 " This command reactivates a game that has been terminated automatically\n"
 " due to checkmate or no more time on the clock. However, it does not\n"
@@ -532,13 +509,12 @@ msgid ""
 msgstr ""
 " Tiu ĉi komando reaktivigas ludon kiu aŭtomate finis pro ŝakmato aŭ pro\n"
 " tempo-fino de la horloĝo. Tamen, ĝi ne modifas tiuj kondiĉoj. Vi devos\n"
-" fari unu aŭ du movojn aŭ aldoni tempon al la horloĝo per 'level' aŭ\n"
+" fari unu aŭ du movojn, aŭ aldoni tempon al la horloĝo per 'level' aŭ\n"
 " 'time'."
 
 #: src/frontend/cmd.cc:1030
 msgid " Inputs the estimated rating for computer and for its opponent."
-msgstr ""
-" Enigas la kalkulitajn pritaksado por la komputilo kaj ĝiaj kontraŭuloj."
+msgstr " Enigas la kalkulitajn pritaksado por la komputilo kaj ĝiaj kontraŭuloj."
 
 #: src/frontend/cmd.cc:1032
 msgid " Sets up a new game (i.e. pieces in original positions)."
@@ -591,11 +567,12 @@ msgstr ""
 " ne permesas tiun profundon, tiam ĝi ne okazos."
 
 #: src/frontend/cmd.cc:1052
-#, fuzzy
 msgid ""
 " Sets time control to be MOVES in MINUTES, with each move giving\n"
 " an INCREMENT (in seconds, i.e. a Fischer-style clock)."
-msgstr " Difinas ke temp-kontrolo estu MOVOJn en MINUTOJ por ĉiu mov-dono"
+msgstr ""
+" Difinas ke temp-kontrolo estu MOVOJ en MINUTOJ, kun ĉiu movo\n"
+" rezultanta en PLIIGO (laŭ sekundoj, t.e. Fischer-stila horloĝo)."
 
 #: src/frontend/cmd.cc:1056
 msgid " Loads a position in EPD format from disk into memory."
@@ -639,8 +616,7 @@ msgstr " moves - montras ĉiujn movojn uzante unu vokon al funkcio"
 
 #: src/frontend/cmd.cc:1075
 msgid " escape - shows moves that escape from check using one call to routine"
-msgstr ""
-" escape - montras movojn kiuj eskapas el ŝako uzante unu vokon al funkcio"
+msgstr " escape - montras movojn kiuj eskapas el ŝako uzante unu vokon al funkcio"
 
 #: src/frontend/cmd.cc:1076
 msgid " noncapture - shows non-capture moves"
@@ -664,15 +640,11 @@ msgstr " pin - montras fiksitajn pecojn"
 
 #: src/frontend/cmd.cc:1082
 msgid " movelist - reads in an epd file and shows legal moves for its entries"
-msgstr ""
-" movelist - legas epd-dosieron kaj montras permesatajn movojn el ĝiaj enigoj"
+msgstr " movelist - legas epd-dosieron kaj montras permesatajn movojn el ĝiaj enigoj"
 
 #: src/frontend/cmd.cc:1083
-msgid ""
-" capture - reads in an epd file and shows legal captures for its entries"
-msgstr ""
-" capture - legas epd-dosieron kaj montras permesatajn kaptigojn el ĝiaj "
-"enigoj"
+msgid " capture - reads in an epd file and shows legal captures for its entries"
+msgstr " capture - legas epd-dosieron kaj montras permesatajn kaptigojn el ĝiaj enigoj"
 
 #: src/frontend/cmd.cc:1084
 msgid " movegenspeed - tests speed of move generator"
