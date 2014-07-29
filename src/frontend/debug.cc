@@ -2,7 +2,7 @@
 
    GNU Chess frontend
 
-   Copyright (C) 2001-2011 Free Software Foundation, Inc.
+   Copyright (C) 2001-2014 Free Software Foundation, Inc.
 
    GNU Chess is based on the two research programs 
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
@@ -35,6 +35,7 @@
 #include <sys/time.h>
 #include <fcntl.h>
 #include <stdarg.h>
+#include <string.h>
 
 #define MAX_DEBUG 1000
 #define DEBUG_FILENAME "gnuchess.debug"
@@ -77,7 +78,11 @@ int dbg_printf(const char *fmt, ...)
    struct timeval tv;
    
    gettimeofday(&tv, NULL);
+#ifdef __APPLE__
+   sprintf(buf, "%010ld.%06d: ", tv.tv_sec, tv.tv_usec);
+#else
    sprintf(buf, "%010ld.%06ld: ", tv.tv_sec, tv.tv_usec);
+#endif
    write(debug_fd, buf, strlen(buf));
 
    va_start(ap, fmt);

@@ -2,7 +2,7 @@
 
    GNU Chess protocol adapter
 
-   Copyright (C) 2001-2012 Free Software Foundation, Inc.
+   Copyright (C) 2001-2014 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -77,7 +77,7 @@ void book_clear() {
 void book_open(const char file_name[], int mode) {
 
    ASSERT(file_name!=NULL);
-   ASSERT(mode==BookReadOnly || mode==BookReadWrite);
+   ASSERT(mode==BookReadOnly || mode==BookReadWrite);
 
    const int MaxModeLength = 4;
    char full_file_name[MaxFileNameSize+1];

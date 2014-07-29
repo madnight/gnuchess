@@ -1,3 +1,20 @@
+2014-07-29  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/frontend/debug.cc: compile with no warnings when DEBUG
+	directive defined.
+	* src/adapter/book.cpp: replace weird characters.
+	* src/main.cc: copyright year 2014.
+	* configure.ac: set version 6.1.2.
+	* doc/gnuchess.texi: replace CFLAGS by CPPFLAGS.
+	* doc/version.texi: set version 6.1.2.
+	* TODO: added new task.
+	* NEWS: changes in version 6.1.2.
+	* po/LINGUAS: added gl, vi, nb.
+	* po/gl.po: added.
+	* po/vi.po: added.
+	* po/nb.po: added.
+	* po/*.po: updated.
+
 2014-07-29  Pawel Koziol <pp.koziol@gmail.com>  (tiny change)
 
 	* src/engine/book.cpp: fix for correct handling of castling moves.
