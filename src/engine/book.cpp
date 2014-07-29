@@ -2,7 +2,7 @@
 
    GNU Chess engine
 
-   Copyright (C) 2001-2011 Free Software Foundation, Inc.
+   Copyright (C) 2001-2014 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -162,6 +162,17 @@ int book_move(board_t * board) {
 
          for (i = 0; i < list->size; i++) {
             move = list->move[i];
+
+            // fix for correct handling of castling moves - PK
+            if (MOVE_FROM(move) == E1     && MOVE_TO(move) == G1
+            && MOVE_FROM(best_move) == E1 && MOVE_TO(best_move) == H1 ) return move;
+            if (MOVE_FROM(move) == E1     && MOVE_TO(move) == C1
+            && MOVE_FROM(best_move) == E1 && MOVE_TO(best_move) == A1 ) return move;
+            if (MOVE_FROM(move) == E8     && MOVE_TO(move) == G8
+            && MOVE_FROM(best_move) == E8 && MOVE_TO(best_move) == H8 ) return move;
+            if (MOVE_FROM(move) == E8     && MOVE_TO(move) == C8
+            && MOVE_FROM(best_move) == E8 && MOVE_TO(best_move) == A8 ) return move;
+            
             if ((move & 07777) == best_move) return move;
          }
       }

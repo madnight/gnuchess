@@ -1,3 +1,7 @@
+2014-07-29  Pawel Koziol <pp.koziol@gmail.com>  (tiny change)
+
+	* src/engine/book.cpp: fix for correct handling of castling moves.
+
 2013-11-23  Antonio Ceballos  <aceballos@gmail.com>
 
 	* configure.ac: set version 6.1.1.
@@ -359,7 +363,7 @@
 	* src/frontend/engine.c: comment out extra output write.
 	* src/adapter/adapter.cpp: remove debug trace.
 
-Copyright (C) 2001-2013 Free Software Foundation, Inc.
+Copyright (C) 2001-2014 Free Software Foundation, Inc.
 
 Copying and distribution of this file, with or without modification,
 are permitted in any medium without royalty provided the copyright
