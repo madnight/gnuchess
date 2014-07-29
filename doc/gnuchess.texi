@@ -15,7 +15,7 @@
 This manual is for GNU Chess (version @value{VERSION}, @value{UPDATED}),
 which is a complete chess program, frequently used as a chess engine.
 
-Copyright @copyright{} 2001--2013 Free Software Foundation, Inc.
+Copyright @copyright{} 2001--2014 Free Software Foundation, Inc.
 
 @quotation
 Permission is granted to copy, distribute and/or modify this document
@@ -1077,12 +1077,12 @@ make install
 Use the following commands:
 
 @example
-./configure CFLAGS=-DDEBUG
+./configure CPPFLAGS=-DDEBUG
 make
 make install
 @end example
 
-When analysing  a bug, this file could be very helpful.
+When analysing a bug, this file could be very helpful.
 Users are encouraged to provide it.
 
 @end table
