@@ -1,8 +1,6 @@
-# Process this file with automake to produce Makefile.in (in this,
-# and all subdirectories).
-# Makefile for the top-level directory of GNU Chess.
+# Makefile for gnuchess/doc
 #
-# Copyright (C) 2001-2011 Free Software Foundation, Inc.
+# Copyright (C) 2001-2014 Free Software Foundation, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

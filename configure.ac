@@ -73,9 +73,20 @@ dnl AC_SUBST(LIBOBJS)
 dnl AC_CHECK_FUNCS(getopt_long , , [LIBOBJS="$LIBOBJS getopt.o getopt1.o"] )
 ACX_PTHREAD()
 
+# GNU help2man creates man pages from --help output; in many cases, this
+# is sufficient, and obviates the need to maintain man pages separately.
+# However, this means invoking executables, which we generally cannot do
+# when cross-compiling, so we test to avoid that (the variable
+# "cross_compiling" is set by AC_PROG_CC).
+if test $cross_compiling = no; then
+  AM_MISSING_PROG(HELP2MAN, help2man)
+else
+  HELP2MAN=:
+fi
+
 # Support from GNU gettext.
 AM_GNU_GETTEXT_VERSION([0.18.3])
 AM_GNU_GETTEXT([external])
 
-AC_CONFIG_FILES(Makefile src/Makefile src/frontend/Makefile src/adapter/Makefile src/engine/Makefile doc/Makefile po/Makefile.in)
+AC_CONFIG_FILES(Makefile src/Makefile src/frontend/Makefile src/adapter/Makefile src/engine/Makefile doc/Makefile po/Makefile.in man/Makefile)
 AC_OUTPUT

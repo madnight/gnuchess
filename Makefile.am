@@ -21,7 +21,7 @@
 ACLOCAL_AMFLAGS = --install -I m4
 
 # Subdirectories to descend into.
-SUBDIRS = src doc po
+SUBDIRS = src doc po man
 
 dist_pkgdata_DATA = src/gnuchess.ini src/smallbook.bin
 
