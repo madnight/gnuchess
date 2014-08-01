@@ -503,24 +503,21 @@ inline int piece_id(const char c)
  * isn't enough to handle two-character names (common in Russian text
  * and old English notation that used Kt), but we're not supposed to
  * see such text here anyway.  This will
- * accept "P" for pawn, and many lowercase chars (but not "b" for Bishop). */
+ * accept "P" for pawn, and it used to accept many lowercase chars 
+ * (but not "b" for Bishop). However, lowercase chars are no longer
+ * accepted, since they are not allowed by the Fruit engine. */
    switch (c)
    {
-      case 'n':
       case 'N':
          return knight;
       case 'B':
          return bishop;
-      case 'r':
       case 'R':
          return rook;
-      case 'q':
       case 'Q':
          return queen;
-      case 'k':
       case 'K':
          return king;
-      case 'p':
       case 'P':
          return pawn;
    }

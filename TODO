@@ -19,8 +19,6 @@ go wtime 298000 btime 300000
 The problem is the 'Q' for queen in 'f2g1Q'. It must be a 'q'. This was 
 reported by Igor Alelekov on 2014/06/29.
 
-* Add a simple man.
-
 * Consider adding resign and draw offer commands.
 
 * Consider using readline.

@@ -1,5 +1,9 @@
 2014-08-01  Antonio Ceballos  <aceballos@gmail.com>
 
+	* src/frontend/move.cc: lowercase not allowed for piece names.
+
+2014-08-01  Antonio Ceballos  <aceballos@gmail.com>
+
 	* configure.ac: simple man page based on help2man.
 	* Makefile.am: simple man page based on help2man.
 	* man/: simple man page based on help2man.
