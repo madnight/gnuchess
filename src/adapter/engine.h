@@ -30,7 +30,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // types
 
 struct engine_t {

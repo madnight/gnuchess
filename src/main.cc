@@ -2,7 +2,7 @@
 
    Copyright (c) 2001-2014 Free Software Foundation, Inc.
 
-   GNU Chess is based on the two research programs 
+   GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
 
    This program is free software: you can redistribute it and/or modify
@@ -16,9 +16,9 @@
    GNU General Public License for more details.
 
    You should have received a copy of the GNU General Public License
-   along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-   Contact Info: 
+   Contact Info:
      bug-gnu-chess@gnu.org
      cracraft@ai.mit.edu, cracraft@stanfordalumni.org, cracraft@earthlink.net
 */
@@ -30,7 +30,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <getopt.h>
-#include <errno.h> 
+#include <errno.h>
 #include <unistd.h>
 #include <locale.h>
 
@@ -89,7 +89,7 @@ short bookfirstlast;
 short graphicmodeoutput;
 short pgnloaded = 0;
 int pgncnt = 0;
-    
+
 char *progname;
 FILE *ofp;
 int myrating, opprating;
@@ -110,11 +110,11 @@ char algbr[64][3] =
   "a5", "b5", "c5", "d5", "e5", "f5", "g5", "h5",
   "a6", "b6", "c6", "d6", "e6", "f6", "g6", "h6",
   "a7", "b7", "c7", "d7", "e7", "f7", "g7", "h7",
-  "a8", "b8", "c8", "d8", "e8", "f8", "g8", "h8" 
+  "a8", "b8", "c8", "d8", "e8", "f8", "g8", "h8"
 };
 char algbrfile[9] = "abcdefgh";
 char algbrrank[9] = "12345678";
-  
+
 char notation[8] = { " PNBRQK" };
 char lnotation[8] = { " pnbrqk" };
 
@@ -153,11 +153,11 @@ short Shift90[64] =
 int r45[64] =
 { E4, F3, H2, C2, G1, D1, B1, A1,
   E5, F4, G3, A3, D2, H1, E1, C1,
-  D6, F5, G4, H3, B3, E2, A2, F1, 
+  D6, F5, G4, H3, B3, E2, A2, F1,
   B7, E6, G5, H4, A4, C3, F2, B2,
-  G7, C7, F6, H5, A5, B4, D3, G2, 
-  C8, H7, D7, G6, A6, B5, C4, E3, 
-  F8, D8, A8, E7, H6, B6, C5, D4, 
+  G7, C7, F6, H5, A5, B4, D3, G2,
+  C8, H7, D7, G6, A6, B5, C4, E3,
+  F8, D8, A8, E7, H6, B6, C5, D4,
   H8, G8, E8, B8, F7, A7, C6, D5 };
 
 short Shift45[64] =
@@ -172,12 +172,12 @@ short Shift45[64] =
 
 int Mask45[64] =
 { 0xFF, 0x7F, 0x3F, 0x1F, 0x0F, 0x07, 0x03, 0x01,
-  0x7F, 0xFF, 0x7F, 0x3F, 0x1F, 0x0F, 0x07, 0x03, 
-  0x3F, 0x7F, 0xFF, 0x7F, 0x3F, 0x1F, 0x0F, 0x07, 
-  0x1F, 0x3F, 0x7F, 0xFF, 0x7F, 0x3F, 0x1F, 0x0F, 
-  0x0F, 0x1F, 0x3F, 0x7F, 0xFF, 0x7F, 0x3F, 0x1F, 
-  0x07, 0x0F, 0x1F, 0x3F, 0x7F, 0xFF, 0x7F, 0x3F, 
-  0x03, 0x07, 0x0F, 0x1F, 0x3F, 0x7F, 0xFF, 0x7F, 
+  0x7F, 0xFF, 0x7F, 0x3F, 0x1F, 0x0F, 0x07, 0x03,
+  0x3F, 0x7F, 0xFF, 0x7F, 0x3F, 0x1F, 0x0F, 0x07,
+  0x1F, 0x3F, 0x7F, 0xFF, 0x7F, 0x3F, 0x1F, 0x0F,
+  0x0F, 0x1F, 0x3F, 0x7F, 0xFF, 0x7F, 0x3F, 0x1F,
+  0x07, 0x0F, 0x1F, 0x3F, 0x7F, 0xFF, 0x7F, 0x3F,
+  0x03, 0x07, 0x0F, 0x1F, 0x3F, 0x7F, 0xFF, 0x7F,
   0x01, 0x03, 0x07, 0x0F, 0x1F, 0x3F, 0x7F, 0xFF };
 
 int r315[64] =
@@ -230,7 +230,7 @@ int main (int argc, char *argv[])
    * Note: we have to support "xboard" and "post" as bare strings
    * for backward compatibility.
    */
- 
+
   int c;
   int opt_help = 0, opt_version = 0, opt_post = 0, opt_xboard = 0, opt_memory = 0,
       opt_easy = 0, opt_manual = 0, opt_quiet = 0, opt_uci = 0, opt_graphic = 0;
@@ -239,7 +239,7 @@ int main (int argc, char *argv[])
 
   /*disable graphic output by default */
   graphicmodeoutput = 0;
-  
+
 
   progname = argv[0]; /* Save in global for cmd_usage */
 
@@ -258,22 +258,22 @@ int main (int argc, char *argv[])
         {"manual", 0, 0, 'm'},
         {"uci", 0, 0, 'u'},
         {"addbook", 1, 0, 'a'},
-        {"graphic", 0, 0, 'g'},                
+        {"graphic", 0, 0, 'g'},
         {0, 0, 0, 0}
     };
- 
-    /* getopt_long stores the option index here. */ 
+
+    /* getopt_long stores the option index here. */
 
     int option_index = 0;
- 
+
     c = getopt_long (argc, argv, "qehmpvxgM:ua:",
              long_options, &option_index);
- 
+
     /* Detect the end of the options. */
    if (c == -1)
      break;
 
-   /* 
+   /*
     * Options with a straight flag, could use getoopt_long
     * flag setting but this is more "obvious" and easier to
     * modify.
@@ -303,8 +303,8 @@ int main (int argc, char *argv[])
        break;
      case 'm':
        opt_manual = 1;
-       break;       
-     case 'M':    
+       break;
+     case 'M':
        if  ( optarg == NULL ){ /* we have error such as two -M */
          opt_help = 1;
          break;
@@ -322,7 +322,7 @@ int main (int argc, char *argv[])
      case 'u':
        opt_uci = 1;
        break;
-     case 'a':    
+     case 'a':
        if  ( optarg == NULL ){ /* we have error such as two -a */
          opt_help = 1;
          break;
@@ -342,7 +342,7 @@ int main (int argc, char *argv[])
 
   /* Initialize random number generator */
   srand((unsigned int) time(NULL));
-  
+
   /* initialize control flags */
   flags = ULL(0);
 
@@ -364,16 +364,16 @@ int main (int argc, char *argv[])
   if (opt_uci == 1)
     SET (flags, UCI);
   if (opt_post == 1) {
-    SET (flags, POST);	
+    SET (flags, POST);
   }
   if (opt_manual ==1)
     SET (flags, MANUAL);
   cmd_version();
-  
+
   /* If the version option was specified we can exit here */
   if (opt_version == 1)
 	return(0);
-  
+
   /* Startup output */
   if ( !( flags & XBOARD ) && ( !opt_quiet ) && ( !opt_uci) ) {
     printf( "Copyright (C) 2014 Free Software Foundation, Inc.\n" );
@@ -425,7 +425,7 @@ int main (int argc, char *argv[])
   }
 
   if (opt_post == 1) {
-    SET (flags, POST);	
+    SET (flags, POST);
     char data[9];
     strcpy( data, "post" );
     SendToEngine( data );
@@ -444,18 +444,18 @@ int main (int argc, char *argv[])
 	SET (flags, XBOARD);
       } else if (strcmp(argv[i],"post") == 0) {
 	SET (flags, POST);
-      } 
+      }
     }
 
   if ( opt_graphic == 1) {
     graphicmodeoutput = 1;
   }
-  
+
   }
 
   bookfirstlast = 3;
 
-  
+
   /* While not quit
    *     If user input buffer not empty
    *         Read next line from user input buffer
@@ -500,7 +500,7 @@ int main (int argc, char *argv[])
     /* Avoid using 100% CPU */
     usleep(100);
   }
-  
+
   dbg_close();
   return (0);
 }

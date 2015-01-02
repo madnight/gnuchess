@@ -29,7 +29,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // constants
 
 static const int StringSize = 256;

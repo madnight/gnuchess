@@ -4,7 +4,7 @@
 
    Copyright (C) 2001-2011 Free Software Foundation, Inc.
 
-   GNU Chess is based on the two research programs 
+   GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
 
    This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-   Contact Info: 
+   Contact Info:
      bug-gnu-chess@gnu.org
      cracraft@ai.mit.edu, cracraft@stanfordalumni.org, cracraft@earthlink.net
 */
@@ -39,7 +39,7 @@ void MakeMove (int side, int *move)
  **************************************************************************/
 {
    BitBoard *a;
-   int f, t, fpiece, tpiece; 
+   int f, t, fpiece, tpiece;
    int rookf, rookt, epsq, sq;
    int xside;
    GameRec *g;
@@ -62,14 +62,14 @@ void MakeMove (int side, int *move)
    cboard[t] = fpiece;
    GameCnt++;
    g = &Game[GameCnt];
-   g->epsq = board.ep; 
+   g->epsq = board.ep;
    g->bflag = board.flag;
    g->Game50 = Game50;
    g->hashkey = HashKey;
    g->phashkey = PawnHashKey;
    g->mvboard = Mvboard[t];
    g->comments = NULL;
-   Mvboard[t] = Mvboard[f]+1; 
+   Mvboard[t] = Mvboard[f]+1;
    Mvboard[f] = 0;
    if (board.ep > -1)
       HashKey ^= ephash[board.ep];
@@ -96,7 +96,7 @@ void MakeMove (int side, int *move)
          board.pmaterial[xside] -= Value[tpiece];
    }
 
-   if (*move & PROMOTION) 	/* Promotion */ 
+   if (*move & PROMOTION) 	/* Promotion */
    {
       SETBIT (board.b[side][PROMOTEPIECE (*move)], t);
       CLEARBIT (*a, t);
@@ -173,7 +173,7 @@ void MakeMove (int side, int *move)
                HashKey ^= WKCastlehash;
 	    board.flag &= ~WKINGCASTLE;
 	 }
-         else if (f == A1) 
+         else if (f == A1)
 	 {
 	    if (board.flag & WQUEENCASTLE)
                HashKey ^= WQCastlehash;
@@ -182,13 +182,13 @@ void MakeMove (int side, int *move)
       }
       if (tpiece == rook)
       {
-         if (t == H8) 
+         if (t == H8)
 	 {
 	    if (board.flag & BKINGCASTLE)
 	       HashKey ^= BKCastlehash;
 	    board.flag &= ~BKINGCASTLE;
          }
-         else if (t == A8) 
+         else if (t == A8)
 	 {
 	    if (board.flag & BQUEENCASTLE)
 	       HashKey ^= BQCastlehash;
@@ -208,13 +208,13 @@ void MakeMove (int side, int *move)
       }
       else if (fpiece == rook)
       {
-         if (f == H8) 
+         if (f == H8)
 	 {
 	    if (board.flag & BKINGCASTLE)
 	       HashKey ^= BKCastlehash;
 	    board.flag &= ~BKINGCASTLE;
          }
-         else if (f == A8) 
+         else if (f == A8)
 	 {
 	    if (board.flag & BQUEENCASTLE)
 	       HashKey ^= BQCastlehash;
@@ -223,19 +223,19 @@ void MakeMove (int side, int *move)
       }
       if (tpiece == rook)
       {
-         if (t == H1) 
+         if (t == H1)
 	 {
 	    if (board.flag & WKINGCASTLE)
                HashKey ^= WKCastlehash;
 	    board.flag &= ~WKINGCASTLE;
 	 }
-         else if (t == A1) 
+         else if (t == A1)
 	 {
 	    if (board.flag & WQUEENCASTLE)
                HashKey ^= WQCastlehash;
 	    board.flag &= ~WQUEENCASTLE;
 	 }
-      } 
+      }
    }
 
 
@@ -270,7 +270,7 @@ void UnmakeMove (int side, int *move)
  ****************************************************************************/
 {
    BitBoard *a;
-   int f, t, fpiece, cpiece;   
+   int f, t, fpiece, cpiece;
    int rookf, rookt, epsq;
    int xside;
    GameRec *g;
@@ -283,13 +283,13 @@ void UnmakeMove (int side, int *move)
    cpiece = CAPTUREPIECE (*move);
    a = &board.b[side][fpiece];
    CLEARBIT (*a, t);
-   SETBIT (*a, f);   
-   CLEARBIT (board.blockerr90, r90[t]); 
-   SETBIT (board.blockerr90, r90[f]); 
-   CLEARBIT (board.blockerr45, r45[t]); 
-   SETBIT (board.blockerr45, r45[f]); 
-   CLEARBIT (board.blockerr315, r315[t]); 
-   SETBIT (board.blockerr315, r315[f]); 
+   SETBIT (*a, f);
+   CLEARBIT (board.blockerr90, r90[t]);
+   SETBIT (board.blockerr90, r90[f]);
+   CLEARBIT (board.blockerr45, r45[t]);
+   SETBIT (board.blockerr45, r45[f]);
+   CLEARBIT (board.blockerr315, r315[t]);
+   SETBIT (board.blockerr315, r315[f]);
    cboard[f] = cboard[t];
    cboard[t] = empty;
    g = &Game[GameCnt];
@@ -297,28 +297,28 @@ void UnmakeMove (int side, int *move)
    Mvboard[t] = g->mvboard;
    if (fpiece == king)
       board.king[side] = f;
-   
+
    /* if capture, put back the captured piece */
    if (*move & CAPTURE)
    {
       ExchCnt[side]--;
-      SETBIT (board.b[xside][cpiece], t);  
-      SETBIT (board.blockerr90, r90[t]);  
-      SETBIT (board.blockerr45, r45[t]);  
-      SETBIT (board.blockerr315, r315[t]);  
-      cboard[t] = cpiece; 
-      board.material[xside] += Value[cpiece];  
+      SETBIT (board.b[xside][cpiece], t);
+      SETBIT (board.blockerr90, r90[t]);
+      SETBIT (board.blockerr45, r45[t]);
+      SETBIT (board.blockerr315, r315[t]);
+      cboard[t] = cpiece;
+      board.material[xside] += Value[cpiece];
       if (cpiece != pawn)
-         board.pmaterial[xside] += Value[cpiece];  
+         board.pmaterial[xside] += Value[cpiece];
    }
 
    /* Undo promotion */
    if (*move & PROMOTION)
    {
       CLEARBIT (*a, f);
-      SETBIT (board.b[side][pawn], f);  
+      SETBIT (board.b[side][pawn], f);
       cboard[f] = pawn;
-      board.material[side] += (ValueP - Value[PROMOTEPIECE (*move)]); 
+      board.material[side] += (ValueP - Value[PROMOTEPIECE (*move)]);
       board.pmaterial[side] -= Value[PROMOTEPIECE (*move)];
    }
 
@@ -327,13 +327,13 @@ void UnmakeMove (int side, int *move)
    {
       ExchCnt[side]--;
       epsq = (side == white ? g->epsq - 8 : g->epsq + 8);
-      SETBIT (board.b[xside][pawn], epsq); 
-      SETBIT (board.blockerr90, r90[epsq]); 
-      SETBIT (board.blockerr45, r45[epsq]); 
-      SETBIT (board.blockerr315, r315[epsq]); 
+      SETBIT (board.b[xside][pawn], epsq);
+      SETBIT (board.blockerr90, r90[epsq]);
+      SETBIT (board.blockerr45, r45[epsq]);
+      SETBIT (board.blockerr315, r315[epsq]);
       cboard[epsq] = pawn;
-      board.material[xside] += ValueP;  
-   }   
+      board.material[xside] += ValueP;
+   }
 
    /* if castling, undo rook move */
    if (*move & CASTLING)
@@ -350,7 +350,7 @@ void UnmakeMove (int side, int *move)
       }
       a = &board.b[side][rook];
       CLEARBIT (*a, rookt);
-      SETBIT (*a, rookf); 
+      SETBIT (*a, rookf);
       CLEARBIT (board.blockerr90, r90[rookt]);
       SETBIT (board.blockerr90, r90[rookf]);
       CLEARBIT (board.blockerr45, r45[rookt]);
@@ -367,7 +367,7 @@ void UnmakeMove (int side, int *move)
    UpdateFriends ();
    board.side = side;
    board.ep = g->epsq;
-   board.flag = g->bflag;  
+   board.flag = g->bflag;
    HashKey = g->hashkey;
    PawnHashKey = g->phashkey;
    Game50 = g->Game50;
@@ -404,11 +404,11 @@ void SANMove (int move, int ply)
 	 strcpy (s, "O-O-O");
       return;
    }
- 
+
 /****************************************************************************
  *
- *  Here split the code into 2 parts for clarity sake.  First part deals 
- *  with pawn moves only, 2nd part only piece moves.  However before doing 
+ *  Here split the code into 2 parts for clarity sake.  First part deals
+ *  with pawn moves only, 2nd part only piece moves.  However before doing
  *  that, see if the move is ambiguous.
  *
  ****************************************************************************/
@@ -421,7 +421,7 @@ void SANMove (int move, int ply)
    node1 = TreePtr[ply];
    if (nbits (b) > 1)
    {
-      /* 
+      /*
        *  Scan the movelist to see if another same-type piece is
        *  also moving to that particular to-square.
        */
@@ -467,7 +467,7 @@ void SANMove (int move, int ply)
 	    *s++ = algbrfile[ROW (f)];
       }
       if (cboard[t] != 0)		/* capture */
-         *s++ = 'x'; 
+         *s++ = 'x';
       strcpy (s, algbr[t]);
       s += 2;
    }
@@ -484,7 +484,7 @@ void SANMove (int move, int ply)
          *s++ = '+';
       GenCnt -= TreePtr[ply+2] - TreePtr[ply+1];
    }
-   UnmakeMove (1^side, &move); 
+   UnmakeMove (1^side, &move);
 
    *s = '\0';
    return;
@@ -503,7 +503,7 @@ inline int piece_id(const char c)
  * isn't enough to handle two-character names (common in Russian text
  * and old English notation that used Kt), but we're not supposed to
  * see such text here anyway.  This will
- * accept "P" for pawn, and it used to accept many lowercase chars 
+ * accept "P" for pawn, and it used to accept many lowercase chars
  * (but not "b" for Bishop). However, lowercase chars are no longer
  * accepted, since they are not allowed by the Fruit engine. */
    switch (c)
@@ -543,8 +543,8 @@ leaf * ValidateMove (char *s)
    leaf *n1, *n2;
 
    TreePtr[2] = TreePtr[1];
-   GenMoves (1);   
-   FilterIllegalMoves (1);	
+   GenMoves (1);
+   FilterIllegalMoves (1);
    side = board.side;
 
    /************************************************************************
@@ -555,22 +555,22 @@ leaf * ValidateMove (char *s)
    do
    {
       if (*s != 'x' && *s != '+' && *s != '=' && !isspace(*s))
-         *p++ = *s; 
+         *p++ = *s;
    } while (*s++ != '\0' );
 
    /* Flush castles that check */
    if (mvstr[strlen(mvstr)-1] == '+' || mvstr[strlen(mvstr)-1] == '#' ||
-       mvstr[strlen(mvstr)-1] == '=') mvstr[strlen(mvstr)-1] = '\000'; 
+       mvstr[strlen(mvstr)-1] == '=') mvstr[strlen(mvstr)-1] = '\000';
 
    /* Check for castling */
-   if (strcmp (mvstr, "O-O") == 0 || strcmp (mvstr, "o-o") == 0 || 
+   if (strcmp (mvstr, "O-O") == 0 || strcmp (mvstr, "o-o") == 0 ||
        strcmp (mvstr, "0-0") == 0)
    {
       if (side == white)
       {
          f = 4; t = 6;
       }
-      else 
+      else
       {
 	 f = 60; t = 62;
       }
@@ -603,7 +603,7 @@ leaf * ValidateMove (char *s)
 
 
    /***********************************************************************
-    *  Its a SAN notation move.  More headache!  
+    *  Its a SAN notation move.  More headache!
     *  We generate all the legal moves and start comparing them with
     *  the input move.
     ***********************************************************************/
@@ -617,7 +617,7 @@ leaf * ValidateMove (char *s)
          if ( f > 0 && f < 64 ) {
 	   if (BitPosArray[f] & board.b[side][pawn])
            {
-              if (mvstr[2] != '\0') 
+              if (mvstr[2] != '\0')
                  return (IsInMoveList (1, f, t, mvstr[2]));
               else
                  return (IsInMoveList (1, f, t, ' '));
@@ -657,7 +657,7 @@ leaf * ValidateMove (char *s)
 	    	      f = t - (side == white ? 8 : -8) + (file - fileto);
          	      piece = (strlen (mvstr) == 3 ? mvstr[2] : ' ');
 	    	      return (IsInMoveList (1, f, t, piece));
-	    default : 
+	    default :
 		      printf ("Ambiguous move: %s %s\n",s,mvstr);
 		      ShowBoard();
 /*
@@ -665,9 +665,9 @@ leaf * ValidateMove (char *s)
 */
 	    	      return ((leaf *) NULL);
 	 }
-      } 
+      }
 
-   } 
+   }
    else	if ((piece = piece_id(mvstr[0])) != empty &&
             (piece_id(mvstr[1]) == empty))	/* Is a piece move */
    {
@@ -713,7 +713,7 @@ leaf * ValidateMove (char *s)
 	 getchar();
 */
    	 return ((leaf *) NULL);
-      } 
+      }
       else if (kount == 0)
    	 return ((leaf *) NULL);
       else
@@ -758,12 +758,12 @@ leaf * ValidateMove (char *s)
 	 getchar();
 */
    	 return ((leaf *) NULL);
-      } 
+      }
       else if (kount == 0)
    	 return ((leaf *) NULL);
       else
          return (n2);
-      
+
    }
 
    /* Fall through.  Nothing worked, return that no move was performed. */
@@ -783,7 +783,7 @@ leaf * IsInMoveList (int ply, int f, int t, char piece)
 
    for (node = TreePtr[ply]; node < TreePtr[ply + 1]; node++)
    {
-      if ((int) (node->move & 0x0FFF) == MOVE(f,t)  && 
+      if ((int) (node->move & 0x0FFF) == MOVE(f,t)  &&
 	toupper(piece) == notation[PROMOTEPIECE (node->move)])
          return (node);
    }

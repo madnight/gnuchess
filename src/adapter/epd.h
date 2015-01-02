@@ -29,7 +29,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // functions
 
 extern void epd_test   (int argc, char * argv[]);

@@ -31,7 +31,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // variables
 
 static uint64 Castle64[16];

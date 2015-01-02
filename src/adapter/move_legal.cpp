@@ -36,7 +36,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // prototypes
 
 static bool move_is_legal_debug (int move, const board_t * board);

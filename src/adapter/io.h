@@ -29,7 +29,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // constants
 
 const int BufferSize = 16384;

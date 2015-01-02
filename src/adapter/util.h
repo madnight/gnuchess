@@ -69,7 +69,7 @@
 #endif
 
 namespace adapter {
-  
+
 // constant variables
 
 extern const int MaxFileNameSize;

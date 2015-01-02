@@ -32,7 +32,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // types
 
 struct book_t {

@@ -29,7 +29,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // functions
 
 // list_is_ok()

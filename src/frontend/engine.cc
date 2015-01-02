@@ -4,7 +4,7 @@
 
    Copyright (C) 2001-2011 Free Software Foundation, Inc.
 
-   GNU Chess is based on the two research programs 
+   GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
 
    This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-   Contact Info: 
+   Contact Info:
      bug-gnu-chess@gnu.org
      cracraft@ai.mit.edu, cracraft@stanfordalumni.org, cracraft@earthlink.net
 */
@@ -71,7 +71,7 @@ static int autoGo=false;
  * Forward declaration of functions
  */
 
-int SendToEngine( char msg[] ); 
+int SendToEngine( char msg[] );
 static int GetNextLine( char buf[], char line[] );
 static int GetDataToEngine( char data[] );
 static int AnswerFromEngineExpected( void );
@@ -102,9 +102,9 @@ int SendToEngine( char msg[] )
        the new message. TODO: This should be improved. */
     msg[msg_size] = '\n';
     msg[msg_size+1] = '\0';
-    
+
     msg_count = write( pipefd_f2a[1], msg, msg_size+1 );
-    
+
     if (msg_count == -1)
       outError = errno;
     else
@@ -140,7 +140,7 @@ int ReadFromEngine( void )
   time_val->tv_sec = 0;
   time_val->tv_usec = 0;
   engineinputready = select( pipefd_a2f[0]+1, set, NULL, NULL, time_val );
-  
+
   if ( engineinputready == -1 ) {
     printf( "Error reading engine input.\n" );
   } else if ( engineinputready > 0 ) {
@@ -149,7 +149,7 @@ int ReadFromEngine( void )
     nread = read( pipefd_a2f[0], engineinputaux, BUF_SIZE );
     /*write( STDOUT_FILENO, engineinputaux, BUF_SIZE );*/
     strcat( engineinputbuf, engineinputaux );
-    engineinputbuf[strlen( engineinputbuf ) + nread] = '\0'; 
+    engineinputbuf[strlen( engineinputbuf ) + nread] = '\0';
   }
 
   return ( engineinputready );
@@ -175,7 +175,7 @@ void ReadFromUser( void )
   time_val->tv_sec = 0;
   time_val->tv_usec = 0;
   userinputready = select( STDIN_FILENO+1, set, NULL, NULL, time_val );
-  
+
   if ( userinputready == -1 ) {
     printf( "Error reading user input.\n" );
   } else if ( userinputready > 0 ) {
@@ -183,7 +183,7 @@ void ReadFromUser( void )
     strncpy( userinputaux, zerochar, BUF_SIZE );
     nread = read( STDIN_FILENO, userinputaux, BUF_SIZE );
     strcat( userinputbuf, userinputaux );
-    userinputbuf[strlen( userinputbuf ) + nread] = '\0'; 
+    userinputbuf[strlen( userinputbuf ) + nread] = '\0';
   }
 }
 
@@ -194,10 +194,10 @@ void SetDataToEngine( const char data[] )
 {
   strcpy( dataToEngine, data );
 }
- 
+
 /*
  * Writes in the (output) parameter the data that must be sent to the engine.
- * 
+ *
  * Return value:
  *      1 - if there are some data to be sent
  *      0 - if there are no data to be sent
@@ -214,8 +214,8 @@ static int GetDataToEngine( char data[] )
 }
 
 /*
- * Stores in a global flag variable whether an answer is expected from 
- * the engine (1) or not (0). 
+ * Stores in a global flag variable whether an answer is expected from
+ * the engine (1) or not (0).
  */
 void ExpectAnswerFromEngine( int answerExpected )
 {
@@ -240,8 +240,8 @@ void ShowPrompt( void )
 {
   char prompt[MAXSTR] = "";
   if ( showprompt && !(flags & XBOARD) ) {
-    sprintf(prompt,"%s (%d) : ", 
-            RealSide ? "Black" : "White", 
+    sprintf(prompt,"%s (%d) : ",
+            RealSide ? "Black" : "White",
             (RealGameCnt+1)/2 + 1 );
     fprintf( stdout, "%s", prompt );
     fflush( stdout );
@@ -251,7 +251,7 @@ void ShowPrompt( void )
 
 /*
  * Extracts a command from the user input buffer.
- * 
+ *
  * The command is removed from the buffer.
  * If the command must be sent to the engine, it is sent.
  * This function relies on parse_input().
@@ -259,7 +259,7 @@ void ShowPrompt( void )
 void NextUserCmd( void )
 {
   char userinput[BUF_SIZE]="";
-  
+
   if ( strlen( userinputbuf ) > 0 ) {
     printf("TimeLimit[0] = %g\n", TimeLimit[0]);
     printf("TimeLimit[1] = %g\n", TimeLimit[1]);
@@ -293,12 +293,12 @@ void NextUserCmd( void )
         RealSide = board.side;
       }
     }
-  } 
+  }
 }
 
 /*
  * Extracts a command from the engine input buffer.
- * 
+ *
  * The command is removed from the buffer.
  * If the command is a move, the move is made.
  */
@@ -307,7 +307,7 @@ void NextEngineCmd( void )
   char engineinput[BUF_SIZE]="";
   char enginemovestr[BUF_SIZE]="";
   leaf* enginemove;
-  
+
   if ( strlen( engineinputbuf ) > 0 ) {
     if ( GetNextLine( engineinputbuf, engineinput ) > 0 ) {
       dbg_printf("< ENGINE: %s\n", engineinput);
@@ -319,7 +319,7 @@ void NextEngineCmd( void )
           dbg_printf( "Bad move from engine\n" );
         } else {
           dbg_printf( "Engine move: <%s> (%d,%d)\n", enginemovestr,
-                      (enginemove!=NULL ? enginemove->move : -1), 
+                      (enginemove!=NULL ? enginemove->move : -1),
                       (enginemove!=NULL ? enginemove->score : -1) );
           SANMove (enginemove->move, 1);
           MakeMove( board.side, &(enginemove->move) );
@@ -358,7 +358,7 @@ void NextEngineCmd( void )
 
 /*
  * Stores in a global flag variable whether an input from the user is a
- * valid move (1) or not (0). 
+ * valid move (1) or not (0).
  */
 void SetUserInputValidMove( int valid )
 {
@@ -377,7 +377,7 @@ static int UserInputIsAValidMove(void)
 
 /*
  * Extracts a line from 'buf' and copies it to 'line'.
- * 
+ *
  * The end-of-line character is also copied.
  */
 static int GetNextLine( char buf[], char line[] )
@@ -406,7 +406,7 @@ static int GetNextLine( char buf[], char line[] )
  * Gets a line from 'buf' and copies it to 'line'.
  * Unlike GetNextLine, it will not remove the line from the
  * original buffer.
- * 
+ *
  * The end-of-line character is also copied.
  */
 static int GetNextLineNoRemove( char buf[], char line[] )
@@ -434,7 +434,7 @@ void ChangeColor( int change )
 }
 
 /*
- * Sets the autoGo flag, meaning that after a user move a go command will be 
+ * Sets the autoGo flag, meaning that after a user move a go command will be
  * sent to the engine. This may be necessary after an undo.
  */
 void SetAutoGo( int go )
@@ -510,7 +510,7 @@ void ForwardUserInputToEngine( void )
   time_val->tv_sec = 0;
   time_val->tv_usec = 0;
   userinputready = select( STDIN_FILENO+1, set, NULL, NULL, time_val );
-  
+
   if ( userinputready == -1 ) {
     printf( "Error reading user input.\n" );
   } else if ( userinputready > 0 ) {
@@ -554,7 +554,7 @@ void ForwardEngineOutputToUser( void )
   time_val->tv_sec = 0;
   time_val->tv_usec = 0;
   engineinputready = select( pipefd_e2a[0]+1, set, NULL, NULL, time_val );
-  
+
   if ( engineinputready == -1 ) {
     printf( "Error reading engine input.\n" );
   } else if ( engineinputready > 0 ) {

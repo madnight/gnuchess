@@ -29,7 +29,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // functions
 
 extern void book_merge (int argc, char * argv[]);

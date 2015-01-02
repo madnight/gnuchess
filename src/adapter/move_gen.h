@@ -31,7 +31,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // functions
 
 extern void gen_legal_moves (list_t * list, const board_t * board);

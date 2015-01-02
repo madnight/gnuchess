@@ -42,7 +42,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // constants
 
 static const bool UseDebug = false;

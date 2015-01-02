@@ -34,7 +34,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // prototypes
 
 static void add_all_moves    (list_t * list, const board_t * board);

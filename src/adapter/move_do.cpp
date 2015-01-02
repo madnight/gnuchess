@@ -36,7 +36,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // prototypes
 
 static void square_clear (board_t * board, int square, int piece);

@@ -40,7 +40,7 @@
 #include "book_make.h"
 
 namespace adapter {
-  
+
 // constants
 
 static const int COUNT_MAX = 16384;

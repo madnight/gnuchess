@@ -27,7 +27,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // "constants"
 
 const uint64 Random64[RandomNb] = {

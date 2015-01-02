@@ -39,7 +39,7 @@
 #include "components.h"
 
 namespace adapter {
-  
+
 // constants
 
 static const bool UseNice = false;

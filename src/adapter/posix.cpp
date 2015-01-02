@@ -37,7 +37,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // prototypes
 
 static double duration (const struct timeval *t);

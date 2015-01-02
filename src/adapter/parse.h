@@ -29,7 +29,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // constants
 
 const int STAR_NUMBER = 16;

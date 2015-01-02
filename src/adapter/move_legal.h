@@ -31,7 +31,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // functions
 
 extern bool move_is_pseudo  (int move, const board_t * board);

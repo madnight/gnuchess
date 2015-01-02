@@ -4,7 +4,7 @@
 
    Copyright (C) 2001-2011 Free Software Foundation, Inc.
 
-   GNU Chess is based on the two research programs 
+   GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
 
    This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-   Contact Info: 
+   Contact Info:
      bug-gnu-chess@gnu.org
      cracraft@ai.mit.edu, cracraft@stanfordalumni.org, cracraft@earthlink.net
 */
@@ -43,8 +43,8 @@
 #include <stdio.h>
 #include <sys/types.h>
 
- /* 
-  * Define time structures to get timeval for Timer 
+ /*
+  * Define time structures to get timeval for Timer
   */
 
 #include <sys/time.h>
@@ -77,7 +77,7 @@ typedef uint32_t KeyType;
  * simplify analysis:
  */
 
-typedef struct 
+typedef struct
 {
    BitBoard b[2][7];      /* piece/pawn positions by side (0=white, 1=black)
                              and then by piece (1=pawn..6=king). For example,
@@ -95,7 +95,7 @@ typedef struct
    short pmaterial[2];    /* Total pawn material by side not inc. king */
    short castled[2];      /* True (1) if side is castled */
    short king[2];         /* Location of king 0 - a1 .. 63 - h8 */
-} Board; 
+} Board;
 
 /* leaf describes a leaf-level analysis result */
 
@@ -165,7 +165,7 @@ typedef struct
 /*  Some bit macros  */
 
 /*
- * gcc 2.95.4 completely screws up the macros with lookup tables 
+ * gcc 2.95.4 completely screws up the macros with lookup tables
  * with -O2 on PPC, maybe this check has to be refined. (I don't know
  * whether other architectures also suffer from this gcc bug.) However,
  * with gcc 3.0, the lookup tables are _much_ faster than this direct
@@ -200,18 +200,18 @@ typedef struct
 
 /* constants for move description */
 #define KNIGHTPRM     0x00002000
-#define BISHOPPRM     0x00003000 
+#define BISHOPPRM     0x00003000
 #define ROOKPRM       0x00004000
 #define QUEENPRM      0x00005000
 #define PROMOTION     0x00007000
 #define PAWNCAP       0x00008000
-#define KNIGHTCAP     0x00010000 
+#define KNIGHTCAP     0x00010000
 #define BISHOPCAP     0x00018000
-#define ROOKCAP       0x00020000 
-#define QUEENCAP      0x00028000 
-#define CAPTURE       0x00038000 
-#define NULLMOVE      0x00100000 
-#define CASTLING      0x00200000 
+#define ROOKCAP       0x00020000
+#define QUEENCAP      0x00028000
+#define CAPTURE       0x00038000
+#define NULLMOVE      0x00100000
+#define CASTLING      0x00200000
 #define ENPASSANT     0x00400000
 #define MOVEMASK      (CASTLING | ENPASSANT | PROMOTION | 0x0FFF)
 
@@ -233,7 +233,7 @@ typedef struct
 #define BCASTLE	      (BKINGCASTLE | BQUEENCASTLE)
 
 /* Material values */
-#define ValueP   100	
+#define ValueP   100
 #define ValueN   350
 #define ValueB   350
 #define ValueR   550
@@ -297,8 +297,8 @@ extern BitBoard FromToRay[64][64];
 extern BitBoard RankBit[8];
 extern BitBoard FileBit[8];
 extern BitBoard Ataks[2][7];
-extern BitBoard Rook00Atak[64][256]; 
-extern BitBoard Rook90Atak[64][256]; 
+extern BitBoard Rook00Atak[64][256];
+extern BitBoard Rook90Atak[64][256];
 extern BitBoard Bishop45Atak[64][256];
 extern BitBoard Bishop315Atak[64][256];
 extern short directions[64][64];
@@ -477,8 +477,8 @@ void Solve (char *);
 
 /* Player database */
 void DBSortPlayer (const char *style);
-void DBListPlayer (const char *style); 	
-void DBReadPlayer (void);	
+void DBListPlayer (const char *style);
+void DBReadPlayer (void);
 void DBWritePlayer (void);
 int DBSearchPlayer (const char *player);
 void DBUpdatePlayer (const char *player, const char *resultstr);
@@ -495,7 +495,7 @@ void parse_input(void);
 void check_board(void);
 
 /* Commands from the input engine */
-void cmd_activate(void); 
+void cmd_activate(void);
 void cmd_analyze(void);
 void cmd_bk(void);
 void cmd_black(void);
@@ -504,7 +504,7 @@ void cmd_computer(void);
 void cmd_depth(void);
 void cmd_draw(void);
 void cmd_easy(void);
-void cmd_edit(void); 
+void cmd_edit(void);
 void cmd_epd(void);
 void cmd_exit(void);
 void cmd_force(void);
@@ -545,7 +545,7 @@ void cmd_save(void);
 void cmd_setboard(void);
 void cmd_show (void);
 void cmd_solve(void);
-void cmd_st(void); 
+void cmd_st(void);
 void cmd_switch(void);
 void cmd_test (void);
 void cmd_time(void);
@@ -623,8 +623,8 @@ int ReadFromEngine( void );
 void SetDataToEngine( const char data[] );
 
 /*
- * Stores in a global flag variable whether an answer is expected from 
- * the engine (1) or not (0). 
+ * Stores in a global flag variable whether an answer is expected from
+ * the engine (1) or not (0).
  */
 void ExpectAnswerFromEngine( int );
 
@@ -641,12 +641,12 @@ void NextUserCmd( void );
 
 /*
  * Extracts a command from the engine input buffer.
- */ 
+ */
 void NextEngineCmd( void );
 
 /*
  * Stores in a global flag variable whether an input from the user is a
- * valid move (1) or not (0). 
+ * valid move (1) or not (0).
  */
 void SetUserInputValidMove( int valid );
 
@@ -656,7 +656,7 @@ void SetUserInputValidMove( int valid );
 void ChangeColor( int change );
 
 /*
- * Sets the autoGo flag, meaning that after a user move a go command will be 
+ * Sets the autoGo flag, meaning that after a user move a go command will be
  * sent to the engine. This may be necessary after an undo.
  */
 void SetAutoGo( int go );

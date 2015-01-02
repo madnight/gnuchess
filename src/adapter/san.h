@@ -30,7 +30,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // functions
 
 extern bool move_to_san         (int move, const board_t * board, char string[], int size);

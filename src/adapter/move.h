@@ -30,7 +30,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // constants
 
 const int MoveNone = 0; // HACK: a1a1 cannot be a legal move

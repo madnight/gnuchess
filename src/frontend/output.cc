@@ -4,7 +4,7 @@
 
    Copyright (C) 2001-2013 Free Software Foundation, Inc.
 
-   GNU Chess is based on the two research programs 
+   GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
 
    This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-   Contact Info: 
+   Contact Info:
      bug-gnu-chess@gnu.org
      cracraft@ai.mit.edu, cracraft@stanfordalumni.org, cracraft@earthlink.net
 */
@@ -75,34 +75,34 @@ void ShowTime (void)
 void ShowMoveList (int ply)
 /**************************************************************************
  *
- *  Print out the move list.  
+ *  Print out the move list.
  *
  **************************************************************************/
 {
    leaf *node;
    int i = 0;
-   
+
    for (node = TreePtr[ply]; node < TreePtr[ply+1]; node++)
    {
-      SANMove (node->move, ply); 
+      SANMove (node->move, ply);
       printf ("%5s %3d\t", SANmv, SwapOff(node->move));
       if (++i == 5)
       {
-         printf ("\n"); 
+         printf ("\n");
          i = 0;
       }
    }
    printf ("\n");
-} 
+}
 
 
-void ShowSmallBoard (void)     
+void ShowSmallBoard (void)
 /*****************************************************************************
  *
  *  Display the board.  Not only that but display some useful information
  *  like whether enpassant is legal and castling state.
  *
- *****************************************************************************/ 
+ *****************************************************************************/
 {
    int r, c, sq;
 
@@ -161,25 +161,25 @@ void ShowSmallBoard (void)
    }
    printf ("\n");
 }
-  
 
 
-void ShowBoard (void)     
+
+void ShowBoard (void)
 /*****************************************************************************
  *
  *  Display the board.  Not only that but display some useful information
  *  like whether enpassant is legal and castling state.
  *
- *****************************************************************************/ 
+ *****************************************************************************/
 {
    int r, c, sq;
 
    fprintf (ofp, "\n");
 
    if ( graphicmodeoutput == 1) {
-      fprintf(ofp, "  ");   
+      fprintf(ofp, "  ");
    }
-   
+
    if (board.side == white)
       fprintf (ofp, "white  ");
    else
@@ -201,7 +201,7 @@ void ShowBoard (void)
 
    char arr_board[MAX_BOARD_RANGE];
    unsigned bIndex = 0;
-   memset(arr_board, '\0', MAX_BOARD_RANGE);   
+   memset(arr_board, '\0', MAX_BOARD_RANGE);
 
    for (r = 56; r >= 0; r -= 8)
    {
@@ -240,7 +240,7 @@ void ShowBoard (void)
    if ( graphicmodeoutput == 1) {
      ShowStylishBoard(arr_board);
    } else {
-     ShowClassicalBoard(arr_board);   
+     ShowClassicalBoard(arr_board);
    }
 
   fprintf (ofp, "\n");
@@ -250,13 +250,13 @@ void ShowBoard (void)
 void ShowStylishBoard(const char *boardmap)
 {
   unsigned i = 0;
-  unsigned row = 8; 
-  const char column[8] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};     
-  int b_white = 1;    
-  char tmp_piece[PIECE_SIZE];      
-  memset(tmp_piece, '\0', PIECE_SIZE);  
+  unsigned row = 8;
+  const char column[8] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
+  int b_white = 1;
+  char tmp_piece[PIECE_SIZE];
+  memset(tmp_piece, '\0', PIECE_SIZE);
 
-  fprintf(ofp, "%d ", row--);  
+  fprintf(ofp, "%d ", row--);
 
   for (i =0; i < MAX_BOARD_RANGE; ++i)
     {
@@ -270,9 +270,9 @@ void ShowStylishBoard(const char *boardmap)
             if (row >=1)
                 fprintf(ofp, "%d ", row--);
             else
-                break;                
+                break;
             }
- 
+
         GetPiece(boardmap[i], tmp_piece);
 
         if (b_white)
@@ -282,10 +282,10 @@ void ShowStylishBoard(const char *boardmap)
         else
             {
             fprintf(ofp, "%s%s", black_square, tmp_piece);
-            }   
+            }
 
         b_white = !b_white;
-    }    
+    }
 
    fprintf(ofp, "%s  ", default_console);
 
@@ -324,7 +324,7 @@ void GetPiece(const char orig_piece, char *piece)
         strcpy(piece, w_pieces[ui_king]);
     else if (orig_piece == '.')
         strcpy(piece, blank_place);
-}    
+}
 
 
 void ShowClassicalBoard(const char *boardmap)
@@ -335,9 +335,9 @@ void ShowClassicalBoard(const char *boardmap)
     if ((i > 0) && (i % 8 == 0)) {
       fprintf(ofp, "\n");
     }
- 
+
     fprintf(ofp, "%c ", boardmap[i]);
-    }    
+    }
 }
 
 
@@ -381,7 +381,7 @@ void ShowMvboard (void)
    }
    printf ("\n");
 }
-   
+
 void ShowGame (void)
 {
   int i;
@@ -390,29 +390,29 @@ void ShowGame (void)
    * We must handle the special case of an EPD *
    * game where the first move is by black     *
    ********************************************* */
-  
+
   if ( GameCnt >= 0 )
   {
-  
+
     printf ("      White   Black\n");
-  
+
     if ( ( board.side == white && GameCnt % 2 == 1 ) ||
          ( board.side == black && GameCnt % 2 == 0 ))
     {
-    
+
       for (i = 0; i <= GameCnt; i += 2)
         {
-          printf ("%3d.  %-7s %-7s\n", i/2 + 1, Game[i].SANmv, 
+          printf ("%3d.  %-7s %-7s\n", i/2 + 1, Game[i].SANmv,
     	      Game[i + 1].SANmv);
         }
     }
     else {
-    
+
       printf ("  1.          %-7s\n", Game[0].SANmv);
-  
+
       for (i = 1; i <= GameCnt; i += 2)
         {
-          printf ("%3d.  %-7s %-7s\n", i/2 + 2, Game[i].SANmv, 
+          printf ("%3d.  %-7s %-7s\n", i/2 + 2, Game[i].SANmv,
     	      Game[i + 1].SANmv);
         }
     }

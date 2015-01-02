@@ -271,7 +271,7 @@ void cmd_level(void)
     TimeLimit[white] = TimeLimit[black] = TCTime * 60;
     if (!(flags & XBOARD)) {
       /* TRANSLATORS: Please be aware that the word 'move' is sometimes
-         used as a synonym of 'ply', and sometimes in the sense of a 
+         used as a synonym of 'ply', and sometimes in the sense of a
          full 2-ply move. */
       printf (_("Time Control: %d moves in %.2f secs\n"),
       MoveLimit[white], TimeLimit[white]);

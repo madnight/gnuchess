@@ -38,7 +38,7 @@
 #include "configmake.h"
 
 namespace adapter {
-  
+
 // constant variables
 
 const int MaxFileNameSize = 256;
@@ -235,7 +235,7 @@ bool my_file_read_line(FILE * file, char string[], int size) {
 
    src = 0;
    dst = 0;
-   
+
    while ((c=string[src++]) != '\0') {
       if (c != '\r' && c != '\n') string[dst++] = c;
    }
@@ -421,7 +421,7 @@ double my_timer_cpu_usage(const my_timer_t * timer) {
 
 char const * compute_pkgdatadir ()
 {
-   
+
    char const *pkgdatadir = getenv ("GNUCHESS_PKGDATADIR");
    return pkgdatadir ? pkgdatadir : PKGDATADIR;
 }

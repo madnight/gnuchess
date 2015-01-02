@@ -4,7 +4,7 @@
 
    Copyright (C) 2001-2011 Free Software Foundation, Inc.
 
-   GNU Chess is based on the two research programs 
+   GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
 
    This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-   Contact Info: 
+   Contact Info:
      bug-gnu-chess@gnu.org
      cracraft@ai.mit.edu, cracraft@stanfordalumni.org, cracraft@earthlink.net
 */
@@ -79,13 +79,13 @@ void UpdateFriends (void)
 
    w = board.b[white];
    b = board.b[black];
-   board.friends[white] = 
+   board.friends[white] =
       w[pawn] | w[knight] | w[bishop] | w[rook] | w[queen] | w[king];
-   board.friends[black] = 
+   board.friends[black] =
       b[pawn] | b[knight] | b[bishop] | b[rook] | b[queen] | b[king];
    board.blocker = board.friends[white] | board.friends[black];
 }
-   
+
 
 void UpdateCBoard (void)
 /**************************************************************************
@@ -111,7 +111,7 @@ void UpdateCBoard (void)
 }
 
 
-static const int OrigCboard[64] = 
+static const int OrigCboard[64] =
 { rook,  knight, bishop, queen, king,  bishop, knight, rook,
   pawn,  pawn,   pawn,   pawn,  pawn,  pawn,   pawn,   pawn,
   empty, empty,  empty,  empty, empty, empty,  empty,  empty,
@@ -131,14 +131,14 @@ void UpdateMvboard (void)
  **************************************************************************/
 {
    int sq;
- 
+
    for (sq = 0; sq < 64; sq++)
    {
       if (cboard[sq] == empty || cboard[sq] == OrigCboard[sq])
          Mvboard[sq] = 0;
       else
          Mvboard[sq] = 1;
-   } 
+   }
 }
 
 
@@ -155,12 +155,12 @@ short ValidateBoard (void)
 {
    int side, xside, sq;
 
-   if (nbits (board.b[white][king]) != 1) 
+   if (nbits (board.b[white][king]) != 1)
       return (false);
-   if (nbits (board.b[black][king]) != 1) 
+   if (nbits (board.b[black][king]) != 1)
       return (false);
 
-   side = board.side;  
+   side = board.side;
    xside = 1^side;
    if (SqAtakd (board.king[xside], side))
       return (false);

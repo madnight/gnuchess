@@ -28,7 +28,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // "constants"
 
 static const uint8 SquareFrom64[64] = {

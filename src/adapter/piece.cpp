@@ -30,7 +30,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // "constants"
 
 static const uint8 MakePawn[ColourNb] = { PieceNone256, BlackPawn256, WhitePawn256 }; // -BW

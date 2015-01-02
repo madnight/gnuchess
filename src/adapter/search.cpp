@@ -46,7 +46,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // variables
 
 static int Depth;

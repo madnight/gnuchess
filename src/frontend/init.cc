@@ -4,7 +4,7 @@
 
    Copyright (C) 2001-2011 Free Software Foundation, Inc.
 
-   GNU Chess is based on the two research programs 
+   GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
 
    This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-   Contact Info: 
+   Contact Info:
      bug-gnu-chess@gnu.org
      cracraft@ai.mit.edu, cracraft@stanfordalumni.org, cracraft@earthlink.net
 */
@@ -45,7 +45,7 @@ void Initialize (void)
    InitBitPosArray ();
    InitMoveArray ();
    InitRay ();
-   InitFromToRay (); 
+   InitFromToRay ();
    InitRankFileBit ();
    InitBitCount ();
    InitRotAtak ();
@@ -81,9 +81,9 @@ void InitLzArray (void)
 void InitBitPosArray (void)
 /***************************************************************************
  *
- *  BitPosArray[i] returns the bitboard whose ith bit is set to 1 
+ *  BitPosArray[i] returns the bitboard whose ith bit is set to 1
  *  and every other bits 0.  This ought to be faster than doing
- *  shifting all the time (I think).  
+ *  shifting all the time (I think).
  *  Also compute the NotBitPosArray = ~BitPosArray.
  *
  ***************************************************************************/
@@ -91,14 +91,14 @@ void InitBitPosArray (void)
    BitBoard b;
    int i;
 
-   b = (BitBoard) 1;  
+   b = (BitBoard) 1;
    for (i = 63; i >= 0; i--, b <<= 1)
    {
       BitPosArray[i] = b;
       NotBitPosArray[i] = ~b;
    }
 }
- 
+
 
 
 /*  Data used for generating MoveArray  */
@@ -114,7 +114,7 @@ static const int dir[8][8] =
   { -11, -10, -9, -1, 1, 9, 10, 11 },
   { -9, -11, 0, 0, 0, 0, 0, 0 }
 };
-static const int ndir[8] = 
+static const int ndir[8] =
 { 0, 2, 8, 4, 4, 8, 8, 2 };
 
 static const int map[120] =
@@ -130,13 +130,13 @@ static const int map[120] =
   -1, 48, 49, 50, 51, 52, 53, 54, 55, -1,
   -1, 56, 57, 58, 59, 60, 61, 62, 63, -1,
   -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-  -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 
+  -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
 };
 
 
 void InitMoveArray (void)
 /***************************************************************************
- * 
+ *
  *  Generate the move bitboards.  For e.g. the bitboard for all
  *  the moves of a knight on f3 is given by MoveArray[knight][21].
  *
@@ -170,8 +170,8 @@ void InitMoveArray (void)
 void InitRay (void)
 /**************************************************************************
  *
- *  For each square, there are 8 rays.  The first 4 rays are diagonals 
- *  for the bishops and the next 4  are file/rank for the rooks.  
+ *  For each square, there are 8 rays.  The first 4 rays are diagonals
+ *  for the bishops and the next 4  are file/rank for the rooks.
  *  The queen uses all 8 rays.
  *  These rays are used for move generation rather than MoveArray[].
  *  Also initialize the directions[][] array.  directions[f][t] returns
@@ -234,7 +234,7 @@ void InitFromToRay (void)
             do
             {
                b = &FromToRay[f][t];
-               tsq += dir[piece][n];         
+               tsq += dir[piece][n];
                if ((t = map[tsq]) != -1)
                {
                   SETBIT (FromToRay[f][t], t);
@@ -265,7 +265,7 @@ void InitRankFileBit (void)
       RankBit[i] = b;
       b <<= 8;
    }
-   
+
    i = 8;
    b = ULL(0x0101010101010101);
    while (i--)
@@ -286,17 +286,17 @@ void InitBitCount (void)
  **************************************************************************/
 {
    int i, j, n;
- 
+
    BitCount[0] = 0;
-   BitCount[1] = 1; 
+   BitCount[1] = 1;
    i = 1;
    for (n = 2; n <= 16; n++)
    {
       i <<= 1;
-      for (j = i; j <= i + (i-1); j++)  
-         BitCount[j] = 1 + BitCount[j - i]; 
+      for (j = i; j <= i + (i-1); j++)
+         BitCount[j] = 1 + BitCount[j - i];
    }
-} 
+}
 
 
 void InitRotAtak (void)
@@ -312,7 +312,7 @@ void InitRotAtak (void)
    int rot1[8] = { A1, A2, A3, A4, A5, A6, A7, A8 };
    int rot2[8] = { A1, B2, C3, D4, E5, F6, G7, H8 };
    int rot3[8] = { A8, B7, C6, D5, E4, F3, G2, H1 };
-   
+
    for (sq = A1; sq <= H1; sq++)
    {
       for (map = 0; map < 256; map++)
@@ -332,10 +332,10 @@ void InitRotAtak (void)
 	       if (cmap[++sq2] & map)
 	          break;
 	    }
-	    Rook00Atak[sq][map] = 
+	    Rook00Atak[sq][map] =
 		FromToRay[sq][sq1] | FromToRay[sq][sq2];
 	    Rook90Atak[rot1[sq]][map] =
-		FromToRay[rot1[sq]][rot1[sq1]] | 
+		FromToRay[rot1[sq]][rot1[sq1]] |
 		FromToRay[rot1[sq]][rot1[sq2]];
 	    Bishop45Atak[rot2[sq]][map] =
 		FromToRay[rot2[sq]][rot2[sq1]] |
@@ -344,7 +344,7 @@ void InitRotAtak (void)
 		FromToRay[rot3[sq]][rot3[sq1]] |
 		FromToRay[rot3[sq]][rot3[sq2]];
       }
-   } 
+   }
 
    for (map = 0; map < 256; map++)
    {
@@ -373,7 +373,7 @@ void InitRotAtak (void)
       {
          for (sq = sq1; sq <= sq2; sq += 9)
 	 {
-	    Bishop45Atak[sq][map] = 
+	    Bishop45Atak[sq][map] =
 		(Bishop45Atak[sq+1][map] & NotBitPosArray[sq1-8]) << 1;
 	 }
       }
@@ -389,7 +389,7 @@ void InitRotAtak (void)
       {
          for (sq = sq1; sq <= sq2; sq += 7)
 	 {
-	    Bishop315Atak[sq][map] = 
+	    Bishop315Atak[sq][map] =
 		(Bishop315Atak[sq+1][map] & NotBitPosArray[sq2+8]) << 1;
 	 }
       }
@@ -450,7 +450,7 @@ void InitVars (void)
    pgn_event = pgn_site =
    pgn_date = pgn_round = pgn_white = pgn_black =
    pgn_whiteELO = pgn_blackELO = pgn_result =
-   pgn_othertags = NULL; 
+   pgn_othertags = NULL;
 
 
    UpdateFriends ();

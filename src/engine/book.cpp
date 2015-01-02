@@ -37,7 +37,7 @@
 
 namespace engine {
 
-// constants 
+// constants
 
 static const int MaxFileNameSize = 256;
 
@@ -172,7 +172,7 @@ int book_move(board_t * board) {
             && MOVE_FROM(best_move) == E8 && MOVE_TO(best_move) == H8 ) return move;
             if (MOVE_FROM(move) == E8     && MOVE_TO(move) == C8
             && MOVE_FROM(best_move) == E8 && MOVE_TO(best_move) == A8 ) return move;
-            
+
             if ((move & 07777) == best_move) return move;
          }
       }

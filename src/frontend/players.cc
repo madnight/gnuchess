@@ -4,7 +4,7 @@
 
    Copyright (C) 2001-2011 Free Software Foundation, Inc.
 
-   GNU Chess is based on the two research programs 
+   GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
 
    This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-   Contact Info: 
+   Contact Info:
      bug-gnu-chess@gnu.org
      cracraft@ai.mit.edu, cracraft@stanfordalumni.org, cracraft@earthlink.net
 */
@@ -50,7 +50,7 @@ static char lname[MAXNAMESZ];
 static int rscorecompare(const void *aa, const void *bb)
 {
     const playerentry *a = (const playerentry *)aa;
-    const playerentry *b = (const playerentry *)bb;   
+    const playerentry *b = (const playerentry *)bb;
     float ascore, bscore;
     ascore = (a->wins+(a->draws/2))/(a->wins+a->draws+a->losses);
     bscore = (b->wins+(b->draws/2))/(b->wins+b->draws+b->losses);
@@ -62,7 +62,7 @@ static int rscorecompare(const void *aa, const void *bb)
 static int scorecompare(const void *aa, const void *bb)
 {
     const playerentry *a = (const playerentry *)aa;
-    const playerentry *b = (const playerentry *)bb;   
+    const playerentry *b = (const playerentry *)bb;
     int ascore, bscore;
     ascore = 100*(a->wins+(a->draws/2))/(a->wins+a->draws+a->losses);
     bscore = 100*(b->wins+(b->draws/2))/(b->wins+b->draws+b->losses);
@@ -74,7 +74,7 @@ static int scorecompare(const void *aa, const void *bb)
 static int namecompare(const void *aa, const void *bb)
 {
     const playerentry *a = (const playerentry *)aa;
-    const playerentry *b = (const playerentry *)bb;   
+    const playerentry *b = (const playerentry *)bb;
     if (strcmp(a->player,b->player) > 0) return(1);
     else if (strcmp(a->player,b->player) < 0) return(-1);
     else return(0);
@@ -94,7 +94,7 @@ void DBSortPlayer (const char *style)
 void DBListPlayer (const char *style)
 {
   int i;
-	
+
   DBReadPlayer ();
   DBSortPlayer (style);
   for (i = 0; i < totalplayers; i++) {
@@ -175,7 +175,7 @@ void DBUpdatePlayer (const char *player, const char *resultstr)
   x = lname;
   strcpy(lname,player);
   do {
-    if (*p != ' ') 
+    if (*p != ' ')
       *x++ = *p++;
     else
 	p++;

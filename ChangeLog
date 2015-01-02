@@ -1,3 +1,8 @@
+2015-01-02  Michael Vetter  <g.bluehut@googlemail.com>  (tiny change)
+
+	* doc/gnuchess.texi: correct punctuation and wording.
+	* src/* (several files): remove trailing spaces.
+
 2014-08-01  Antonio Ceballos  <aceballos@gmail.com>
 
 	* src/frontend/move.cc: lowercase not allowed for piece names.
@@ -392,7 +397,7 @@
 	* src/frontend/engine.c: comment out extra output write.
 	* src/adapter/adapter.cpp: remove debug trace.
 
-Copyright (C) 2001-2014 Free Software Foundation, Inc.
+Copyright (C) 2001-2015 Free Software Foundation, Inc.
 
 Copying and distribution of this file, with or without modification,
 are permitted in any medium without royalty provided the copyright

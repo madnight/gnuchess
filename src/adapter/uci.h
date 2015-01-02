@@ -33,7 +33,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // constants
 
 const int OptionNb = 256;

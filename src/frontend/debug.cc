@@ -4,7 +4,7 @@
 
    Copyright (C) 2001-2014 Free Software Foundation, Inc.
 
-   GNU Chess is based on the two research programs 
+   GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
 
    This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-   Contact Info: 
+   Contact Info:
      bug-gnu-chess@gnu.org
      cracraft@ai.mit.edu, cracraft@stanfordalumni.org, cracraft@earthlink.net
 */
@@ -47,7 +47,7 @@ int dbg_open(const char *name)
 {
    int flags = O_WRONLY | O_CREAT | O_APPEND;
    int mode = 0777;
-   
+
    if (name == NULL) {
       debug_fd = open(DEBUG_FILENAME, flags, mode);
    } else {
@@ -76,7 +76,7 @@ int dbg_printf(const char *fmt, ...)
    va_list ap;
    char buf[MAX_DEBUG];
    struct timeval tv;
-   
+
    gettimeofday(&tv, NULL);
 #ifdef __APPLE__
    sprintf(buf, "%010ld.%06d: ", tv.tv_sec, tv.tv_usec);

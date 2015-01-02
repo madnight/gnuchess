@@ -29,7 +29,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // functions
 
 extern void book_make (int argc, char * argv[]);

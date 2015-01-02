@@ -4,7 +4,7 @@
 
    Copyright (C) 2001-2011 Free Software Foundation, Inc.
 
-   GNU Chess is based on the two research programs 
+   GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
 
    This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-   Contact Info: 
+   Contact Info:
      bug-gnu-chess@gnu.org
      cracraft@ai.mit.edu, cracraft@stanfordalumni.org, cracraft@earthlink.net
 */
@@ -48,12 +48,12 @@ void Solve (char *file)
    int elo;
 
    total = correct = 0;
-   SET (flags, SOLVE); 
+   SET (flags, SOLVE);
    while (ReadEPDFile (file, 0))
    {
       NewPosition ();
       total++;
-      ShowBoard (); 
+      ShowBoard ();
       SolvePosition( myMove, epd_line );
       p = solution;
       found = false;

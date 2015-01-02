@@ -30,7 +30,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // functions
 
 extern void move_do (board_t * board, int move);

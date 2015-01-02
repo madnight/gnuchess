@@ -39,7 +39,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // constants
 
 static const bool UseSlowDebug = false;

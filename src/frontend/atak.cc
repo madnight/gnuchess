@@ -4,7 +4,7 @@
 
    Copyright (C) 2001-2011 Free Software Foundation, Inc.
 
-   GNU Chess is based on the two research programs 
+   GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
 
    This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-   Contact Info: 
+   Contact Info:
      bug-gnu-chess@gnu.org
      cracraft@ai.mit.edu, cracraft@stanfordalumni.org, cracraft@earthlink.net
 */
@@ -39,7 +39,7 @@ short SqAtakd (short sq, short side)
 {
    register BitBoard *a, b, *c, d, blocker;
    int t;
-   
+
    a = board.b[side];
 
    /* Knights */
@@ -53,19 +53,19 @@ short SqAtakd (short sq, short side)
    /* Pawns */
    if (a[pawn] & MoveArray[ptype[1^side]][sq])
       return (true);
-      
+
    c = FromToRay[sq];
    blocker = board.blocker;
 
    /* Bishops & Queen */
    b = (a[bishop] | a[queen]) & MoveArray[bishop][sq];
-   d = ~b & blocker; 
+   d = ~b & blocker;
    while (b)
    {
       t = leadz (b);
       if (!(c[t] & d))
          return (true);
-      CLEARBIT (b, t); 
+      CLEARBIT (b, t);
    }
 
    /* Rooks & Queen */
@@ -76,7 +76,7 @@ short SqAtakd (short sq, short side)
       t = leadz (b);
       if (!(c[t] & d))
          return (true);
-      CLEARBIT (b, t); 
+      CLEARBIT (b, t);
    }
    return (false);
 }
@@ -91,18 +91,18 @@ BitBoard AttackTo (int sq, int side)
 {
    register BitBoard *a, b, *c, e, blocker;
    int t;
-   
+
    a = board.b[side];
 
    /* Knights */
-   e = (a[knight] & MoveArray[knight][sq]); 	
+   e = (a[knight] & MoveArray[knight][sq]);
 
    /* Kings */
-   e |= (a[king] & MoveArray[king][sq]); 	
+   e |= (a[king] & MoveArray[king][sq]);
 
    /* Pawns */
    e |= (a[pawn] & MoveArray[ptype[1^side]][sq]);
-      
+
    c = FromToRay[sq];
    blocker = board.blocker;
 
@@ -111,7 +111,7 @@ BitBoard AttackTo (int sq, int side)
    while (b)
    {
       t = leadz (b);
-      CLEARBIT (b, t); 
+      CLEARBIT (b, t);
       if (!(c[t] & blocker & NotBitPosArray[t]))
 	 e |= BitPosArray[t];
    }
@@ -121,20 +121,20 @@ BitBoard AttackTo (int sq, int side)
    while (b)
    {
       t = leadz (b);
-      CLEARBIT (b, t); 
+      CLEARBIT (b, t);
       if (!(c[t] & blocker & NotBitPosArray[t]))
 	 e |= BitPosArray[t];
    }
 
    return (e);
 }
- 
+
 
 int PinnedOnKing (int sq, int side)
 /***************************************************************************
  *
  *  Determine if the piece on sq is pinned against the King.
- *  Side is the color of the piece.  
+ *  Side is the color of the piece.
  *  Caveat: PinnedOnKing should only be called by GenCheckEscapes().
  *  The more generic FindPins() function should be used for evaluating
  *  pins against other pieces.
@@ -151,7 +151,7 @@ int PinnedOnKing (int sq, int side)
 
    xside = 1 ^ side;
    blocker = board.blocker;
- 
+
    /*  Path from piece to king is blocked, so no pin */
    if (FromToRay[KingSq][sq] & NotBitPosArray[sq] & blocker)
       return (false);
@@ -161,12 +161,12 @@ int PinnedOnKing (int sq, int side)
    sq1 = (sq > KingSq ? leadz (b) : trailz (b));
 
    /*  If diagonal  */
-   if (dir <= 3 && 
+   if (dir <= 3 &&
 	BitPosArray[sq1] & (board.b[xside][queen] | board.b[xside][bishop]))
       return (true);
-   
-   /*  Rank / file  */  
-   if (dir >= 4 && 
+
+   /*  Rank / file  */
+   if (dir >= 4 &&
 	BitPosArray[sq1] & (board.b[xside][queen] | board.b[xside][rook]))
       return (true);
 

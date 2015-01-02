@@ -29,7 +29,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // functions
 
 extern bool   input_available ();

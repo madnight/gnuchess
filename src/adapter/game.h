@@ -31,7 +31,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // constants
 
 const int GameSize = 4096;

@@ -36,7 +36,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // "constants"
 
 // const char * StartFen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w HAha - 0 1";

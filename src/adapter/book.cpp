@@ -36,7 +36,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // types
 
 struct entry_t {

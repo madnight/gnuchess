@@ -30,7 +30,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // constants
 
 const int IncNone = 0;

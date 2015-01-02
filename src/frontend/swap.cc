@@ -4,7 +4,7 @@
 
    Copyright (C) 2001-2011 Free Software Foundation, Inc.
 
-   GNU Chess is based on the two research programs 
+   GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
 
    This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-   Contact Info: 
+   Contact Info:
      bug-gnu-chess@gnu.org
      cracraft@ai.mit.edu, cracraft@stanfordalumni.org, cracraft@earthlink.net
 */
@@ -46,7 +46,7 @@ int SwapOff (int move)
  ****************************************************************************/
 {
    int f, t, sq, piece, lastval;
-   int side, xside; 
+   int side, xside;
    int swaplist[MAXPLYDEPTH], n;
    BitBoard b, c, *d, *e, r;
 
@@ -63,7 +63,7 @@ int SwapOff (int move)
       AddXrayPiece (t, f, side, &b, &c);
 
    d = board.b[side];
-   e = board.b[xside]; 
+   e = board.b[xside];
    if (move & PROMOTION)
    {
       swaplist[0] = Value[PROMOTEPIECE (move)] - ValueP;
@@ -81,7 +81,7 @@ int SwapOff (int move)
          break;
       for (piece = pawn; piece <= king; piece++)
       {
-         r = c & e[piece]; 
+         r = c & e[piece];
 	 if (r)
          {
 	    sq = leadz (r);
@@ -99,7 +99,7 @@ int SwapOff (int move)
          break;
       for (piece = pawn; piece <= king; piece++)
       {
-         r = b & d[piece]; 
+         r = b & d[piece];
 	 if (r)
          {
 	    sq = leadz (r);
@@ -116,7 +116,7 @@ int SwapOff (int move)
 
 /****************************************************************************
  *
- *  At this stage, we have the swap scores in a list.  We just need to 
+ *  At this stage, we have the swap scores in a list.  We just need to
  *  mini-max the scores from the bottom up to the top of the list.
  *
  ****************************************************************************/
@@ -126,12 +126,12 @@ int SwapOff (int move)
       if (n & 1)
       {
          if (swaplist[n] <= swaplist[n-1])
-	    swaplist[n-1] = swaplist[n]; 
+	    swaplist[n-1] = swaplist[n];
       }
       else
       {
          if (swaplist[n] >= swaplist[n-1])
-	    swaplist[n-1] = swaplist[n]; 
+	    swaplist[n-1] = swaplist[n];
       }
       --n;
    }
@@ -157,7 +157,7 @@ void AddXrayPiece (int t, int sq, int side, BitBoard *b, BitBoard *c)
       return;
    nsq = (t < sq ? leadz (a) : trailz (a));
    piece = cboard[nsq];
-   if ((piece == queen) || (piece == rook && dir > 3) || 
+   if ((piece == queen) || (piece == rook && dir > 3) ||
 			    (piece == bishop && dir < 4))
    {
       if (BitPosArray[nsq] & board.friends[side])

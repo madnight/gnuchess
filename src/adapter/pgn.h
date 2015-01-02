@@ -31,7 +31,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // constants
 
 const int PGN_STRING_SIZE = 256;

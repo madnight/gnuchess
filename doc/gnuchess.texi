@@ -78,13 +78,13 @@ This manual is for GNU Chess (version @value{VERSION}, @value{UPDATED}).
 @cindex XBoard
 @cindex overview
 
-GNU Chess (@url{http://www.gnu.org/software/chess/}) is a computer 
+GNU Chess (@url{http://www.gnu.org/software/chess/}) is a computer
 program for playing chess.
-It can be used to interactively play chess on a text terminal, 
-but it is more often used in conjunction with a GUI program such 
+It can be used to interactively play chess on a text terminal,
+but it is more often used in conjunction with a GUI program such
 as GNU XBoard.
 
-Because it is protected by the GNU General Public License, users are 
+Because it is protected by the GNU General Public License, users are
 free (in perpetuity) to share and change it.
 
 @cindex author
@@ -125,7 +125,7 @@ dabbling in it.  You might surprise yourself.
 
 If you want to report a possible bug in GNU Chess, please send a message
 to the e-mail address indicated above, providing precise information
-about the conditions that led to the possible bug.  As a general 
+about the conditions that led to the possible bug.  As a general
 guideline, you can kindly include the follow information:
 
 @itemize
@@ -138,7 +138,7 @@ gnuchess --version
 @end example
 
 @item
-How you started the program.  Whether running standalone or in 
+How you started the program.  Whether running standalone or in
 combination with other programs such as XBoard.
 
 @item
@@ -235,7 +235,7 @@ compatibility.
 @itemx -p
 @opindex --post
 @opindex -p
-Start up showing thinking.  
+Start up showing thinking.
 
 Option @option{post} is accepted without leading dashes for backward
 compatibility.
@@ -244,8 +244,8 @@ compatibility.
 @itemx -e
 @opindex --easy
 @opindex -e
-Disable thinking.  in opponent's time.  By default, the program runs in
-hard mode, i.e.  it thinks opponent's time to think too.
+Disable thinking in opponent's time.  By default, the program runs in
+hard mode, i.e.  it uses opponent's time to think too.
 
 @item --manual
 @itemx -m
@@ -337,7 +337,7 @@ best - play best move from book
 worst - play worst move from book
 
 random - play any move from book
-	
+
 prefer (default) - choose a good move from book
 (Method subject to variation)
 
@@ -395,7 +395,7 @@ Makes the program stop moving.  You may now enter moves
 to reach some position in the future.
 
 (Same as @command{gnuchess --manual})
-   
+
 @item white
 @cindex white
 Program plays black, set white to move.
@@ -418,7 +418,7 @@ Computer takes whichever side is on move and begins its
 thinking immediately
 
 @item easy
-@cindex easy 
+@cindex easy
 Disables thinking on opponent's time
 
 (Same as @command{gnuchess --easy})
@@ -514,7 +514,7 @@ off - disables use of xboard/winboard
 @cindex depth
 Sets the program to look N ply (half-moves) deep for every
 search it performs.  If there is a checkmate or other condition
-that does not allow that depth, then it will not be 
+that does not allow that depth, then it will not be
 
 @item level MOVES MINUTES INCREMENT
 @cindex level
@@ -536,7 +536,7 @@ Saves game position into EPD format from memory to disk.
 @item switch
 @cindex switch
 Switches side to move
- 
+
 Note: not implemented in this version.
 
 @item solve FILENAME
@@ -598,10 +598,10 @@ Note: not implemented in this version.
 @item analyze
 @cindex analyze
 Switches program into analysis mode, this is primarily intended for
-communicating analysis to an external interface using the Xboard 
+communicating analysis to an external interface using the Xboard
 chess engine protocol.  It enables "force", "post", and
 "hard", at the same time, whilst altering the
-output format of post to conform with the engine protocol.	
+output format of post to conform with the engine protocol.
 
 @item graphic
 @cindex graphic
@@ -613,7 +613,7 @@ The graphic mode requires a terminal with Unicode support.
 
 @item nographic
 @cindex nographic
-Disables graphic mode. The board is displayed using the good-old 
+Disables graphic mode. The board is displayed using the good-old
 classic view based on plain ASCII.
 
 @end table
@@ -626,7 +626,7 @@ classic view based on plain ASCII.
 
 If @env{GNUCHESS_PKGDATADIR} is defined, it will be taken as the path for
 the config file and for the book, in case the files are not found in the
-current directory.  If it is not defined, they will be taken from the 
+current directory.  If it is not defined, they will be taken from the
 package data directory, in case the files are not found in the current
 directory.
 
@@ -681,7 +681,7 @@ Note: use INI syntax, not UCI.  For example @option{OwnBook = true} is
 correct.  It will be replaced by the adapter with @option{setoption name OwnBook
 value true} at engine startup.
 
-Standard UCI options are @option{Hash}, @option{NalimovPath}, 
+Standard UCI options are @option{Hash}, @option{NalimovPath},
 @option{NalimovCache} and @option{OwnBook}.  Hidden options like @option{Ponder}
 or @option{UCI_xxx} are automatic and should not be put in the INI file.
 
@@ -790,7 +790,7 @@ Of course, full path can be used in which case the current directory
 does not matter.
 
 If the file is not found in the current directory, it will be looked for
-in @var{GNUCHESS_PKGDATADIR} if the variable is defined, or in 
+in @var{GNUCHESS_PKGDATADIR} if the variable is defined, or in
 the package data directory otherwise.
 
 Note that there is no option to control book usage.  All parameters
@@ -940,7 +940,7 @@ by setting "Material" to a low value.
 
 @end table
 
-The following options were used in PolyGlot v1.4, but are deprecated in 
+The following options were used in PolyGlot v1.4, but are deprecated in
 GNU Chess:
 
 @table @code
@@ -1046,17 +1046,17 @@ name will do the job.
 @option{Log = true}
 
 @item @file{log.nnn}
-This file is written if command @command{name} was requested.  
-The contents are the opponent's name and the game in 
+This file is written if command @command{name} was requested.
+The contents are the opponent's name and the game in
 coordinate algebraic notation.
 
 @item @file{game.nnn}
-This file is written if command @command{name} was requested.  
-The contents are the opponent's name and the game in 
+This file is written if command @command{name} was requested.
+The contents are the opponent's name and the game in
 portable game notation (PGN).
 
 @item @file{players.dat}
-This file is written if command @command{name} was requested.  
+This file is written if command @command{name} was requested.
 The contents are the statistics of games.  This is the format of
 each line:
 
@@ -1097,7 +1097,7 @@ Running the program with the "--xboard" command line parameter sets it
 to produce output acceptable to and accept input suitable for XBoard
 and WinBoard, the graphical display front-ends with mouse interface.
 
-For historical reasons the option "xboard" does not need to be 
+For historical reasons the option "xboard" does not need to be
 preceeded by "--", however we would encourage the new syntax.
 
 How to run XBoard with GNU Chess as chess backend:
@@ -1131,7 +1131,7 @@ See Zippy documentation in the XBoard/WinrBoard distribution:
 
 @uref{http://www.tim-mann.org/}
 
-this is an example of how to run GNU Chess on FICS using 
+this is an example of how to run GNU Chess on FICS using
 XBoard as frontend and Zippy as connector:
 
 @example
@@ -1148,7 +1148,7 @@ See options @option{Book} and @option{Bookfile} in Running GNU Chess - Configura
 @node Tests
 @chapter Tests
 
-GNU Chess 6 has been tested on the Free Internet Chess Server 
+GNU Chess 6 has been tested on the Free Internet Chess Server
 (@uref{http://www.freechess.org}) with XBoard.
 
 @node Chess notation
@@ -1197,7 +1197,7 @@ reporting bugs and keeping track of your games.
 @cindex Letouzey, Fabien
 
 The first version of GNU Chess was written by Stuart Cracraft back in 1984.
-Versions from 2 to 4 were written by John Stanback.  Version 5 was written 
+Versions from 2 to 4 were written by John Stanback.  Version 5 was written
 by Chua Kong-Sian.  Version 6 was written by Fabien Letouzey.
 
 
@@ -1246,12 +1246,12 @@ pondering/remaining-time relation.
 @cindex Fruit
 @cindex Letouzey, Fabien
 Since version 5.07 of the program was released in 2003, GNU Chess has basically
-remained unchanged.  Then Fabien Letouzey developped Fruit, which 
-proved to be a stronger chess engine and shaked the computer chess world.  
+remained unchanged.  Then Fabien Letouzey developped Fruit, which
+proved to be a stronger chess engine and shaked the computer chess world.
 At some point in time, he kindly assigned copyright to FSF, which allowed us
-to make Fruit 2.1 (the latest free version) the base for GNU Chess v6.  
+to make Fruit 2.1 (the latest free version) the base for GNU Chess v6.
 
-Therefore, it can be fairly said that Fabien Letouzey is remarkably the main 
+Therefore, it can be fairly said that Fabien Letouzey is remarkably the main
 contributor to GNU Chess v6.
 
 @node Guidelines followed to develop GNU Chess v6
@@ -1262,10 +1262,10 @@ The idea was to use Fruit 2.1 as the base for GNU Chess v6, keeping external
 interfaces backwards compatible.  This is particularly important since
 GNU Chess has been  world-wide used for long.
 
-GNU Chess can be used in two modes: interactively using the command-line 
-interface on a text console, and used as backend engine from a graphical 
+GNU Chess can be used in two modes: interactively using the command-line
+interface on a text console, and used as backend engine from a graphical
 frontend.  Both cases rely on almost identical grammar.  The former is described
-in GNU Chess help.  
+in GNU Chess help.
 
 @cindex Chess Engine Communication Protocol
 When GNU Chess is used as a pure chess engine, for instance, as backend for
@@ -1291,7 +1291,7 @@ option is specified.
 @cindex adapter
 @cindex protocol
 UCI is very different from the Chess Engine Communication Protocol.
-PolyGlot is a UCI-to-xboard adapter developed by Fabien.  
+PolyGlot is a UCI-to-xboard adapter developed by Fabien.
 It connects a UCI chess engine to an
 xboard interface such as WinBoard.  UCI2WB is another such adapter
 (for Windows).
@@ -1306,8 +1306,8 @@ PolyGlot tries to solve known problems with other adapters.  For
 instance, it detects and reports draws by fifty-move rule, repetition,
 etc.
 
-PolyGlot 1.4 has been adapted and incorporated to GNU Chess v6 as 
-chess engine protocol adapter.  It connects Fruit-based GNU Chess engine to 
+PolyGlot 1.4 has been adapted and incorporated to GNU Chess v6 as
+chess engine protocol adapter.  It connects Fruit-based GNU Chess engine to
 the good old GNU Chess frontend.
 
 @node Structure of the source code
@@ -1328,8 +1328,8 @@ adapter
 engine
 @end itemize
 
-The main program contains the frontend and starts two addtional threads, 
-one for the adapter, and another one for the engine.  The three components 
+The main program contains the frontend and starts two addtional threads,
+one for the adapter, and another one for the engine.  The three components
 comprise a chain, thus there are two links:
 
 @itemize
@@ -1345,11 +1345,11 @@ mechanisms such as mutex.  The changes in PolyGlot and Fruit are minimal, since
 they were already using the same mechanism to communicate with each other.
 
 Another technical problem was the fact that GNU Chess v5 was written in C,
-whereas PolyGlot and Fruit are written in C++.  In GNU Chess v6 the main 
+whereas PolyGlot and Fruit are written in C++.  In GNU Chess v6 the main
 program, the adapter and the engine are in C++, but the frontend remains in C.
 
 Source code was placed under a single @file{src} in GNU Chess v5, as usual.
-Three additional directories have been created  for GNU Chess v6, 
+Three additional directories have been created  for GNU Chess v6,
 so the code is organized in four directories:
 
 @table @file
@@ -1364,7 +1364,7 @@ communicate the three modules: frontend, adapter and engine.
 @cindex src/frontend
 
 Contains the frontend.  The code here is inherited from GNU Chess v5, with some
-modifications mainly in @file{cmd.c} and a new file @file{engine.c} which 
+modifications mainly in @file{cmd.c} and a new file @file{engine.c} which
 addresses the message passing through modules.
 
 @item src/adapter
@@ -1382,9 +1382,9 @@ Contains the chess engine, based on Fruit 2.1.  Minor changes wrt the baseline.
 
 @cindex binary
 @cindex library
-The sources in each @file{src} subdirectory are compiled as a static library.  
-When link with the sources in top @file{src}, they result into the binary 
-@command{gnuchess}.  The module libraries are named after their respective 
+The sources in each @file{src} subdirectory are compiled as a static library.
+When link with the sources in top @file{src}, they result into the binary
+@command{gnuchess}.  The module libraries are named after their respective
 directory name:
 
 @example
@@ -1398,8 +1398,8 @@ libengine.a
 
 @cindex C
 @cindex C++
-The source code of the frontend comes mainly from version 5.07, which was 
-written in C.  There is no problem in having both C and C++ in the same 
+The source code of the frontend comes mainly from version 5.07, which was
+written in C.  There is no problem in having both C and C++ in the same
 program, and so have they lived together in all versions from 6.0.0 to 6.1.0.
 However, in version 6.1.1 and subsequent versions the frontend is compiled
 in C++. This change has been introduced to avoid compilation warnings in
@@ -1537,7 +1537,7 @@ history pruning and hence not activated by default)
 @item Move ordering (bad captures are postponed)
 @item History pruning (not tested seriously
 yet enabled by default)
-  
+
 @end itemize
 
 @node Speed
@@ -1551,16 +1551,16 @@ to make the code shorter and more flexible.
 @node Translations
 @chapter Translations
 
-English is the native language of GNU Chess, as usual in the 
+English is the native language of GNU Chess, as usual in the
 GNU Project.
 Starting on version 6.1.0, GNU Chess features internationalization
 support based on GNU @command{gettext}. The Translation Project
-contributes message strings translated into other languages. See the 
+contributes message strings translated into other languages. See the
 @uref{http://translationproject.org/domain/gnuchess.html,
 Translation Project page for GNU Chess} for the currently available
 translations.
 
-During the installation of the operating system, the language to 
+During the installation of the operating system, the language to
 be used is selected. This selection is made system-wide.
 An individual user can select his or her own language by setting the
 `locale' through environment variables. Typically, a command like this
@@ -1570,7 +1570,7 @@ An individual user can select his or her own language by setting the
 export LANGUAGE=de_DE
 @end example
 
-See details on this at 
+See details on this at
 @uref{http://www.gnu.org/software/gettext/manual/gettext.html#Users}
 
 

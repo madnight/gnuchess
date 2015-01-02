@@ -36,7 +36,7 @@
 #define DELTA_MASK(delta) (DeltaMask[128+(delta)])
 
 namespace adapter {
-  
+
 // "constants"
 
 const sint8 KnightInc[8+1] = {

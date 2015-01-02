@@ -52,7 +52,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // constants
 
 static const char * const Version = "1.4";

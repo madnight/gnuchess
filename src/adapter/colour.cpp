@@ -27,7 +27,7 @@
 #include "util.h"
 
 namespace adapter {
-  
+
 // functions
 
 // colour_is_ok()

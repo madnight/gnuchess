@@ -683,7 +683,7 @@ static void xboard_step() {
          }
       }
 
-   } else 
+   } else
 
    // Extended commands from GNU Chess frontend
 
@@ -693,10 +693,10 @@ static void xboard_step() {
       // Subcommands: add, on, off, prefer, random, best, worst
       char *my_argv[4];
       char *token;
-      token = strtok( Star[0], " " ); 
+      token = strtok( Star[0], " " );
 
       if ( strcmp( token, "add" ) == 0 ) {
-         token = strtok( NULL, " " ); 
+         token = strtok( NULL, " " );
          my_argv[0] = (char *)malloc( 2 );
          my_argv[1] = (char *)malloc( 10 );
          my_argv[2] = (char *)malloc( 5 );
@@ -752,7 +752,7 @@ static void xboard_step() {
 
       char *token;
       unsigned int memory;
-      token = strtok( Star[0], " " ); 
+      token = strtok( Star[0], " " );
       if ( sscanf( token, "%d", &memory ) == 1 ) {
         HashSize = memory;
         uci_send_option(Uci,"Hash","%d",HashSize);

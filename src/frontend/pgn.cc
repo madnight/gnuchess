@@ -4,7 +4,7 @@
 
    Copyright (C) 2001-2011 Free Software Foundation, Inc.
 
-   GNU Chess is based on the two research programs 
+   GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
 
    This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-   Contact Info: 
+   Contact Info:
      bug-gnu-chess@gnu.org
      cracraft@ai.mit.edu, cracraft@stanfordalumni.org, cracraft@earthlink.net
 */
@@ -78,14 +78,14 @@ void PGNSaveToFile (const char *file, const char *resultstr)
    }
    fprintf (fp, "[Round \"%s\"]\n", NULL2EMPTY(pgn_round));
 
-   if (pgn_white) 
+   if (pgn_white)
      fprintf (fp, "[White \"%s\"]\n", pgn_white);
-   else if (computer == white) 
+   else if (computer == white)
      fprintf (fp, "[White \"%s %s\"]\n",PROGRAM,VERSION);
    else
      fprintf (fp, "[White \"%s\"]\n",name);
 
-   if (pgn_black) 
+   if (pgn_black)
      fprintf (fp, "[Black \"%s\"]\n", pgn_black);
    else if (computer == black)
      fprintf (fp, "[Black \"%s %s\"]\n",PROGRAM,VERSION);
@@ -135,7 +135,7 @@ void PGNSaveToFile (const char *file, const char *resultstr)
       {
          p = s + 79;
          while (*p-- != ' ');
-         *++p = '\0'; 
+         *++p = '\0';
          fprintf (fp, "%s\n", s);
          strcpy (s, p+1);
       }
@@ -153,7 +153,7 @@ void PGNSaveToFile (const char *file, const char *resultstr)
    fprintf (fp, "\n\n");
    fclose (fp);
 
-}      
+}
 
 
 void PGNReadFromFile (const char *file, int showheading)
@@ -172,7 +172,7 @@ void PGNReadFromFile (const char *file, int showheading)
       return;
    }
    yyin = fp;
-   
+
    InitVars ();
 
    data_dest = DEST_GAME;
@@ -184,16 +184,16 @@ void PGNReadFromFile (const char *file, int showheading)
 
    if ( showheading ) {
       printf("\n--------------------------------------------------\n");
-      printf("%s (%s) x %s (%s) - %s\nSite: %s\nDate: %s\n", 
+      printf("%s (%s) x %s (%s) - %s\nSite: %s\nDate: %s\n",
              pgn_white  != NULL ? pgn_white  : "Unknown", pgn_whiteELO != NULL ? pgn_whiteELO : "Unknown",
              pgn_black  != NULL ? pgn_black  : "Unknown", pgn_blackELO != NULL ? pgn_blackELO : "Unknown",
-             pgn_result != NULL ? pgn_result : "Unknown", pgn_site     != NULL ? pgn_site     : "Unknown", 
+             pgn_result != NULL ? pgn_result : "Unknown", pgn_site     != NULL ? pgn_site     : "Unknown",
              pgn_date   != NULL ? pgn_date   : "Unknown");
       printf("--------------------------------------------------\n");
    }
 }
 
-/* Only players in the table below are permitted into the opening book 
+/* Only players in the table below are permitted into the opening book
    from the PGN files. Please expand the table as needed. Generally,
    I would recommend only acknowledged GM's and IM's and oneself, but
    because of the self-changing nature of the book, anything inferior
