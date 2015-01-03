@@ -1,3 +1,11 @@
+2015-01-03  H.G. Muller  <h.g.muller@hccnet.nl>  (tiny change)
+
+	* misc: new directory
+	* misc/gnuchess.eng: engine file for XBoard.
+	* misc/gnuchess.png: logo file for XBoard.
+	* configure.ac: path for installation of game data files.
+	* Makefile.am: distribution of engine and logo file.
+
 2015-01-02  Michael Vetter  <g.bluehut@googlemail.com>  (tiny change)
 
 	* doc/gnuchess.texi: correct punctuation and wording.

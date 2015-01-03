@@ -1,6 +1,6 @@
 dnl Process this file with autoconf to produce a configure script.
 dnl
-dnl Copyright (C) 2001-2014 Free Software Foundation, Inc.
+dnl Copyright (C) 2001-2015 Free Software Foundation, Inc.
 dnl
 dnl This file is free software; as a special exception the author gives
 dnl unlimited permission to copy and/or distribute it, with or without
@@ -87,6 +87,14 @@ fi
 # Support from GNU gettext.
 AM_GNU_GETTEXT_VERSION([0.18.3])
 AM_GNU_GETTEXT([external])
+
+AC_ARG_WITH([pluginsdir],
+            [AS_HELP_STRING([--with-pluginsdir=DIR],
+                            [path where game data files get installed (default: $datadir/games/plugins)])],
+            [PLUGINSDIR="$withval"],
+            [PLUGINSDIR='$(datadir)/games/plugins'])
+
+AC_SUBST(PLUGINSDIR)
 
 AC_CONFIG_FILES(Makefile src/Makefile src/frontend/Makefile src/adapter/Makefile src/engine/Makefile doc/Makefile po/Makefile.in man/Makefile)
 AC_OUTPUT
