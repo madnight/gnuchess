@@ -1,5 +1,13 @@
 2015-01-04  Antonio Ceballos  <aceballos@gmail.com>
 
+	* NEWS: changes in version 6.2.1.
+	* configure.ac: set version 6.2.1.
+	* doc/version.texi: set version 6.2.1.
+	* doc/Makefile.am: clean files.
+	* man/Makefile.am: clean files.
+
+2015-01-04  Antonio Ceballos  <aceballos@gmail.com>
+
 	* NEWS: changes in version 6.2.0.
 	* configure.ac: set version 6.2.0.
 	* doc/version.texi: set version 6.2.0.

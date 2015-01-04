@@ -6,6 +6,10 @@ NEWS of GNU Chess
   are permitted in any medium without royalty provided the copyright
   notice and this notice are preserved.
 
+Version 6.2.1 (January 2015)
+
+- Man page in English.
+
 Version 6.2.0 (January 2015)
 
 - "Tighter connection" with XBoard by means of an engine file and a 

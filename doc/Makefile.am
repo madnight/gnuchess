@@ -1,6 +1,6 @@
 # Makefile for gnuchess/doc
 #
-# Copyright (C) 2001-2014 Free Software Foundation, Inc.
+# Copyright (C) 2001-2015 Free Software Foundation, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,3 +17,6 @@
 
 info_TEXINFOS = gnuchess.texi
 gnuchess_TEXINFOS = fdl.texi
+
+CLEANFILES = *.aux *.cp *.cps *.fn *.ky *.log *.op *.pg *.toc *.tp *.vr
+DISTCLEANFILES = ${CLEANFILES}

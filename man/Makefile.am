@@ -1,6 +1,6 @@
 # Makefile for gnuchess/man
 #
-# Copyright (C) 2014 Free Software Foundation, Inc.
+# Copyright (C) 2015 Free Software Foundation, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -27,3 +27,6 @@ common_mandeps = $(top_srcdir)/configure.ac
 # Use -o so that the `missing' program can infer the output file.
 gnuchess.1: $(top_srcdir)/src/main.cc $(top_srcdir)/src/frontend/cmd.cc $(common_mandeps)
 	$(HELP2MAN) --name='GNU Chess' --info-page='gnuchess' ../src/gnuchess -o $@
+
+CLEANFILES = ${man_MANS}
+DISTCLEANFILES = ${CLEANFILES}
