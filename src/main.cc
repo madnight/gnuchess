@@ -1,6 +1,6 @@
 /* GNU Chess 6 - main.cc - entry point
 
-   Copyright (c) 2001-2014 Free Software Foundation, Inc.
+   Copyright (c) 2001-2015 Free Software Foundation, Inc.
 
    GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
@@ -376,7 +376,7 @@ int main (int argc, char *argv[])
 
   /* Startup output */
   if ( !( flags & XBOARD ) && ( !opt_quiet ) && ( !opt_uci) ) {
-    printf( "Copyright (C) 2014 Free Software Foundation, Inc.\n" );
+    printf( "Copyright (C) 2015 Free Software Foundation, Inc.\n" );
     printf( "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\n" );
     printf( "This is free software: you are free to change and redistribute it.\n" );
     printf( "There is NO WARRANTY, to the extent permitted by law.\n" );
