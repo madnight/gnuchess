@@ -1,3 +1,14 @@
+2015-01-25  Antonio Ceballos  <aceballos@gmail.com>
+
+	* configure.ac: version 6.2.1e (evolution of 6.2.1).
+	* doc/version.texi: version 6.2.1e.
+	* src/main.cc: mark translatable strings.
+	* src/frontend/engine.cc: mark translatable strings.
+	* po/gnuchess.pot: updated for the new translatable strings.
+	* po/POTFILES.in: include main.cc and engine.cc.
+	* po/POTFILES: include main.cc and engine.cc.
+	* po/es.po: translation of the new strings.
+
 2015-01-04  Antonio Ceballos  <aceballos@gmail.com>
 
 	* NEWS: changes in version 6.2.1.

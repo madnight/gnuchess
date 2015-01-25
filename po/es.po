@@ -1,15 +1,15 @@
 # Spanish translations for gnuchess package
 # Traducciones al español para el paquete gnuchess.
-# Copyright (C) 2013 Free Software Foundation, Inc.
+# Copyright (C) 2013,2015 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnuchess package.
-# Antonio Ceballos <aceballos@gmail.com>, 2013.
+# Antonio Ceballos <aceballos@gmail.com>, 2013, 2015.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnuchess 6.1.1\n"
-"Report-Msgid-Bugs-To: bug-gnu-chess@gnu.org\n"
-"POT-Creation-Date: 2013-11-23 11:06+0100\n"
-"PO-Revision-Date: 2013-11-23 21:15+0200\n"
+"Project-Id-Version: gnuchess 6.2.1e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-17 16:15+0100\n"
+"PO-Revision-Date: 2015-01-25 13:34+0100\n"
 "Last-Translator: Antonio Ceballos <aceballos@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "Language: es\n"
@@ -18,11 +18,65 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: src/main.cc:317
+#, c-format
+msgid "Memory out of Range or Invalid\n"
+msgstr "Memoria fuera de rango o no válida\n"
+
+#: src/main.cc:334
+#, c-format
+msgid "File name is too long (max = %d)\n"
+msgstr "El nombre del fichero es demasiado largo (máx. = %d)\n"
+
+#: src/main.cc:340
+msgid "Option Processing Failed\n"
+msgstr "Fallo al procesar opción\n"
+
+#: src/main.cc:381
+#, c-format
+msgid ""
+"Copyright (C) %s Free Software Foundation, Inc.\n"
+"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl."
+"html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+"Copyright (C) %s Free Software Foundation, Inc.\n"
+"Licencia GPLv3+: GNU GPL versión 3 o posterior <http://gnu.org/licenses/gpl."
+"html>\n"
+"Esto es software libre: es usted libre de modificarlo y redistribuirlo.\n"
+"NO HAY NINGUNA GARANTÍA, dentro de los límites permitidos por la ley.\n"
+
+#: src/main.cc:494
+#, c-format
+msgid "Thinking...\n"
+msgstr "Pensando...\n"
+
+#: src/frontend/engine.cc:247
+msgid "Black"
+msgstr "Negras"
+
+#: src/frontend/engine.cc:247
+msgid "White"
+msgstr "Blancas"
+
+#: src/frontend/engine.cc:333
+#, c-format
+msgid ""
+"\n"
+"My move is : %s\n"
+msgstr ""
+"\n"
+"Mi movimiento : %s\n"
+
 #: src/frontend/cmd.cc:101
 #, c-format
 msgid "Command 'activate' is currently not supported.\n"
 msgstr "La orden 'activate' no está implementada actualmente.\n"
 
+#.
+#. * No longer used by Xboard but requested as a feature
+#.
 #: src/frontend/cmd.cc:131
 #, c-format
 msgid "Command 'black' is currently not supported.\n"
@@ -167,7 +221,7 @@ msgstr "Posición inicial. No hay movimientos anteriores.\n"
 #: src/frontend/cmd.cc:586 src/frontend/cmd.cc:692
 #, c-format
 msgid "Invalid filename.\n"
-msgstr "Nombre de fichero inválido.\n"
+msgstr "Nombre de fichero no válido.\n"
 
 #: src/frontend/cmd.cc:592
 #, c-format
@@ -272,16 +326,25 @@ msgid " -m, --manual       enable manual mode\n"
 msgstr " -m, --manual       activa el modo manual\n"
 
 #: src/frontend/cmd.cc:773
-msgid " -u, --uci          enable UCI protocol (externally behave as UCI engine)\n"
-msgstr " -u, --uci          activa el protocolo UCI (externamente se exhibe como un motor UCI)\n"
+msgid ""
+" -u, --uci          enable UCI protocol (externally behave as UCI engine)\n"
+msgstr ""
+" -u, --uci          activa el protocolo UCI (externamente se exhibe como un "
+"motor UCI)\n"
 
 #: src/frontend/cmd.cc:775
 msgid " -M size, --memory=size   specify memory usage in MB for hashtable\n"
-msgstr " -M tamaño, --memory=tamaño   especifica el uso de memoria en MB para la tabla de transposición (hash)\n"
+msgstr ""
+" -M tamaño, --memory=tamaño   especifica el uso de memoria en MB para la "
+"tabla de transposición (hash)\n"
 
 #: src/frontend/cmd.cc:777
-msgid " -a filename, --addbook=filename   compile book.bin from pgn book 'filename'\n"
-msgstr " -a fichero,  --addbook=fichero    compila book.bin desde el libro pgn 'fichero'\n"
+msgid ""
+" -a filename, --addbook=filename   compile book.bin from pgn book "
+"'filename'\n"
+msgstr ""
+" -a fichero,  --addbook=fichero    compila book.bin desde el libro pgn "
+"'fichero'\n"
 
 #: src/frontend/cmd.cc:779
 msgid " -g, --graphic      enable graphic mode\n"
@@ -326,14 +389,21 @@ msgid ""
 "Report bugs to <bug-gnu-chess@gnu.org>.\n"
 "\n"
 msgstr ""
-"Imformar de errores a <bug-gnu-chess@gnu.org>.\n"
+"Informar de errores a <bug-gnu-chess@gnu.org>.\n"
 "\n"
 
+#.
+#. * Must Output Illegal move to prevent Xboard accepting illegal
+#. * en passant captures and other subtle mistakes
+#.
 #: src/frontend/cmd.cc:844 src/frontend/cmd.cc:1280
 #, c-format
 msgid "Invalid move: %s\n"
-msgstr "Movimiento inválido: %s\n"
+msgstr "Movimiento no válido: %s\n"
 
+#.
+#. * No longer used by Xboard but requested as a feature
+#.
 #: src/frontend/cmd.cc:862
 #, c-format
 msgid "Command 'white' is currently not supported.\n"
@@ -384,7 +454,9 @@ msgstr " Sale del programa."
 
 #: src/frontend/cmd.cc:971
 msgid " In analysis mode this stops analysis, otherwise it quits the program."
-msgstr " En el modo de análisis esto detiene el análisis; en caso contrario,  sale del programa."
+msgstr ""
+" En el modo de análisis esto detiene el análisis; en caso contrario,  sale "
+"del programa."
 
 #: src/frontend/cmd.cc:973
 msgid " Produces a help blurb corresponding to this list of commands."
@@ -536,7 +608,9 @@ msgstr ""
 
 #: src/frontend/cmd.cc:1037
 msgid " on - enables using the memory hash table to speed up search"
-msgstr " on - activa el uso de tabla de transposiciones (hash) para acelerar la búsqueda"
+msgstr ""
+" on - activa el uso de tabla de transposiciones (hash) para acelerar la "
+"búsqueda"
 
 #: src/frontend/cmd.cc:1038
 msgid " off - disables the memory hash table"
@@ -544,11 +618,13 @@ msgstr " off - desactiva la tabla de transposiciones (hash)"
 
 #: src/frontend/cmd.cc:1040
 msgid " Sets the hash table to permit storage of N MB."
-msgstr " Configura la tabla de transposiciones (hash) para poder almacenar N MB"
+msgstr ""
+" Configura la tabla de transposiciones (hash) para poder almacenar N MB"
 
 #: src/frontend/cmd.cc:1042
 msgid " on - enables using the null-move heuristic to speed up search"
-msgstr " on - activa la heurística de movimiento nulo para acelerar la búsqueda"
+msgstr ""
+" on - activa la heurística de movimiento nulo para acelerar la búsqueda"
 
 #: src/frontend/cmd.cc:1043
 msgid " off - disables using the null-move heuristic"
@@ -578,7 +654,8 @@ msgid ""
 " an INCREMENT (in seconds, i.e. a Fischer-style clock)."
 msgstr ""
 " Configura el control de tiempo a MOVIMIENTOS en MINUTOS, aumentando\n"
-" INCREMENTO (en segundos) con cada movimiento (es decir, reloj de tipo Fischer)."
+" INCREMENTO (en segundos) con cada movimiento (es decir, reloj de tipo "
+"Fischer)."
 
 #: src/frontend/cmd.cc:1056
 msgid " Loads a position in EPD format from disk into memory."
@@ -622,7 +699,9 @@ msgstr " moves - muestra todos los movimientos usando una llamada a rutina"
 
 #: src/frontend/cmd.cc:1075
 msgid " escape - shows moves that escape from check using one call to routine"
-msgstr " escape - muestra los movimientos que sacan de jaque usando una llamada a rutina"
+msgstr ""
+" escape - muestra los movimientos que sacan de jaque usando una llamada a "
+"rutina"
 
 #: src/frontend/cmd.cc:1076
 msgid " noncapture - shows non-capture moves"
@@ -646,11 +725,14 @@ msgstr " pin - muestra las piezas clavadas"
 
 #: src/frontend/cmd.cc:1082
 msgid " movelist - reads in an epd file and shows legal moves for its entries"
-msgstr " movelist - lee un fichero epd y muestra los movimientos válidos que contiene"
+msgstr ""
+" movelist - lee un fichero epd y muestra los movimientos válidos que contiene"
 
 #: src/frontend/cmd.cc:1083
-msgid " capture - reads in an epd file and shows legal captures for its entries"
-msgstr " capture - lee un fichero epd y muestra las capturas válidas que contiene"
+msgid ""
+" capture - reads in an epd file and shows legal captures for its entries"
+msgstr ""
+" capture - lee un fichero epd y muestra las capturas válidas que contiene"
 
 #: src/frontend/cmd.cc:1084
 msgid " movegenspeed - tests speed of move generator"
@@ -658,11 +740,14 @@ msgstr " movegenspeed - prueva la velocidad del generador de movimientos"
 
 #: src/frontend/cmd.cc:1085
 msgid " capturespeed - tests speed of capture move generator"
-msgstr " capturespeed - prueba la velocidad del generador de movimientos de captura"
+msgstr ""
+" capturespeed - prueba la velocidad del generador de movimientos de captura"
 
 #: src/frontend/cmd.cc:1086
 msgid " eval - reads in an epd file and shows evaluation for its entries"
-msgstr " eval - lee un fichero epd y muestra la evaluación de las posiciones que contiene"
+msgstr ""
+" eval - lee un fichero epd y muestra la evaluación de las posiciones que "
+"contiene"
 
 #: src/frontend/cmd.cc:1087
 msgid " evalspeed - tests speed of the evaluator"

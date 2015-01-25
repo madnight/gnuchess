@@ -1,4 +1,4 @@
-# Copyright (C) 2001-2013 Free Software Foundation, Inc.
+# Copyright (C) 2001-2015 Free Software Foundation, Inc.
 #
 # Copying and distribution of this file, with or without modification,
 # are permitted in any medium without royalty provided the copyright
@@ -7,4 +7,6 @@
 # List of source files which contain translatable strings.
 
 # Package source files.
+src/main.cc
 src/frontend/cmd.cc
+src/frontend/engine.cc

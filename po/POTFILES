@@ -1,1 +1,3 @@
-     ../src/frontend/cmd.c
+     ../src/main.cc \
+     ../src/frontend/cmd.c \
+     ../src/frontend/engine.cc
