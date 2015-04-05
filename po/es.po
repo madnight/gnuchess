@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gnuchess 6.2.1e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-17 16:15+0100\n"
-"PO-Revision-Date: 2015-01-25 13:34+0100\n"
+"PO-Revision-Date: 2015-01-25 14:00+0100\n"
 "Last-Translator: Antonio Ceballos <aceballos@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "Language: es\n"
@@ -184,7 +184,7 @@ msgstr "Fallo al abrir %s para escribir: %s\n"
 #: src/frontend/cmd.cc:384
 #, c-format
 msgid "Could not create logfile, all slots occupied.\n"
-msgstr "No se pudo crear fichero de log, no hay espacio libre. \n"
+msgstr "No se pudo crear fichero de log, no hay espacio libre.\n"
 
 #: src/frontend/cmd.cc:385
 #, c-format
@@ -241,7 +241,7 @@ msgstr "La orden 'random' no está implementada actualmente.\n"
 #: src/frontend/cmd.cc:647
 #, c-format
 msgid "my rating = %d, opponent rating = %d\n"
-msgstr "mi puntuación = %d, puntuación del  adversario = %d\n"
+msgstr "mi puntuación = %d, puntuación del adversario = %d\n"
 
 #: src/frontend/cmd.cc:671 src/frontend/cmd.cc:741
 #, c-format
@@ -455,7 +455,7 @@ msgstr " Sale del programa."
 #: src/frontend/cmd.cc:971
 msgid " In analysis mode this stops analysis, otherwise it quits the program."
 msgstr ""
-" En el modo de análisis esto detiene el análisis; en caso contrario,  sale "
+" En el modo de análisis esto detiene el análisis; en caso contrario, sale "
 "del programa."
 
 #: src/frontend/cmd.cc:973
@@ -500,19 +500,19 @@ msgstr " Retrocede un movimiento en la partida pgn cargada."
 
 #: src/frontend/cmd.cc:988
 msgid " Saves the game so far from memory to the file."
-msgstr " Guarda la partida en la posición actual a un fichero."
+msgstr " Guarda en un fichero la partida actual."
 
 #: src/frontend/cmd.cc:990
 msgid " Loads the game in the file into memory."
-msgstr " Carga la partida del fichero a la memoria."
+msgstr " Carga en memoria la partida del fichero."
 
 #: src/frontend/cmd.cc:992
 msgid ""
 " Loads the game in the file into memory, and enables\n"
 " the commands 'first', 'last', 'next', 'previous'."
 msgstr ""
-" Carga la partida del fichero a la memoria, y activa\n"
-" los commandos first, last, next, previous."
+" Carga en memoria la partida del fichero y activa\n"
+" las órdenes 'first', 'last', 'next', 'previous'."
 
 #: src/frontend/cmd.cc:996
 msgid " Advances one move in pgn loaded game."
@@ -555,12 +555,12 @@ msgid ""
 " Arranges for verbose thinking output showing variation, score,\n"
 " time, depth, etc."
 msgstr ""
-" Configura la salida en modo verboso mostrando variante,\n"
+" Configura la salida para mostrar más detalles, como variante,\n"
 " puntuación, tiempo, profundidad, etc."
 
 #: src/frontend/cmd.cc:1017
 msgid " Turns off verbose thinking output."
-msgstr " Desactiva el modo verboso de la salida."
+msgstr " Desactiva la información detallada."
 
 #: src/frontend/cmd.cc:1019
 msgid ""
@@ -568,14 +568,14 @@ msgid ""
 " corresponding game.nnn files. For details please see\n"
 " the auxiliary file format sections."
 msgstr ""
-" Permite al jugador introducir su nombre. También escribe el\n"
-" fichero log.nnn y el correspondiente fichero game.nnn. Para\n"
-" detalles, véanse las secciones sobre formato de los ficheros\n"
-" auxiliares."
+" Permite al jugador introducir su nombre. También escribe\n"
+" el fichero log.nnn y el correspondiente fichero game.nnn.\n"
+" Para más detalles, véanse las secciones sobre el formato\n"
+" de los ficheros auxiliares."
 
 #: src/frontend/cmd.cc:1023
 msgid " Mostly used by Internet Chess Server."
-msgstr " Principalmente utilizado por Internet Chess Server."
+msgstr " Principalmente lo utiliza Internet Chess Server."
 
 #: src/frontend/cmd.cc:1025
 msgid ""
@@ -587,7 +587,7 @@ msgstr ""
 " Esta orden reactiva una partida que había terminado automáticamente\n"
 " por jaque mate o por tiempo agotado. Sin embargo, no altera\n"
 " esas condiciones. Habría que deshacer un movimiento o dos o\n"
-" añadir tiempo al reloj con 'level' o 'time' en ese caso."
+" añadir tiempo al reloj con 'level' o 'time'."
 
 #: src/frontend/cmd.cc:1030
 msgid " Inputs the estimated rating for computer and for its opponent."
@@ -603,13 +603,12 @@ msgid ""
 " Mostly used by Internet Chess Server."
 msgstr ""
 " Introduce el tiempo de partida que le queda al ordenador en\n"
-" centésimas de segundo. Principalmente utilizado por\n"
-" Internet Chess Server."
+" centésimas de segundo. Principalmente lo utiliza Internet Chess Server."
 
 #: src/frontend/cmd.cc:1037
 msgid " on - enables using the memory hash table to speed up search"
 msgstr ""
-" on - activa el uso de tabla de transposiciones (hash) para acelerar la "
+" on - activa el uso de la tabla de transposiciones (hash) para acelerar la "
 "búsqueda"
 
 #: src/frontend/cmd.cc:1038
@@ -619,7 +618,7 @@ msgstr " off - desactiva la tabla de transposiciones (hash)"
 #: src/frontend/cmd.cc:1040
 msgid " Sets the hash table to permit storage of N MB."
 msgstr ""
-" Configura la tabla de transposiciones (hash) para poder almacenar N MB"
+" Configura la tabla de transposiciones (hash) para poder almacenar N MB."
 
 #: src/frontend/cmd.cc:1042
 msgid " on - enables using the null-move heuristic to speed up search"
@@ -663,7 +662,7 @@ msgstr " Carga en memoria una posición de un fichero en formato EPD."
 
 #: src/frontend/cmd.cc:1059
 msgid " Saves game position into EPD format from memory to disk."
-msgstr " Guarda la posición de una partida a un fichero en formato EPD."
+msgstr " Guarda en un fichero con formato EPD la posición de la partida que está en memoria."
 
 #: src/frontend/cmd.cc:1061
 msgid " Switches side to move."
@@ -683,7 +682,7 @@ msgstr " Retrocede un movimiento."
 
 #: src/frontend/cmd.cc:1070
 msgid " Displays command line syntax."
-msgstr " Muestra la sintaxis de la línea de comando."
+msgstr " Muestra la sintaxis de la línea de órdenes."
 
 #: src/frontend/cmd.cc:1072
 msgid " board - displays the current board"
