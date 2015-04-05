@@ -1,5 +1,9 @@
 2015-04-05  Antonio Ceballos  <aceballos@gmail.com>
 
+	* src/adapter/fen.cpp: detailed error messages for bad FEN syntax.
+
+2015-04-05  Antonio Ceballos  <aceballos@gmail.com>
+
 	* po/es.po: small corrections in Spanish translation.
 
 2015-01-25  Antonio Ceballos  <aceballos@gmail.com>
