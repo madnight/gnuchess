@@ -1,6 +1,6 @@
 /* GNU Chess 6 - components.cc - Pipes shared across modules
 
-   Copyright (c) 2001-2012 Free Software Foundation, Inc.
+   Copyright (c) 2001-2015 Free Software Foundation, Inc.
 
    GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
@@ -25,10 +25,14 @@
 
 #include <cstdio>
 #include <cstdlib>
+#include <cstring>
 #include <unistd.h>
 #include <pthread.h>
 
+#include "frontend/common.h"
 #include "components.h"
+
+extern unsigned int flags;
 
 /* Main loop of adapter */
 namespace adapter {
@@ -119,3 +123,19 @@ void InitEngine()
   /* Start engine thread */
   pthread_create(&engine_thread, NULL, engine_func, NULL);
 }
+
+int SendToEngine( char msg[] );
+
+void TerminateAdapterEngine()
+{
+  if ( ! (flags & UCI ) ) {
+    char data[9];
+    strcpy( data, "quit" );
+    SendToEngine( data );
+  }
+  pthread_join( engine_thread, NULL );
+  if ( ! (flags & UCI ) ) {
+    pthread_join( adapter_thread, NULL );
+  }
+}
+

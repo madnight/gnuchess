@@ -2,7 +2,7 @@
 
    GNU Chess protocol adapter
 
-   Copyright (C) 2001-2012 Free Software Foundation, Inc.
+   Copyright (C) 2001-2015 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -291,6 +291,8 @@ void quit() {
       stop_search();
       engine_send(Engine,"quit");
 
+      pthread_exit(NULL);
+
       // wait for the engine to quit
 
       while (true) {
@@ -300,7 +302,7 @@ void quit() {
       uci_close(Uci);
    }
 
-   exit(EXIT_SUCCESS);
+   //exit(EXIT_SUCCESS);
 }
 
 // stop_search()

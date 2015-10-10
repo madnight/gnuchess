@@ -506,5 +506,9 @@ There is NO WARRANTY, to the extent permitted by law.\n"),
   }
 
   dbg_close();
+
+  /* Termintate adapter and engine threads and join them */
+  TerminateAdapterEngine();
+  
   return (0);
 }

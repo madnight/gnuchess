@@ -523,6 +523,9 @@ void ForwardUserInputToEngine( void )
     nread = read( STDIN_FILENO, userinputaux, BUF_SIZE );
     /* Send the data to the engine */
     assert( nread+1 < BUF_SIZE-1 );
+    if ( strcmp(userinputaux,"quit") == 0 || strcmp(userinputaux,"quit\n") == 0 ) {
+	  SET (flags, QUIT);
+    }
     userinputaux[nread] = '\n';
     userinputaux[nread+1] = '\0';
     int outError=0;

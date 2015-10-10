@@ -1,12 +1,24 @@
 TODO of GNU Chess
 
-  Copyright (C) 2001-2014 Free Software Foundation, Inc.
+  Copyright (C) 2001-2015 Free Software Foundation, Inc.
 
   Copying and distribution of this file, with or without modification,
   are permitted in any medium without royalty provided the copyright
   notice and this notice are preserved.
 
 Items are in random order, mostly reverse chronological.
+
+* Evaluate the possibility to include an option 'enable/disable bigboard', to show a bigger board.
+
+* Evaluate the possibility to include an option 'enable/disable coords', to show row and column numbers beside the board.
+
+* Consider using readline: replace calls to read() in frontend/engine.cc by calls to get_line(), the latter defined as in v5.08.
+
+* 'pgnsave' will not save a file identical to the original in a sequence pgnload-pgnsave.
+
+* 'manual' and 'force' are almost identical, except for the order they do things. See cmd.cc.
+
+* 'name <myname>' forces output redirection to a log file. Comparing with version 5.08, some of the output is lost.
 
 * Report invalid move instead of segmentation fault for the following
 position:
@@ -20,8 +32,6 @@ The problem is the 'Q' for queen in 'f2g1Q'. It must be a 'q'. This was
 reported by Igor Alelekov on 2014/06/29.
 
 * Consider adding resign and draw offer commands.
-
-* Consider using readline.
 
 * Add analysis tools for the evaluation function.
 

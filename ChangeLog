@@ -1,3 +1,15 @@
+2015-10-10  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/frontend/engine.cc: robust program exit concerning threads.
+	* src/adapter/main.cpp: robust program exit concerning threads.
+	* src/engine/protocol.cpp: robust program exit concerning threads.
+	* src/main.cc: robust program exit concerning threads.
+	* src/components.cc: robust program exit concerning threads.
+	* src/components.h: robust program exit concerning threads.
+	* TODO: new tasks.
+	* configure.ac: set version 6.2.2-rc1.
+	* doc/version.texi: version 6.2.2-rc1.
+
 2015-04-05  Antonio Ceballos  <aceballos@gmail.com>
 
 	* src/adapter/fen.cpp: detailed error messages for bad FEN syntax.
