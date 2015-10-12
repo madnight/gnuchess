@@ -1,16 +1,16 @@
 # Dutch translations for GNU chess.
-# Copyright (C) 2013 Free Software Foundation, Inc.
+# Copyright (C) 2015 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnuchess package.
 #
 # "Tu ce faci de apocalipsă?"
 #
-# Benno Schulenberg <benno@vertaalt.nl>, 2013.
+# Benno Schulenberg <benno@vertaalt.nl>, 2013, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnuchess 6.1.1\n"
+"Project-Id-Version: gnuchess 6.2.2-rc1\n"
 "Report-Msgid-Bugs-To: bug-gnu-chess@gnu.org\n"
-"POT-Creation-Date: 2013-11-23 11:06+0100\n"
-"PO-Revision-Date: 2013-11-23 22:48+0100\n"
+"POT-Creation-Date: 2015-09-13 00:01+0200\n"
+"PO-Revision-Date: 2015-09-24 10:06+0200\n"
 "Last-Translator: Benno Schulenberg <benno@vertaalt.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
@@ -19,6 +19,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
+
+#: src/main.cc:317
+#, c-format
+msgid "Memory out of Range or Invalid\n"
+msgstr "Geheugen valt buiten bereik of is ongeldig\n"
+
+#: src/main.cc:334
+#, c-format
+msgid "File name is too long (max = %d)\n"
+msgstr "Bestandsnaam is te lang (maximum lengte = %d)\n"
+
+#: src/main.cc:340
+msgid "Option Processing Failed\n"
+msgstr "Verwerken van opties is mislukt\n"
+
+#: src/main.cc:381
+#, c-format
+msgid ""
+"Copyright (C) %s Free Software Foundation, Inc.\n"
+"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+"Copyright (C) %s Free Software Foundation, Inc.\n"
+"Licentie GPLv3+: GNU GPL versie 3 of nieuwer <http://gnu.org/licenses/gpl.html>\n"
+"Dit is vrije software: u mag het vrijelijk wijzigen en verder verspreiden.\n"
+"Er is GEEN GARANTIE, voor zover de wet dit toestaat.\n"
+
+#: src/main.cc:494
+#, c-format
+msgid "Thinking...\n"
+msgstr "Denken...\n"
 
 #: src/frontend/cmd.cc:101
 #, c-format
@@ -689,3 +721,20 @@ msgstr ""
 #, c-format
 msgid "List of commands: (help COMMAND to get more help)\n"
 msgstr "Lijst van commando's: (gebruik 'help COMMANDO' om meer hulp te krijgen)\n"
+
+#: src/frontend/engine.cc:247
+msgid "Black"
+msgstr "Zwart"
+
+#: src/frontend/engine.cc:247
+msgid "White"
+msgstr "Wit"
+
+#: src/frontend/engine.cc:333
+#, c-format
+msgid ""
+"\n"
+"My move is : %s\n"
+msgstr ""
+"\n"
+"Mijn zet is : %s\n"

@@ -1,3 +1,12 @@
+2015-10-13  Antonio Ceballos  <aceballos@gmail.com>
+
+	* po/es.po: update.
+	* po/fr.po: added.
+	* po/nl.po: update.
+	* po/uk.po: update.
+	* po/vi.po: update.
+	* po/LINGUAS: added fr.
+
 2015-10-10  Antonio Ceballos  <aceballos@gmail.com>
 
 	* src/frontend/engine.cc: robust program exit concerning threads.

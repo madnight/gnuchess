@@ -2,13 +2,13 @@
 # Copyright (C) 2013 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnuchess package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2013.
+# Yuri Chornoivan <yurchor@ukr.net>, 2013, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnuchess 6.1.1\n"
+"Project-Id-Version: gnuchess 6.2.2-rc1\n"
 "Report-Msgid-Bugs-To: bug-gnu-chess@gnu.org\n"
-"POT-Creation-Date: 2013-11-23 11:06+0100\n"
-"PO-Revision-Date: 2013-11-23 18:38+0200\n"
+"POT-Creation-Date: 2015-09-13 00:01+0200\n"
+"PO-Revision-Date: 2015-09-15 15:56+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
 "Language: uk\n"
@@ -17,6 +17,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 1.5\n"
+
+#: src/main.cc:317
+#, c-format
+msgid "Memory out of Range or Invalid\n"
+msgstr "Пам’ять поза припустимими межами або некоректна\n"
+
+#: src/main.cc:334
+#, c-format
+msgid "File name is too long (max = %d)\n"
+msgstr "Файл є надто довгим (максимум = %d)\n"
+
+#: src/main.cc:340
+msgid "Option Processing Failed\n"
+msgstr "Помилка під час спроби обробити параметри\n"
+
+#: src/main.cc:381
+#, c-format
+msgid ""
+"Copyright (C) %s Free Software Foundation, Inc.\n"
+"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+"Авторські права належать Free Software Foundation, Inc., %s\n"
+"Умови ліцензування викладено у GPLv3+: GNU GPL версії 3 або новішій, <http://gnuorg/licenses/gpl.html>\n"
+"Це вільне програмне забезпечення: ви можете вільно змінювати і поширювати його.\n"
+"Вам не надається ЖОДНИХ ГАРАНТІЙ, окрім гарантій передбачених законодавством.\n"
+
+#: src/main.cc:494
+#, c-format
+msgid "Thinking...\n"
+msgstr "Обдумуємо...\n"
 
 #: src/frontend/cmd.cc:101
 #, c-format
@@ -689,6 +721,23 @@ msgstr ""
 #, c-format
 msgid "List of commands: (help COMMAND to get more help)\n"
 msgstr "Список команд: (help КОМАНДА, щоб отримати додаткову довідку)\n"
+
+#: src/frontend/engine.cc:247
+msgid "Black"
+msgstr "Чорні"
+
+#: src/frontend/engine.cc:247
+msgid "White"
+msgstr "Білі"
+
+#: src/frontend/engine.cc:333
+#, c-format
+msgid ""
+"\n"
+"My move is : %s\n"
+msgstr ""
+"\n"
+"Мій хід: %s\n"
 
 #~ msgid " an INCREMENT (in seconds, i.e. Fischer-style clock)."
 #~ msgstr " збільшення часу на хід (у секундах, тобто годинник у стилі Фішера)."
