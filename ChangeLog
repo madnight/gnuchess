@@ -1,3 +1,10 @@
+2015-10-17  Antonio Ceballos  <aceballos@gmail.com>
+
+	* configure.ac: version 6.2.2.
+	* NEWS: version 6.2.2.
+	* TODO: version 6.2.2.
+	* doc/version.texi: version 6.2.2.
+
 2015-10-13  Antonio Ceballos  <aceballos@gmail.com>
 
 	* po/es.po: update.

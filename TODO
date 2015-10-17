@@ -8,11 +8,13 @@ TODO of GNU Chess
 
 Items are in random order, mostly reverse chronological.
 
+* Clean and refurbish frontend new code: components.cc, engine.cc, etc.
+
 * Evaluate the possibility to include an option 'enable/disable bigboard', to show a bigger board.
 
-* Evaluate the possibility to include an option 'enable/disable coords', to show row and column numbers beside the board.
+* Evaluate the possibility to include an option 'enable/disable coords', to show row and column numbers beside the board. Coordinates are already present in graphic mode.
 
-* Consider using readline: replace calls to read() in frontend/engine.cc by calls to get_line(), the latter defined as in v5.08.
+* Consider using readline: replace calls to read() in frontend/engine.cc by calls to get_line(), the latter defined as in v5.08. Useful examples in the package examples directory. Those based on rl_callback_read_char can be interesting. See also http://www.gnu.org/software/autoconf-archive/ax_lib_readline.html.
 
 * 'pgnsave' will not save a file identical to the original in a sequence pgnload-pgnsave.
 

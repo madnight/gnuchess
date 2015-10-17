@@ -6,6 +6,11 @@ NEWS of GNU Chess
   are permitted in any medium without royalty provided the copyright
   notice and this notice are preserved.
 
+Version 6.2.2 (October 2015)
+
+- More robust program exit concerning threads.
+- Detailed error messages for bad FEN syntax.
+
 Version 6.2.1 (January 2015)
 
 - Man page in English.
