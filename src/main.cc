@@ -412,6 +412,7 @@ There is NO WARRANTY, to the extent permitted by law.\n"),
     char data[9+MAXSTR+1+4]="";
     sprintf( data, "book add %s\nquit", opt_addbook );
     SendToEngine( data );
+    SET (flags, QUIT);
   }
 
   if ( opt_easy == 0 )
