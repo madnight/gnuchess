@@ -1,10 +1,15 @@
 NEWS of GNU Chess
 
-  Copyright (C) 2001-2015 Free Software Foundation, Inc.
+  Copyright (C) 2001-2016 Free Software Foundation, Inc.
 
   Copying and distribution of this file, with or without modification,
   are permitted in any medium without royalty provided the copyright
   notice and this notice are preserved.
+
+Version 6.2.3 (September 2016)
+
+- Quit after compiling book with option -a (--addbook).
+- Updated translations.
 
 Version 6.2.2 (October 2015)
 

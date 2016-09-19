@@ -1,6 +1,6 @@
 /* GNU Chess 6 - main.cc - entry point
 
-   Copyright (c) 2001-2015 Free Software Foundation, Inc.
+   Copyright (c) 2001-2016 Free Software Foundation, Inc.
 
    GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
@@ -383,7 +383,7 @@ Copyright (C) %s Free Software Foundation, Inc.\n\
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\n\
 This is free software: you are free to change and redistribute it.\n\
 There is NO WARRANTY, to the extent permitted by law.\n"),
-             "2015" );
+             "2016" );
   }
 
   /* If a usage statement is required output it here */

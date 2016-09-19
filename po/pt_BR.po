@@ -1,22 +1,54 @@
 # Brazilian Portuguese translation for gnuchess
-# Copyright (C) 2013 Free Software Foundation, Inc.
+# Copyright (C) 2016 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnuchess package.
-# Rafael Ferreira <rafael.f.f1@gmail.com>, 2013.
-#
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2013, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnuchess 6.1.1\n"
+"Project-Id-Version: gnuchess 6.2.2-rc1\n"
 "Report-Msgid-Bugs-To: bug-gnu-chess@gnu.org\n"
-"POT-Creation-Date: 2013-11-23 11:06+0100\n"
-"PO-Revision-Date: 2013-11-25 01:19-0300\n"
-"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
+"POT-Creation-Date: 2015-09-13 00:01+0200\n"
+"PO-Revision-Date: 2016-04-08 17:44-0200\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge.net>\n"
 "Language: pt_BR\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.7\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+
+#: src/main.cc:317
+#, c-format
+msgid "Memory out of Range or Invalid\n"
+msgstr "Memória fora do intervalo ou inválida\n"
+
+#: src/main.cc:334
+#, c-format
+msgid "File name is too long (max = %d)\n"
+msgstr "Nome de arquivo é muito longo (máx = %d)\n"
+
+#: src/main.cc:340
+msgid "Option Processing Failed\n"
+msgstr "Processamento da opção falhou\n"
+
+#: src/main.cc:381
+#, c-format
+msgid ""
+"Copyright (C) %s Free Software Foundation, Inc.\n"
+"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+"Copyright (C) %s Free Software Foundation, Inc.\n"
+"Licença GPLv3+: GNU GPL versão 3 ou posterior <http://gnu.org/licenses/gpl.html>\n"
+"Este é um software livre: você é livre para alterá-lo e redistribuí-lo.\n"
+"NÃO HÁ GARANTIA, na máxima extensão permitida pela lei.\n"
+
+#: src/main.cc:494
+#, c-format
+msgid "Thinking...\n"
+msgstr "Pensando...\n"
 
 #: src/frontend/cmd.cc:101
 #, c-format
@@ -105,7 +137,7 @@ msgstr "name    - lista alfabética de jogadores conhecidos\n"
 #: src/frontend/cmd.cc:287
 #, c-format
 msgid "score   - list by GNU best result first \n"
-msgstr "score   - lista pelo melhor resultado do GNU no início\n"
+msgstr "score   - lista pelo melhor resultado do GNU no início \n"
 
 #: src/frontend/cmd.cc:288
 #, c-format
@@ -584,8 +616,8 @@ msgid ""
 " an INCREMENT (in seconds, i.e. a Fischer-style clock)."
 msgstr ""
 " Configura o controle de tempo para ser MOVIMENTOS em MINUTOS\n"
-"com cada movimento dando um INCREMENTO (em segundos, i.e. um\n"
-"relógio estilo Fischer)."
+" com cada movimento dando um INCREMENTO (em segundos, i.e. um\n"
+" relógio estilo Fischer)."
 
 #: src/frontend/cmd.cc:1056
 msgid " Loads a position in EPD format from disk into memory."
@@ -700,3 +732,20 @@ msgstr ""
 #, c-format
 msgid "List of commands: (help COMMAND to get more help)\n"
 msgstr "Lista de comandos: (help COMANDO para obter mais ajuda)\n"
+
+#: src/frontend/engine.cc:247
+msgid "Black"
+msgstr "Preto"
+
+#: src/frontend/engine.cc:247
+msgid "White"
+msgstr "Branco"
+
+#: src/frontend/engine.cc:333
+#, c-format
+msgid ""
+"\n"
+"My move is : %s\n"
+msgstr ""
+"\n"
+"Meu movimento é: %s\n"

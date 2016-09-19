@@ -1,3 +1,15 @@
+2016-09-18  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/main.cc: copyright year 2016.
+	* configure.ac: version 6.2.3.
+	* NEWS: version 6.2.3.
+	* TODO: version 6.2.3.
+	* doc/gnuchess.texi: version 6.2.3.
+	* doc/version.texi: version 6.2.3.
+	* po/*.po: update.
+	* po/zh_CN.po: added.
+	* po/LINGUAS: added zh_CN.
+
 2015-10-18  Antonio Ceballos  <aceballos@gmail.com>
 
 	* configure.ac: version 6.2.2e (evolution of 6.2.2).

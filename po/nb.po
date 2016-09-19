@@ -1,22 +1,55 @@
 # Norwegian Bokmal translations for gnuchess package.
 # Copyright (C) 2014 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnuchess package.
-# Johnny A. Solbu <johnny@solbu.net>, 2014.
+# Johnny A. Solbu <johnny@solbu.net>, 2014-2015.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnuchess 6.1.1\n"
+"Project-Id-Version: gnuchess 6.2.2-rc1\n"
 "Report-Msgid-Bugs-To: bug-gnu-chess@gnu.org\n"
-"POT-Creation-Date: 2013-11-23 11:06+0100\n"
-"PO-Revision-Date: 2014-07-22 21:27+0100\n"
+"POT-Creation-Date: 2015-09-13 00:01+0200\n"
+"PO-Revision-Date: 2015-12-23 03:34+0100\n"
 "Last-Translator: Johnny A. Solbu <johnny@solbu.net>\n"
 "Language-Team: Norwegian Bokmaal <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb_NO\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.6.9\n"
+
+#: src/main.cc:317
+#, c-format
+msgid "Memory out of Range or Invalid\n"
+msgstr "Minnet er utenfor rekkevidde eller ugyldig\n"
+
+#: src/main.cc:334
+#, c-format
+msgid "File name is too long (max = %d)\n"
+msgstr "Filnavnet er for langt (maks = %d)\n"
+
+#: src/main.cc:340
+msgid "Option Processing Failed\n"
+msgstr "Valg-behandling feilet\n"
+
+#: src/main.cc:381
+#, c-format
+msgid ""
+"Copyright (C) %s Free Software Foundation, Inc.\n"
+"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+"Opphavsrett © %s Free Software Foundation, Inc.\n"
+"Lisens GPLv3+: GNU GPL versjon 3 eller nyere <http://gnu.org/licenses/gpl.html>\n"
+"Dette er Fri programvare: du står fritt til å endre og redistribuere det.\n"
+"Det er INGEN GARANTI, i den grad loven tillater.\n"
+
+#: src/main.cc:494
+#, c-format
+msgid "Thinking...\n"
+msgstr "Tenker...\n"
 
 #: src/frontend/cmd.cc:101
 #, c-format
@@ -689,3 +722,20 @@ msgstr ""
 #, c-format
 msgid "List of commands: (help COMMAND to get more help)\n"
 msgstr "Liste over kommandoer: (help KOMMANDO for å få mer hjelp)\n"
+
+#: src/frontend/engine.cc:247
+msgid "Black"
+msgstr "Sort"
+
+#: src/frontend/engine.cc:247
+msgid "White"
+msgstr "Hvit"
+
+#: src/frontend/engine.cc:333
+#, c-format
+msgid ""
+"\n"
+"My move is : %s\n"
+msgstr ""
+"\n"
+"Mitt trekk er : %s\n"

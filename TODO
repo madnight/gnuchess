@@ -1,6 +1,6 @@
 TODO of GNU Chess
 
-  Copyright (C) 2001-2015 Free Software Foundation, Inc.
+  Copyright (C) 2001-2016 Free Software Foundation, Inc.
 
   Copying and distribution of this file, with or without modification,
   are permitted in any medium without royalty provided the copyright
@@ -9,6 +9,8 @@ TODO of GNU Chess
 Items are in random order, mostly reverse chronological.
 
 * Clean and refurbish frontend new code: components.cc, engine.cc, etc.
+
+* Bug found on Oct 29th, 2015. See bug-gnu-chess.
 
 * Evaluate the possibility to include an option 'enable/disable bigboard', to show a bigger board.
 
