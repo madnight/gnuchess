@@ -542,6 +542,11 @@ leaf * ValidateMove (char *s)
    BitBoard b, b2;
    leaf *n1, *n2;
 
+   /* User input could be longer than MAXSTR */
+   if ( strlen(s) >= MAXSTR ) {
+      s[MAXSTR-1] = '\0';
+   }
+
    TreePtr[2] = TreePtr[1];
    GenMoves (1);
    FilterIllegalMoves (1);

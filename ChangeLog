@@ -1,3 +1,8 @@
+2016-09-20  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/frontend/move.cc: truncate user input if longer 
+	than 128 characters.
+
 2016-09-19  Antonio Ceballos  <aceballos@gmail.com>
 
 	* configure.ac: version 6.2.3e (evolution of 6.2.3).
