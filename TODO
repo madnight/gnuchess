@@ -8,32 +8,26 @@ TODO of GNU Chess
 
 Items are in random order, mostly reverse chronological.
 
-* Clean and refurbish frontend new code: components.cc, engine.cc, etc.
+Top priority:
 
-* Bug found on Oct 29th, 2015. See bug-gnu-chess.
+* Consider using readline: replace calls to read() in frontend/engine.cc by calls to get_line(), the latter defined as in v5.08. Useful examples in the package examples directory. Those based on rl_callback_read_char can be interesting. See also http://www.gnu.org/software/autoconf-archive/ax_lib_readline.html.
+
+* Add support for Chess Engine Communication Protocol version 2.
+http://www.open-aurec.com/wbforum/WinBoard/engine-intf.html
+
+Normal priority:
+
+* Clean and refurbish frontend new code: components.cc, engine.cc, etc.
 
 * Evaluate the possibility to include an option 'enable/disable bigboard', to show a bigger board.
 
 * Evaluate the possibility to include an option 'enable/disable coords', to show row and column numbers beside the board. Coordinates are already present in graphic mode.
-
-* Consider using readline: replace calls to read() in frontend/engine.cc by calls to get_line(), the latter defined as in v5.08. Useful examples in the package examples directory. Those based on rl_callback_read_char can be interesting. See also http://www.gnu.org/software/autoconf-archive/ax_lib_readline.html.
 
 * 'pgnsave' will not save a file identical to the original in a sequence pgnload-pgnsave.
 
 * 'manual' and 'force' are almost identical, except for the order they do things. See cmd.cc.
 
 * 'name <myname>' forces output redirection to a log file. Comparing with version 5.08, some of the output is lost.
-
-* Report invalid move instead of segmentation fault for the following
-position:
-
-uci
-ucinewgame
-position startpos moves c2c4 g8f6 b1c3 c7c6 e2e4 d7d5 e4e5 f6e4 c3e4 d5e4 d1c2 c8f5 g1f3 e7e6 f3g1 f8c5 g2g4 e4e3 g4f5 e3f2 e1d1 f2g1Q h1g1
-go wtime 298000 btime 300000
-
-The problem is the 'Q' for queen in 'f2g1Q'. It must be a 'q'. This was 
-reported by Igor Alelekov on 2014/06/29.
 
 * Consider adding resign and draw offer commands.
 

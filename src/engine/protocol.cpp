@@ -520,6 +520,8 @@ static void parse_position(char string[]) {
 
          move = move_from_string(move_string,SearchInput->board);
 
+         if (move == MoveNone) my_fatal("parse_position(): invalid move:%s\n",move_string);
+
          move_do(SearchInput->board,move,undo);
 
          while (*ptr == ' ') ptr++;
