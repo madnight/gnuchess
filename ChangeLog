@@ -1,3 +1,10 @@
+2016-10-29  Antonio Ceballos  <aceballos@gmail.com>
+
+	* configure.ac: version 6.2.4.
+	* NEWS: version 6.2.4.
+	* TODO: version 6.2.4.
+	* doc/version.texi: version 6.2.4.
+
 2016-09-22  Antonio Ceballos  <aceballos@gmail.com>
 
 	* src/engine/protocol.cpp: print error for invalid move.

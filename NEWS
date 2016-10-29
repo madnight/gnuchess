@@ -6,6 +6,11 @@ NEWS of GNU Chess
   are permitted in any medium without royalty provided the copyright
   notice and this notice are preserved.
 
+Version 6.2.4 (October 2016)
+
+- Print error for invalid move.
+- Truncate user input if longer than 128 characters.
+
 Version 6.2.3 (September 2016)
 
 - Quit after compiling book with option -a (--addbook).

@@ -10,14 +10,16 @@ Items are in random order, mostly reverse chronological.
 
 Top priority:
 
+* Add a test harness for module-level testing..
+
 * Consider using readline: replace calls to read() in frontend/engine.cc by calls to get_line(), the latter defined as in v5.08. Useful examples in the package examples directory. Those based on rl_callback_read_char can be interesting. See also http://www.gnu.org/software/autoconf-archive/ax_lib_readline.html.
+
+* Clean and refurbish frontend new code: components.cc, engine.cc, etc.
 
 * Add support for Chess Engine Communication Protocol version 2.
 http://www.open-aurec.com/wbforum/WinBoard/engine-intf.html
 
 Normal priority:
-
-* Clean and refurbish frontend new code: components.cc, engine.cc, etc.
 
 * Evaluate the possibility to include an option 'enable/disable bigboard', to show a bigger board.
 
