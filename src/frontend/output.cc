@@ -2,7 +2,7 @@
 
    GNU Chess frontend
 
-   Copyright (C) 2001-2013 Free Software Foundation, Inc.
+   Copyright (C) 2001-2017 Free Software Foundation, Inc.
 
    GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
@@ -94,74 +94,6 @@ void ShowMoveList (int ply)
    }
    printf ("\n");
 }
-
-
-void ShowSmallBoard (void)
-/*****************************************************************************
- *
- *  Display the board.  Not only that but display some useful information
- *  like whether enpassant is legal and castling state.
- *
- *****************************************************************************/
-{
-   int r, c, sq;
-
-   printf ("\n");
-   if (board.side == white)
-      printf ("white  ");
-   else
-      printf ("black  ");
-
-   if (board.flag & WKINGCASTLE)
-      printf ("K");
-   if (board.flag & WQUEENCASTLE)
-      printf ("Q");
-   if (board.flag & BKINGCASTLE)
-      printf ("k");
-   if (board.flag & BQUEENCASTLE)
-      printf ("q");
-
-   if (board.ep > -1)
-      printf ("  %s", algbr[board.ep]);
-
-   printf ("\n");
-   for (r = 56; r >= 0; r -= 8)
-   {
-      for (c = 0; c < 8; c++)
-      {
-         sq = r + c;
-         if (board.b[white][pawn] & BitPosArray[sq])
-            printf ("P ");
-         else if (board.b[white][knight] & BitPosArray[sq])
-            printf ("N ");
-         else if (board.b[white][bishop] & BitPosArray[sq])
-            printf ("B ");
-         else if (board.b[white][rook]   & BitPosArray[sq])
-            printf ("R ");
-         else if (board.b[white][queen]  & BitPosArray[sq])
-            printf ("Q ");
-         else if (board.b[white][king]   & BitPosArray[sq])
-            printf ("K ");
-         else if (board.b[black][pawn]   & BitPosArray[sq])
-            printf ("p ");
-         else if (board.b[black][knight] & BitPosArray[sq])
-            printf ("n ");
-         else if (board.b[black][bishop] & BitPosArray[sq])
-            printf ("b ");
-         else if (board.b[black][rook]   & BitPosArray[sq])
-            printf ("r ");
-         else if (board.b[black][queen]  & BitPosArray[sq])
-            printf ("q ");
-         else if (board.b[black][king]   & BitPosArray[sq])
-            printf ("k ");
-         else
-            printf (". ");
-      }
-      printf ("\n");
-   }
-   printf ("\n");
-}
-
 
 
 void ShowBoard (void)
