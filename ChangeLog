@@ -1,3 +1,27 @@
+2017-06-11  Antonio Ceballos  <aceballos@gmail.com>
+
+	* AUTHORS: several fixes and small enhancements.
+	* TODO: several fixes and small enhancements.
+
+2017-06-11  Pranav Deshpande <deshpande.v.pranav@gmail.com>
+
+	* src/main.cc: show coordinates.
+	* src/frontend/common.h: show coordinates mode.
+	* src/frontend/output.cc: show coordinates if coords mode enabled.
+	* src/frontend/pgn.cc: command 'pgnsave' will not append; instead,
+	the user will be asked to overwrite or not.
+	* src/frontend/engine.cc: do not print time limit.
+	* src/frontend/cmd.cc: new commands 'coords', 'nocoords';
+	add user messages for commands 'last', 'first', etc. when
+	no PGN file is loaded;
+	do not print time limit in cmd_time;
+
+2017-06-10  Antonio Ceballos  <aceballos@gmail.com>
+
+	* src/frontend/output.cc: remove unused function ShowSmallBoard.
+	* src/frontend/common.h: remove unused function ShowSmallBoard.
+	* po/POTFILES: typo: cmd.c for cmd.cc.
+
 2016-10-29  Antonio Ceballos  <aceballos@gmail.com>
 
 	* configure.ac: version 6.2.4.
@@ -507,7 +531,7 @@
 	* src/frontend/engine.c: comment out extra output write.
 	* src/adapter/adapter.cpp: remove debug trace.
 
-Copyright (C) 2001-2015 Free Software Foundation, Inc.
+Copyright (C) 2001-2017 Free Software Foundation, Inc.
 
 Copying and distribution of this file, with or without modification,
 are permitted in any medium without royalty provided the copyright

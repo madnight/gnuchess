@@ -108,7 +108,7 @@ void ShowBoard (void)
 
    fprintf (ofp, "\n");
 
-   if ( graphicmodeoutput == 1) {
+   if (coords == 1) {
       fprintf(ofp, "  ");
    }
 
@@ -188,7 +188,8 @@ void ShowStylishBoard(const char *boardmap)
   char tmp_piece[PIECE_SIZE];
   memset(tmp_piece, '\0', PIECE_SIZE);
 
-  fprintf(ofp, "%d ", row--);
+  if ( coords == 1 ) fprintf(ofp, "%d ", row);
+  row--;
 
   for (i =0; i < MAX_BOARD_RANGE; ++i)
     {
@@ -199,8 +200,10 @@ void ShowStylishBoard(const char *boardmap)
             fprintf(ofp, "\n");
             b_white = !b_white;
 
-            if (row >=1)
-                fprintf(ofp, "%d ", row--);
+            if (row >=1) {
+              if( coords == 1 ) fprintf(ofp, "%d ", row);
+              row--;
+            }
             else
                 break;
             }
@@ -217,14 +220,14 @@ void ShowStylishBoard(const char *boardmap)
             }
 
         b_white = !b_white;
-    }
-
+   }
    fprintf(ofp, "%s  ", default_console);
 
-   for (i = 0; i < 8; ++i)
-     {
-        fprintf(ofp, "%c ", column[i]);
+   if ( coords == 1 ) {
+     for (i = 0; i < 8; ++i) {
+          fprintf(ofp, "%c ", column[i]);
      }
+   }
 }
 
 
@@ -262,14 +265,31 @@ void GetPiece(const char orig_piece, char *piece)
 void ShowClassicalBoard(const char *boardmap)
 {
   unsigned i = 0;
-
+  const char column[8] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
+  unsigned row = 8;
+  
   for (i =0; i < MAX_BOARD_RANGE; ++i) {
     if ((i > 0) && (i % 8 == 0)) {
       fprintf(ofp, "\n");
+    
+      if ( coords == 1 ) {
+        if (row >=1)
+          fprintf(ofp, "%d ", row--);
+        else
+          break;
+      }
+    
     }
 
     fprintf(ofp, "%c ", boardmap[i]);
+  }
+  
+  if ( coords == 1 ) {
+    fprintf(ofp, "  ");
+    for (i = 0; i < 8; ++i) {
+      fprintf(ofp, "%c ", column[i]);
     }
+  }
 }
 
 

@@ -264,8 +264,6 @@ void NextUserCmd( void )
   char userinput[BUF_SIZE]="";
 
   if ( strlen( userinputbuf ) > 0 ) {
-    printf("TimeLimit[0] = %g\n", TimeLimit[0]);
-    printf("TimeLimit[1] = %g\n", TimeLimit[1]);
     if ( flags & XBOARD ) {
       fflush( stdout );
     }

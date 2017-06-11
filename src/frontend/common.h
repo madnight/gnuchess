@@ -341,6 +341,7 @@ extern int phase;
 
 extern short bookfirstlast;
 extern short graphicmodeoutput;
+extern short coords;
 extern short pgnloaded; /* was pgn game loaded by command pgnreplay */
 extern int pgncnt; /* total moves loaded in pgn game */
 

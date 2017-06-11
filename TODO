@@ -1,6 +1,6 @@
 TODO of GNU Chess
 
-  Copyright (C) 2001-2016 Free Software Foundation, Inc.
+  Copyright (C) 2001-2017 Free Software Foundation, Inc.
 
   Copying and distribution of this file, with or without modification,
   are permitted in any medium without royalty provided the copyright
@@ -22,8 +22,6 @@ http://www.open-aurec.com/wbforum/WinBoard/engine-intf.html
 Normal priority:
 
 * Evaluate the possibility to include an option 'enable/disable bigboard', to show a bigger board.
-
-* Evaluate the possibility to include an option 'enable/disable coords', to show row and column numbers beside the board. Coordinates are already present in graphic mode.
 
 * 'pgnsave' will not save a file identical to the original in a sequence pgnload-pgnsave.
 
@@ -49,10 +47,6 @@ For instance, 'move e2e4' instead of 'My move is : e2e4'.
 * Add support for MS Windows.
 
 * icsdrone for Internet
-
-* 'pgnsave filename.pgn' will not replace filename.pgn, but will append to it.
-This is not supported by the PGN format. The file must be replaced, may be 
-asking the user to confirm or deny, or a new file name must be requested.
 
 * When 'name NAME' is used, the log.nnn file is created, but it will miss
 to include some information compared with v5.

@@ -499,8 +499,10 @@ void cmd_pgnreplay(void)
 
 void cmd_next(void)
 {
-  if (!pgnloaded)
+  if (!pgnloaded) {
+    printf(_("Error: PGN file not loaded!\n"));
     return;
+  }
 
   if ((GameCnt+1) <= pgncnt) {
     ChangeColor( true );
@@ -518,8 +520,10 @@ void cmd_next(void)
 
 void cmd_previous(void)
 {
-  if (!pgnloaded)
+  if (!pgnloaded) {
+    printf(_("Error: PGN file not loaded!\n"));
     return;
+  }
 
   if (GameCnt >= 0) {
     ChangeColor( true );
@@ -538,8 +542,10 @@ void cmd_previous(void)
 
 void cmd_last(void)
 {
-  if (!pgnloaded)
+  if (!pgnloaded) {
+    printf(_("Error: PGN file not loaded!\n"));
     return;
+  }
 
   while (GameCnt+1 <= pgncnt) {
     ChangeColor( true );
@@ -554,8 +560,10 @@ void cmd_last(void)
 
 void cmd_first(void)
 {
-  if (!pgnloaded)
+  if (!pgnloaded) {
+    printf(_("Error: PGN file not loaded!\n"));
     return;
+  }
 
   while (GameCnt >= 0) {
     if (GameCnt >= 0) {
@@ -725,9 +733,7 @@ void cmd_switch(void)
 void cmd_time(void)
 {
   SetDataToEngine( token[0] );
-  printf( _("Old TimeLimit = %g\n"), TimeLimit[1^board.side] );
   TimeLimit[1^board.side] = atoi(token[1]) / 100.0f ;
-  printf( _("New TimeLimit = %g\n"), TimeLimit[1^board.side] );
 }
 
 void cmd_undo(void)
@@ -852,6 +858,16 @@ void cmd_version(void)
      printf ("%s %s\n", PROGRAM, VERSION);
    else
      printf ("Chess\n");
+}
+
+void cmd_coords(void) {
+    printf(_("Coordinate display enabled.\n"));
+    coords = 1;
+}
+
+void cmd_nocoords(void) {
+    printf(_("Coordinate display disabled.\n"));
+    coords = 0;
 }
 
 void cmd_white(void)
@@ -1091,6 +1107,10 @@ static const char * const helpstr[] = {
    gettext_noop(" Enables display board in graphic mode."),
    "nographic",
    gettext_noop(" Disables graphic mode and display classical view."),
+   "coords",
+   gettext_noop(" Displays the chessboard rank and file in both graphic and classical views."),
+   "nocoords",
+   gettext_noop(" Does not display the chessboard rank and file in either mode(graphic and classical"),
    NULL,
    NULL
 };
@@ -1213,6 +1233,8 @@ const struct methodtable commands[] = {
   { "version", cmd_version },
   { "white", cmd_white },
   { "xboard", cmd_xboard },
+  { "coords", cmd_coords},
+  { "nocoords", cmd_nocoords},
   { NULL, NULL }
 };
 

@@ -2,7 +2,7 @@
 
    GNU Chess frontend
 
-   Copyright (C) 2001-2011 Free Software Foundation, Inc.
+   Copyright (C) 2001-2017 Free Software Foundation, Inc.
 
    GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
@@ -35,6 +35,9 @@
 #include "common.h"
 #include "version.h"
 #include "lexpgn.h"
+#include "gettext.h"
+
+#define _(str) gettext (str)
 
 #define NULL2EMPTY(x) ( (x) ? (x) : "")
 
@@ -46,7 +49,8 @@ void PGNSaveToFile (const char *file, const char *resultstr)
 /****************************************************************************
  *
  *  To save a game into PGN format to a file.  If the file does not exist,
- *  it will create it.  If the file exists, the game is appended to the file.
+ *  it will create it.  If the file exists, the user will be asked for
+ *  permission to overwrite the existing one.
  *
  ****************************************************************************/
 {
@@ -55,10 +59,39 @@ void PGNSaveToFile (const char *file, const char *resultstr)
    int len;
    char *p;
    int i;
+   char answer = '\0'; /* Default: invalid */
    time_t secs;
    struct tm *timestruct;
 
-   fp = fopen (file, "a");		/*  Can we append to it?  */
+   fp = fopen(file, "r");
+   if (fp) {
+     fclose(fp);
+     printf(_("File with name %s already exists.\n"), file);
+     do {
+       printf(_("Overwrite file? [y/n]: "));
+       answer = getchar();
+       
+       if ( answer == '\n' ) {
+         printf(_("Invalid answer! "));         
+         continue;
+       }
+       
+       while( getchar() != '\n' );
+       
+       if (tolower(answer) == 'n') {
+         printf(_("File not saved.\n"));
+         return;
+       }
+       else if (tolower(answer) == 'y') {
+         printf(_("File %s is overwritten.\n"), file);
+       }
+       else {
+         printf(_("Invalid answer!"));
+       } 
+     } while (tolower(answer) != 'y' && tolower(answer) != 'n');
+   }
+   
+   fp = fopen (file, "w");
    if (fp == NULL)
    {
       printf ("Cannot write to file %s\n", file);
