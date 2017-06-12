@@ -59,6 +59,7 @@ char *endptr;
 static int hardFlag=0;
 static int postFlag=0;
 
+
 static void split_input(void)
 {
   /* r points to the last non-space character */
@@ -246,6 +247,7 @@ void cmd_hash(void)
 /* Give a possible move for the player to play */
 void cmd_hint(void)
 {
+  /* An answer is received only if book on - TODO change this in adapter */
   SetDataToEngine( token[0] );
   /* TODO if no hint, inform on stdout */
 }
@@ -327,15 +329,16 @@ void cmd_load(void)
 
 void cmd_manual(void)
 {
-  SetDataToEngine( "force" );
   SET (flags, MANUAL);
+  ExpectAnswerFromEngine( false );
+  SetDataToEngine( "force" );
 }
 
 void cmd_memory(void)
 {
   if (token[1][0] == 0) {
-    SetDataToEngine( "memory" );
     ExpectAnswerFromEngine( true );
+    SetDataToEngine( "memory" );
   } else {
     unsigned int memory;
     if ( sscanf( token[1], "%d", &memory ) == 1 ) {
@@ -343,6 +346,7 @@ void cmd_memory(void)
       sprintf( data, "memory %d\nmemory", memory );
       SetDataToEngine( data );
     }
+/* TODO Handle error */
   }
 }
 
@@ -401,6 +405,7 @@ void cmd_nopost(void)
 {
   CLEAR (flags, POST);
   postFlag = 0;
+  ExpectAnswerFromEngine( false );
   SetDataToEngine( token[0] );
 }
 
@@ -608,6 +613,7 @@ void cmd_nographic(void)
 
 void cmd_ping(void)
 {
+  /* TODO cf. 5.08 */
   SetDataToEngine( token[0] );
   /* If ping is received when we are on move, we are supposed to
      reply only after moving.  In this version of GNU Chess, we
@@ -619,11 +625,15 @@ void cmd_ping(void)
 
 void cmd_post(void)
 {
+  /* TODO State makes no sense */
   SET (flags, POST);
   postFlag = 1;
   if ( hardFlag && postFlag )
     ExpectAnswerFromEngine( true );
-  ExpectAnswerFromEngine( true );
+  if ( flags & XBOARD )
+    ExpectAnswerFromEngine( true );
+  else
+    ExpectAnswerFromEngine( false );
   SetDataToEngine( token[0] );
 }
 
@@ -681,6 +691,7 @@ void cmd_remove(void)
 
 void cmd_result(void)
 {
+  /* TODO Do not send to engine */
   SetDataToEngine( token[0] );
   if (ofp != stdout) {
     fprintf(ofp, "result: %s\n",token[1]);
@@ -711,7 +722,10 @@ void cmd_setboard(void)
   SetDataToEngine(data);
 }
 
-void cmd_solve(void) { Solve (token[1]); }
+void cmd_solve(void)
+{
+  Solve (token[1]);
+}
 
 /* Set total time for move to be N seconds is "st N" */
 void cmd_st(void)
@@ -732,6 +746,7 @@ void cmd_switch(void)
 
 void cmd_time(void)
 {
+  /* TODO send what? */
   SetDataToEngine( token[0] );
   TimeLimit[1^board.side] = atoi(token[1]) / 100.0f ;
 }
@@ -809,6 +824,7 @@ Report bugs to <bug-gnu-chess@gnu.org>.\n\
 /* Play variant, we instruct interface in protover we play normal */
 void cmd_variant(void) {}
 
+/* TODO Not in 5.08 */
 void cmd_usermove(void)
 {
   /* TODO: Remove the first SetDataToEngine */
@@ -902,6 +918,7 @@ void cmd_show (void)
  *
  ************************************************************************/
 {
+   /* TODO Remove gettext support */
    if (tokeneq (token[1], "board"))
       ShowBoard ();
    else if (tokeneq (token[1], "rating"))
@@ -1110,7 +1127,7 @@ static const char * const helpstr[] = {
    "coords",
    gettext_noop(" Displays the chessboard rank and file in both graphic and classical views."),
    "nocoords",
-   gettext_noop(" Does not display the chessboard rank and file in either mode(graphic and classical"),
+   gettext_noop(" Does not display the chessboard rank and file in either mode (graphic and classical"),
    NULL,
    NULL
 };

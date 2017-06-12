@@ -1,7 +1,31 @@
-2017-06-11  Antonio Ceballos  <aceballos@gmail.com>
+2017-06-12  Antonio Ceballos  <aceballos@gmail.com>
 
 	* AUTHORS: several fixes and small enhancements.
 	* TODO: several fixes and small enhancements.
+	* NEWS: version 6.2.5-rc2.
+	* doc/version.texi: version 6.2.5-rc2.
+	* configure.ac: version 6.2.5-rc2.
+	* po/eo.po: updated translation.
+	* ChangeLog: merge branches/readline.
+	* src/main.cc: merge branches/readline.
+	* src/components.cc: merge branches/readline.
+	* src/components.h: merge branches/readline.
+	* src/config.h.in: merge branches/readline.
+	* src/frontend/input.cc: merge branches/readline.
+	* src/frontend/output.cc: merge branches/readline.
+	* src/frontend/cmd.cc: merge branches/readline.
+	* src/frontend/engine.cc: merge branches/readline.
+	* src/frontend/Makefile.am: merge branches/readline.
+	* src/frontend/common.h: merge branches/readline.
+	* src/frontend/common.h: merge branches/readline.
+	* src/frontend/output.cc: merge branches/readline.
+	* src/frontend/pgn.cc: merge branches/readline.
+	* test/commands: merge branches/readline.
+	* test/commands/Polgar-Karpov.pgn: merge branches/readline.
+	* test/commands/smallbook.bin: merge branches/readline.
+	* test/commands/Polgar-Karpov.epd: merge branches/readline.
+	* test/commands/gnuchess.ini: merge branches/readline.
+	* test/commands/test_command.tcl: merge branches/readline.
 
 2017-06-11  Pranav Deshpande <deshpande.v.pranav@gmail.com>
 
@@ -21,6 +45,81 @@
 	* src/frontend/output.cc: remove unused function ShowSmallBoard.
 	* src/frontend/common.h: remove unused function ShowSmallBoard.
 	* po/POTFILES: typo: cmd.c for cmd.cc.
+
+2017-01-29  Antonio Ceballos  <aceballos@gmail.com>
+
+	branches/readline:
+	* src/frontend/input.cc: don't send '\n' if standard get line
+	instead of readline.
+
+2017-01-29  Antonio Ceballos  <aceballos@gmail.com>
+
+	branches/readline:
+	* TODO: remove readline task.
+	* NEWS: readline support.
+
+2017-01-21  Antonio Ceballos  <aceballos@gmail.com>
+
+	branches/readline:
+	* src/components.h: clean up code.
+	* src/gnuchess.ini: clean up code.
+
+2017-01-20  Antonio Ceballos  <aceballos@gmail.com>
+
+	branches/readline:
+	* TODO: bug when playing at ICS.
+
+2017-01-19  Antonio Ceballos  <aceballos@gmail.com>
+
+	branches/readline:
+	* src/frontend/cmd.cc: synchronize input thread.
+
+2017-01-18  Antonio Ceballos  <aceballos@gmail.com>
+
+	branches/readline:
+	* src/components.cc: cancel input thread.
+	* src/frontend/common.h: clean up code.
+	* src/frontend/engine.cc: clean up code.
+	* src/frontend/input.cc: add last command to history,
+	clean up code.
+	* test/commands/test_commands.tcl: comment out some test cases.
+
+2017-01-15  Antonio Ceballos  <aceballos@gmail.com>
+
+	branches/readline:
+	* src/components.cc: join input thread.
+	* src/components.h: join input thread.
+	* src/main.cc: reset terminal on exit, catch SIGINT,
+	join input thread.
+	* src/frontend/cmd.cc: synchronize input thread.
+	* src/frontend/engine.cc: input wakeup, prompt in manual mode.
+	* src/frontend/input.cc: new file to handle user input.
+	* test/commands/test_commands.tcl: fix some test cases.
+
+2017-01-09  Antonio Ceballos  <aceballos@gmail.com>
+
+	branches/readline:
+	* src/frontend/cmd.cc: some TODOs to review commands.
+	* test/commands/test_commands.tcl: add some test cases.
+
+2017-01-08  Antonio Ceballos  <aceballos@gmail.com>
+
+	branches/readline:
+	* doc/version.texi: version 6.2.5-rc1.
+	* po/POTFILES: replace cmd.c by cmd.cc.
+	* src/components.cc: input thread.
+	* src/main.cc: do not show prompt in main thread.
+	* src/frontend/Makefile.am: add source input.cc.
+	* src/frontend/cmd.cc: synchronize input thread.
+	* src/frontend/common.h: input thread.
+	* src/frontend/engine.cc: input thread, replace stdin by
+	pipe to input thread.
+	* test/commands/: new directory to test commands.
+	* test/commands/Polgar-Karpov.epd: sample game in EPD format.
+	* test/commands/Polgar-Karpov.pgn: sample game in PGN format.
+	* test/commands/gnuchess.ini: sample configuration.
+	* test/commands/smallbook.bin: sample book.
+	* test/commands/test_commands.tcl: test harness based on expect.
 
 2016-10-29  Antonio Ceballos  <aceballos@gmail.com>
 

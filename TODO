@@ -10,14 +10,20 @@ Items are in random order, mostly reverse chronological.
 
 Top priority:
 
-* Add a test harness for module-level testing..
+* When working in ICS, first game will fail to work post.
 
-* Consider using readline: replace calls to read() in frontend/engine.cc by calls to get_line(), the latter defined as in v5.08. Useful examples in the package examples directory. Those based on rl_callback_read_char can be interesting. See also http://www.gnu.org/software/autoconf-archive/ax_lib_readline.html.
+* Add auto-completion command based on readline.
 
 * Clean and refurbish frontend new code: components.cc, engine.cc, etc.
 
 * Add support for Chess Engine Communication Protocol version 2.
 http://www.open-aurec.com/wbforum/WinBoard/engine-intf.html
+
+* GA/EC venture to make the chess engine stronger.
+
+* End-game table
+
+* Get benefit from multiple-core processors, by sharing search across them.
 
 Normal priority:
 
@@ -56,12 +62,6 @@ to include some information compared with v5.
 * Include PolyGlot's book making capability.
 
 * Include PolyGlot's book merging capability.
-
-* GA/EC venture to make the chess engine stronger.
-
-* Get benefit from multiple-core processors, by sharing search across them.
-
-* End-game table
 
 * Bug: in FICS, after quiting in the middle of a game, logging in again,
 accepting resuming game as proposed by opponent, the opponent moved but

@@ -1,14 +1,14 @@
 # Esperanto translation
-# Copyright (C) 2013 Free Software Foundation, Inc.
+# Copyright (C) 2013, 2016 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnuchess package.
-# Felipe Castro <fefcas@gmail.com>, 2013.
+# Felipe Castro <fefcas@gmail.com>, 2013, 2016.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnuchess 6.1.1\n"
+"Project-Id-Version: gnuchess 6.2.2-rc1\n"
 "Report-Msgid-Bugs-To: bug-gnu-chess@gnu.org\n"
-"POT-Creation-Date: 2013-11-23 11:06+0100\n"
-"PO-Revision-Date: 2013-11-25 08:03-0300\n"
+"POT-Creation-Date: 2015-09-13 00:01+0200\n"
+"PO-Revision-Date: 2016-10-12 22:33-0300\n"
 "Last-Translator: Felipe Castro <fefcas@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
 "Language: eo\n"
@@ -17,6 +17,38 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
+
+#: src/main.cc:317
+#, c-format
+msgid "Memory out of Range or Invalid\n"
+msgstr "La memoro estas for de limoj aŭ ne validas\n"
+
+#: src/main.cc:334
+#, c-format
+msgid "File name is too long (max = %d)\n"
+msgstr "Dosiernomo tro longas (maks = %d)\n"
+
+#: src/main.cc:340
+msgid "Option Processing Failed\n"
+msgstr "Procezado de modifilo malsukcesis\n"
+
+#: src/main.cc:381
+#, c-format
+msgid ""
+"Copyright (C) %s Free Software Foundation, Inc.\n"
+"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+"Kopirajto (©) %s Free Software Foundation, Inc.\n"
+"Permeso GPLv3+: GNU GPL versio 3 aŭ posta <http://gnu.org/licenses/gpl.html>\n"
+"Tio ĉi estas libera programaro: vi estas libera por ŝanĝi kaj redisdoni ĝin.\n"
+"Estas NENIU GARANTIO, tiom kiom permesite de la leĝoj.\n"
+
+#: src/main.cc:494
+#, c-format
+msgid "Thinking...\n"
+msgstr "Pensanta...\n"
 
 #: src/frontend/cmd.cc:101
 #, c-format
@@ -688,6 +720,23 @@ msgstr ""
 #, c-format
 msgid "List of commands: (help COMMAND to get more help)\n"
 msgstr "Listo de komandoj: (help KOMANDO por havi pli da helpo)\n"
+
+#: src/frontend/engine.cc:247
+msgid "Black"
+msgstr "Nigra"
+
+#: src/frontend/engine.cc:247
+msgid "White"
+msgstr "Blanka"
+
+#: src/frontend/engine.cc:333
+#, c-format
+msgid ""
+"\n"
+"My move is : %s\n"
+msgstr ""
+"\n"
+"Mia movo estas : %s\n"
 
 #~ msgid " an INCREMENT (in seconds, i.e. Fischer-style clock)."
 #~ msgstr " PLIIGO (laŭ sekundoj, t.e. Fischer-stila horloĝo)."

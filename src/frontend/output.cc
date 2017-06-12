@@ -269,7 +269,7 @@ void ShowClassicalBoard(const char *boardmap)
   unsigned row = 8;
   
   for (i =0; i < MAX_BOARD_RANGE; ++i) {
-    if ((i > 0) && (i % 8 == 0)) {
+    if ((i >= 0) && (i % 8 == 0)) {
       fprintf(ofp, "\n");
     
       if ( coords == 1 ) {

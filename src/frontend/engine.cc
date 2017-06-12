@@ -1,5 +1,5 @@
 /* engine.c
-
+ 
    GNU Chess frontend
 
    Copyright (C) 2001-2015 Free Software Foundation, Inc.
@@ -52,9 +52,6 @@ static int answerFromEngineExpected=false;
 /* A BUF_SIZE long char string made up of null characters */
 static char zerochar[BUF_SIZE];
 
-/* Whether the prompt must be displayed or not. */
-static int showprompt=1;
-
 /* Buffer storing the input entered by the user */
 char userinputbuf[BUF_SIZE]="";
 
@@ -79,6 +76,8 @@ static int GetNextLine( char buf[], char line[] );
 static int GetDataToEngine( char data[] );
 static int AnswerFromEngineExpected( void );
 static int UserInputIsAValidMove( void );
+void InitInputThread(void);
+void input_wakeup( void );
 
 /*
  * Initializes data used in the frontend.
@@ -89,6 +88,8 @@ void InitFrontend( void )
   int i;
   for ( i=0; i<BUF_SIZE; ++i )
     zerochar[i] = '\0';
+  InitInput();
+  InitInputThread();
 }
 
 /*
@@ -174,17 +175,17 @@ void ReadFromUser( void )
 
   /* Poll input from user in non-blocking mode */
   FD_ZERO(set);
-  FD_SET(STDIN_FILENO,set);
+  FD_SET(pipefd_i2f[0],set);
   time_val->tv_sec = 0;
   time_val->tv_usec = 0;
-  userinputready = select( STDIN_FILENO+1, set, NULL, NULL, time_val );
+  userinputready = select( pipefd_i2f[0]+1, set, NULL, NULL, time_val );
 
   if ( userinputready == -1 ) {
     printf( "Error reading user input.\n" );
   } else if ( userinputready > 0 ) {
     /* There are some data from the user. Store it in buffer */
     strncpy( userinputaux, zerochar, BUF_SIZE );
-    nread = read( STDIN_FILENO, userinputaux, BUF_SIZE );
+    nread = read( pipefd_i2f[0], userinputaux, BUF_SIZE );
     strcat( userinputbuf, userinputaux );
     userinputbuf[strlen( userinputbuf ) + nread] = '\0';
   }
@@ -236,23 +237,6 @@ static int AnswerFromEngineExpected( void )
 }
 
 /*
- * If the prompt must be displayed on the standard output, according to
- * the current state, it is displayed.
- */
-void ShowPrompt( void )
-{
-  char prompt[MAXSTR] = "";
-  if ( showprompt && !(flags & XBOARD) ) {
-    sprintf(prompt,"%s (%d) : ",
-            RealSide ? _("Black") : _("White"),
-            (RealGameCnt+1)/2 + 1 );
-    fprintf( stdout, "%s", prompt );
-    fflush( stdout );
-    showprompt = 0;
-  }
-}
-
-/*
  * Extracts a command from the user input buffer.
  *
  * The command is removed from the buffer.
@@ -281,17 +265,18 @@ void NextUserCmd( void )
             SetAutoGo( false );
         }
       }
-      showprompt = !AnswerFromEngineExpected();
       /* Check if command was entered in manual mode */
       if ( (flags & MANUAL) && UserInputIsAValidMove() ) {
         RealGameCnt = GameCnt;
         RealSide = board.side;
-        showprompt = 1;
       }
       /* Check if the color must be changed, e.g. after an undo command. */
       if ( changeColor ) {
         RealGameCnt = GameCnt;
         RealSide = board.side;
+      }
+      if ( !AnswerFromEngineExpected() || (flags & MANUAL) ) {
+        input_wakeup();
       }
     }
   }
@@ -339,18 +324,21 @@ void NextEngineCmd( void )
                   fflush( stdout );
           }
           RealGameCnt = GameCnt;
-          showprompt = 1;
           /* Check if the color must be changed, e.g. after a go command. */
           if ( changeColor ) {
             RealGameCnt = GameCnt;
             RealSide = board.side;
           }
+          input_wakeup();
         }
       } else {
         dbg_printf( "USER <: %s\n",engineinput );
         printf( "%s", engineinput );
         if ( flags & XBOARD ) {
           fflush( stdout );
+        }
+        if ( AnswerFromEngineExpected() ) {
+          input_wakeup();
         }
       }
     }

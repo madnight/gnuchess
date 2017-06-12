@@ -1,6 +1,6 @@
 /* GNU Chess 6 - components.h - Pipes shared across modules
 
-   Copyright (c) 2001-2015 Free Software Foundation, Inc.
+   Copyright (c) 2001-2017 Free Software Foundation, Inc.
 
    GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
@@ -23,9 +23,14 @@
      cracraft@ai.mit.edu, cracraft@stanfordalumni.org, cracraft@earthlink.net
 */
 
+#ifndef COMPONENTS_H
+#define COMPONENTS_H
+
 #include <pthread.h>
 
 /* File descriptors for the pipes to be used to communicate frontend, adapter and engine */
+
+extern int pipefd_i2f[2];
 
 extern int pipefd_f2a[2];
 extern int pipefd_a2f[2];
@@ -33,18 +38,20 @@ extern int pipefd_a2f[2];
 extern int pipefd_a2e[2];
 extern int pipefd_e2a[2];
 
-/* Adapter thread */
-extern pthread_t adapter_thread;
-
 /*
  * Entry point for the adapter thread
  */
+void *input_func(void *arg);
 void *adapter_func(void *arg);
 void *engine_func(void *arg);
 
 /*
  * Starts the adapter (based on Polyglot 1.4) on a separate thread.
  */
+void InitInput();
 void InitAdapter();
 void InitEngine();
 void TerminateAdapterEngine();
+void TerminateInput();
+
+#endif /* COMPONENTS_H */

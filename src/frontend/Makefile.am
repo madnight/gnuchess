@@ -22,7 +22,7 @@ libfrontend_a_SOURCES = atak.cc cmd.cc debug.cc epd.cc genmove.cc \
  init.cc move.cc output.cc players.cc\
  pgn.cc solve.cc \
  swap.cc util.cc engine.cc common.h \
- inlines.h version.h lexpgn.ll lexpgn.h
+ inlines.h version.h lexpgn.ll lexpgn.h input.cc
 
 AM_CPPFLAGS = -I$(top_srcdir)/src -I$(top_srcdir)/lib
 
