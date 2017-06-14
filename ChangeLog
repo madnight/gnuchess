@@ -1,3 +1,11 @@
+2017-06-15  Antonio Ceballos  <aceballos@gmail.com>
+
+	* configure.ac: version 6.2.5-rc3.
+	* doc/version.texi: version 6.2.5-rc3.
+	* po/POTFILES.in: add pgn.cc.
+	* po/gnuchess.pot: regenerated translatable strings.
+	* src/frontend/cmd.cc: fix translatable string.
+
 2017-06-12  Antonio Ceballos  <aceballos@gmail.com>
 
 	* AUTHORS: several fixes and small enhancements.

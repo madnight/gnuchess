@@ -1,4 +1,4 @@
 @set UPDATED 18 September 2016
 @set UPDATED-MONTH September 2016
-@set EDITION 6.2.5-rc2
-@set VERSION 6.2.5-rc2
+@set EDITION 6.2.5-rc3
+@set VERSION 6.2.5-rc3

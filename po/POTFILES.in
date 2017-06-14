@@ -10,3 +10,4 @@
 src/main.cc
 src/frontend/cmd.cc
 src/frontend/engine.cc
+src/frontend/pgn.cc

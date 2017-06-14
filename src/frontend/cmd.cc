@@ -1127,7 +1127,7 @@ static const char * const helpstr[] = {
    "coords",
    gettext_noop(" Displays the chessboard rank and file in both graphic and classical views."),
    "nocoords",
-   gettext_noop(" Does not display the chessboard rank and file in either mode (graphic and classical"),
+   gettext_noop(" Does not display the chessboard rank nor file in either mode (graphic nor classical)"),
    NULL,
    NULL
 };
