@@ -98,7 +98,7 @@ char *return_append_str(char *dest, const char *s) {
 	/* This doesn't have buffer overflow vulnerabilities, because
 	   we always allocate for enough space before appending. */
 	if (!dest) {
-		newloc = (char *) malloc(strlen(s))+1;
+		newloc = (char *) malloc(strlen(s)+1);
 		strcpy(newloc, s);
 		return newloc;
 	}

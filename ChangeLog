@@ -1,3 +1,8 @@
+2017-07-24  Mark Hermeling  <mhermeling@grammatech.com>  (tiny change)
+
+	* src/frontend/lexpgn.ll: buffer overrun in return_append_str.
+	* src/frontend/lexpgn.cc: buffer overrun in return_append_str.
+
 2017-06-15  Antonio Ceballos  <aceballos@gmail.com>
 
 	* configure.ac: version 6.2.5-rc3.

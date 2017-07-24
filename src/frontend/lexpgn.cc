@@ -1,5 +1,5 @@
 
-#line 3 "lexpgn.c"
+#line 3 "lexpgn.cc"
 
 #define  YY_INT_ALIGNED short int
 
@@ -33,7 +33,7 @@
 #if defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
 
 /* C99 says to define __STDC_LIMIT_MACROS before including stdint.h,
- * if you want the limit (max/min) macros for int types.
+ * if you want the limit (max/min) macros for int types. 
  */
 #ifndef __STDC_LIMIT_MACROS
 #define __STDC_LIMIT_MACROS 1
@@ -50,7 +50,7 @@ typedef uint32_t flex_uint32_t;
 typedef signed char flex_int8_t;
 typedef short int flex_int16_t;
 typedef int flex_int32_t;
-typedef unsigned char flex_uint8_t;
+typedef unsigned char flex_uint8_t; 
 typedef unsigned short int flex_uint16_t;
 typedef unsigned int flex_uint32_t;
 #endif /* ! C99 */
@@ -166,7 +166,7 @@ extern FILE *yyin, *yyout;
 #define EOB_ACT_LAST_MATCH 2
 
     #define YY_LESS_LINENO(n)
-
+    
 /* Return all but the first "n" matched characters back to the input stream. */
 #define yyless(n) \
 	do \
@@ -223,7 +223,7 @@ struct yy_buffer_state
 
     int yy_bs_lineno; /**< The line count. */
     int yy_bs_column; /**< The column count. */
-
+    
 	/* Whether to try to fill the input buffer when we reach the
 	 * end of it.
 	 */
@@ -2120,8 +2120,8 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "lexpgn.l"
-#line 2 "lexpgn.l"
+#line 1 "lexpgn.ll"
+#line 2 "lexpgn.ll"
 
 /* lexpgn by David A. Wheeler (http://www.dwheeler.com).
 
@@ -2129,7 +2129,7 @@ char *yytext;
 
    Copyright (C) 2001-2011 Free Software Foundation, Inc.
 
-   GNU Chess is based on the two research programs
+   GNU Chess is based on the two research programs 
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
 
    This program is free software: you can redistribute it and/or modify
@@ -2145,7 +2145,7 @@ char *yytext;
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-   Contact Info:
+   Contact Info: 
      bug-gnu-chess@gnu.org
      cracraft@ai.mit.edu, cracraft@stanfordalumni.org, cracraft@earthlink.net
  ******************
@@ -2191,7 +2191,7 @@ char *yytext;
 
 
 enum tagtype { NO_TAG, EVENT_TAG, SITE_TAG, DATE_TAG, ROUND_TAG,
-	       WHITE_TAG, BLACK_TAG, RESULT_TAG,
+	       WHITE_TAG, BLACK_TAG, RESULT_TAG, 
                WHITE_ELO_TAG, BLACK_ELO_TAG,
                WHITETITLE_TAG, BLACKTITLE_TAG, FEN_TAG,
                OTHER_TAG };
@@ -2200,7 +2200,7 @@ enum data_destination_t data_dest;
 
 #define yyterminate() { if ( seen_tags || seen_moves) return 1; \
 			return 2; }
-
+		
 
 char *pgn_event;
 char *pgn_site;
@@ -2221,7 +2221,7 @@ char *return_append_str(char *dest, const char *s) {
 	/* This doesn't have buffer overflow vulnerabilities, because
 	   we always allocate for enough space before appending. */
 	if (!dest) {
-		newloc = (char *) malloc(strlen(s))+1;
+		newloc = (char *) malloc(strlen(s)+1);
 		strcpy(newloc, s);
 		return newloc;
 	}
@@ -2259,7 +2259,7 @@ void append_comment(const char *t) {
 
 
 
-#line 2263 "lexpgn.c"
+#line 2263 "lexpgn.cc"
 
 #define INITIAL 0
 #define tag_gobble 1
@@ -2326,7 +2326,7 @@ extern int yywrap (void );
 #endif
 
     static void yyunput (int c,char *buf_ptr  );
-
+    
 #ifndef yytext_ptr
 static void yy_flex_strncpy (char *,yyconst char *,int );
 #endif
@@ -2434,8 +2434,8 @@ YY_DECL
 	register yy_state_type yy_current_state;
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
-
-#line 153 "lexpgn.l"
+    
+#line 153 "lexpgn.ll"
 
 	/* These are executed on each entry to the code */
 	int seen_tags = 0;
@@ -2449,7 +2449,7 @@ YY_DECL
 	leaf *p;
 
 
-#line 2453 "lexpgn.c"
+#line 2453 "lexpgn.cc"
 
 	if ( !(yy_init) )
 		{
@@ -2524,17 +2524,17 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 /* rule 1 can match eol */
 YY_RULE_SETUP
-#line 166 "lexpgn.l"
+#line 166 "lexpgn.ll"
 { /* Ignore whitespace */ }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 167 "lexpgn.l"
+#line 167 "lexpgn.ll"
 { /* Ignore PGN escape. We'll allow initial space. */ }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 169 "lexpgn.l"
+#line 169 "lexpgn.ll"
 {
 	/* Handle "[".  If we've already seen a move, return "[" to
 	   the stream and return. */
@@ -2553,72 +2553,72 @@ YY_RULE_SETUP
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 186 "lexpgn.l"
+#line 186 "lexpgn.ll"
 {BEGIN(INITIAL);}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 188 "lexpgn.l"
+#line 188 "lexpgn.ll"
 {ctag = WHITE_TAG; BEGIN(tagsep);}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 189 "lexpgn.l"
+#line 189 "lexpgn.ll"
 {ctag = BLACK_TAG; BEGIN(tagsep);}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 190 "lexpgn.l"
+#line 190 "lexpgn.ll"
 {ctag = RESULT_TAG; BEGIN(tagsep);}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 191 "lexpgn.l"
+#line 191 "lexpgn.ll"
 {ctag = WHITETITLE_TAG; BEGIN(tagsep);}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 192 "lexpgn.l"
+#line 192 "lexpgn.ll"
 {ctag = BLACKTITLE_TAG; BEGIN(tagsep);}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 193 "lexpgn.l"
+#line 193 "lexpgn.ll"
 {ctag = FEN_TAG; BEGIN(tagsep);}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 194 "lexpgn.l"
+#line 194 "lexpgn.ll"
 {ctag = EVENT_TAG; BEGIN(tagsep);}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 195 "lexpgn.l"
+#line 195 "lexpgn.ll"
 {ctag = SITE_TAG; BEGIN(tagsep);}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 196 "lexpgn.l"
+#line 196 "lexpgn.ll"
 {ctag = DATE_TAG; BEGIN(tagsep);}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 197 "lexpgn.l"
+#line 197 "lexpgn.ll"
 {ctag = ROUND_TAG; BEGIN(tagsep);}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 198 "lexpgn.l"
+#line 198 "lexpgn.ll"
 {ctag = WHITE_ELO_TAG; BEGIN(tagsep);}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 199 "lexpgn.l"
+#line 199 "lexpgn.ll"
 {ctag = BLACK_ELO_TAG; BEGIN(tagsep);}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 200 "lexpgn.l"
+#line 200 "lexpgn.ll"
 {
 	ctag = OTHER_TAG;
 	if (yyleng >= (sizeof(tagname)-1)) {
@@ -2631,18 +2631,18 @@ YY_RULE_SETUP
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 209 "lexpgn.l"
+#line 209 "lexpgn.ll"
 {BEGIN(INITIAL); /* No tag name, skip. */}
 	YY_BREAK
 case 19:
 /* rule 19 can match eol */
 YY_RULE_SETUP
-#line 210 "lexpgn.l"
+#line 210 "lexpgn.ll"
 {BEGIN(INITIAL); /* Line ended early. */}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 211 "lexpgn.l"
+#line 211 "lexpgn.ll"
 {
 	printf("Bad character as tag name: %s\n", yytext);
 	return 1;
@@ -2650,12 +2650,12 @@ YY_RULE_SETUP
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 216 "lexpgn.l"
+#line 216 "lexpgn.ll"
 {BEGIN(tagdata);}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 217 "lexpgn.l"
+#line 217 "lexpgn.ll"
 {
 	printf("Bad character as tag separator: %s\n", yytext);
 	return 1;
@@ -2663,7 +2663,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 222 "lexpgn.l"
+#line 222 "lexpgn.ll"
 { /* tag data */
 
 	/* We start at first " in tag, and must match
@@ -2771,28 +2771,28 @@ YY_RULE_SETUP
 case 24:
 /* rule 24 can match eol */
 YY_RULE_SETUP
-#line 326 "lexpgn.l"
+#line 326 "lexpgn.ll"
 {BEGIN(INITIAL);}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 327 "lexpgn.l"
+#line 327 "lexpgn.ll"
 {BEGIN(INITIAL); /* Garbage, do what can. */}
 	YY_BREAK
 case 26:
 /* rule 26 can match eol */
 YY_RULE_SETUP
-#line 328 "lexpgn.l"
+#line 328 "lexpgn.ll"
 {BEGIN(INITIAL); /* End-of-line. */}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 330 "lexpgn.l"
+#line 330 "lexpgn.ll"
 {BEGIN(INITIAL); /* Consume leftover */}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 332 "lexpgn.l"
+#line 332 "lexpgn.ll"
 { /* PGN comment */
 	seen_moves = 1;
 	append_comment(yytext);
@@ -2801,7 +2801,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 338 "lexpgn.l"
+#line 338 "lexpgn.ll"
 { /* PGN comment */
 	seen_moves = 1;
 	append_comment(yytext);
@@ -2811,14 +2811,14 @@ YY_RULE_SETUP
 case 30:
 /* rule 30 can match eol */
 YY_RULE_SETUP
-#line 343 "lexpgn.l"
+#line 343 "lexpgn.ll"
 { /* PGN comment; may embed \n */
 	append_comment(yytext);
 	}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 346 "lexpgn.l"
+#line 346 "lexpgn.ll"
 {
 	append_comment(yytext);
 	BEGIN(INITIAL);
@@ -2827,29 +2827,29 @@ YY_RULE_SETUP
 case 32:
 /* rule 32 can match eol */
 YY_RULE_SETUP
-#line 350 "lexpgn.l"
+#line 350 "lexpgn.ll"
 { append_comment("\n"); }
 	YY_BREAK
 case 33:
 /* rule 33 can match eol */
 YY_RULE_SETUP
-#line 351 "lexpgn.l"
+#line 351 "lexpgn.ll"
 { append_comment("\n"); }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 352 "lexpgn.l"
+#line 352 "lexpgn.ll"
 { append_comment("\n"); }
 	YY_BREAK
 case 35:
 /* rule 35 can match eol */
 YY_RULE_SETUP
-#line 353 "lexpgn.l"
+#line 353 "lexpgn.ll"
 { append_comment("\n"); }
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 356 "lexpgn.l"
+#line 356 "lexpgn.ll"
 { seen_moves = 1; /* Numeric Annotation Glyph */
 	append_comment(yytext);
 	}
@@ -2857,30 +2857,30 @@ YY_RULE_SETUP
 case 37:
 /* rule 37 can match eol */
 YY_RULE_SETUP
-#line 360 "lexpgn.l"
+#line 360 "lexpgn.ll"
 { return 0; /* could check if consistent w/Result */ }
 	YY_BREAK
 case 38:
 /* rule 38 can match eol */
 YY_RULE_SETUP
-#line 361 "lexpgn.l"
+#line 361 "lexpgn.ll"
 { return 0; }
 	YY_BREAK
 case 39:
 /* rule 39 can match eol */
 YY_RULE_SETUP
-#line 362 "lexpgn.l"
+#line 362 "lexpgn.ll"
 { return 0; }
 	YY_BREAK
 case 40:
 /* rule 40 can match eol */
 YY_RULE_SETUP
-#line 363 "lexpgn.l"
+#line 363 "lexpgn.ll"
 { return 0; }
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 365 "lexpgn.l"
+#line 365 "lexpgn.ll"
 { seen_moves = 1; /* Move number */
 	if (firstmovenum == -1) {
 		/* TODO: Use this info somehow */
@@ -2893,12 +2893,12 @@ YY_RULE_SETUP
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 375 "lexpgn.l"
+#line 375 "lexpgn.ll"
 { seen_moves = 1; side = black; }
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 378 "lexpgn.l"
+#line 378 "lexpgn.ll"
 { /* Process a move */
 	seen_moves = 1;
 	if (data_dest != DEST_TRASH) {
@@ -2923,42 +2923,42 @@ YY_RULE_SETUP
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 400 "lexpgn.l"
+#line 400 "lexpgn.ll"
 { rav_count = 1; append_comment(yytext); BEGIN(RAV); }
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 401 "lexpgn.l"
+#line 401 "lexpgn.ll"
 { rav_count++; append_comment(yytext); }
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 402 "lexpgn.l"
+#line 402 "lexpgn.ll"
 { rav_count--; append_comment(yytext);
 	 if (rav_count <=0) BEGIN(INITIAL); }
 	YY_BREAK
 case 47:
 /* rule 47 can match eol */
 YY_RULE_SETUP
-#line 404 "lexpgn.l"
-{ append_comment(yytext);
+#line 404 "lexpgn.ll"
+{ append_comment(yytext); 
 		/* We escape [ to avoid problems with
 		   unclosed RAV */
 		}
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 408 "lexpgn.l"
+#line 408 "lexpgn.ll"
 { yyless(0) ; BEGIN(INITIAL); return(0) ; /* Damn humans */}
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 409 "lexpgn.l"
+#line 409 "lexpgn.ll"
 { append_comment(yytext); }
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 412 "lexpgn.l"
+#line 412 "lexpgn.ll"
 {
 	 printf("Invalid character %c in input stream.\n", yytext[0]);
 	 return 1;
@@ -2966,10 +2966,10 @@ YY_RULE_SETUP
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 417 "lexpgn.l"
+#line 417 "lexpgn.ll"
 ECHO;
 	YY_BREAK
-#line 2973 "lexpgn.c"
+#line 2973 "lexpgn.cc"
 case YY_STATE_EOF(INITIAL):
 case YY_STATE_EOF(tag_gobble):
 case YY_STATE_EOF(tagsymbol):
@@ -3254,7 +3254,7 @@ static int yy_get_next_buffer (void)
 {
 	register yy_state_type yy_current_state;
 	register char *yy_cp;
-
+    
 	yy_current_state = (yy_start);
 	yy_current_state += YY_AT_BOL();
 
@@ -3299,7 +3299,7 @@ static int yy_get_next_buffer (void)
     static void yyunput (int c, register char * yy_bp )
 {
 	register char *yy_cp;
-
+    
     yy_cp = (yy_c_buf_p);
 
 	/* undo effects of setting up yytext */
@@ -3342,7 +3342,7 @@ static int yy_get_next_buffer (void)
 
 {
 	int c;
-
+    
 	*(yy_c_buf_p) = (yy_hold_char);
 
 	if ( *(yy_c_buf_p) == YY_END_OF_BUFFER_CHAR )
@@ -3411,12 +3411,12 @@ static int yy_get_next_buffer (void)
 
 /** Immediately switch to a different input stream.
  * @param input_file A readable stream.
- *
+ * 
  * @note This function does not reset the start condition to @c INITIAL .
  */
     void yyrestart  (FILE * input_file )
 {
-
+    
 	if ( ! YY_CURRENT_BUFFER ){
         yyensure_buffer_stack ();
 		YY_CURRENT_BUFFER_LVALUE =
@@ -3429,11 +3429,11 @@ static int yy_get_next_buffer (void)
 
 /** Switch to a different input buffer.
  * @param new_buffer The new input buffer.
- *
+ * 
  */
     void yy_switch_to_buffer  (YY_BUFFER_STATE  new_buffer )
 {
-
+    
 	/* TODO. We should be able to replace this entire function body
 	 * with
 	 *		yypop_buffer_state();
@@ -3473,13 +3473,13 @@ static void yy_load_buffer_state  (void)
 /** Allocate and initialize an input buffer state.
  * @param file A readable stream.
  * @param size The character buffer size in bytes. When in doubt, use @c YY_BUF_SIZE.
- *
+ * 
  * @return the allocated buffer state.
  */
     YY_BUFFER_STATE yy_create_buffer  (FILE * file, int  size )
 {
 	YY_BUFFER_STATE b;
-
+    
 	b = (YY_BUFFER_STATE) yyalloc(sizeof( struct yy_buffer_state )  );
 	if ( ! b )
 		YY_FATAL_ERROR( "out of dynamic memory in yy_create_buffer()" );
@@ -3502,11 +3502,11 @@ static void yy_load_buffer_state  (void)
 
 /** Destroy the buffer.
  * @param b a buffer created with yy_create_buffer()
- *
+ * 
  */
     void yy_delete_buffer (YY_BUFFER_STATE  b )
 {
-
+    
 	if ( ! b )
 		return;
 
@@ -3522,7 +3522,7 @@ static void yy_load_buffer_state  (void)
 #ifndef __cplusplus
 extern int isatty (int );
 #endif /* __cplusplus */
-
+    
 /* Initializes or reinitializes a buffer.
  * This function is sometimes called more than once on the same buffer,
  * such as during a yyrestart() or at EOF.
@@ -3531,7 +3531,7 @@ extern int isatty (int );
 
 {
 	int oerrno = errno;
-
+    
 	yy_flush_buffer(b );
 
 	b->yy_input_file = file;
@@ -3547,13 +3547,13 @@ extern int isatty (int );
     }
 
         b->yy_is_interactive = file ? (isatty( fileno(file) ) > 0) : 0;
-
+    
 	errno = oerrno;
 }
 
 /** Discard all buffered characters. On the next scan, YY_INPUT will be called.
  * @param b the buffer state to be flushed, usually @c YY_CURRENT_BUFFER.
- *
+ * 
  */
     void yy_flush_buffer (YY_BUFFER_STATE  b )
 {
@@ -3582,7 +3582,7 @@ extern int isatty (int );
  *  the current state. This function will allocate the stack
  *  if necessary.
  *  @param new_buffer The new state.
- *
+ *  
  */
 void yypush_buffer_state (YY_BUFFER_STATE new_buffer )
 {
@@ -3612,7 +3612,7 @@ void yypush_buffer_state (YY_BUFFER_STATE new_buffer )
 
 /** Removes and deletes the top of the stack, if present.
  *  The next element becomes the new top.
- *
+ *  
  */
 void yypop_buffer_state (void)
 {
@@ -3636,7 +3636,7 @@ void yypop_buffer_state (void)
 static void yyensure_buffer_stack (void)
 {
 	yy_size_t num_to_alloc;
-
+    
 	if (!(yy_buffer_stack)) {
 
 		/* First allocation is just for 2 elements, since we don't know if this
@@ -3649,9 +3649,9 @@ static void yyensure_buffer_stack (void)
 								);
 		if ( ! (yy_buffer_stack) )
 			YY_FATAL_ERROR( "out of dynamic memory in yyensure_buffer_stack()" );
-
+								  
 		memset((yy_buffer_stack), 0, num_to_alloc * sizeof(struct yy_buffer_state*));
-
+				
 		(yy_buffer_stack_max) = num_to_alloc;
 		(yy_buffer_stack_top) = 0;
 		return;
@@ -3679,13 +3679,13 @@ static void yyensure_buffer_stack (void)
 /** Setup the input buffer state to scan directly from a user-specified character buffer.
  * @param base the character buffer
  * @param size the size in bytes of the character buffer
- *
- * @return the newly allocated buffer state object.
+ * 
+ * @return the newly allocated buffer state object. 
  */
 YY_BUFFER_STATE yy_scan_buffer  (char * base, yy_size_t  size )
 {
 	YY_BUFFER_STATE b;
-
+    
 	if ( size < 2 ||
 	     base[size-2] != YY_END_OF_BUFFER_CHAR ||
 	     base[size-1] != YY_END_OF_BUFFER_CHAR )
@@ -3714,14 +3714,14 @@ YY_BUFFER_STATE yy_scan_buffer  (char * base, yy_size_t  size )
 /** Setup the input buffer state to scan a string. The next call to yylex() will
  * scan from a @e copy of @a str.
  * @param yystr a NUL-terminated string to scan
- *
+ * 
  * @return the newly allocated buffer state object.
  * @note If you want to scan bytes that may contain NUL values, then use
  *       yy_scan_bytes() instead.
  */
 YY_BUFFER_STATE yy_scan_string (yyconst char * yystr )
 {
-
+    
 	return yy_scan_bytes(yystr,strlen(yystr) );
 }
 
@@ -3729,7 +3729,7 @@ YY_BUFFER_STATE yy_scan_string (yyconst char * yystr )
  * scan from a @e copy of @a bytes.
  * @param bytes the byte buffer to scan
  * @param len the number of bytes in the buffer pointed to by @a bytes.
- *
+ * 
  * @return the newly allocated buffer state object.
  */
 YY_BUFFER_STATE yy_scan_bytes  (yyconst char * yybytes, yy_size_t  _yybytes_len )
@@ -3737,7 +3737,7 @@ YY_BUFFER_STATE yy_scan_bytes  (yyconst char * yybytes, yy_size_t  _yybytes_len 
 	YY_BUFFER_STATE b;
 	char *buf;
 	yy_size_t n, i;
-
+    
 	/* Get memory for full buffer, including space for trailing EOB's. */
 	n = _yybytes_len + 2;
 	buf = (char *) yyalloc(n  );
@@ -3791,16 +3791,16 @@ static void yy_fatal_error (yyconst char* msg )
 /* Accessor  methods (get/set functions) to struct members. */
 
 /** Get the current line number.
- *
+ * 
  */
 int yyget_lineno  (void)
 {
-
+        
     return yylineno;
 }
 
 /** Get the input stream.
- *
+ * 
  */
 FILE *yyget_in  (void)
 {
@@ -3808,7 +3808,7 @@ FILE *yyget_in  (void)
 }
 
 /** Get the output stream.
- *
+ * 
  */
 FILE *yyget_out  (void)
 {
@@ -3816,7 +3816,7 @@ FILE *yyget_out  (void)
 }
 
 /** Get the length of the current token.
- *
+ * 
  */
 yy_size_t yyget_leng  (void)
 {
@@ -3824,7 +3824,7 @@ yy_size_t yyget_leng  (void)
 }
 
 /** Get the current token.
- *
+ * 
  */
 
 char *yyget_text  (void)
@@ -3834,18 +3834,18 @@ char *yyget_text  (void)
 
 /** Set the current line number.
  * @param line_number
- *
+ * 
  */
 void yyset_lineno (int  line_number )
 {
-
+    
     yylineno = line_number;
 }
 
 /** Set the input stream. This does not discard the current
  * input buffer.
  * @param in_str A readable stream.
- *
+ * 
  * @see yy_switch_to_buffer
  */
 void yyset_in (FILE *  in_str )
@@ -3899,7 +3899,7 @@ static int yy_init_globals (void)
 /* yylex_destroy is for both reentrant and non-reentrant scanners. */
 int yylex_destroy  (void)
 {
-
+    
     /* Pop the buffer stack, destroying each element. */
 	while(YY_CURRENT_BUFFER){
 		yy_delete_buffer(YY_CURRENT_BUFFER  );
@@ -3966,7 +3966,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 417 "lexpgn.l"
+#line 417 "lexpgn.ll"
 
 
 
