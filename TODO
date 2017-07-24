@@ -10,6 +10,8 @@ Items are in random order, mostly reverse chronological.
 
 Top priority:
 
+* Localize answers to 'overwrite file' question in pgn.c.
+
 * When working in ICS, first game will fail to work post.
 
 * Add auto-completion command based on readline.

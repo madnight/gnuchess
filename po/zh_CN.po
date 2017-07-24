@@ -5,35 +5,35 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnuchess 6.2.2-rc1\n"
+"Project-Id-Version: gnuchess 6.2.5-rc3\n"
 "Report-Msgid-Bugs-To: bug-gnu-chess@gnu.org\n"
-"POT-Creation-Date: 2015-09-13 00:01+0200\n"
-"PO-Revision-Date: 2016-01-12 21:14+0800\n"
+"POT-Creation-Date: 2017-06-15 00:17+0200\n"
+"PO-Revision-Date: 2017-06-18 14:03+0800\n"
 "Last-Translator: Tianze Wang <zwpwjwtz@126.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 2.0.1\n"
 
-#: src/main.cc:317
+#: src/main.cc:325
 #, c-format
 msgid "Memory out of Range or Invalid\n"
 msgstr "内存越界或无效\n"
 
-#: src/main.cc:334
+#: src/main.cc:342
 #, c-format
 msgid "File name is too long (max = %d)\n"
 msgstr "文件名太长（最大字符数 = %d）\n"
 
-#: src/main.cc:340
+#: src/main.cc:348
 msgid "Option Processing Failed\n"
 msgstr "处理选项失败\n"
 
-#: src/main.cc:381
+#: src/main.cc:389
 #, c-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
@@ -46,22 +46,22 @@ msgstr ""
 "本软件是自由软件，你可以对其自由修改和再分发。\n"
 "本软件在法律允许范围内不提供任何担保。\n"
 
-#: src/main.cc:494
+#: src/main.cc:507
 #, c-format
 msgid "Thinking...\n"
 msgstr "思考中...\n"
 
-#: src/frontend/cmd.cc:101
+#: src/frontend/cmd.cc:102
 #, c-format
 msgid "Command 'activate' is currently not supported.\n"
 msgstr "当前不支持命令“activate”。\n"
 
-#: src/frontend/cmd.cc:131
+#: src/frontend/cmd.cc:132
 #, c-format
 msgid "Command 'black' is currently not supported.\n"
 msgstr "当前不支持命令“black”。\n"
 
-#: src/frontend/cmd.cc:140
+#: src/frontend/cmd.cc:141
 #, c-format
 msgid ""
 "The syntax to add a new book is:\n"
@@ -72,52 +72,52 @@ msgstr ""
 "\n"
 "\tbook add fichier.pgn\n"
 
-#: src/frontend/cmd.cc:147
+#: src/frontend/cmd.cc:148
 #, c-format
 msgid "book is now on\n"
 msgstr "棋谱已启用\n"
 
-#: src/frontend/cmd.cc:150
+#: src/frontend/cmd.cc:151
 #, c-format
 msgid "book is now off\n"
 msgstr "棋谱已停用\n"
 
-#: src/frontend/cmd.cc:153
+#: src/frontend/cmd.cc:154
 #, c-format
 msgid "book is now best\n"
 msgstr "当前为最佳棋谱\n"
 
-#: src/frontend/cmd.cc:156
+#: src/frontend/cmd.cc:157
 #, c-format
 msgid "book is now worst\n"
 msgstr "当前为最差棋谱\n"
 
-#: src/frontend/cmd.cc:159
+#: src/frontend/cmd.cc:160
 #, c-format
 msgid "book is now random\n"
 msgstr "当前为随机棋谱\n"
 
-#: src/frontend/cmd.cc:161
+#: src/frontend/cmd.cc:162
 #, c-format
 msgid "Incorrect book option\n"
 msgstr "棋谱选项不正确\n"
 
-#: src/frontend/cmd.cc:174
+#: src/frontend/cmd.cc:175
 #, c-format
 msgid "Search to a depth of %d\n"
 msgstr "搜索深度为 %d\n"
 
-#: src/frontend/cmd.cc:240
+#: src/frontend/cmd.cc:241
 #, c-format
 msgid "Hashing is on.\n"
 msgstr "散列已启用。\n"
 
-#: src/frontend/cmd.cc:242
+#: src/frontend/cmd.cc:243
 #, c-format
 msgid "Hashing is off.\n"
 msgstr "散列已停用。\n"
 
-#: src/frontend/cmd.cc:268 src/frontend/cmd.cc:278
+#: src/frontend/cmd.cc:270 src/frontend/cmd.cc:280
 #, c-format
 msgid "Fischer increment of %d seconds\n"
 msgstr "菲舍尔式时间增长 %d 秒\n"
@@ -125,129 +125,125 @@ msgstr "菲舍尔式时间增长 %d 秒\n"
 #. TRANSLATORS: Please be aware that the word 'move' is sometimes
 #. used as a synonym of 'ply', and sometimes in the sense of a
 #. full 2-ply move.
-#: src/frontend/cmd.cc:276
+#: src/frontend/cmd.cc:278
 #, c-format
 msgid "Time Control: %d moves in %.2f secs\n"
 msgstr "时间控制：%2$.2f 秒内 %1$d 步\n"
 
-#: src/frontend/cmd.cc:286
+#: src/frontend/cmd.cc:288
 #, c-format
 msgid "name    - list known players alphabetically\n"
 msgstr "姓名     - 已知玩家列表（按字母表顺序排列）\n"
 
-#: src/frontend/cmd.cc:287
+#: src/frontend/cmd.cc:289
 #, c-format
 msgid "score   - list by GNU best result first \n"
 msgstr "得分   - 按 GNU 最好成绩排列\n"
 
-#: src/frontend/cmd.cc:288
+#: src/frontend/cmd.cc:290
 #, c-format
 msgid "reverse - list by GNU worst result first\n"
 msgstr "倒序列表 - 按 GNU 最差成绩排列\n"
 
-#: src/frontend/cmd.cc:303 src/frontend/cmd.cc:1301
+#: src/frontend/cmd.cc:305 src/frontend/cmd.cc:1340
 #, c-format
 msgid "Board is wrong!\n"
 msgstr "棋盘出错！\n"
 
-#: src/frontend/cmd.cc:309 src/frontend/cmd.cc:312
+#: src/frontend/cmd.cc:311 src/frontend/cmd.cc:314
 #, c-format
 msgid "Error reading file '%s'\n"
 msgstr "读取文件“%s”时出错\n"
 
-#: src/frontend/cmd.cc:378
+#: src/frontend/cmd.cc:382
 #, c-format
 msgid "Failed to open %s for writing: %s\n"
 msgstr "无法打开文件“%s”以写入：%s\n"
 
-#: src/frontend/cmd.cc:384
+#: src/frontend/cmd.cc:388
 #, c-format
 msgid "Could not create logfile, all slots occupied.\n"
 msgstr "无法创建日志文件，所有可用位置均已被占用。\n"
 
-#: src/frontend/cmd.cc:385
+#: src/frontend/cmd.cc:389
 #, c-format
 msgid "You may consider deleting or renaming your existing logfiles.\n"
 msgstr "你可能需要删除或重命名现有的日志文件。\n"
 
-#: src/frontend/cmd.cc:417
+#: src/frontend/cmd.cc:422
 #, c-format
 msgid "Null-move heuristic is on.\n"
 msgstr "启发式停步搜索已启用。\n"
 
-#: src/frontend/cmd.cc:419
+#: src/frontend/cmd.cc:424
 #, c-format
 msgid "Null-move heuristic is off.\n"
 msgstr "启发式停步搜索已禁用。\n"
 
-#: src/frontend/cmd.cc:439 src/frontend/cmd.cc:466
+#: src/frontend/cmd.cc:444 src/frontend/cmd.cc:471
 #, c-format
 msgid "Incorrect epd file\n"
 msgstr "epd 文件错误。\n"
 
-#: src/frontend/cmd.cc:510
+#: src/frontend/cmd.cc:508 src/frontend/cmd.cc:529 src/frontend/cmd.cc:551
+#: src/frontend/cmd.cc:569
+#, c-format
+msgid "Error: PGN file not loaded!\n"
+msgstr "错误：未加载 PGN 文件！\n"
+
+#: src/frontend/cmd.cc:517
 #, c-format
 msgid "No more moves. Game reached the end.\n"
 msgstr "没有更多的棋步，棋局已结束。\n"
 
-#: src/frontend/cmd.cc:530
+#: src/frontend/cmd.cc:539
 #, c-format
 msgid "Initial position reached. There are no earlier moves.\n"
 msgstr ""
 "已位于起始处。没有更靠前的棋步。\n"
 "\n"
 
-#: src/frontend/cmd.cc:586 src/frontend/cmd.cc:692
+#: src/frontend/cmd.cc:599 src/frontend/cmd.cc:711
 #, c-format
 msgid "Invalid filename.\n"
 msgstr "文件名无效。\n"
 
-#: src/frontend/cmd.cc:592
+#: src/frontend/cmd.cc:605
 #, c-format
 msgid "Graphic mode is enabled.\n"
 msgstr "图形模式已启用。\n"
 
-#: src/frontend/cmd.cc:598
+#: src/frontend/cmd.cc:611
 #, c-format
 msgid "Graphic mode is disabled.\n"
 msgstr "图形模式已禁用。\n"
 
-#: src/frontend/cmd.cc:639
+#: src/frontend/cmd.cc:657
 #, c-format
 msgid "Command 'random' is currently not supported.\n"
 msgstr "当前不支持命令“random”。\n"
 
-#: src/frontend/cmd.cc:647
+#: src/frontend/cmd.cc:665
 #, c-format
 msgid "my rating = %d, opponent rating = %d\n"
 msgstr "我的评级 = %d，对手评级 = %d\n"
 
-#: src/frontend/cmd.cc:671 src/frontend/cmd.cc:741
+#: src/frontend/cmd.cc:689 src/frontend/cmd.cc:762
 #, c-format
 msgid "No moves to undo!\n"
 msgstr "没有可以撤销的棋步！\n"
 
-#: src/frontend/cmd.cc:681
+#: src/frontend/cmd.cc:700
 #, c-format
 msgid "Save to %s\n"
 msgstr "保存到 %s\n"
 
-#: src/frontend/cmd.cc:722
+#: src/frontend/cmd.cc:744
 #, c-format
 msgid "Command 'switch' is currently not supported.\n"
 msgstr "当前不支持命令“switch”。\n"
 
-#: src/frontend/cmd.cc:728
-#, c-format
-msgid "Old TimeLimit = %g\n"
-msgstr "旧的时间限制 = %g\n"
-
-#: src/frontend/cmd.cc:730
-#, c-format
-msgid "New TimeLimit = %g\n"
-msgstr "新的时间限制 = %g\n"
-
-#: src/frontend/cmd.cc:750
+#: src/frontend/cmd.cc:771
 #, c-format
 msgid ""
 "Usage: %s [OPTION]...\n"
@@ -256,7 +252,7 @@ msgstr ""
 "用法：%s [选项]…\n"
 "\n"
 
-#: src/frontend/cmd.cc:752
+#: src/frontend/cmd.cc:773
 msgid ""
 "Play the game of chess\n"
 "\n"
@@ -264,63 +260,63 @@ msgstr ""
 "开始象棋游戏\n"
 "\n"
 
-#: src/frontend/cmd.cc:754
+#: src/frontend/cmd.cc:775
 msgid "Options:\n"
 msgstr "选项：\n"
 
-#: src/frontend/cmd.cc:755
+#: src/frontend/cmd.cc:776
 msgid " -h, --help         display this help and exit\n"
 msgstr " -h, --help         显示本帮助，然后退出\n"
 
-#: src/frontend/cmd.cc:757
+#: src/frontend/cmd.cc:778
 msgid " -v, --version      display version information and exit\n"
 msgstr " -v, --version      显示版本信息，然后退出\n"
 
-#: src/frontend/cmd.cc:759
+#: src/frontend/cmd.cc:780
 msgid " -q, --quiet        make the program silent on startup\n"
 msgstr " -q, --quiet        让程序静默地启动时\n"
 
-#: src/frontend/cmd.cc:761
+#: src/frontend/cmd.cc:782
 msgid "     --silent       same as -q\n"
 msgstr "     --silent        和 -q 相同\n"
 
-#: src/frontend/cmd.cc:763 src/frontend/cmd.cc:781
+#: src/frontend/cmd.cc:784 src/frontend/cmd.cc:802
 msgid "\n"
 msgstr "\n"
 
-#: src/frontend/cmd.cc:765
+#: src/frontend/cmd.cc:786
 msgid " -x, --xboard       start in engine mode\n"
 msgstr " -x, -xboard        以引擎模式启动\n"
 
-#: src/frontend/cmd.cc:767
+#: src/frontend/cmd.cc:788
 msgid " -p, --post         start up showing thinking\n"
 msgstr " -p, --post         启动时显示思考\n"
 
-#: src/frontend/cmd.cc:769
+#: src/frontend/cmd.cc:790
 msgid " -e, --easy         disable thinking in opponents time\n"
 msgstr " -e, --easy         在对方回合时停止思考\n"
 
-#: src/frontend/cmd.cc:771
+#: src/frontend/cmd.cc:792
 msgid " -m, --manual       enable manual mode\n"
 msgstr " -m, --manuel       启用手动模式\n"
 
-#: src/frontend/cmd.cc:773
+#: src/frontend/cmd.cc:794
 msgid " -u, --uci          enable UCI protocol (externally behave as UCI engine)\n"
 msgstr " -u, --uci          启用 UCI 协议（显示地作为 UCI 引擎）\n"
 
-#: src/frontend/cmd.cc:775
+#: src/frontend/cmd.cc:796
 msgid " -M size, --memory=size   specify memory usage in MB for hashtable\n"
 msgstr " -M 大小, --memory=大小   指定用于散列表的内存大小，单位是 MB\n"
 
-#: src/frontend/cmd.cc:777
+#: src/frontend/cmd.cc:798
 msgid " -a filename, --addbook=filename   compile book.bin from pgn book 'filename'\n"
 msgstr " -a 文件名, --addbook=文件名     根据 pgn 棋谱编译 book.bin\n"
 
-#: src/frontend/cmd.cc:779
+#: src/frontend/cmd.cc:800
 msgid " -g, --graphic      enable graphic mode\n"
 msgstr " -g, --graphic      启用图形模式\n"
 
-#: src/frontend/cmd.cc:783
+#: src/frontend/cmd.cc:804
 msgid ""
 " Options xboard and post are accepted without leading dashes\n"
 " for backward compatibility.\n"
@@ -329,7 +325,7 @@ msgstr ""
 "出于向后兼容的考虑，选项 xboard 和 post 前可以不加横线“-”。\n"
 "\n"
 
-#: src/frontend/cmd.cc:787
+#: src/frontend/cmd.cc:808
 msgid ""
 " Moves are accepted either in standard algebraic notation (SAN) or\n"
 " in coordinate algebraic notation.\n"
@@ -339,7 +335,7 @@ msgstr ""
 "表示。\n"
 "\n"
 
-#: src/frontend/cmd.cc:791
+#: src/frontend/cmd.cc:812
 msgid ""
 " The file 'gnuchess.ini' allows setting config options. See\n"
 " 'info gnuchess' for details. The file will be looked up in the current\n"
@@ -350,7 +346,7 @@ msgstr ""
 " 可以在“gnuchess.ini”文件中调整配置。详见“info gnuchess”。\n"
 "程序将会在当前目录和环境变量 GNUCHESS_PKGDATADIR 所指定的目录下寻找该文件。\n"
 
-#: src/frontend/cmd.cc:797
+#: src/frontend/cmd.cc:818
 msgid ""
 "Report bugs to <bug-gnu-chess@gnu.org>.\n"
 "\n"
@@ -358,112 +354,122 @@ msgstr ""
 "请将程序缺陷报告至 <bug-gnu-chess@gnu.org>。\n"
 "\n"
 
-#: src/frontend/cmd.cc:844 src/frontend/cmd.cc:1280
+#: src/frontend/cmd.cc:866 src/frontend/cmd.cc:1319
 #, c-format
 msgid "Invalid move: %s\n"
 msgstr "棋步无效：%s\n"
 
-#: src/frontend/cmd.cc:862
+#: src/frontend/cmd.cc:880
+#, c-format
+msgid "Coordinate display enabled.\n"
+msgstr "显示坐标。\n"
+
+#: src/frontend/cmd.cc:885
+#, c-format
+msgid "Coordinate display disabled.\n"
+msgstr "不显示坐标。\n"
+
+#: src/frontend/cmd.cc:894
 #, c-format
 msgid "Command 'white' is currently not supported.\n"
 msgstr "当前不支持命令“white”。\n"
 
-#: src/frontend/cmd.cc:893
+#: src/frontend/cmd.cc:926
 #, c-format
 msgid "My rating = %d\n"
 msgstr "我的评级 = %d\n"
 
-#: src/frontend/cmd.cc:894
+#: src/frontend/cmd.cc:927
 #, c-format
 msgid "Opponent rating = %d\n"
 msgstr "对手评级 = %d\n"
 
-#: src/frontend/cmd.cc:896
+#: src/frontend/cmd.cc:929
 msgid "time"
 msgstr "时间"
 
-#: src/frontend/cmd.cc:898
+#: src/frontend/cmd.cc:931
 msgid "moves"
 msgstr "棋步"
 
-#: src/frontend/cmd.cc:903 src/frontend/cmd.cc:910 src/frontend/cmd.cc:919
-#: src/frontend/cmd.cc:928
+#: src/frontend/cmd.cc:936 src/frontend/cmd.cc:943 src/frontend/cmd.cc:952
+#: src/frontend/cmd.cc:961
 #, c-format
 msgid "No. of moves generated = %ld\n"
 msgstr "生成的棋步数 = %ld\n"
 
-#: src/frontend/cmd.cc:932
+#: src/frontend/cmd.cc:965
 #, c-format
 msgid "Command 'show eval/score' is currently not supported.\n"
 msgstr "当前不支持命令“show eval/score”。\n"
 
-#: src/frontend/cmd.cc:939
+#: src/frontend/cmd.cc:972
 #, c-format
 msgid "Command 'show pin' is currently not supported.\n"
 msgstr "当前不支持命令“show pin”。\n"
 
-#: src/frontend/cmd.cc:951
+#: src/frontend/cmd.cc:984
 #, c-format
 msgid "Command 'test' is currently not supported.\n"
 msgstr "当前不支持命令“test” 。\n"
 
-#: src/frontend/cmd.cc:969
+#: src/frontend/cmd.cc:1002
 msgid " Quits the program."
 msgstr " 退出程序。"
 
-#: src/frontend/cmd.cc:971
+#: src/frontend/cmd.cc:1004
 msgid " In analysis mode this stops analysis, otherwise it quits the program."
 msgstr "若处于分析模式，则停止分析，否则退出程序。"
 
-#: src/frontend/cmd.cc:973
+#: src/frontend/cmd.cc:1006
 msgid " Produces a help blurb corresponding to this list of commands."
 msgstr "显示与该命令列表相关的帮助信息。"
 
-#: src/frontend/cmd.cc:975
+#: src/frontend/cmd.cc:1008
 msgid " add - compiles book.bin from a pgn book file"
 msgstr " add - 从 pgn 棋谱文件编译 book.bin"
 
-#: src/frontend/cmd.cc:976
+#: src/frontend/cmd.cc:1009
 msgid " on - enables use of book (default)"
 msgstr " on - 启用棋谱（默认）"
 
-#: src/frontend/cmd.cc:977
+#: src/frontend/cmd.cc:1010
 msgid " off - disables use of book"
 msgstr " off - 禁用棋谱"
 
-#: src/frontend/cmd.cc:978
+#: src/frontend/cmd.cc:1011
 msgid " worst - plays worst move from book"
 msgstr " worst - 按照棋谱中最差的套路来下棋"
 
-#: src/frontend/cmd.cc:979
+#: src/frontend/cmd.cc:1012
 msgid " best - plays best move from book"
 msgstr " best - 按照棋谱中最好的套路来下棋"
 
-#: src/frontend/cmd.cc:980
+#: src/frontend/cmd.cc:1013
 msgid " prefer - same as 'book on' (default)"
 msgstr " prefer - 与“book on”相同（默认）"
 
-#: src/frontend/cmd.cc:981
+#: src/frontend/cmd.cc:1014
 msgid " random - plays any move from book"
 msgstr " random - 从棋谱中选取任意套路"
 
-#: src/frontend/cmd.cc:983
+#: src/frontend/cmd.cc:1016
 msgid " Prints out the version of this program."
 msgstr "显示该程序的版本。"
 
-#: src/frontend/cmd.cc:986
+#: src/frontend/cmd.cc:1019
 msgid " Backs up one move in pgn loaded game."
 msgstr "在从 pgn 加载的棋局中，备份一步棋。"
 
-#: src/frontend/cmd.cc:988
+#: src/frontend/cmd.cc:1021
 msgid " Saves the game so far from memory to the file."
 msgstr "将当前棋局保存到文件。"
 
-#: src/frontend/cmd.cc:990
+#: src/frontend/cmd.cc:1023
 msgid " Loads the game in the file into memory."
 msgstr "将文件中的棋局加载到内存。"
 
-#: src/frontend/cmd.cc:992
+#: src/frontend/cmd.cc:1025
 msgid ""
 " Loads the game in the file into memory, and enables\n"
 " the commands 'first', 'last', 'next', 'previous'."
@@ -471,19 +477,19 @@ msgstr ""
 "将棋局从游戏载入内存，允许的命令有“first”、“last”、\n"
 "“next”、“previous”。"
 
-#: src/frontend/cmd.cc:996
+#: src/frontend/cmd.cc:1029
 msgid " Advances one move in pgn loaded game."
 msgstr " 在从 pgn 加载的游戏中先行一步。"
 
-#: src/frontend/cmd.cc:998
+#: src/frontend/cmd.cc:1031
 msgid " Goes to begin position of pgn loaded game."
 msgstr " 在从 pgn 加载的游戏中，切换到起始位置。"
 
-#: src/frontend/cmd.cc:1000
+#: src/frontend/cmd.cc:1033
 msgid " Goes to end position of pgn loaded game."
 msgstr " 在从 pgn 加载的游戏中，切换到结束位置。"
 
-#: src/frontend/cmd.cc:1003
+#: src/frontend/cmd.cc:1036
 msgid ""
 " Makes the program stop moving. You may now enter moves\n"
 " to reach some position in the future."
@@ -491,31 +497,31 @@ msgstr ""
 " 使程序停止行棋。你现在可以输入棋步，以便之后可以\n"
 "到达某些位置。"
 
-#: src/frontend/cmd.cc:1007
+#: src/frontend/cmd.cc:1040
 msgid " Program plays white."
 msgstr " 程序执白。"
 
-#: src/frontend/cmd.cc:1009
+#: src/frontend/cmd.cc:1042
 msgid " Program plays black."
 msgstr " 程序执黑。"
 
-#: src/frontend/cmd.cc:1011
+#: src/frontend/cmd.cc:1044
 msgid ""
 " Computer takes whichever side is on move and begins its\n"
 " thinking immediately."
 msgstr " 选择电脑为白方或黑方，并立即开始思考。"
 
-#: src/frontend/cmd.cc:1014
+#: src/frontend/cmd.cc:1047
 msgid ""
 " Arranges for verbose thinking output showing variation, score,\n"
 " time, depth, etc."
 msgstr " 详细思考的输出格式，包括步法、分值、时间、深度等等。"
 
-#: src/frontend/cmd.cc:1017
+#: src/frontend/cmd.cc:1050
 msgid " Turns off verbose thinking output."
 msgstr "关闭详细思考输出。"
 
-#: src/frontend/cmd.cc:1019
+#: src/frontend/cmd.cc:1052
 msgid ""
 " Lets you input your name. Also writes the log.nnn and\n"
 " corresponding game.nnn files. For details please see\n"
@@ -524,11 +530,11 @@ msgstr ""
 " 允许你输入姓名。也写入到 log.nnn 和相应的 game.nnn\n"
 "文件。详情请见辅助文件格式一节。"
 
-#: src/frontend/cmd.cc:1023
+#: src/frontend/cmd.cc:1056
 msgid " Mostly used by Internet Chess Server."
 msgstr " 一般用于网络象棋服务器。"
 
-#: src/frontend/cmd.cc:1025
+#: src/frontend/cmd.cc:1058
 msgid ""
 " This command reactivates a game that has been terminated automatically\n"
 " due to checkmate or no more time on the clock. However, it does not\n"
@@ -539,15 +545,15 @@ msgstr ""
 "但是，它将不再对这几种情况进行提示。\n"
 "所以你需要撤销一两步棋，或者向时钟添加“level”或“time”。"
 
-#: src/frontend/cmd.cc:1030
+#: src/frontend/cmd.cc:1063
 msgid " Inputs the estimated rating for computer and for its opponent."
 msgstr " 输入电脑和其对手的预估等级。"
 
-#: src/frontend/cmd.cc:1032
+#: src/frontend/cmd.cc:1065
 msgid " Sets up a new game (i.e. pieces in original positions)."
 msgstr " 开启新游戏（即棋子位于初始位置的情形）。"
 
-#: src/frontend/cmd.cc:1034
+#: src/frontend/cmd.cc:1067
 msgid ""
 " Inputs time left in game for computer in hundredths of a second.\n"
 " Mostly used by Internet Chess Server."
@@ -555,35 +561,35 @@ msgstr ""
 " 棋局中留给电脑的思考时间，单位百秒。\n"
 "一般用于网络象棋服务器。"
 
-#: src/frontend/cmd.cc:1037
+#: src/frontend/cmd.cc:1070
 msgid " on - enables using the memory hash table to speed up search"
 msgstr " on - 启用内存散列表，以便加快搜索"
 
-#: src/frontend/cmd.cc:1038
+#: src/frontend/cmd.cc:1071
 msgid " off - disables the memory hash table"
 msgstr " off - 禁用内存散列表"
 
-#: src/frontend/cmd.cc:1040
+#: src/frontend/cmd.cc:1073
 msgid " Sets the hash table to permit storage of N MB."
 msgstr " 设置永久存储的散列表大小，单位是MB。"
 
-#: src/frontend/cmd.cc:1042
+#: src/frontend/cmd.cc:1075
 msgid " on - enables using the null-move heuristic to speed up search"
 msgstr " on - 启用启发式停步搜索来加快搜索"
 
-#: src/frontend/cmd.cc:1043
+#: src/frontend/cmd.cc:1076
 msgid " off - disables using the null-move heuristic"
 msgstr " off - 禁用启发式停步搜索"
 
-#: src/frontend/cmd.cc:1045
+#: src/frontend/cmd.cc:1078
 msgid " on - enables use of xboard/winboard"
 msgstr " on - 启用 xboard/winboard"
 
-#: src/frontend/cmd.cc:1046
+#: src/frontend/cmd.cc:1079
 msgid " off - disables use of xboard/winboard"
 msgstr " off - 禁用 xboard/winboard"
 
-#: src/frontend/cmd.cc:1048
+#: src/frontend/cmd.cc:1081
 msgid ""
 " Sets the program to look N ply (half-moves) deep for every\n"
 " search it performs. If there is a checkmate or other condition\n"
@@ -592,7 +598,7 @@ msgstr ""
 " 设置程序每次搜索时搜索 N 步（半回合），除非遇到了将军或\n"
 "其他不允许的情形。"
 
-#: src/frontend/cmd.cc:1052
+#: src/frontend/cmd.cc:1085
 msgid ""
 " Sets time control to be MOVES in MINUTES, with each move giving\n"
 " an INCREMENT (in seconds, i.e. a Fischer-style clock)."
@@ -600,107 +606,115 @@ msgstr ""
 " 设置棋步的时间控制（单位是分钟）以及每步的时间增量\n"
 "（单位是秒），即菲舍尔式的时钟。"
 
-#: src/frontend/cmd.cc:1056
+#: src/frontend/cmd.cc:1089
 msgid " Loads a position in EPD format from disk into memory."
 msgstr " 从磁盘加载 EPD 格式文件到内存。"
 
-#: src/frontend/cmd.cc:1059
+#: src/frontend/cmd.cc:1092
 msgid " Saves game position into EPD format from memory to disk."
 msgstr " 将棋局位置以 EPD 格式保存到磁盘上。"
 
-#: src/frontend/cmd.cc:1061
+#: src/frontend/cmd.cc:1094
 msgid " Switches side to move."
 msgstr " 切换要行棋的一方。"
 
-#: src/frontend/cmd.cc:1064
+#: src/frontend/cmd.cc:1097
 msgid " Solves the positions in FILENAME."
 msgstr " 解析文件名中的位置。"
 
-#: src/frontend/cmd.cc:1066
+#: src/frontend/cmd.cc:1099
 msgid " Backs up two moves in game history."
 msgstr " 在棋局历史中备份两步。"
 
-#: src/frontend/cmd.cc:1068
+#: src/frontend/cmd.cc:1101
 msgid " Backs up one move in game history."
 msgstr " 在棋局历史中备份一步。"
 
-#: src/frontend/cmd.cc:1070
+#: src/frontend/cmd.cc:1103
 msgid " Displays command line syntax."
 msgstr " 显示命令行语法。"
 
-#: src/frontend/cmd.cc:1072
+#: src/frontend/cmd.cc:1105
 msgid " board - displays the current board"
 msgstr " board - 显示当前棋盘"
 
-#: src/frontend/cmd.cc:1073
+#: src/frontend/cmd.cc:1106
 msgid " time - displays the time settings"
 msgstr " time - 显示时间选项"
 
-#: src/frontend/cmd.cc:1074
+#: src/frontend/cmd.cc:1107
 msgid " moves - shows all moves using one call to routine"
 msgstr " moves - 调用一次程序来显示所有棋步"
 
-#: src/frontend/cmd.cc:1075
+#: src/frontend/cmd.cc:1108
 msgid " escape - shows moves that escape from check using one call to routine"
 msgstr " escape - 调用一次程序来显示摆脱将军的棋步"
 
-#: src/frontend/cmd.cc:1076
+#: src/frontend/cmd.cc:1109
 msgid " noncapture - shows non-capture moves"
 msgstr " noncapture - 显示非吃子的棋步"
 
-#: src/frontend/cmd.cc:1077
+#: src/frontend/cmd.cc:1110
 msgid " capture - shows capture moves"
 msgstr " capture - 显示吃子的棋步"
 
-#: src/frontend/cmd.cc:1078
+#: src/frontend/cmd.cc:1111
 msgid " eval [or score] - shows the evaluation per piece and overall"
 msgstr " eval [or score] -显示对每个棋子和全局的评估"
 
-#: src/frontend/cmd.cc:1079
+#: src/frontend/cmd.cc:1112
 msgid " game - shows moves in game history"
 msgstr " game - 显示棋局历史中的棋步"
 
-#: src/frontend/cmd.cc:1080
+#: src/frontend/cmd.cc:1113
 msgid " pin - shows pinned pieces"
 msgstr " pin -  显示被牵制的棋子"
 
-#: src/frontend/cmd.cc:1082
+#: src/frontend/cmd.cc:1115
 msgid " movelist - reads in an epd file and shows legal moves for its entries"
 msgstr "棋步列表 - 读入一个 epd 文件，并显示全局中有效的棋步"
 
-#: src/frontend/cmd.cc:1083
+#: src/frontend/cmd.cc:1116
 msgid " capture - reads in an epd file and shows legal captures for its entries"
 msgstr " capture - 读入一个 epd 文件，并显示全局中有效的吃子方式"
 
-#: src/frontend/cmd.cc:1084
+#: src/frontend/cmd.cc:1117
 msgid " movegenspeed - tests speed of move generator"
 msgstr " movegenspeed - 测试棋步生成器的速度"
 
-#: src/frontend/cmd.cc:1085
+#: src/frontend/cmd.cc:1118
 msgid " capturespeed - tests speed of capture move generator"
 msgstr " capturespeed - 测试用于吃子的棋步生成器的速度"
 
-#: src/frontend/cmd.cc:1086
+#: src/frontend/cmd.cc:1119
 msgid " eval - reads in an epd file and shows evaluation for its entries"
 msgstr " eval - 读入一个 epd 文件，并显示对全局的评估"
 
-#: src/frontend/cmd.cc:1087
+#: src/frontend/cmd.cc:1120
 msgid " evalspeed - tests speed of the evaluator"
 msgstr " evalspeed - 评估受试者的速度"
 
-#: src/frontend/cmd.cc:1089
+#: src/frontend/cmd.cc:1122
 msgid " Shows moves from opening book."
 msgstr "显示已打开棋谱中的棋步。"
 
-#: src/frontend/cmd.cc:1091
+#: src/frontend/cmd.cc:1124
 msgid " Enables display board in graphic mode."
 msgstr "在图形模式中显示棋盘。"
 
-#: src/frontend/cmd.cc:1093
+#: src/frontend/cmd.cc:1126
 msgid " Disables graphic mode and display classical view."
 msgstr "禁用图形模式，显示经典视图。"
 
-#: src/frontend/cmd.cc:1119
+#: src/frontend/cmd.cc:1128
+msgid " Displays the chessboard rank and file in both graphic and classical views."
+msgstr "在图形化视图和经典视图中均显示棋盘的行列。"
+
+#: src/frontend/cmd.cc:1130
+msgid " Does not display the chessboard rank nor file in either mode (graphic nor classical)"
+msgstr "在图形化视图和经典视图中均不显示棋盘的行列。"
+
+#: src/frontend/cmd.cc:1156
 #, c-format
 msgid ""
 "Help for command %s not found\n"
@@ -709,20 +723,12 @@ msgstr ""
 "未找到有关命令 %s 的帮助\n"
 "\n"
 
-#: src/frontend/cmd.cc:1121
+#: src/frontend/cmd.cc:1158
 #, c-format
 msgid "List of commands: (help COMMAND to get more help)\n"
 msgstr "命令列表：（使用 help 命令名 来获取更多帮助）\n"
 
-#: src/frontend/engine.cc:247
-msgid "Black"
-msgstr "黑"
-
-#: src/frontend/engine.cc:247
-msgid "White"
-msgstr "白"
-
-#: src/frontend/engine.cc:333
+#: src/frontend/engine.cc:316
 #, c-format
 msgid ""
 "\n"
@@ -730,3 +736,45 @@ msgid ""
 msgstr ""
 "\n"
 "我的棋步是：%s\n"
+
+#: src/frontend/pgn.cc:69
+#, c-format
+msgid "File with name %s already exists.\n"
+msgstr "文件 %s 已存在。\n"
+
+#: src/frontend/pgn.cc:71
+#, c-format
+msgid "Overwrite file? [y/n]: "
+msgstr "将其覆盖吗？[y/n]："
+
+#: src/frontend/pgn.cc:75
+#, c-format
+msgid "Invalid answer! "
+msgstr "输入的内容无效！"
+
+#: src/frontend/pgn.cc:82
+#, c-format
+msgid "File not saved.\n"
+msgstr "文件未被保存。\n"
+
+#: src/frontend/pgn.cc:86
+#, c-format
+msgid "File %s is overwritten.\n"
+msgstr "已覆盖文件 %s。\n"
+
+#: src/frontend/pgn.cc:89
+#, c-format
+msgid "Invalid answer!"
+msgstr "输入的内容无效！"
+
+#~ msgid "Old TimeLimit = %g\n"
+#~ msgstr "旧的时间限制 = %g\n"
+
+#~ msgid "New TimeLimit = %g\n"
+#~ msgstr "新的时间限制 = %g\n"
+
+#~ msgid "Black"
+#~ msgstr "黑"
+
+#~ msgid "White"
+#~ msgstr "白"

@@ -2,38 +2,38 @@
 # Copyright (C) 2013 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnuchess package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2013, 2015.
+# Yuri Chornoivan <yurchor@ukr.net>, 2013, 2015, 2017.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnuchess 6.2.2-rc1\n"
+"Project-Id-Version: gnuchess 6.2.5-rc3\n"
 "Report-Msgid-Bugs-To: bug-gnu-chess@gnu.org\n"
-"POT-Creation-Date: 2015-09-13 00:01+0200\n"
-"PO-Revision-Date: 2015-09-15 15:56+0300\n"
+"POT-Creation-Date: 2017-06-15 00:17+0200\n"
+"PO-Revision-Date: 2017-06-15 21:14+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
 "Language: uk\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: src/main.cc:317
+#: src/main.cc:325
 #, c-format
 msgid "Memory out of Range or Invalid\n"
 msgstr "Пам’ять поза припустимими межами або некоректна\n"
 
-#: src/main.cc:334
+#: src/main.cc:342
 #, c-format
 msgid "File name is too long (max = %d)\n"
 msgstr "Файл є надто довгим (максимум = %d)\n"
 
-#: src/main.cc:340
+#: src/main.cc:348
 msgid "Option Processing Failed\n"
 msgstr "Помилка під час спроби обробити параметри\n"
 
-#: src/main.cc:381
+#: src/main.cc:389
 #, c-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
@@ -46,22 +46,22 @@ msgstr ""
 "Це вільне програмне забезпечення: ви можете вільно змінювати і поширювати його.\n"
 "Вам не надається ЖОДНИХ ГАРАНТІЙ, окрім гарантій передбачених законодавством.\n"
 
-#: src/main.cc:494
+#: src/main.cc:507
 #, c-format
 msgid "Thinking...\n"
 msgstr "Обдумуємо...\n"
 
-#: src/frontend/cmd.cc:101
+#: src/frontend/cmd.cc:102
 #, c-format
 msgid "Command 'activate' is currently not supported.\n"
 msgstr "У поточному режимі роботи програми команди «activate» не передбачено.\n"
 
-#: src/frontend/cmd.cc:131
+#: src/frontend/cmd.cc:132
 #, c-format
 msgid "Command 'black' is currently not supported.\n"
 msgstr "У поточному режимі роботи програми команди «black» не передбачено.\n"
 
-#: src/frontend/cmd.cc:140
+#: src/frontend/cmd.cc:141
 #, c-format
 msgid ""
 "The syntax to add a new book is:\n"
@@ -72,52 +72,52 @@ msgstr ""
 "\n"
 "\tbook add файл.pgn\n"
 
-#: src/frontend/cmd.cc:147
+#: src/frontend/cmd.cc:148
 #, c-format
 msgid "book is now on\n"
 msgstr "використання збірника увімкнено\n"
 
-#: src/frontend/cmd.cc:150
+#: src/frontend/cmd.cc:151
 #, c-format
 msgid "book is now off\n"
 msgstr "використання збірника вимкнено\n"
 
-#: src/frontend/cmd.cc:153
+#: src/frontend/cmd.cc:154
 #, c-format
 msgid "book is now best\n"
 msgstr "тепер зі збірника вибиратиметься найкращий хід\n"
 
-#: src/frontend/cmd.cc:156
+#: src/frontend/cmd.cc:157
 #, c-format
 msgid "book is now worst\n"
 msgstr "тепер зі збірника вибиратиметься найгірший хід\n"
 
-#: src/frontend/cmd.cc:159
+#: src/frontend/cmd.cc:160
 #, c-format
 msgid "book is now random\n"
 msgstr "тепер зі збірника вибиратиметься випадковий хід\n"
 
-#: src/frontend/cmd.cc:161
+#: src/frontend/cmd.cc:162
 #, c-format
 msgid "Incorrect book option\n"
 msgstr "Некоректний параметр збірника\n"
 
-#: src/frontend/cmd.cc:174
+#: src/frontend/cmd.cc:175
 #, c-format
 msgid "Search to a depth of %d\n"
 msgstr "Пошук з глибиною %d\n"
 
-#: src/frontend/cmd.cc:240
+#: src/frontend/cmd.cc:241
 #, c-format
 msgid "Hashing is on.\n"
 msgstr "Хешування увімкнено.\n"
 
-#: src/frontend/cmd.cc:242
+#: src/frontend/cmd.cc:243
 #, c-format
 msgid "Hashing is off.\n"
 msgstr "Хешування вимкнено.\n"
 
-#: src/frontend/cmd.cc:268 src/frontend/cmd.cc:278
+#: src/frontend/cmd.cc:270 src/frontend/cmd.cc:280
 #, c-format
 msgid "Fischer increment of %d seconds\n"
 msgstr "Приріст Фішера у %d секунд\n"
@@ -125,127 +125,123 @@ msgstr "Приріст Фішера у %d секунд\n"
 #. TRANSLATORS: Please be aware that the word 'move' is sometimes
 #. used as a synonym of 'ply', and sometimes in the sense of a
 #. full 2-ply move.
-#: src/frontend/cmd.cc:276
+#: src/frontend/cmd.cc:278
 #, c-format
 msgid "Time Control: %d moves in %.2f secs\n"
 msgstr "Керування часом: %d ходів за %.2f секунд\n"
 
-#: src/frontend/cmd.cc:286
+#: src/frontend/cmd.cc:288
 #, c-format
 msgid "name    - list known players alphabetically\n"
 msgstr "name    - показати відомих гравців за абеткою\n"
 
-#: src/frontend/cmd.cc:287
+#: src/frontend/cmd.cc:289
 #, c-format
 msgid "score   - list by GNU best result first \n"
 msgstr "score   - виведення за найкращими результатами GNU\n"
 
-#: src/frontend/cmd.cc:288
+#: src/frontend/cmd.cc:290
 #, c-format
 msgid "reverse - list by GNU worst result first\n"
 msgstr "reverse - вивести за найгіршими результатами GNU\n"
 
-#: src/frontend/cmd.cc:303 src/frontend/cmd.cc:1301
+#: src/frontend/cmd.cc:305 src/frontend/cmd.cc:1340
 #, c-format
 msgid "Board is wrong!\n"
 msgstr "Помилкова позиція на дошці!\n"
 
-#: src/frontend/cmd.cc:309 src/frontend/cmd.cc:312
+#: src/frontend/cmd.cc:311 src/frontend/cmd.cc:314
 #, c-format
 msgid "Error reading file '%s'\n"
 msgstr "Помилка під час спроби прочитати файл «%s»\n"
 
-#: src/frontend/cmd.cc:378
+#: src/frontend/cmd.cc:382
 #, c-format
 msgid "Failed to open %s for writing: %s\n"
 msgstr "Не вдалося відкрити %s для записування даних: %s\n"
 
-#: src/frontend/cmd.cc:384
+#: src/frontend/cmd.cc:388
 #, c-format
 msgid "Could not create logfile, all slots occupied.\n"
 msgstr "Не вдалося створити файл журналу, усі можливі записи вже заповнено.\n"
 
-#: src/frontend/cmd.cc:385
+#: src/frontend/cmd.cc:389
 #, c-format
 msgid "You may consider deleting or renaming your existing logfiles.\n"
 msgstr "Вам варто вилучити або перейменувати наявні файли журналу.\n"
 
-#: src/frontend/cmd.cc:417
+#: src/frontend/cmd.cc:422
 #, c-format
 msgid "Null-move heuristic is on.\n"
 msgstr "Евристику нульового ходу увімкнено.\n"
 
-#: src/frontend/cmd.cc:419
+#: src/frontend/cmd.cc:424
 #, c-format
 msgid "Null-move heuristic is off.\n"
 msgstr "Евристику нульового ходу вимкнено.\n"
 
-#: src/frontend/cmd.cc:439 src/frontend/cmd.cc:466
+#: src/frontend/cmd.cc:444 src/frontend/cmd.cc:471
 #, c-format
 msgid "Incorrect epd file\n"
 msgstr "Помилковий файл epd\n"
 
-#: src/frontend/cmd.cc:510
+#: src/frontend/cmd.cc:508 src/frontend/cmd.cc:529 src/frontend/cmd.cc:551
+#: src/frontend/cmd.cc:569
+#, c-format
+msgid "Error: PGN file not loaded!\n"
+msgstr "Помилка: файл PGN не завантажено!\n"
+
+#: src/frontend/cmd.cc:517
 #, c-format
 msgid "No more moves. Game reached the end.\n"
 msgstr "Більше ходів немає. Гру завершено.\n"
 
-#: src/frontend/cmd.cc:530
+#: src/frontend/cmd.cc:539
 #, c-format
 msgid "Initial position reached. There are no earlier moves.\n"
 msgstr "Початкова позиція. Попередніх ходів більше немає.\n"
 
-#: src/frontend/cmd.cc:586 src/frontend/cmd.cc:692
+#: src/frontend/cmd.cc:599 src/frontend/cmd.cc:711
 #, c-format
 msgid "Invalid filename.\n"
 msgstr "Некоректна назва файла.\n"
 
-#: src/frontend/cmd.cc:592
+#: src/frontend/cmd.cc:605
 #, c-format
 msgid "Graphic mode is enabled.\n"
 msgstr "Графічний режим увімкнено.\n"
 
-#: src/frontend/cmd.cc:598
+#: src/frontend/cmd.cc:611
 #, c-format
 msgid "Graphic mode is disabled.\n"
 msgstr "Графічний режим вимкнено.\n"
 
-#: src/frontend/cmd.cc:639
+#: src/frontend/cmd.cc:657
 #, c-format
 msgid "Command 'random' is currently not supported.\n"
 msgstr "У поточному режимі роботи програми команди «random» не передбачено.\n"
 
-#: src/frontend/cmd.cc:647
+#: src/frontend/cmd.cc:665
 #, c-format
 msgid "my rating = %d, opponent rating = %d\n"
 msgstr "ваш рейтинг = %d, рейтинг суперника = %d\n"
 
-#: src/frontend/cmd.cc:671 src/frontend/cmd.cc:741
+#: src/frontend/cmd.cc:689 src/frontend/cmd.cc:762
 #, c-format
 msgid "No moves to undo!\n"
 msgstr "Немає ходів, які можна скасувати!\n"
 
-#: src/frontend/cmd.cc:681
+#: src/frontend/cmd.cc:700
 #, c-format
 msgid "Save to %s\n"
 msgstr "Зберегти до %s\n"
 
-#: src/frontend/cmd.cc:722
+#: src/frontend/cmd.cc:744
 #, c-format
 msgid "Command 'switch' is currently not supported.\n"
 msgstr "У поточному режимі роботи програми команди «switch» не передбачено.\n"
 
-#: src/frontend/cmd.cc:728
-#, c-format
-msgid "Old TimeLimit = %g\n"
-msgstr "Попереднє обмеження за часом = %g\n"
-
-#: src/frontend/cmd.cc:730
-#, c-format
-msgid "New TimeLimit = %g\n"
-msgstr "Нове обмеження за часом = %g\n"
-
-#: src/frontend/cmd.cc:750
+#: src/frontend/cmd.cc:771
 #, c-format
 msgid ""
 "Usage: %s [OPTION]...\n"
@@ -254,7 +250,7 @@ msgstr ""
 "Користування: %s [ПАРАМЕТР]...\n"
 "\n"
 
-#: src/frontend/cmd.cc:752
+#: src/frontend/cmd.cc:773
 msgid ""
 "Play the game of chess\n"
 "\n"
@@ -262,63 +258,63 @@ msgstr ""
 "Гра у шахи\n"
 "\n"
 
-#: src/frontend/cmd.cc:754
+#: src/frontend/cmd.cc:775
 msgid "Options:\n"
 msgstr "Параметри:\n"
 
-#: src/frontend/cmd.cc:755
+#: src/frontend/cmd.cc:776
 msgid " -h, --help         display this help and exit\n"
 msgstr " -h, --help         вивести довідку та завершити роботу\n"
 
-#: src/frontend/cmd.cc:757
+#: src/frontend/cmd.cc:778
 msgid " -v, --version      display version information and exit\n"
 msgstr " -v, --version      показати дані щодо версії і завершити роботу\n"
 
-#: src/frontend/cmd.cc:759
+#: src/frontend/cmd.cc:780
 msgid " -q, --quiet        make the program silent on startup\n"
 msgstr " -q, --quiet        не виводити повідомлень після запуску програми\n"
 
-#: src/frontend/cmd.cc:761
+#: src/frontend/cmd.cc:782
 msgid "     --silent       same as -q\n"
 msgstr "     --silent       те саме, що і -q\n"
 
-#: src/frontend/cmd.cc:763 src/frontend/cmd.cc:781
+#: src/frontend/cmd.cc:784 src/frontend/cmd.cc:802
 msgid "\n"
 msgstr "\n"
 
-#: src/frontend/cmd.cc:765
+#: src/frontend/cmd.cc:786
 msgid " -x, --xboard       start in engine mode\n"
 msgstr " -x, --xboard       запустити у режимі рушія\n"
 
-#: src/frontend/cmd.cc:767
+#: src/frontend/cmd.cc:788
 msgid " -p, --post         start up showing thinking\n"
 msgstr " -p, --post         запуск з показом обмірковування ходів\n"
 
-#: src/frontend/cmd.cc:769
+#: src/frontend/cmd.cc:790
 msgid " -e, --easy         disable thinking in opponents time\n"
 msgstr " -e, --easy         вимкнути обмірковування позиції під час ходу суперника\n"
 
-#: src/frontend/cmd.cc:771
+#: src/frontend/cmd.cc:792
 msgid " -m, --manual       enable manual mode\n"
 msgstr " -m, --manual       увімкнути ручний режим\n"
 
-#: src/frontend/cmd.cc:773
+#: src/frontend/cmd.cc:794
 msgid " -u, --uci          enable UCI protocol (externally behave as UCI engine)\n"
 msgstr " -u, --uci          увімкнути протокол UCI (виводити дані до інтерфейсу у форматі рушія UCI)\n"
 
-#: src/frontend/cmd.cc:775
+#: src/frontend/cmd.cc:796
 msgid " -M size, --memory=size   specify memory usage in MB for hashtable\n"
 msgstr " -M розмір, --memory=розмір вказати об’єм пам’яті у МБ, який можна використовувати для таблиці хешів\n"
 
-#: src/frontend/cmd.cc:777
+#: src/frontend/cmd.cc:798
 msgid " -a filename, --addbook=filename   compile book.bin from pgn book 'filename'\n"
 msgstr " -a файл, --addbook=файл           створити book.bin на основі вказаного файла збірника pgn\n"
 
-#: src/frontend/cmd.cc:779
+#: src/frontend/cmd.cc:800
 msgid " -g, --graphic      enable graphic mode\n"
 msgstr " -g, --graphic      увімкнути графічний режим\n"
 
-#: src/frontend/cmd.cc:783
+#: src/frontend/cmd.cc:804
 msgid ""
 " Options xboard and post are accepted without leading dashes\n"
 " for backward compatibility.\n"
@@ -328,7 +324,7 @@ msgstr ""
 " для зворотної сумісності.\n"
 "\n"
 
-#: src/frontend/cmd.cc:787
+#: src/frontend/cmd.cc:808
 msgid ""
 " Moves are accepted either in standard algebraic notation (SAN) or\n"
 " in coordinate algebraic notation.\n"
@@ -338,7 +334,7 @@ msgstr ""
 " у координатних алгебраїчних позначеннях.\n"
 "\n"
 
-#: src/frontend/cmd.cc:791
+#: src/frontend/cmd.cc:812
 msgid ""
 " The file 'gnuchess.ini' allows setting config options. See\n"
 " 'info gnuchess' for details. The file will be looked up in the current\n"
@@ -352,7 +348,7 @@ msgstr ""
 " знайдено, у каталозі, на який вказує змінна середовища GNUCHESS_PKGDATADIR.\n"
 "\n"
 
-#: src/frontend/cmd.cc:797
+#: src/frontend/cmd.cc:818
 msgid ""
 "Report bugs to <bug-gnu-chess@gnu.org>.\n"
 "\n"
@@ -360,112 +356,122 @@ msgstr ""
 "Про вади повідомляйте за адресою <bug-gnu-chess@gnu.org>.\n"
 "\n"
 
-#: src/frontend/cmd.cc:844 src/frontend/cmd.cc:1280
+#: src/frontend/cmd.cc:866 src/frontend/cmd.cc:1319
 #, c-format
 msgid "Invalid move: %s\n"
 msgstr "Некоректний хід: %s\n"
 
-#: src/frontend/cmd.cc:862
+#: src/frontend/cmd.cc:880
+#, c-format
+msgid "Coordinate display enabled.\n"
+msgstr "Показ координат увімкнено.\n"
+
+#: src/frontend/cmd.cc:885
+#, c-format
+msgid "Coordinate display disabled.\n"
+msgstr "Показ координат вимкнено.\n"
+
+#: src/frontend/cmd.cc:894
 #, c-format
 msgid "Command 'white' is currently not supported.\n"
 msgstr "У поточному режимі роботи програми команди «white» не передбачено.\n"
 
-#: src/frontend/cmd.cc:893
+#: src/frontend/cmd.cc:926
 #, c-format
 msgid "My rating = %d\n"
 msgstr "Ваш рейтинг = %d\n"
 
-#: src/frontend/cmd.cc:894
+#: src/frontend/cmd.cc:927
 #, c-format
 msgid "Opponent rating = %d\n"
 msgstr "Рейтинг суперника = %d\n"
 
-#: src/frontend/cmd.cc:896
+#: src/frontend/cmd.cc:929
 msgid "time"
 msgstr "час"
 
-#: src/frontend/cmd.cc:898
+#: src/frontend/cmd.cc:931
 msgid "moves"
 msgstr "ходи"
 
-#: src/frontend/cmd.cc:903 src/frontend/cmd.cc:910 src/frontend/cmd.cc:919
-#: src/frontend/cmd.cc:928
+#: src/frontend/cmd.cc:936 src/frontend/cmd.cc:943 src/frontend/cmd.cc:952
+#: src/frontend/cmd.cc:961
 #, c-format
 msgid "No. of moves generated = %ld\n"
 msgstr "К-ть згенерованих ходів = %ld\n"
 
-#: src/frontend/cmd.cc:932
+#: src/frontend/cmd.cc:965
 #, c-format
 msgid "Command 'show eval/score' is currently not supported.\n"
 msgstr "У поточному режимі роботи програми команди «show eval/score» не передбачено.\n"
 
-#: src/frontend/cmd.cc:939
+#: src/frontend/cmd.cc:972
 #, c-format
 msgid "Command 'show pin' is currently not supported.\n"
 msgstr "У поточному режимі роботи програми команди «show pin» не передбачено.\n"
 
-#: src/frontend/cmd.cc:951
+#: src/frontend/cmd.cc:984
 #, c-format
 msgid "Command 'test' is currently not supported.\n"
 msgstr "У поточному режимі роботи програми команди «test» не передбачено.\n"
 
-#: src/frontend/cmd.cc:969
+#: src/frontend/cmd.cc:1002
 msgid " Quits the program."
 msgstr " Завершує роботу програми."
 
-#: src/frontend/cmd.cc:971
+#: src/frontend/cmd.cc:1004
 msgid " In analysis mode this stops analysis, otherwise it quits the program."
 msgstr " У режимі аналізу припиняє аналіз, у інших режимах завершує роботу програми."
 
-#: src/frontend/cmd.cc:973
+#: src/frontend/cmd.cc:1006
 msgid " Produces a help blurb corresponding to this list of commands."
 msgstr " Виводить довідкове повідомлення щодо цього списку команд."
 
-#: src/frontend/cmd.cc:975
+#: src/frontend/cmd.cc:1008
 msgid " add - compiles book.bin from a pgn book file"
 msgstr " add - збирає book.bin на основі файла збірника pgn"
 
-#: src/frontend/cmd.cc:976
+#: src/frontend/cmd.cc:1009
 msgid " on - enables use of book (default)"
 msgstr " on - вмикає використання збірника дебютів (типово)"
 
-#: src/frontend/cmd.cc:977
+#: src/frontend/cmd.cc:1010
 msgid " off - disables use of book"
 msgstr " off - вимикає використання збірника дебютів"
 
-#: src/frontend/cmd.cc:978
+#: src/frontend/cmd.cc:1011
 msgid " worst - plays worst move from book"
 msgstr " worst - виконує найгірший хід зі збірника"
 
-#: src/frontend/cmd.cc:979
+#: src/frontend/cmd.cc:1012
 msgid " best - plays best move from book"
 msgstr " best - виконує найкращий хід зі збірника"
 
-#: src/frontend/cmd.cc:980
+#: src/frontend/cmd.cc:1013
 msgid " prefer - same as 'book on' (default)"
 msgstr " prefer - те саме, що і «book on» (типово)"
 
-#: src/frontend/cmd.cc:981
+#: src/frontend/cmd.cc:1014
 msgid " random - plays any move from book"
 msgstr " random - виконує випадковий хід зі збірника"
 
-#: src/frontend/cmd.cc:983
+#: src/frontend/cmd.cc:1016
 msgid " Prints out the version of this program."
 msgstr " Виводить дані щодо версії програми."
 
-#: src/frontend/cmd.cc:986
+#: src/frontend/cmd.cc:1019
 msgid " Backs up one move in pgn loaded game."
 msgstr " Переходить до попереднього ходу у завантаженій з файла pgn грі."
 
-#: src/frontend/cmd.cc:988
+#: src/frontend/cmd.cc:1021
 msgid " Saves the game so far from memory to the file."
 msgstr " Зберігає дані поточної гри у пам’яті до файла."
 
-#: src/frontend/cmd.cc:990
+#: src/frontend/cmd.cc:1023
 msgid " Loads the game in the file into memory."
 msgstr " Завантажує гру з файла до пам’яті."
 
-#: src/frontend/cmd.cc:992
+#: src/frontend/cmd.cc:1025
 msgid ""
 " Loads the game in the file into memory, and enables\n"
 " the commands 'first', 'last', 'next', 'previous'."
@@ -473,19 +479,19 @@ msgstr ""
 " Завантажує гру з файла до пам’яті і вмикає команди\n"
 " «first», «last», «next», «previous»."
 
-#: src/frontend/cmd.cc:996
+#: src/frontend/cmd.cc:1029
 msgid " Advances one move in pgn loaded game."
 msgstr " Переходить до наступного ходу у завантаженій з файла pgn грі."
 
-#: src/frontend/cmd.cc:998
+#: src/frontend/cmd.cc:1031
 msgid " Goes to begin position of pgn loaded game."
 msgstr " Переходить до початкової позиції завантаженої з файла pgn гри."
 
-#: src/frontend/cmd.cc:1000
+#: src/frontend/cmd.cc:1033
 msgid " Goes to end position of pgn loaded game."
 msgstr " Переходить до кінцевої позиції завантаженої з файла pgn гри."
 
-#: src/frontend/cmd.cc:1003
+#: src/frontend/cmd.cc:1036
 msgid ""
 " Makes the program stop moving. You may now enter moves\n"
 " to reach some position in the future."
@@ -493,15 +499,15 @@ msgstr ""
 " Забороняє програмі виконувати ходи. Після цього ви можете\n"
 " вводити ходи, аж до досягнення певної позиції."
 
-#: src/frontend/cmd.cc:1007
+#: src/frontend/cmd.cc:1040
 msgid " Program plays white."
 msgstr " Програма грає білими."
 
-#: src/frontend/cmd.cc:1009
+#: src/frontend/cmd.cc:1042
 msgid " Program plays black."
 msgstr " Програма грає чорними."
 
-#: src/frontend/cmd.cc:1011
+#: src/frontend/cmd.cc:1044
 msgid ""
 " Computer takes whichever side is on move and begins its\n"
 " thinking immediately."
@@ -509,7 +515,7 @@ msgstr ""
 " Комп’ютер переходить на бік гравця, який має право ходу і починає\n"
 " негайно обмірковувати хід цього гравця."
 
-#: src/frontend/cmd.cc:1014
+#: src/frontend/cmd.cc:1047
 msgid ""
 " Arranges for verbose thinking output showing variation, score,\n"
 " time, depth, etc."
@@ -517,11 +523,11 @@ msgstr ""
 " Переводить програму у режим показу даних щодо аналізу: варіанти, оцінки,\n"
 " час, глибина опрацювання позиції тощо."
 
-#: src/frontend/cmd.cc:1017
+#: src/frontend/cmd.cc:1050
 msgid " Turns off verbose thinking output."
 msgstr " Вимикає режим докладного виведення."
 
-#: src/frontend/cmd.cc:1019
+#: src/frontend/cmd.cc:1052
 msgid ""
 " Lets you input your name. Also writes the log.nnn and\n"
 " corresponding game.nnn files. For details please see\n"
@@ -531,11 +537,11 @@ msgstr ""
 " файлів log.nnn та game.nnn. Докладніший опис можна знайти\n"
 " у розділах щодо формату допоміжного файла."
 
-#: src/frontend/cmd.cc:1023
+#: src/frontend/cmd.cc:1056
 msgid " Mostly used by Internet Chess Server."
 msgstr " Здебільшого використовується для роботи з Internet Chess Server."
 
-#: src/frontend/cmd.cc:1025
+#: src/frontend/cmd.cc:1058
 msgid ""
 " This command reactivates a game that has been terminated automatically\n"
 " due to checkmate or no more time on the clock. However, it does not\n"
@@ -547,15 +553,15 @@ msgstr ""
 " не знімає обмежень. Отже, вам доведеться скасувати один чи два ходи\n"
 " або додати часу за допомогою команди «level» або «time»."
 
-#: src/frontend/cmd.cc:1030
+#: src/frontend/cmd.cc:1063
 msgid " Inputs the estimated rating for computer and for its opponent."
 msgstr " Введення оцінки рейтингу комп’ютера та його суперника."
 
-#: src/frontend/cmd.cc:1032
+#: src/frontend/cmd.cc:1065
 msgid " Sets up a new game (i.e. pieces in original positions)."
 msgstr " Налаштовує нову гру (розташовує фігури у початкових позиціях)."
 
-#: src/frontend/cmd.cc:1034
+#: src/frontend/cmd.cc:1067
 msgid ""
 " Inputs time left in game for computer in hundredths of a second.\n"
 " Mostly used by Internet Chess Server."
@@ -563,35 +569,35 @@ msgstr ""
 " Введення часу на залишок гри для комп’ютера у сотих частинах секунди.\n"
 " Здебільшого використовується для роботи з Internet Chess Server."
 
-#: src/frontend/cmd.cc:1037
+#: src/frontend/cmd.cc:1070
 msgid " on - enables using the memory hash table to speed up search"
 msgstr " on - вмикає використання таблиці хешів у пам’яті для пришвидшення пошуку"
 
-#: src/frontend/cmd.cc:1038
+#: src/frontend/cmd.cc:1071
 msgid " off - disables the memory hash table"
 msgstr " off - вимикає використання таблиці хешів у пам’яті"
 
-#: src/frontend/cmd.cc:1040
+#: src/frontend/cmd.cc:1073
 msgid " Sets the hash table to permit storage of N MB."
 msgstr " Встановлює граничний розмір таблиці хешів у МБ."
 
-#: src/frontend/cmd.cc:1042
+#: src/frontend/cmd.cc:1075
 msgid " on - enables using the null-move heuristic to speed up search"
 msgstr " on - вмикає використання евристики нульового ходу для пришвидшення пошуку"
 
-#: src/frontend/cmd.cc:1043
+#: src/frontend/cmd.cc:1076
 msgid " off - disables using the null-move heuristic"
 msgstr " off - вимикає використання евристики нульового ходу"
 
-#: src/frontend/cmd.cc:1045
+#: src/frontend/cmd.cc:1078
 msgid " on - enables use of xboard/winboard"
 msgstr " on - вмикає використання xboard/winboard"
 
-#: src/frontend/cmd.cc:1046
+#: src/frontend/cmd.cc:1079
 msgid " off - disables use of xboard/winboard"
 msgstr " off - вимикає використання xboard/winboard"
 
-#: src/frontend/cmd.cc:1048
+#: src/frontend/cmd.cc:1081
 msgid ""
 " Sets the program to look N ply (half-moves) deep for every\n"
 " search it performs. If there is a checkmate or other condition\n"
@@ -601,7 +607,7 @@ msgstr ""
 " напівходів. Якщо існує мат або інша гранична позиція, яка\n"
 " не дозволяє подібний пошук, обмеження не буде застосовано."
 
-#: src/frontend/cmd.cc:1052
+#: src/frontend/cmd.cc:1085
 msgid ""
 " Sets time control to be MOVES in MINUTES, with each move giving\n"
 " an INCREMENT (in seconds, i.e. a Fischer-style clock)."
@@ -609,107 +615,115 @@ msgstr ""
 " Встановлює контроль часу у вказаній кількості ходів на вказану\n"
 " кількість секунд з кожним ходом (тобто годинник Фішера)."
 
-#: src/frontend/cmd.cc:1056
+#: src/frontend/cmd.cc:1089
 msgid " Loads a position in EPD format from disk into memory."
 msgstr " Завантажує позицію у форматі EPD з диска до оперативної пам’яті."
 
-#: src/frontend/cmd.cc:1059
+#: src/frontend/cmd.cc:1092
 msgid " Saves game position into EPD format from memory to disk."
 msgstr " Зберігає позицію у форматі EPD з оперативної пам’яті на диск."
 
-#: src/frontend/cmd.cc:1061
+#: src/frontend/cmd.cc:1094
 msgid " Switches side to move."
 msgstr " Перемикає гравця, який ходитиме."
 
-#: src/frontend/cmd.cc:1064
+#: src/frontend/cmd.cc:1097
 msgid " Solves the positions in FILENAME."
 msgstr " Розв’язує позиції у файлі з вказаною назвою."
 
-#: src/frontend/cmd.cc:1066
+#: src/frontend/cmd.cc:1099
 msgid " Backs up two moves in game history."
 msgstr " Повертає позиції на два ходи назад у журналі гри."
 
-#: src/frontend/cmd.cc:1068
+#: src/frontend/cmd.cc:1101
 msgid " Backs up one move in game history."
 msgstr " Повертає позиції на один хід назад у журналі гри."
 
-#: src/frontend/cmd.cc:1070
+#: src/frontend/cmd.cc:1103
 msgid " Displays command line syntax."
 msgstr " Показує довідку щодо синтаксису рядка команди."
 
-#: src/frontend/cmd.cc:1072
+#: src/frontend/cmd.cc:1105
 msgid " board - displays the current board"
 msgstr " board - показує поточну позицію на дошці"
 
-#: src/frontend/cmd.cc:1073
+#: src/frontend/cmd.cc:1106
 msgid " time - displays the time settings"
 msgstr " time - показує параметри часу"
 
-#: src/frontend/cmd.cc:1074
+#: src/frontend/cmd.cc:1107
 msgid " moves - shows all moves using one call to routine"
 msgstr " moves - показує усі ходи за допомогою одного виклику підпрограми"
 
-#: src/frontend/cmd.cc:1075
+#: src/frontend/cmd.cc:1108
 msgid " escape - shows moves that escape from check using one call to routine"
 msgstr " escape - показує ходи, які не пройшли перевірки за допомогою одного виклику підпрограми"
 
-#: src/frontend/cmd.cc:1076
+#: src/frontend/cmd.cc:1109
 msgid " noncapture - shows non-capture moves"
 msgstr " noncapture - показує ходи без взяття"
 
-#: src/frontend/cmd.cc:1077
+#: src/frontend/cmd.cc:1110
 msgid " capture - shows capture moves"
 msgstr " capture - показує ходи зі взяттям"
 
-#: src/frontend/cmd.cc:1078
+#: src/frontend/cmd.cc:1111
 msgid " eval [or score] - shows the evaluation per piece and overall"
 msgstr " eval [або score] - показує оцінку за фігурами та загальну оцінку"
 
-#: src/frontend/cmd.cc:1079
+#: src/frontend/cmd.cc:1112
 msgid " game - shows moves in game history"
 msgstr " game - показує ходи у журналі гри"
 
-#: src/frontend/cmd.cc:1080
+#: src/frontend/cmd.cc:1113
 msgid " pin - shows pinned pieces"
 msgstr " pin - показує зв’язані фігури"
 
-#: src/frontend/cmd.cc:1082
+#: src/frontend/cmd.cc:1115
 msgid " movelist - reads in an epd file and shows legal moves for its entries"
 msgstr " movelist - виконує читання файла epd і показує коректні ходи на основі його записів"
 
-#: src/frontend/cmd.cc:1083
+#: src/frontend/cmd.cc:1116
 msgid " capture - reads in an epd file and shows legal captures for its entries"
 msgstr " capture - виконує читання файла epd і показує можливі взяття на основі його записів"
 
-#: src/frontend/cmd.cc:1084
+#: src/frontend/cmd.cc:1117
 msgid " movegenspeed - tests speed of move generator"
 msgstr " movegenspeed - тестує швидкість генератора ходів"
 
-#: src/frontend/cmd.cc:1085
+#: src/frontend/cmd.cc:1118
 msgid " capturespeed - tests speed of capture move generator"
 msgstr " capturespeed - тестує швидкість генератора ходів зі взяттям"
 
-#: src/frontend/cmd.cc:1086
+#: src/frontend/cmd.cc:1119
 msgid " eval - reads in an epd file and shows evaluation for its entries"
 msgstr " eval - виконує читання файла epd і показує оцінку записів у ньому"
 
-#: src/frontend/cmd.cc:1087
+#: src/frontend/cmd.cc:1120
 msgid " evalspeed - tests speed of the evaluator"
 msgstr " evalspeed - тестує швидкість засобу оцінювання ходів"
 
-#: src/frontend/cmd.cc:1089
+#: src/frontend/cmd.cc:1122
 msgid " Shows moves from opening book."
 msgstr " Показує ходи для збірника дебютів."
 
-#: src/frontend/cmd.cc:1091
+#: src/frontend/cmd.cc:1124
 msgid " Enables display board in graphic mode."
 msgstr " Вмикає показ дошки у графічному режимі."
 
-#: src/frontend/cmd.cc:1093
+#: src/frontend/cmd.cc:1126
 msgid " Disables graphic mode and display classical view."
 msgstr " Вимикає графічний режим і перемикає програму на класичний режим перегляду."
 
-#: src/frontend/cmd.cc:1119
+#: src/frontend/cmd.cc:1128
+msgid " Displays the chessboard rank and file in both graphic and classical views."
+msgstr " Показує оцінку позиції та файл у графічному та класичному режимах перегляду."
+
+#: src/frontend/cmd.cc:1130
+msgid " Does not display the chessboard rank nor file in either mode (graphic nor classical)"
+msgstr " Не показує оцінку позиці і файл у будь-якому з режимів (графічному чи класичному)"
+
+#: src/frontend/cmd.cc:1156
 #, c-format
 msgid ""
 "Help for command %s not found\n"
@@ -718,20 +732,12 @@ msgstr ""
 "Довідки щодо команди %s не знайдено\n"
 "\n"
 
-#: src/frontend/cmd.cc:1121
+#: src/frontend/cmd.cc:1158
 #, c-format
 msgid "List of commands: (help COMMAND to get more help)\n"
 msgstr "Список команд: (help КОМАНДА, щоб отримати додаткову довідку)\n"
 
-#: src/frontend/engine.cc:247
-msgid "Black"
-msgstr "Чорні"
-
-#: src/frontend/engine.cc:247
-msgid "White"
-msgstr "Білі"
-
-#: src/frontend/engine.cc:333
+#: src/frontend/engine.cc:316
 #, c-format
 msgid ""
 "\n"
@@ -739,6 +745,48 @@ msgid ""
 msgstr ""
 "\n"
 "Мій хід: %s\n"
+
+#: src/frontend/pgn.cc:69
+#, c-format
+msgid "File with name %s already exists.\n"
+msgstr "Файл із назвою %s вже існує.\n"
+
+#: src/frontend/pgn.cc:71
+#, c-format
+msgid "Overwrite file? [y/n]: "
+msgstr "Перезаписати файл? [y (так)/n (ні)]: "
+
+#: src/frontend/pgn.cc:75
+#, c-format
+msgid "Invalid answer! "
+msgstr "Некоректна відповідь! "
+
+#: src/frontend/pgn.cc:82
+#, c-format
+msgid "File not saved.\n"
+msgstr "Файл не збережено.\n"
+
+#: src/frontend/pgn.cc:86
+#, c-format
+msgid "File %s is overwritten.\n"
+msgstr "Файл %s перезаписано.\n"
+
+#: src/frontend/pgn.cc:89
+#, c-format
+msgid "Invalid answer!"
+msgstr "Некоректна відповідь!"
+
+#~ msgid "Old TimeLimit = %g\n"
+#~ msgstr "Попереднє обмеження за часом = %g\n"
+
+#~ msgid "New TimeLimit = %g\n"
+#~ msgstr "Нове обмеження за часом = %g\n"
+
+#~ msgid "Black"
+#~ msgstr "Чорні"
+
+#~ msgid "White"
+#~ msgstr "Білі"
 
 #~ msgid " an INCREMENT (in seconds, i.e. Fischer-style clock)."
 #~ msgstr " збільшення часу на хід (у секундах, тобто годинник у стилі Фішера)."
