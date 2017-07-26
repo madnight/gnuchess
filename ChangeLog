@@ -1,3 +1,16 @@
+2017-07-26  Antonio Ceballos  <aceballos@gmail.com>
+
+	* configure.ac: version 6.2.5e.
+	* doc/version.texi: version 6.2.5e.
+	* TODO: localize "y/n" answer in pgn.cc.
+	* src/main.cc: some fixes in localized strings.
+	* src/frontend/input.cc: localize some strings.
+	* src/frontend/pgn.cc: localize "y/n" answer.
+	* src/frontend/cmd.cc: some fixes in localized strings.
+	* po/gnuchess.pot: regenerated with new and modified strings.
+	* po/POTFILES.in: added input.cc
+	* po/POTFILES: added input.cc
+
 2017-07-24  Antonio Ceballos  <aceballos@gmail.com>
 
 	* configure.ac: version 6.2.5.

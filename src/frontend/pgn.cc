@@ -1,4 +1,4 @@
-/* pgn.c
+/* pgn.cc
 
    GNU Chess frontend
 
@@ -62,12 +62,17 @@ void PGNSaveToFile (const char *file, const char *resultstr)
    char answer = '\0'; /* Default: invalid */
    time_t secs;
    struct tm *timestruct;
+   /* TRANSLATORS: "y" for "yes" */
+   const char *yes = _("y");
+   /* TRANSLATORS: "n" for "no" */
+   const char *no = _("n");
 
    fp = fopen(file, "r");
    if (fp) {
      fclose(fp);
      printf(_("File with name %s already exists.\n"), file);
      do {
+       /* TRANSLATORS: translate "y/n", for "yes/no". */
        printf(_("Overwrite file? [y/n]: "));
        answer = getchar();
        
@@ -78,17 +83,17 @@ void PGNSaveToFile (const char *file, const char *resultstr)
        
        while( getchar() != '\n' );
        
-       if (tolower(answer) == 'n') {
+       if (tolower(answer) == *no) {
          printf(_("File not saved.\n"));
          return;
        }
-       else if (tolower(answer) == 'y') {
+       else if (tolower(answer) == *yes) {
          printf(_("File %s is overwritten.\n"), file);
        }
        else {
-         printf(_("Invalid answer!"));
+         printf(_("Invalid answer! "));
        } 
-     } while (tolower(answer) != 'y' && tolower(answer) != 'n');
+     } while (tolower(answer) != *no && tolower(answer) != *yes);
    }
    
    fp = fopen (file, "w");

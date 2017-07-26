@@ -322,7 +322,7 @@ int main (int argc, char *argv[])
        errno = 0; /* zero error indicator */
        opt_memory = strtol (optarg, &endptr, 10);
        if ( errno != 0 || *endptr != '\0' ){
-         printf(_("Memory out of Range or Invalid\n"));
+         printf(_("Memory out of range or invalid.\n"));
          return(1);
        }
        break;
@@ -339,13 +339,13 @@ int main (int argc, char *argv[])
        }
        errno = 0; /* zero error indicator */
        if ( strlen( optarg ) > MAXSTR ) {
-         printf( _("File name is too long (max = %d)\n"), MAXSTR );
+         printf( _("File name is too long (max = %d).\n"), MAXSTR );
          return(1);
        }
        strcpy( opt_addbook, optarg );
        break;
      default:
-       puts (_("Option Processing Failed\n"));
+       puts (_("Option processing failed.\n"));
        abort();
      }
   } /* end of getopt_long style parsing */

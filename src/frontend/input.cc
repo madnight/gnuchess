@@ -42,6 +42,9 @@
 
 #include "common.h"
 #include "components.h"
+#include "gettext.h"
+
+#define _(str) gettext (str)
 
 #ifdef HAVE_LIBREADLINE
 # ifdef HAVE_READLINE_READLINE_H
@@ -145,7 +148,7 @@ void *input_func(void *arg __attribute__((unused)) )
       pthread_mutex_unlock( &input_mutex );
 
       sprintf(prompt,"%s (%d) : ", 
-	      RealSide ? "Black" : "White", 
+	      RealSide ? _("Black") : _("White"), 
 	      (RealGameCnt+1)/2 + 1 );
     } else {
       sprintf(prompt,"");

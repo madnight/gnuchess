@@ -1,8 +1,8 @@
-/* cmd.c
+/* cmd.cc
 
    GNU Chess frontend
 
-   Copyright (C) 2001-2013 Free Software Foundation, Inc.
+   Copyright (C) 2001-2017 Free Software Foundation, Inc.
 
    GNU Chess is based on the two research programs
    Cobalt by Chua Kong-Sian and Gazebo by Stuart Cracraft.
@@ -145,21 +145,21 @@ void cmd_book(void)
     }
   } else if (tokeneq (token[1], "on") || tokeneq(token[1], "prefer")) {
     strcpy( data, "book on" );
-    printf(_("book is now on\n"));
+    printf(_("Book is now on\n"));
   } else if (tokeneq (token[1], "off")) {
     strcpy( data, "book off" );
-    printf(_("book is now off\n"));
+    printf(_("Book is now off\n"));
   } else if (tokeneq (token[1], "best")) {
     strcpy( data, "book best" );
-    printf(_("book is now best\n"));
+    printf(_("Book is now best\n"));
   } else if (tokeneq (token[1], "worst")) {
     strcpy( data, "book worst" );
-    printf(_("book is now worst\n"));
+    printf(_("Book is now worst\n"));
   } else if (tokeneq (token[1], "random")) {
     strcpy( data, "book random" );
-    printf(_("book is now random\n"));
+    printf(_("Book is now random\n"));
   } else {
-    printf( _("Incorrect book option\n") );
+    printf( _("Incorrect book option: '%s'\n"), token[1] );
     return;
   }
   SetDataToEngine( data );
@@ -172,7 +172,7 @@ void cmd_depth(void)
   searchDepth = atoi( token[1] );
   sprintf( data, "sd %d", searchDepth );
   SetDataToEngine( data );
-  printf(_("Search to a depth of %d\n"),searchDepth);
+  printf(_("Search to a depth of %d.\n"),searchDepth);
 }
 
 void cmd_easy(void)
@@ -267,7 +267,7 @@ void cmd_level(void)
   }
   if (TCTime == 0) {
     SearchTime = TCinc / 2.0f ;
-    printf(_("Fischer increment of %d seconds\n"),TCinc);
+    printf(_("Fischer increment of %d seconds.\n"),TCinc);
   } else {
     MoveLimit[white] = MoveLimit[black] = TCMove - (GameCnt+1)/2;
     TimeLimit[white] = TimeLimit[black] = TCTime * 60;
@@ -275,9 +275,9 @@ void cmd_level(void)
       /* TRANSLATORS: Please be aware that the word 'move' is sometimes
          used as a synonym of 'ply', and sometimes in the sense of a
          full 2-ply move. */
-      printf (_("Time Control: %d moves in %.2f secs\n"),
+      printf (_("Time control: %d moves in %.2f secs.\n"),
       MoveLimit[white], TimeLimit[white]);
-      printf(_("Fischer increment of %d seconds\n"),TCinc);
+      printf(_("Fischer increment of %d seconds.\n"),TCinc);
     }
   }
 }
@@ -286,7 +286,7 @@ void cmd_list(void)
 {
   if (token[1][0] == '?') {
     printf(_("name    - list known players alphabetically\n"));
-    printf(_("score   - list by GNU best result first \n"));
+    printf(_("score   - list by GNU best result first\n"));
     printf(_("reverse - list by GNU worst result first\n"));
   } else {
     if (token[1][0] == '\0') DBListPlayer("rscore");
@@ -308,10 +308,10 @@ void cmd_load(void)
     FILE *epdfile = fopen( token[1], "r" );
     char epdline[MAXSTR]="";
     if ( epdfile == NULL ) {
-      printf(_("Error reading file '%s'\n"), token[1] );
+      printf(_("Error reading file '%s'.\n"), token[1] );
     } else {
       if ( fgets( epdline, MAXSTR, epdfile ) == NULL ) {
-        printf(_("Error reading file '%s'\n"), token[1] );
+        printf(_("Error reading file '%s'.\n"), token[1] );
       } else {
         strcpy( data, "setboard " );
         int i=0;
@@ -441,7 +441,7 @@ void cmd_pgnload(void)
   SaveEPD( tmp_epd );
   epdfile = fopen( tmp_epd, "r" );
   if ( fgets( epdline, MAXSTR, epdfile ) == NULL ) {
-    printf( _("Incorrect epd file\n") );
+    printf( _("Incorrect epd file.\n") );
     return;
   }
   strcpy( data, "setboard " );
@@ -468,7 +468,7 @@ void cmd_pgnreplay(void)
   SaveEPD( tmp_epd );
   epdfile = fopen( tmp_epd, "r" );
   if ( fgets( epdline, MAXSTR, epdfile ) == NULL ) {
-    printf( _("Incorrect epd file\n") );
+    printf( _("Incorrect epd file.\n") );
     return;
   }
 
@@ -771,7 +771,7 @@ void cmd_usage(void)
       printf ( _("\
 Usage: %s [OPTION]...\n\n"), progname );
       fputs( _("\
-Play the game of chess\n\n"), stdout );
+Play the game of chess.\n\n"), stdout );
       fputs( _("Options:\n"), stdout );
       fputs( _("\
  -h, --help         display this help and exit\n"), stdout );
